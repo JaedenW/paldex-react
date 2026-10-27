@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import {
   ItemLink,
   RarityBadge,
@@ -66,7 +68,6 @@ export default function ItemPage() {
 }
 
 function ItemDetail({ item }: { item: Item }) {
-  const [showAllUses, setShowAllUses] = React.useState(false);
   const made = recipesFor(item.name);
   const uses = recipesUsing.get(item.name) ?? [];
   const where = sources[item.name];
@@ -75,7 +76,13 @@ function ItemDetail({ item }: { item: Item }) {
   const columns = GEAR_COLUMNS.filter((c) =>
     item.gear?.some((g) => g[c.key] !== undefined)
   );
-  const usesShown = showAllUses ? uses : uses.slice(0, 12);
+  const {
+    limit: usesLimit,
+    hasMore: moreUses,
+    sentinelRef: usesSentinel,
+    showAll: showAllUses,
+  } = useInfiniteScroll(uses.length, 12, item.id);
+  const usesShown = uses.slice(0, usesLimit);
 
   return (
     <Page>
@@ -366,15 +373,11 @@ function ItemDetail({ item }: { item: Item }) {
                 </li>
               ))}
             </ul>
-            {uses.length > usesShown.length && (
-              <button
-                type="button"
-                className="mt-2 text-sm font-semibold text-pw-teal-dark hover:underline"
-                onClick={() => setShowAllUses(true)}
-              >
-                Show all {uses.length}
-              </button>
-            )}
+            <InfiniteSentinel
+              sentinelRef={usesSentinel}
+              hasMore={moreUses}
+              showAll={showAllUses}
+            />
           </Panel>
         )}
       </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import {
   EmptyState,
   Page,
@@ -23,7 +25,6 @@ export default function BuildingsPage() {
   useDocumentTitle('Buildings');
   const [query, setQuery] = useQueryState('q');
   const [type, setType] = useQueryState('type');
-  const [limit, setLimit] = React.useState(PAGE_SIZE);
 
   const list = React.useMemo(() => {
     const q = normalise(query.trim());
@@ -36,7 +37,11 @@ export default function BuildingsPage() {
           normalise(b.subtype ?? '').includes(q)
       );
   }, [query, type]);
-  React.useEffect(() => setLimit(PAGE_SIZE), [query, type]);
+  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
+    list.length,
+    PAGE_SIZE,
+    [query, type].join('|')
+  );
 
   return (
     <Page wide>
@@ -95,17 +100,11 @@ export default function BuildingsPage() {
               </Link>
             ))}
           </div>
-          {list.length > limit && (
-            <div className="mt-6 text-center">
-              <button
-                type="button"
-                className={buttonClass('primary')}
-                onClick={() => setLimit((l) => l + PAGE_SIZE)}
-              >
-                Show more ({list.length - limit} left)
-              </button>
-            </div>
-          )}
+          <InfiniteSentinel
+            sentinelRef={sentinelRef}
+            hasMore={hasMore}
+            showAll={showAll}
+          />
         </>
       )}
     </Page>

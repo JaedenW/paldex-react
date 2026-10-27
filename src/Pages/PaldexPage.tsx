@@ -1,5 +1,7 @@
 import React from 'react';
 import PalCard from '../Components/PalCard';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import ElementBadge from '../Components/ElementBadge';
 import {
   Chip,
@@ -58,7 +60,6 @@ export default function PaldexPage() {
   const [sort, setSort] = useQueryState('sort', 'number');
   const [view, setView] = useQueryState('view', 'grid');
   const [variants, setVariants] = useQueryState('variants', 'show');
-  const [limit, setLimit] = React.useState(PAGE_SIZE);
 
   const selected = elementParam
     .split(',')
@@ -91,9 +92,10 @@ export default function PaldexPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, elementParam, work, sort, variants]);
 
-  React.useEffect(
-    () => setLimit(PAGE_SIZE),
-    [query, elementParam, work, sort, variants]
+  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
+    filtered.length,
+    PAGE_SIZE,
+    [query, elementParam, work, sort, variants].join('|')
   );
   const compact = view === 'list';
 
@@ -206,17 +208,11 @@ export default function PaldexPage() {
               <PalCard key={p.id} pal={p} compact={compact} />
             ))}
           </div>
-          {filtered.length > limit && (
-            <div className="mt-6 text-center">
-              <button
-                type="button"
-                className={buttonClass('primary')}
-                onClick={() => setLimit((l) => l + PAGE_SIZE)}
-              >
-                Show more ({filtered.length - limit} left)
-              </button>
-            </div>
-          )}
+          <InfiniteSentinel
+            sentinelRef={sentinelRef}
+            hasMore={hasMore}
+            showAll={showAll}
+          />
         </>
       )}
     </Page>
