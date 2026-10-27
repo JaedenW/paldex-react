@@ -50,7 +50,7 @@ export function ItemLink({
       )}
       <span className="font-semibold">{name}</span>
       {qty !== undefined && (
-        <span className="font-display text-lg font-bold text-pw-teal-dark">
+        <span className="font-display text-lg font-bold text-pw-link">
           ×{formatNumber(qty)}
         </span>
       )}
@@ -72,7 +72,7 @@ export function StationLink({ name }: { name: string }) {
   return building ? (
     <Link
       to={`/building/${building.id}`}
-      className="font-semibold text-pw-teal-dark hover:underline"
+      className="font-semibold text-pw-link hover:underline"
     >
       {name}
     </Link>

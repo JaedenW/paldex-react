@@ -16,9 +16,9 @@ export interface TraitOption {
 }
 
 const TONES = {
-  good: 'bg-amber-100 text-amber-900 ring-amber-300',
-  bad: 'bg-red-100 text-red-800 ring-red-300',
-  plain: 'bg-white text-pw-ink ring-pw-line',
+  good: 'bg-amber-100 text-amber-900 ring-amber-300 dark:bg-amber-400/20 dark:text-amber-100 dark:ring-amber-400/40',
+  bad: 'bg-red-100 text-red-800 ring-red-300 dark:bg-red-400/20 dark:text-red-100 dark:ring-red-400/40',
+  plain: 'bg-pw-field text-pw-ink ring-pw-line',
 };
 
 /**

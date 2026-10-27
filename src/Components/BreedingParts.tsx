@@ -83,7 +83,7 @@ export function ResultPanel({
         )}
 
         <div>
-          <p className="inline-flex rounded-full bg-pw-navy/10 px-3 py-1 text-sm font-semibold text-pw-navy">
+          <p className="inline-flex rounded-full bg-pw-navy/10 px-3 py-1 text-sm font-semibold text-pw-heading">
             {METHOD_LABELS[result.method]}
           </p>
           {result.method === 'same' && (
@@ -226,7 +226,7 @@ export function TraitsPanel({
     <Panel title="Traits">
       <div className="grid gap-6 lg:grid-cols-2">
         <section>
-          <h3 className="text-lg text-pw-navy">Passive skills</h3>
+          <h3 className="text-lg text-pw-heading">Passive skills</h3>
           {passives.length === 0 ? (
             <p className="mt-2 text-pw-muted">
               Neither parent has a passive skill. Add some above to see how
@@ -253,14 +253,14 @@ export function TraitsPanel({
                           'flex items-center gap-2 rounded-full px-3 py-1.5 text-left text-sm ring-1 transition',
                           on
                             ? 'bg-pw-navy text-white ring-pw-navy'
-                            : 'bg-white ring-pw-line hover:bg-pw-cream'
+                            : 'bg-pw-field ring-pw-line hover:bg-pw-cream'
                         )}
                       >
                         <span className="font-semibold">{p.name}</span>
                         <span
                           className={cn(
                             'font-display text-base font-bold',
-                            on ? 'text-pw-sun' : 'text-pw-teal-dark'
+                            on ? 'text-pw-sun' : 'text-pw-link'
                           )}
                         >
                           {percent(odds.each)}
@@ -333,7 +333,7 @@ export function TraitsPanel({
 
         <div className="space-y-6">
           <section>
-            <h3 className="text-lg text-pw-navy">Active skills</h3>
+            <h3 className="text-lg text-pw-heading">Active skills</h3>
             {skills.length === 0 ? (
               <p className="mt-1 text-pw-muted">
                 Add skills the parents know above to see each one’s chance of
@@ -360,7 +360,7 @@ export function TraitsPanel({
                         />
                         {s.name}
                       </span>
-                      <span className="font-display text-lg font-bold text-pw-teal-dark">
+                      <span className="font-display text-lg font-bold text-pw-link">
                         {percent(activeSkillEach(skills.length))}
                       </span>
                     </li>
@@ -375,7 +375,7 @@ export function TraitsPanel({
           </section>
 
           <section>
-            <h3 className="text-lg text-pw-navy">Potentials and extras</h3>
+            <h3 className="text-lg text-pw-heading">Potentials and extras</h3>
             <ul className="mt-1 space-y-1 text-sm text-pw-muted">
               <li>
                 HP, attack and defense potential each come from the father (

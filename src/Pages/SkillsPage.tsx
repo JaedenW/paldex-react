@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ElementBadge from '../Components/ElementBadge';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
+import { elementColours } from '../Utils/elements';
+import { cn } from '../Utils/cn';
 import {
   Chip,
   EmptyState,
@@ -8,6 +12,7 @@ import {
   PageHeader,
   SearchInput,
   Select,
+  Toolbar,
 } from '../Components/ui';
 import { activeSkills } from '../data';
 import { useQueryState } from '../Hooks/useQueryState';
@@ -38,14 +43,20 @@ export default function SkillsPage() {
       .filter((s) => !fruit || s.fruit)
       .sort(SORTS[sort as keyof typeof SORTS] ?? SORTS.name);
   }, [query, element, sort, fruit]);
+  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
+    list.length,
+    60,
+    [query, element, sort, fruit].join('|')
+  );
 
   return (
     <Page>
       <PageHeader
+        eyebrow="Pals"
         title="Active skills"
         subtitle={`${activeSkills.length} attacks. Skill fruits can teach many of them to any Pal.`}
       />
-      <div className="mb-3 flex flex-wrap items-center gap-2">
+      <Toolbar>
         <SearchInput
           value={query}
           onChange={setQuery}
@@ -64,53 +75,90 @@ export default function SkillsPage() {
         <Chip active={!!fruit} onClick={() => setFruit(fruit ? '' : '1')}>
           Skill fruit
         </Chip>
-      </div>
-      <div className="mb-4 flex flex-wrap gap-1.5">
-        {ELEMENTS.map((e: Element) => (
-          <button
-            key={e}
-            type="button"
-            aria-pressed={element === e}
-            onClick={() => setElement(element === e ? '' : e)}
-            className={
-              element && element !== e ? 'opacity-40 hover:opacity-80' : ''
-            }
-          >
-            <ElementBadge element={e} linked={false} />
-          </button>
-        ))}
-      </div>
+        <span
+          className="ml-auto hidden text-sm text-pw-muted sm:inline"
+          aria-live="polite"
+        >
+          {list.length} skill{list.length === 1 ? '' : 's'}
+        </span>
+        <div
+          className="-mx-1 flex basis-full gap-1.5 overflow-x-auto px-1 pb-1"
+          role="group"
+          aria-label="Elements"
+        >
+          {ELEMENTS.map((e: Element) => (
+            <button
+              key={e}
+              type="button"
+              aria-pressed={element === e}
+              onClick={() => setElement(element === e ? '' : e)}
+              className={cn(
+                'shrink-0 rounded-full transition',
+                element && element !== e && 'opacity-40 hover:opacity-80'
+              )}
+            >
+              <ElementBadge element={e} linked={false} />
+            </button>
+          ))}
+        </div>
+      </Toolbar>
       {list.length === 0 ? (
-        <EmptyState title="No skills match" />
+        <EmptyState title="No skills match">Try removing a filter.</EmptyState>
       ) : (
-        <div className="overflow-hidden rounded-2xl border bg-pw-paper shadow-card">
-          <ul className="divide-y">
-            {list.map((s) => (
+        <>
+          <ul className="grid-fluid [--min:17rem]">
+            {list.slice(0, limit).map((s) => (
               <li key={s.id}>
                 <Link
                   to={`/skill/${s.id}`}
-                  className="flex items-center gap-3 px-4 py-3 transition hover:bg-pw-cream/60"
+                  className="relative flex h-full card-link flex-col gap-2 overflow-hidden card p-4 pt-5"
                 >
-                  <div className="min-w-0 flex-1">
-                    <p className="font-display text-xl font-bold">{s.name}</p>
-                    <p className="truncate text-sm text-pw-muted">
-                      {s.description}
-                    </p>
-                  </div>
-                  <div className="hidden w-24 text-sm sm:block">
-                    <span className="text-pw-muted">Power</span>{' '}
-                    <b>{s.power ?? '–'}</b>
-                  </div>
-                  <div className="hidden w-24 text-sm sm:block">
-                    <span className="text-pw-muted">CT</span>{' '}
-                    <b>{s.cooldown ?? '–'}s</b>
-                  </div>
-                  <ElementBadge element={s.element} linked={false} size="sm" />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 top-0 h-1"
+                    style={{ backgroundColor: elementColours[s.element] }}
+                  />
+                  <span className="flex items-start justify-between gap-2">
+                    <span className="font-display text-xl leading-tight font-bold">
+                      {s.name}
+                    </span>
+                    <ElementBadge
+                      element={s.element}
+                      linked={false}
+                      size="sm"
+                    />
+                  </span>
+                  <span className="line-clamp-3 flex-1 text-sm text-pw-muted">
+                    {s.description}
+                  </span>
+                  <span className="flex flex-wrap gap-1.5 text-xs font-semibold">
+                    <span className="rounded-full bg-pw-cream px-2.5 py-1">
+                      Power {s.power ?? '–'}
+                    </span>
+                    <span className="rounded-full bg-pw-cream px-2.5 py-1">
+                      {s.cooldown ?? '–'}s cooldown
+                    </span>
+                    {s.fruit && (
+                      <span className="rounded-full bg-pw-sun/20 px-2.5 py-1">
+                        Skill fruit
+                      </span>
+                    )}
+                    {s.boss && (
+                      <span className="rounded-full bg-pw-sun/20 px-2.5 py-1">
+                        Boss
+                      </span>
+                    )}
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
+          <InfiniteSentinel
+            sentinelRef={sentinelRef}
+            hasMore={hasMore}
+            showAll={showAll}
+          />
+        </>
       )}
     </Page>
   );

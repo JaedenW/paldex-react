@@ -7,6 +7,16 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 
 ## Features
 
+**Navigation and design**
+
+- A plain home page: search, and every section in one grid, grouped as Pals
+  and Items & Base
+- The same side menu everywhere: fixed on wide screens, and a slide-in drawer
+  from the menu button on phones
+- Flexible card grids that fit the screen, filters that stay in view while you
+  scroll, and breadcrumbs on detail pages
+- Light and dark themes that follow the device setting (nothing is stored)
+
 **Paldex**
 
 - Every Pal, including Noct, Cryst, Lux, Ignis and other variants
@@ -38,8 +48,9 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   the chance of getting a set of passives you want. A second mode lists every
   pair of parents that makes a given Pal. Everything is in the URL.
 - Items: every item with type, rarity and description; equipment stats at each
-  quality; food effects; how to craft it, what it's used in, which Pals and
-  enemies drop it, which merchants sell it and which chests hold it
+  quality; food effects; and a "How to get it" section covering crafting
+  (with the technology that unlocks it), gathering and ranch notes, Pal and
+  enemy drops, merchants and chests, plus what it's used in
 - Buildings: every structure with its build cost and tech unlock, and for
   workbenches everything they craft
 - Crafting calculator: pick an item or building and a quantity to get the raw

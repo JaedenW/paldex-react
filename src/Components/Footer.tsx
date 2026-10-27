@@ -1,10 +1,10 @@
 import { dataSource } from '../data';
 
-const link = 'font-semibold text-pw-teal-dark hover:underline';
+const link = 'font-semibold text-pw-link hover:underline';
 
 export default function Footer() {
   return (
-    <footer className="mx-auto mt-6 max-w-6xl border-t px-4 py-6 text-sm text-pw-muted sm:px-6 lg:px-8">
+    <footer className="mx-auto mt-6 max-w-7xl border-t px-4 py-6 text-sm text-pw-muted sm:px-6 lg:px-8">
       <p>
         Data and images from the{' '}
         <a

@@ -200,6 +200,8 @@ export interface Tech {
 }
 
 export interface ItemSources {
+  /** Other ways to get it, from the wiki's item page: nodes, ranches, mining sites… */
+  other?: string[];
   shops?: {
     merchant: string;
     cost?: number;

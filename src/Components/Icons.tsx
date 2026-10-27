@@ -109,3 +109,14 @@ export const MoreIcon = icon(
     <circle cx="19" cy="12" r="1.2" />
   </>
 );
+
+export const MenuIcon = icon(<path d="M4 6h16M4 12h16M4 18h16" />);
+export const LayoutIcon = icon(
+  <>
+    <rect x="3" y="3" width="8" height="10" rx="1.5" />
+    <rect x="13" y="3" width="8" height="6" rx="1.5" />
+    <rect x="13" y="11" width="8" height="10" rx="1.5" />
+    <rect x="3" y="15" width="8" height="6" rx="1.5" />
+  </>
+);
+export const ArrowRightIcon = icon(<path d="M5 12h14m-6-6 6 6-6 6" />);

@@ -46,3 +46,12 @@ export const linkableDrops = new Set(dropItemsJson as string[]);
 export const breedingRules = breedingJson as unknown as BreedingRules;
 /** Species lookup for two parents, built once from the Pal data and wiki rules */
 export const breeder = createBreeder(pals, uniqueCombos, breedingRules);
+
+import gearCountsJson from './gearCounts.json';
+/** Totals for items, buildings, recipes and technologies, without loading them */
+export const gearCounts = gearCountsJson as {
+  items: number;
+  buildings: number;
+  recipes: number;
+  tech: number;
+};

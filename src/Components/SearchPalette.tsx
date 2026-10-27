@@ -107,7 +107,7 @@ function Palette({ onClose }: { onClose: () => void }) {
                 {r.detail && (
                   <span className="text-sm text-pw-muted">{r.detail}</span>
                 )}
-                <span className="rounded-full bg-pw-navy/10 px-2 py-0.5 text-xs font-semibold text-pw-navy">
+                <span className="rounded-full bg-pw-navy/10 px-2 py-0.5 text-xs font-semibold text-pw-heading">
                   {r.kind}
                 </span>
               </button>

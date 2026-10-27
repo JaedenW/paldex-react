@@ -91,7 +91,7 @@ export default function PalPicker({
             type="button"
             onClick={() => onChange('')}
             aria-label={`Clear ${label}`}
-            className="self-start rounded-full px-2 py-1 text-sm font-semibold text-pw-muted hover:bg-white"
+            className="self-start rounded-full px-2 py-1 text-sm font-semibold text-pw-muted hover:bg-pw-cream"
           >
             Clear
           </button>

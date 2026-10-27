@@ -101,6 +101,7 @@ export default function BreedingPage() {
   return (
     <Page>
       <PageHeader
+        eyebrow="Pals"
         title="Breeding calculator"
         subtitle="Work out what two parents hatch, how likely each trait is to be passed down, or find which parents make the Pal you want. Everything is kept in the link, so you can share a result."
       />
@@ -389,26 +390,22 @@ function FindParents({
             <p className="text-pw-muted">No pair matches those filters.</p>
           ) : (
             <>
-              <ul className="divide-y">
+              <ul className="grid-fluid [--min:21rem]">
                 {shown.slice(0, limit).map(({ a, b, method }) => (
                   <li
                     key={`${a.id}|${b.id}`}
-                    className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-2 py-2"
+                    className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 card p-1.5"
                   >
                     <ParentLink pal={a} highlight={a.id === withPal?.id} />
-                    <span
-                      className="font-bold text-pw-sun"
-                      title={METHOD_LABELS[method]}
-                    >
-                      +
-                    </span>
-                    <ParentLink pal={b} highlight={b.id === withPal?.id} />
                     <Link
                       to={`/breeding?a=${a.id}&b=${b.id}`}
-                      className="rounded-full px-3 py-1 text-sm font-semibold text-pw-teal-dark hover:bg-pw-cream"
+                      title={`${METHOD_LABELS[method]}. Open in the calculator`}
+                      aria-label={`Open ${a.name} and ${b.name} in the calculator`}
+                      className="flex size-9 items-center justify-center rounded-full bg-pw-sun font-display text-xl font-bold text-pw-deep transition hover:scale-110"
                     >
-                      Open
+                      +
                     </Link>
+                    <ParentLink pal={b} highlight={b.id === withPal?.id} />
                   </li>
                 ))}
               </ul>

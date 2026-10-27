@@ -3,26 +3,15 @@ import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
 import InfiniteSentinel from '../Components/InfiniteSentinel';
 import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
-import {
-  ItemLink,
-  RarityBadge,
-  RecipeCard,
-  StationLink,
-} from '../Components/gearUi';
-import { groupRecipes } from '../Utils/crafting';
-import { Breadcrumb, Page, Panel, buttonClass } from '../Components/ui';
+import { ItemLink, RarityBadge, StationLink } from '../Components/gearUi';
+import ItemAcquire from '../Components/ItemAcquire';
+import { Breadcrumbs, Page, Panel, Stat } from '../Components/ui';
+import { rarityColours } from '../Utils/rarity';
 import NotFoundPage from './NotFoundPage';
-import {
-  itemById,
-  palDrops,
-  recipesFor,
-  recipesUsing,
-  sources,
-  techByName,
-} from '../data/gear';
+import { itemById, recipesUsing, techByName } from '../data/gear';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { formatNumber } from '../Utils/text';
-import type { GearStats, Item } from '../types';
+import type { GearStats, Item, Recipe } from '../types';
 
 function Fact({
   label,
@@ -31,14 +20,7 @@ function Fact({
   label: string;
   children: React.ReactNode;
 }) {
-  return (
-    <div>
-      <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-        {label}
-      </dt>
-      <dd className="font-display text-xl font-bold">{children}</dd>
-    </div>
-  );
+  return <Stat label={label}>{children}</Stat>;
 }
 
 const GEAR_COLUMNS: { key: keyof GearStats; label: string }[] = [
@@ -53,13 +35,6 @@ const GEAR_COLUMNS: { key: keyof GearStats; label: string }[] = [
   { key: 'sell', label: 'Sells for' },
 ];
 
-const range = (min?: number, max?: number) =>
-  min === undefined
-    ? ''
-    : min === max || max === undefined
-      ? `×${min}`
-      : `×${min}–${max}`;
-
 export default function ItemPage() {
   const { id } = useParams();
   const item = itemById.get(id ?? '');
@@ -69,10 +44,22 @@ export default function ItemPage() {
 }
 
 function ItemDetail({ item }: { item: Item }) {
-  const made = recipesFor(item.name);
-  const uses = recipesUsing.get(item.name) ?? [];
-  const where = sources[item.name];
-  const pals = palDrops.get(item.name) ?? [];
+  // the same use at several benches is one row, listing the benches
+  const uses = React.useMemo(() => {
+    const merged = new Map<
+      string,
+      { recipe: Recipe; stations: string[]; qty: number }
+    >();
+    for (const r of recipesUsing.get(item.name) ?? []) {
+      const qty = r.ingredients.find((x) => x.name === item.name)?.qty ?? 0;
+      const key = `${r.kind}|${r.product}|${r.quality ?? ''}|${qty}`;
+      const row = merged.get(key) ?? { recipe: r, stations: [], qty };
+      if (r.station && !row.stations.includes(r.station))
+        row.stations.push(r.station);
+      merged.set(key, row);
+    }
+    return [...merged.values()];
+  }, [item.name]);
   const tech = item.tech ? techByName.get(item.tech) : undefined;
   const columns = GEAR_COLUMNS.filter((c) =>
     item.gear?.some((g) => g[c.key] !== undefined)
@@ -87,9 +74,16 @@ function ItemDetail({ item }: { item: Item }) {
 
   return (
     <Page>
-      <Breadcrumb to="/items" label="Items" />
+      <Breadcrumbs
+        items={[{ label: 'Items', to: '/items' }, { label: item.name }]}
+      />
 
-      <section className="flex flex-col items-center gap-5 rounded-3xl border bg-pw-paper p-5 shadow-card sm:flex-row sm:p-8">
+      <section
+        className="relative flex flex-col items-center gap-5 overflow-hidden card rounded-3xl p-5 sm:flex-row sm:p-8"
+        style={{
+          backgroundImage: `linear-gradient(135deg, color-mix(in srgb, ${rarityColours[item.rarity ?? 'Common']} 22%, transparent), transparent 55%)`,
+        }}
+      >
         {item.type !== 'Schematic' && (
           <ItemIcon
             id={item.id}
@@ -202,148 +196,17 @@ function ItemDetail({ item }: { item: Item }) {
           </Panel>
         )}
 
-        {made.length > 0 && (
-          <Panel
-            title="How to craft"
-            actions={
-              <Link
-                to={`/crafting?item=${item.id}`}
-                className={buttonClass('accent', 'h-9')}
-              >
-                Raw materials
-              </Link>
-            }
-          >
-            <div className="space-y-3">
-              {groupRecipes(made).map((v, i) => (
-                <RecipeCard key={i} recipe={v.recipe} stations={v.stations} />
-              ))}
-            </div>
-          </Panel>
-        )}
-
-        {(pals.length > 0 ||
-          where?.dropped ||
-          where?.shops ||
-          where?.found) && (
-          <Panel title="Where to get it">
-            <div className="space-y-5">
-              {pals.length > 0 && (
-                <section>
-                  <h3 className="mb-1 text-lg text-pw-navy">Dropped by Pals</h3>
-                  <ul className="divide-y">
-                    {pals.map((p) => (
-                      <li
-                        key={`${p.palId}${p.alpha}`}
-                        className="flex items-center justify-between gap-3 py-1.5"
-                      >
-                        <Link
-                          to={`/pal/${p.palId}?tab=drops`}
-                          className="font-semibold hover:underline"
-                        >
-                          {p.palName}
-                          {p.alpha && (
-                            <span className="ml-2 rounded-full bg-pw-deep px-2 py-0.5 text-xs text-white">
-                              Alpha
-                            </span>
-                          )}
-                        </Link>
-                        <span className="text-sm text-pw-muted">
-                          {range(p.min ?? undefined, p.max ?? undefined)} ·{' '}
-                          {p.chance}%
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-              {where?.dropped && (
-                <section>
-                  <h3 className="mb-1 text-lg text-pw-navy">
-                    Dropped by enemies
-                  </h3>
-                  <ul className="divide-y">
-                    {where.dropped.map((d, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center justify-between gap-3 py-1.5"
-                      >
-                        <span className="font-semibold">
-                          {d.target}
-                          {d.variant ? ` (${d.variant})` : ''}{' '}
-                          <span className="text-sm font-normal text-pw-muted">
-                            {d.type}
-                          </span>
-                        </span>
-                        <span className="text-sm text-pw-muted">
-                          {range(d.min, d.max)}
-                          {d.chance !== undefined ? ` · ${d.chance}%` : ''}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-              {where?.shops && (
-                <section>
-                  <h3 className="mb-1 text-lg text-pw-navy">Sold by</h3>
-                  <ul className="divide-y">
-                    {where.shops.map((s, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center justify-between gap-3 py-1.5"
-                      >
-                        <span className="font-semibold">{s.merchant}</span>
-                        <span className="text-sm text-pw-muted">
-                          {s.cost !== undefined
-                            ? `${formatNumber(s.cost)} ${s.currency ?? ''}`
-                            : ''}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-              {where?.found && (
-                <section>
-                  <h3 className="mb-1 text-lg text-pw-navy">Found in</h3>
-                  <ul className="divide-y">
-                    {[...where.found]
-                      .sort((a, b) => (b.chance ?? 0) - (a.chance ?? 0))
-                      .slice(0, 15)
-                      .map((f, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center justify-between gap-3 py-1.5"
-                        >
-                          <span>
-                            <span className="font-semibold">{f.label}</span>{' '}
-                            <span className="text-sm text-pw-muted">
-                              {f.category}
-                            </span>
-                          </span>
-                          <span className="shrink-0 text-sm text-pw-muted">
-                            {range(f.min, f.max)}
-                            {f.chance !== undefined ? ` · ${f.chance}%` : ''}
-                          </span>
-                        </li>
-                      ))}
-                  </ul>
-                </section>
-              )}
-            </div>
-          </Panel>
-        )}
+        <ItemAcquire item={item} />
 
         {uses.length > 0 && (
           <Panel
             title={`Used in ${uses.length} recipe${uses.length === 1 ? '' : 's'}`}
           >
-            <ul className="divide-y">
-              {usesShown.map((r, i) => (
+            <ul className="grid-fluid [--min:16rem]">
+              {usesShown.map(({ recipe: r, stations, qty }, i) => (
                 <li
                   key={i}
-                  className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 py-2"
+                  className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-xl border bg-pw-cream/30 px-3 py-2"
                 >
                   <span className="flex items-center gap-2">
                     {r.kind === 'item' ? (
@@ -359,11 +222,13 @@ function ItemDetail({ item }: { item: Item }) {
                     <RarityBadge rarity={r.quality} />
                   </span>
                   <span className="text-sm text-pw-muted">
-                    ×{r.ingredients.find((x) => x.name === item.name)?.qty}
-                    {r.station ? (
+                    ×{qty}
+                    {stations.length > 0 ? (
                       <>
                         {' '}
-                        at <StationLink name={r.station} />
+                        at <StationLink name={stations[0]} />
+                        {stations.length > 1 &&
+                          ` and ${stations.length - 1} more`}
                       </>
                     ) : r.kind === 'building' ? (
                       ' (building)'

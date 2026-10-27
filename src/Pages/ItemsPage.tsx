@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import Tile from '../Components/Tile';
 import InfiniteSentinel from '../Components/InfiniteSentinel';
 import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import { RarityBadge } from '../Components/gearUi';
@@ -10,15 +11,15 @@ import {
   PageHeader,
   SearchInput,
   Select,
+  Toolbar,
   buttonClass,
 } from '../Components/ui';
 import { items } from '../data/gear';
 import { useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
-import { RARITIES, rarityRank } from '../Utils/rarity';
+import { RARITIES, rarityColours, rarityRank } from '../Utils/rarity';
 import { normalise } from '../Utils/text';
 import type { Item } from '../types';
-import { cn } from '../Utils/cn';
 
 const SORTS = {
   name: (a: Item, b: Item) => a.name.localeCompare(b.name),
@@ -64,17 +65,18 @@ export default function ItemsPage() {
   );
 
   return (
-    <Page wide>
+    <Page>
       <PageHeader
+        eyebrow="Items & Base"
         title="Items"
-        subtitle={`${items.length} items: weapons, armor, materials, food and more. Open one to see how to craft it and where it drops.`}
+        subtitle={`${items.length.toLocaleString()} items: weapons, armor, materials, food and more. Open one to see how to craft it and where it drops.`}
       >
         <Link to="/crafting" className={buttonClass('accent')}>
           Crafting calculator
         </Link>
       </PageHeader>
 
-      <div className="mb-3 flex flex-wrap items-center gap-2">
+      <Toolbar>
         <SearchInput
           value={query}
           onChange={setQuery}
@@ -109,49 +111,50 @@ export default function ItemsPage() {
             { value: 'weight', label: 'Sort: Weight' },
           ]}
         />
-      </div>
-
-      <p className="mb-3 text-sm text-pw-muted" aria-live="polite">
-        {list.length} item{list.length === 1 ? '' : 's'}
-        {!type &&
-          !query &&
-          ' (schematics are hidden; pick the Schematic type to see them)'}
-      </p>
+        <span
+          className="ml-auto hidden text-sm text-pw-muted sm:inline"
+          aria-live="polite"
+        >
+          {list.length.toLocaleString()} item{list.length === 1 ? '' : 's'}
+        </span>
+      </Toolbar>
+      {!type && !query && (
+        <p className="-mt-1 mb-3 text-xs text-pw-muted">
+          Upgrade schematics are hidden. Pick the Schematic type to see them.
+        </p>
+      )}
 
       {list.length === 0 ? (
         <EmptyState title="No items match">Try removing a filter.</EmptyState>
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="grid-fluid [--min:9.5rem]">
             {list.slice(0, limit).map((i) => (
-              <Link
+              <Tile
                 key={i.id}
                 to={`/item/${i.id}`}
-                className="flex flex-col items-center gap-1.5 rounded-2xl border bg-pw-paper p-3 text-center shadow-card transition hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                {i.type === HIDDEN_BY_DEFAULT ? (
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      'flex size-16 items-center justify-center rounded-lg bg-pw-cream font-display text-2xl font-bold text-pw-muted'
-                    )}
-                  >
-                    S
-                  </span>
-                ) : (
-                  <ItemIcon
-                    id={i.id}
-                    name={i.name}
-                    rarity={i.rarity}
-                    className="size-16"
-                  />
-                )}
-                <p className="line-clamp-2 font-display text-lg leading-tight font-bold">
-                  {i.name}
-                </p>
-                <p className="text-xs text-pw-muted">{i.subtype ?? i.type}</p>
-                <RarityBadge rarity={i.rarity} />
-              </Link>
+                accent={i.rarity ? rarityColours[i.rarity] : undefined}
+                icon={
+                  i.type === HIDDEN_BY_DEFAULT ? (
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-3xl font-bold text-pw-muted"
+                    >
+                      S
+                    </span>
+                  ) : (
+                    <ItemIcon
+                      id={i.id}
+                      name={i.name}
+                      rarity={i.rarity}
+                      className="size-14"
+                    />
+                  )
+                }
+                title={i.name}
+                meta={i.subtype ?? i.type}
+                badge={<RarityBadge rarity={i.rarity} />}
+              />
             ))}
           </div>
           <InfiniteSentinel

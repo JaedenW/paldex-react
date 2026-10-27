@@ -90,6 +90,7 @@ export default function CraftingPage() {
   return (
     <Page>
       <PageHeader
+        eyebrow="Items & Base"
         title="Crafting calculator"
         subtitle="Pick something to make and see every material it needs, down to what you have to gather, plus the benches along the way."
       />
@@ -117,7 +118,7 @@ export default function CraftingPage() {
                   : 'Search for something to craft'
               }
               autoComplete="off"
-              className="h-11 w-full rounded-full border bg-white px-4 outline-none focus:border-pw-teal"
+              className="h-11 w-full rounded-full border bg-pw-field px-4 outline-none focus:border-pw-teal"
             />
             {suggestions.length > 0 && (
               <ul className="absolute z-10 mt-1 max-h-72 w-full overflow-y-auto rounded-2xl border bg-pw-paper p-1 shadow-lift">
@@ -160,7 +161,7 @@ export default function CraftingPage() {
               max={9999}
               value={qtyParam}
               onChange={(e) => setQty(e.target.value)}
-              className="h-11 w-full rounded-full border bg-white px-4 outline-none focus:border-pw-teal"
+              className="h-11 w-full rounded-full border bg-pw-field px-4 outline-none focus:border-pw-teal"
             />
           </div>
         </div>
@@ -321,7 +322,7 @@ function StepRow({
           <select
             value={step.variantIndex}
             onChange={(e) => onChoose(Number(e.target.value))}
-            className="h-8 max-w-full rounded-full border bg-white px-2 text-sm"
+            className="h-8 max-w-full rounded-full border bg-pw-field px-2 text-sm"
           >
             {step.variants.map((v, i) => (
               <option key={i} value={i}>

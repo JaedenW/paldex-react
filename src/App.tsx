@@ -1,12 +1,14 @@
 import React from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
-import Navbar from './Components/Navbar';
-import BottomTabs from './Components/BottomTabs';
 import ErrorBoundary from './Components/ErrorBoundary';
 import Footer from './Components/Footer';
 import SearchPalette from './Components/SearchPalette';
+import Sidebar from './Components/Sidebar';
+import TopBar from './Components/TopBar';
+import { Page, SkeletonGrid } from './Components/ui';
 import './index.css';
 
+const HomePage = React.lazy(() => import('./Pages/HomePage'));
 const PaldexPage = React.lazy(() => import('./Pages/PaldexPage'));
 const PalPage = React.lazy(() => import('./Pages/PalPage'));
 const ElementsPage = React.lazy(() => import('./Pages/ElementsPage'));
@@ -34,21 +36,30 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-full focus:bg-pw-sun focus:px-4 focus:py-2 focus:font-semibold focus:text-pw-deep"
+      >
+        Skip to content
+      </a>
+      <Sidebar />
+      <TopBar />
       <main
+        id="content"
         ref={scrollRef}
-        className="fixed inset-x-0 top-(--header-h) bottom-(--tabbar-h) overflow-y-scroll overscroll-contain lg:bottom-0"
+        className="fixed inset-x-0 inset-y-0 top-(--header-h) overflow-y-scroll overscroll-contain lg:top-0 lg:left-(--sidebar-w)"
       >
         <ErrorBoundary resetKey={pathname}>
           <React.Suspense
             fallback={
-              <div className="flex h-[60vh] items-center justify-center text-pw-muted">
-                Loading…
-              </div>
+              <Page>
+                <div className="mb-6 h-12 w-64 skeleton rounded-xl" />
+                <SkeletonGrid />
+              </Page>
             }
           >
             <Routes>
-              <Route path="/" element={<Navigate to="/paldex" replace />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/paldex" element={<PaldexPage />} />
               <Route path="/pal/:id" element={<PalPage />} />
               <Route path="/elements" element={<ElementsPage />} />
@@ -64,13 +75,13 @@ function App() {
               <Route path="/building/:id" element={<BuildingPage />} />
               <Route path="/crafting" element={<CraftingPage />} />
               <Route path="/technology" element={<TechPage />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </React.Suspense>
         </ErrorBoundary>
         <Footer />
       </main>
-      <BottomTabs />
       <SearchPalette />
     </>
   );

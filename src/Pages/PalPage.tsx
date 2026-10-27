@@ -13,9 +13,17 @@ import PalImage from '../Components/PalImage';
 import ObtainTab from '../Components/ObtainTab';
 import InfiniteSentinel from '../Components/InfiniteSentinel';
 import ItemIcon from '../Components/ItemIcon';
+import Tile from '../Components/Tile';
 import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import WorkLevel from '../Components/WorkLevel';
-import { Breadcrumb, Chip, Page, Panel } from '../Components/ui';
+import {
+  Breadcrumbs,
+  Chip,
+  Page,
+  Panel,
+  Stat,
+  Toolbar,
+} from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryState } from '../Hooks/useQueryState';
@@ -91,29 +99,31 @@ export default function PalPage() {
 
   return (
     <Page>
-      <Breadcrumb to="/paldex" label="Paldex" />
+      <Breadcrumbs
+        items={[{ label: 'Paldex', to: '/paldex' }, { label: pal.name }]}
+      />
 
-      <section className="relative overflow-hidden rounded-3xl border bg-pw-paper shadow-card">
+      <section className="relative overflow-hidden card rounded-3xl">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-40 opacity-25"
+          className="absolute inset-0 opacity-30"
           style={{
-            background: `linear-gradient(135deg, ${colour}, transparent)`,
+            background: `radial-gradient(ellipse at 20% 0%, ${colour}, transparent 60%), linear-gradient(135deg, ${colour}33, transparent 55%)`,
           }}
         />
         <div className="relative flex flex-col items-center gap-6 p-5 sm:flex-row sm:p-8">
           <PalImage
             pal={pal}
             variant="art"
-            className="size-48 shrink-0 drop-shadow-lg sm:size-56"
+            className="size-52 shrink-0 drop-shadow-xl sm:size-64"
           />
           <div className="min-w-0 flex-1 text-center sm:text-left">
             <p className="font-semibold tracking-wide text-pw-muted">
               #{pal.number}
             </p>
-            <h1 className="text-5xl sm:text-6xl">{pal.name}</h1>
+            <h1 className="text-5xl sm:text-7xl">{pal.name}</h1>
             {pal.title && (
-              <p className="mt-1 font-display text-xl text-pw-teal-dark">
+              <p className="mt-1 font-display text-xl text-pw-link sm:text-2xl">
                 {pal.title}
               </p>
             )}
@@ -134,13 +144,25 @@ export default function PalPage() {
             )}
           </div>
         </div>
-        <div className="relative flex items-center justify-between border-t bg-pw-cream/60 px-4 py-2 text-sm font-semibold">
+        <dl className="relative grid grid-cols-2 gap-2 border-t bg-pw-paper/70 p-3 backdrop-blur-sm sm:grid-cols-3 sm:px-8 lg:grid-cols-6">
+          <Stat label="HP">{formatNumber(pal.stats.hp)}</Stat>
+          <Stat label="Attack">{formatNumber(pal.stats.attack)}</Stat>
+          <Stat label="Defense">{formatNumber(pal.stats.defense)}</Stat>
+          <Stat label="Breeding rank">{pal.breeding.rank}</Stat>
+          <Stat label="Size">{pal.size || '–'}</Stat>
+          <Stat label="Sells for">{formatNumber(pal.sellPrice)}</Stat>
+        </dl>
+        <div className="relative grid grid-cols-2 divide-x border-t text-sm font-semibold">
           {prev ? (
             <Link
               to={`/pal/${prev.id}${window.location.search}`}
-              className="hover:underline"
+              className="flex items-center gap-2 truncate px-4 py-2.5 hover:bg-pw-cream/60"
             >
-              ← #{prev.number} {prev.name}
+              <PalImage pal={prev} className="size-7 shrink-0" />
+              <span className="truncate">
+                <span className="text-pw-muted">← #{prev.number}</span>{' '}
+                {prev.name}
+              </span>
             </Link>
           ) : (
             <span />
@@ -148,9 +170,13 @@ export default function PalPage() {
           {next ? (
             <Link
               to={`/pal/${next.id}${window.location.search}`}
-              className="hover:underline"
+              className="flex items-center justify-end gap-2 truncate px-4 py-2.5 hover:bg-pw-cream/60"
             >
-              #{next.number} {next.name} →
+              <span className="truncate">
+                {next.name}{' '}
+                <span className="text-pw-muted">#{next.number} →</span>
+              </span>
+              <PalImage pal={next} className="size-7 shrink-0" />
             </Link>
           ) : (
             <span />
@@ -158,19 +184,26 @@ export default function PalPage() {
         </div>
       </section>
 
-      <div className="mt-5 flex flex-wrap gap-2" role="tablist">
-        {TABS.map((t) => (
-          <Chip
-            key={t.id}
-            role="tab"
-            aria-selected={tab === t.id}
-            active={tab === t.id}
-            onClick={() => setTab(t.id)}
-          >
-            {t.label}
-          </Chip>
-        ))}
-      </div>
+      <Toolbar className="mt-5">
+        <div
+          className="flex gap-2 overflow-x-auto"
+          role="tablist"
+          aria-label="Sections of this page"
+        >
+          {TABS.map((t) => (
+            <Chip
+              key={t.id}
+              role="tab"
+              aria-selected={tab === t.id}
+              active={tab === t.id}
+              onClick={() => setTab(t.id)}
+              className="shrink-0"
+            >
+              {t.label}
+            </Chip>
+          ))}
+        </div>
+      </Toolbar>
 
       <div className="mt-4 space-y-4">
         {tab === 'obtain' ? (
@@ -226,14 +259,7 @@ function Fact({
   label: string;
   children: React.ReactNode;
 }) {
-  return (
-    <div>
-      <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-        {label}
-      </dt>
-      <dd className="font-display text-xl font-bold">{children}</dd>
-    </div>
-  );
+  return <Stat label={label}>{children}</Stat>;
 }
 
 function OverviewTab({ pal }: { pal: Pal }) {
@@ -324,7 +350,7 @@ function OverviewTab({ pal }: { pal: Pal }) {
               <p className="font-display text-2xl font-bold">
                 {pal.partnerSkill.name}
               </p>
-              <p className="text-xs font-semibold tracking-wide text-pw-teal-dark uppercase">
+              <p className="text-xs font-semibold tracking-wide text-pw-link uppercase">
                 {pal.partnerSkill.type}
               </p>
               <p className="mt-2 whitespace-pre-line text-pw-muted">
@@ -349,8 +375,8 @@ function OverviewTab({ pal }: { pal: Pal }) {
               <span
                 className={cn(
                   'font-display text-xl font-bold',
-                  defence[e] > 1 && 'text-red-600',
-                  defence[e] < 1 && 'text-pw-teal-dark'
+                  defence[e] > 1 && 'text-red-600 dark:text-red-300',
+                  defence[e] < 1 && 'text-pw-link'
                 )}
               >
                 {formatMultiplier(defence[e])}
@@ -379,47 +405,62 @@ function SkillsTab({ pal }: { pal: Pal }) {
         {pal.activeSkills.length === 0 ? (
           <p className="text-pw-muted">No learnable skills.</p>
         ) : (
-          <ul className="divide-y">
+          <ul className="grid-fluid [--min:17rem]">
             {pal.activeSkills.map((s) => {
               const info = skillByName.get(s.name);
-              return (
-                <li
-                  key={`${s.name}-${s.level}`}
-                  className="flex items-center gap-3 py-2.5"
-                >
-                  <span className="w-16 shrink-0 text-sm font-semibold text-pw-muted">
-                    Lv. {s.level}
+              const colour = info ? elementColours[info.element] : undefined;
+              const body = (
+                <>
+                  {colour && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 top-0 h-1"
+                      style={{ backgroundColor: colour }}
+                    />
+                  )}
+                  <span className="flex items-start justify-between gap-2">
+                    <span className="font-display text-xl leading-tight font-bold">
+                      {s.name}
+                    </span>
+                    <span className="shrink-0 rounded-full bg-pw-navy px-2.5 py-0.5 text-xs font-semibold text-white">
+                      Lv. {s.level}
+                    </span>
                   </span>
-                  <div className="min-w-0 flex-1">
-                    {info ? (
-                      <Link
-                        to={`/skill/${info.id}`}
-                        className="font-display text-xl font-bold hover:underline"
-                      >
-                        {s.name}
-                      </Link>
-                    ) : (
-                      <span className="font-display text-xl font-bold">
-                        {s.name}
-                      </span>
-                    )}
-                    {info && (
-                      <p className="text-sm text-pw-muted">
-                        {info.description}
-                      </p>
-                    )}
-                  </div>
                   {info && (
-                    <div className="flex shrink-0 items-center gap-3 text-right">
-                      <div className="hidden text-sm sm:block">
-                        <span className="text-pw-muted">Power</span>{' '}
-                        <b>{info.power ?? '–'}</b>
-                        <br />
-                        <span className="text-pw-muted">CT</span>{' '}
-                        <b>{info.cooldown ?? '–'}s</b>
-                      </div>
-                      <ElementBadge element={info.element} size="sm" />
-                    </div>
+                    <>
+                      <span className="line-clamp-2 flex-1 text-sm text-pw-muted">
+                        {info.description}
+                      </span>
+                      <span className="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+                        <ElementBadge
+                          element={info.element}
+                          linked={false}
+                          size="sm"
+                        />
+                        <span className="rounded-full bg-pw-cream px-2.5 py-1">
+                          Power {info.power ?? '–'}
+                        </span>
+                        <span className="rounded-full bg-pw-cream px-2.5 py-1">
+                          {info.cooldown ?? '–'}s
+                        </span>
+                      </span>
+                    </>
+                  )}
+                </>
+              );
+              const cls =
+                'card relative flex h-full flex-col gap-2 overflow-hidden p-4 pt-5';
+              return (
+                <li key={`${s.name}-${s.level}`}>
+                  {info ? (
+                    <Link
+                      to={`/skill/${info.id}`}
+                      className={cn(cls, 'card-link')}
+                    >
+                      {body}
+                    </Link>
+                  ) : (
+                    <div className={cls}>{body}</div>
                   )}
                 </li>
               );
@@ -431,18 +472,18 @@ function SkillsTab({ pal }: { pal: Pal }) {
         {pal.passiveSkills.length === 0 ? (
           <p className="text-pw-muted">This Pal has no fixed passive skills.</p>
         ) : (
-          <ul className="space-y-2">
+          <ul className="grid-fluid [--min:17rem]">
             {pal.passiveSkills.map((name) => (
-              <li key={name} className="rounded-xl bg-pw-cream/70 px-3 py-2">
+              <li key={name}>
                 <Link
                   to={`/passives#${passiveByName.get(name)?.id ?? ''}`}
-                  className="font-display text-xl font-bold hover:underline"
+                  className="flex h-full card-link flex-col gap-1 card bg-pw-cream/40 p-4"
                 >
-                  {name}
+                  <span className="font-display text-xl font-bold">{name}</span>
+                  <span className="text-sm text-pw-muted">
+                    {passiveByName.get(name)?.description}
+                  </span>
                 </Link>
-                <p className="text-sm text-pw-muted">
-                  {passiveByName.get(name)?.description}
-                </p>
               </li>
             ))}
           </ul>
@@ -496,7 +537,7 @@ function BreedingTab({ pal }: { pal: Pal }) {
         actions={
           <Link
             to={`/breeding?mode=find&c=${pal.id}`}
-            className="text-sm font-semibold text-pw-teal-dark hover:underline"
+            className="text-sm font-semibold text-pw-link hover:underline"
           >
             Open in the calculator
           </Link>
@@ -509,11 +550,11 @@ function BreedingTab({ pal }: { pal: Pal }) {
           </p>
         ) : (
           <>
-            <ul className="space-y-2">
+            <ul className="grid-fluid [--min:20rem]">
               {visible.map(({ a, b, method }) => (
                 <li
                   key={`${a.id}-${b.id}`}
-                  className="grid grid-cols-[1fr_auto_1fr] items-center gap-2"
+                  className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 rounded-2xl border bg-pw-cream/30 p-1.5"
                 >
                   <PalLink pal={a} />
                   <span
@@ -542,32 +583,30 @@ function DropList({ drops }: { drops: Drop[] }) {
   if (drops.length === 0)
     return <p className="text-pw-muted">No drops recorded.</p>;
   return (
-    <ul className="divide-y">
+    <ul className="grid-fluid [--min:9rem]">
       {drops.map((d) => (
-        <li
-          key={d.item}
-          className="flex items-center justify-between gap-3 py-2"
-        >
-          <span className="flex min-w-0 items-center gap-3">
-            <ItemIcon
-              id={slugify(d.item)}
-              name={d.item}
-              className="size-10 rounded-lg bg-pw-cream/70"
-            />
-            {linkableDrops.has(d.item) ? (
-              <Link
-                to={`/item/${slugify(d.item)}`}
-                className="font-semibold hover:underline"
-              >
-                {d.item}
-              </Link>
-            ) : (
-              <span className="font-semibold">{d.item}</span>
-            )}
-          </span>
-          <span className="shrink-0 text-sm text-pw-muted">
-            {d.min === d.max ? `×${d.min}` : `×${d.min}–${d.max}`} · {d.chance}%
-          </span>
+        <li key={d.item}>
+          <Tile
+            to={
+              linkableDrops.has(d.item) ? `/item/${slugify(d.item)}` : undefined
+            }
+            icon={
+              <ItemIcon
+                id={slugify(d.item)}
+                name={d.item}
+                className="size-14"
+              />
+            }
+            title={d.item}
+            meta={
+              <>
+                {d.min === d.max ? `×${d.min}` : `×${d.min}–${d.max}`}
+                <span className="mx-1">·</span>
+                <b className="text-pw-ink">{d.chance}%</b>
+              </>
+            }
+            className="h-full"
+          />
         </li>
       ))}
     </ul>
@@ -576,7 +615,7 @@ function DropList({ drops }: { drops: Drop[] }) {
 
 function DropsTab({ pal }: { pal: Pal }) {
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div className="space-y-4">
       <Panel title="Drops">
         <DropList drops={pal.drops} />
       </Panel>
