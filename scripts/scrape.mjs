@@ -2,31 +2,12 @@
 // tables and writes JSON into src/data. Run with `npm run scrape`.
 // Icons are saved to public/pals; pass --no-images to skip downloading them.
 import { mkdir, writeFile, access } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { api, root, sleep, UA, wikitext as fetchWikitext } from './wiki.mjs';
 
-const API = 'https://palworld.wiki.gg/api.php';
-const UA =
-  'paldex-scraper/1.0 (personal project; https://github.com/JaedenW/paldex-react)';
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'src/data');
 const imgDir = path.join(root, 'public/pals');
 const skipImages = process.argv.includes('--no-images');
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-async function api(params) {
-  const url = `${API}?${new URLSearchParams({ format: 'json', ...params })}`;
-  for (let attempt = 0; attempt < 4; attempt++) {
-    const res = await fetch(url, { headers: { 'User-Agent': UA } });
-    if (res.ok) {
-      const json = await res.json();
-      if (!json.error) return json;
-    }
-    await sleep(1000 * (attempt + 1));
-  }
-  throw new Error(`API request failed: ${url}`);
-}
 
 async function cargo(table, fields, where) {
   const rows = [];
@@ -163,22 +144,7 @@ console.log(
 
 // Wikitext holds the Palpedia blurb and the unique breeding combinations.
 console.log('Fetching page wikitext…');
-const wikitext = new Map();
-const titles = pals.map((p) => p.palName);
-for (let i = 0; i < titles.length; i += 50) {
-  const json = await api({
-    action: 'query',
-    prop: 'revisions',
-    rvprop: 'content',
-    rvslots: 'main',
-    titles: titles.slice(i, i + 50).join('|'),
-  });
-  for (const page of Object.values(json.query.pages)) {
-    const text = page.revisions?.[0]?.slots?.main?.['*'];
-    if (text) wikitext.set(page.title, text);
-  }
-  await sleep(300);
-}
+const wikitext = await fetchWikitext(pals.map((p) => p.palName));
 
 const byPal = (rows) => group(rows, 'palName');
 const elementsBy = byPal(elements),

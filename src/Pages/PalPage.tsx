@@ -10,6 +10,7 @@ import {
 } from '../data';
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
+import ObtainTab from '../Components/ObtainTab';
 import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumb, Chip, Page, Panel } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
@@ -29,6 +30,7 @@ import { cn } from '../Utils/cn';
 
 const TABS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'obtain', label: 'How to get' },
   { id: 'skills', label: 'Skills' },
   { id: 'breeding', label: 'Breeding' },
   { id: 'drops', label: 'Drops' },
@@ -168,7 +170,9 @@ export default function PalPage() {
       </div>
 
       <div className="mt-4 space-y-4">
-        {tab === 'skills' ? (
+        {tab === 'obtain' ? (
+          <ObtainTab pal={pal} />
+        ) : tab === 'skills' ? (
           <SkillsTab pal={pal} />
         ) : tab === 'breeding' ? (
           <BreedingTab pal={pal} />

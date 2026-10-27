@@ -1,0 +1,4731 @@
+{
+  "lamball": {
+    "prose": [
+      "Lamball is found on the Windswept Hills, the Eastern Wild Island, the Flying Fish Coast, and in the eastern half of the Sea Breeze Archipelago. It usually spawns in groups of 2 to 4 individuals.",
+      "An outbreak of Lamball can also appear as an incident around the map. They can also be accompanied by numerous early-game Pals.",
+      "Lamball can also be found caged in Rayne Syndicate camps in the Bamboo Groves and the Twilight Dunes.",
+      "Lamball has a neutral temperament, only attacking if attacked first or if it sees a player attacking another Lamball."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2738
+  },
+  "cattiva": {
+    "prose": [
+      "Cattiva is commonly found in low-level areas like the Windswept Hills, the Sea Breeze Archipelago, the Isle of Silence, and the northern half of the Isle of Murmurs. It usually spawns alone or in a pair.",
+      "An outbreak of Cattiva can appear as an incident around the map. Cattiva can also show up accompanied by numerous early-game Pals.",
+      "Cattiva can also be found caged in Rayne Syndicate camps in the Bamboo Groves and the Twilight Dunes.",
+      "Cattiva has a skittish temperament and will run away from a player until they are backed into a corner and run out of stamina. It will then taunt the player to hit them. Once they begin to taunt, it is easy to stun lock them into an easy capture or knockout."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2594
+  },
+  "chikipi": {
+    "prose": [
+      "Chikipi can be found in the Windswept Hills, the Flying Fish Coast, and the Eastern Wild Island. It usually spawns alone or in a pair. Wild Chikipi also frequently lay Eggs.",
+      "Chikipi can be found accompanied by numerous early-game Pals as an incident.",
+      "Chikipi can also be found caged in Free Pal Alliance camps in the Verdant Brook.",
+      "Chikipi has a neutral temperament, only attacking if attacked first or if the player attacks another Chikipi."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1294
+  },
+  "lifmunk": {
+    "prose": [
+      "Lifmunk is commonly found in low-level areas like the northern Windswept Hills, the Sea Breeze Archipelago, the Eastern Wild Island, and the Isle of Silence.",
+      "Lifmunk can also be found accompanied by numerous early-game Pals as an incident.",
+      "Lifmunk can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, and the Isle of Silence.",
+      "Lifmunk is passive and will flee when it sees the player. Wild Lifmunks will not fight back, even when attacked."
+    ],
+    "regions": [
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1740
+  },
+  "fuack": {
+    "prose": [
+      "Fuack is primarily found in low-level areas like the western Windswept Hills, Marsh Island, the Eastern Wild Island, the Sea Breeze Archipelago, the Moonless Shore, the Isle of Silence, and the Bamboo Groves. In most of these areas, Fuack can also be caught while Fishing in freshwater.",
+      "Fuack can also be found accompanied by numerous early-game Pals as an incident.",
+      "Fuack can also be found caged in Rayne Syndicate camps in the Bamboo Groves, the Twilight Dunes, the Scouring Islet, and the Isle of Decayed Treasures.",
+      "Fuack is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Bamboo Groves",
+      "Golden Hills",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2116
+  },
+  "fuack-ignis": {
+    "prose": [
+      "Fuack Ignis can be found by Fishing in the Volcano Region's freshwater in Dry Sandy Beach, Ruined Fortress City, and Mount Obsidian.",
+      "Fuack Ignis can also be found caged in Feybreak Warriors camps in the Azure Woodland and the Phantom Isle.",
+      "Fuack Ignis also has an 8.72% to be fished out of a Large Fishing Pond."
+    ],
+    "spawns": 98
+  },
+  "vixy": {
+    "prose": [
+      "Vixy is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Vixy can be found in the central areas of the Windswept Hills and the Sea Breeze Archipelago.",
+      "Vixy can also be found accompanied by numerous early-game Pals as an incident.",
+      "Vixy can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, and the Isle of Silence. It can also be found caged in Free Pal Alliance camps in the Verdant Brook."
+    ],
+    "regions": ["Autumn Rocks", "Windswept Hills"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 178
+  },
+  "celaray": {
+    "prose": [
+      "Celaray is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Celaray is primarily found in low-level areas like the Windswept Hills, the Golden Hills, the Sea Breeze Archipelago, the Isle of Silence, the Isle of Murmurs, the Marsh Island, the Moonless Shore, the Eastern Wild Island, It can also be found in the northwestern edge of the Bamboo Groves.",
+      "Celaray can also be found accompanied by numerous early-game Pals as an incident.",
+      "Celaray can also be found caged in Rayne Syndicate camps in the Scouring Islet and the Isle of Decayed Treasures.",
+      "Celaray can also be found by Fishing from saltwater in the Grassland Region and Forest Region, as well as in the Sunlit Isle."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1244
+  },
+  "celaray-lux": {
+    "prose": [
+      "Celaray Lux is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Celaray Lux can be found in the Desiccated Dunes.",
+      "Celaray Lux can also be found caged in Rayne Syndicate camps in the Flamepulse Islet and outside the No. 3 Wildlife Sanctuary.",
+      "Celaray Lux can also be fished up from saltwater around the northern shore of the Forest Region, from Verdant Brook to Scars of War, as well as in shore of the Foot of the Astral Mountains and the eastern grassy area of Astral Mountains, but also in Oasis Isle and Eternal Summer Isle."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "spawns": 220
+  },
+  "cremis": {
+    "prose": [
+      "Cremis is found primarily in low-level areas like the Sea Breeze Archipelago, Marsh Island, the Isle of Murmurs, and the Isle of Silence. It can also be found in the eastern and northeastern regions of the Bamboo Groves.",
+      "Cremis can also be found accompanied by numerous early-game Pals as an incident.",
+      "Cremis is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Flying Fish Coast",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1794
+  },
+  "croajiro": {
+    "prose": [
+      "Croajiro is primarily found in low-level areas like the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Eastern Wild Island, the Isle of Silence, and the Isle of Murmurs. It can also be found in the Mushroom Wetlands on Sakurajima. It typically spawn in groups of 2 to 3 individuals.",
+      "A Croajiro being attacked by a group of Moonflower Genins can also appear as an incident. Additionally, a nest of Croajiro can also be found as an incident.",
+      "A group of Croajiro can also show up as a raiding party to the player's base in Sakurajima, occasionally accompanied by Dogen, Verdash, or Wumpo Botan.",
+      "Croajiro can also be found caged in Moonflower Clan camps in Sakurajima and the Feybreak Shipwreck.",
+      "Croajiro can also be fished up around the Grassland Region, as well as the Bamboo Groves and the Moonless Shore.",
+      "Croajiro has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Sakurajima - Mushroom Wetlands",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2088
+  },
+  "croajiro-noct": {
+    "prose": [
+      "Croajiro Noct can be fished up around the freshwater and coastal areas of Sakurajima. It can also be found in the Scorched Hill area of Feybreak Island.",
+      "A group of Croajiro Noct can also show up as a raiding party to the player's base in Feybreak, occasionally accompanied by a group of Splatterina, Caprity Noct, or Omascul.",
+      "Croajiro Noct can also be found caged within Feybreak Warriors camps near the Glacial Memento Islet and the Loess Plains.",
+      "Additionally, as a Dark-element Pal, Croajiro Noct does not sleep at night."
+    ],
+    "regions": ["Feybreak Island", "Scorched Hill"],
+    "spawns": 230
+  },
+  "herbil": {
+    "prose": [
+      "Herbil can be found in the central Windswept Hills, Sunlit Isle, Eternal Summer Isle, the Twilight Dunes, and the Oasis Isle. It typically spawns in groups of 2 to 3 individuals.",
+      "Herbil is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Windswept Hills"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As one of the regular encounters inside the dungeon."
+      }
+    ],
+    "spawns": 40
+  },
+  "teafant": {
+    "prose": [
+      "Teafant is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Teafant can be found in low-level areas like the southern Windswept Hills, the Sea Breeze Archipelago, the Eastern Wild Island, the Marsh Island, the Isle of Murmurs, and the Isle of Silence.",
+      "Teafant can also be found accompanied by numerous early-game Pals as an incident.",
+      "Teafant can also be found caged in Rayne Syndicate camps in the Scouring Islet and the Isle of Decayed Treasures. It can also be found caged in Free Pal Alliance camps in the Verdant Brook."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1496
+  },
+  "gumoss": {
+    "prose": [
+      "Gumoss is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Gumoss can be found in the Windswept Hills, Marsh Island, the Eastern Wild Island, and the northeastern regions of the Bamboo Groves.",
+      "Gumoss can also be found accompanied by numerous early-game Pals as an incident."
+    ],
+    "regions": [
+      "Flying Fish Coast",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sea Breeze Archipelago",
+        "level": 11,
+        "x": -113,
+        "y": -628
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1616
+  },
+  "pupperai": {
+    "prose": [
+      "Pupperai is found in the Windswept Hills.",
+      "Pupperai can also show up in the Counterfeit Investigations PIDF raiding party if the player has built a Gold Coin Assembly Line at their base, superseding all other potential raiding parties.",
+      "If Pupperai notices the player, it will try to run away, but will attack if attempted to be caught or attacked."
+    ],
+    "regions": ["Windswept Hills"]
+  },
+  "clovee": {
+    "prose": [
+      "Clovee is found in the western Windswept Hills.",
+      "A nest of Clovee can also be found as an incident around the map.",
+      "If Clovee notices the player, it will try to run away, but will attack if attempted to be caught or attacked."
+    ],
+    "regions": ["Windswept Hills"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "jolthog": {
+    "prose": [
+      "Jolthog is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Jolthog can be found in the eastern Golden Hills.",
+      "An outbreak of Jolthog can also appear as an incident around the map. It can also be found accompanied by numerous early-game Pals."
+    ],
+    "regions": ["Golden Hills"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 190
+  },
+  "jolthog-cryst": {
+    "prose": [
+      "Jolthog Cryst is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Jolthog Cryst can be found in the southern Bamboo Groves and the Frostbitten Isle.",
+      "Jolthog Cryst can only be found in the wild rarely as an incident, being attacked by a few Direhowl. It can also found as a caged Pal in Rayne Syndicate camps.",
+      "A Jolthog Cryst owned by a Pal Tamer can also appear as an incident."
+    ]
+  },
+  "depresso": {
+    "prose": [
+      "Depresso is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Depresso is primarily found at night in low-level areas like the western Windswept Hills, the Marsh Island, the Eastern Wild Island, and the western half of the Bamboo Groves.",
+      "A nest of Depresso can also be found as an incident around the map.",
+      "Depresso can also be found caged in Moonflower Clan camps in Sakurajima."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Dancing Sakura Shrine",
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated  Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1825
+  },
+  "pengullet": {
+    "prose": [
+      "Pengullet is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Pengullet is found primarily in low-level areas like the Windswept Hills, the Sea Breeze Archipelago, the Eastern Wild Island, and the Isle of Silence. It can also be found in the southern reaches of the Astral Mountains.",
+      "An outbreak of Pengullet can also appear as an incident around the map. Pengullet can also show up accompanied by numerous early-game Pals.",
+      "A group of Pengullet can also show up as a raiding party to the player's base in the Snow Region, accompanied by Penking.",
+      "Pengullet can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Isle of Silence, the Scouring Islet, and the Isle of Decayed Treasures. It can also be found caged in PAL Genetic Research Unit camps in the Astral Mountains.",
+      "Pengullet can also be found by Fishing in the saltwater of the Grassland Region, Forest Region and Sunlit Isle."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Silence",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1540
+  },
+  "pengullet-lux": {
+    "prose": [
+      "Pengullet Lux is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "During the day, Pengullet Lux can be fished around the Scouring Islet and the central Desiccated Dunes.",
+      "Pengullet Lux can also be fished up around Sunlit Isle, the Scouring Islet, the Isle of Decayed Treasures, and the Desiccated Dunes at night.",
+      "Pengullet Lux can also be found caged in Rayne Syndicate camps in the Flamepulse Islet and near the No. 3 Wildlife Sanctuary."
+    ],
+    "spawns": 364
+  },
+  "penking": {
+    "prose": [
+      "Penking is aggressive and will attack the player on sight. If it is accompanied by Pengullets, they will also become hostile.",
+      "Penking is primarily found in the No. 1 Wildlife Sanctuary, Frostbitten Isle, and the Foot of the Astral Mountains. It can also be fished up around the Verdant Brook, Sunlit Isle, and Astral Mountains.",
+      "Penking can also be found in a raiding party in the Snow Region, accompanied by a group of Pengullet."
+    ],
+    "regions": ["Autumn Rocks", "No. 1 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sealed Realm of the Frozen Wings",
+        "level": 15,
+        "x": 113,
+        "y": -353
+      }
+    ],
+    "spawns": 212
+  },
+  "penking-lux": {
+    "prose": [
+      "Penking Lux is aggressive and will attack the player on sight.",
+      "Penking Lux can be fished up around Glacial Memento Islet, No. 3 Wildlife Sanctuary and Sakurajima."
+    ],
+    "spawns": 270
+  },
+  "hoocrates": {
+    "prose": [
+      "Hoocrates has a neutral temperament, only attacking if attacked first. Additionally, as a Dark-element Pal, it does not sleep at night.",
+      "Hoocrates can be found in the northern Windswept Hills, the Sea Breeze Archipelago, and the western half of the Bamboo Groves at night."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1364
+  },
+  "melpaca": {
+    "prose": [
+      "Melpaca is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Melpaca can be found in low-level areas like the western Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, and the Eastern Wild Island."
+    ],
+    "regions": [
+      "Flying Fish Coast",
+      "Isle of Silence",
+      "Marsh Island",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1726
+  },
+  "kingpaca": {
+    "prose": [
+      "Kingpaca can exclusively be found as an alpha Pal.",
+      "Non-alpha Kingpacas are passive and will flee when they sees the player, though they will fight back when attacked."
+    ],
+    "regions": ["Windswept Hills"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Windswept Hills",
+        "level": 23,
+        "x": 50,
+        "y": -460
+      }
+    ],
+    "spawns": 22
+  },
+  "kingpaca-cryst": {
+    "prose": [
+      "Kingpaca Cryst is only found in the wild as an Alpha Pal.",
+      "Kingpaca Cryst is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Astral Mountains",
+        "level": 46,
+        "x": -385,
+        "y": 355
+      }
+    ]
+  },
+  "daedream": {
+    "prose": [
+      "Daedream has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Daedream can be found in the Windswept Hills and in the western areas of the Sea Breeze Archipelago at night."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 816
+  },
+  "tanzee": {
+    "prose": [
+      "Tanzee is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Tanzee can be found in the Autumn Rocks, the Isle of Silence, the Isle of Murmurs and in the southern regions of the Sea Breeze Archipelago.",
+      "A Tanzee only has a slight chance to spawn in the Autumn Rocks when two Tanzee Ignis spawn.",
+      "Tanzee can also be found accompanied by numerous early-game Pals as an incident.",
+      "Tanzee can also be found caged in Rayne Syndicate camps in the Bamboo Groves and the Twilight Dunes."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1284
+  },
+  "tanzee-ignis": {
+    "prose": [
+      "Tanzee Ignis flees upon seeing the player but fights back when provoked. It can be found in the Autumn Rocks alongside regular Tanzees."
+    ]
+  },
+  "nox": {
+    "prose": [
+      "Nox is passive and will flee when it sees the player, though it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Nox is found at night in low-level areas like the northern Windswept Hills, the Isle of Murmurs, and the Isle of Silence.",
+      "Nox can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Isle of Silence, the Bamboo Groves, and the Twilight Dunes. It can also be found caged in Free Pal Alliance camps in the Verdant Brook.",
+      "A group of Nox accompanying a Pal Merchant can also appear as an incident."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago"
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1478
+  },
+  "flambelle": {
+    "prose": [
+      "Flambelle can be found in the Scars of War, the Eastern Wild Island, the Isle of Silence, the western and eastern regions of Mount Obsidian, and the eastern Sea Breeze Archipelago.",
+      "Flambelle can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Isle of Silence, the Bamboo Groves, and the Twilight Dunes. It can also be found caged in Free Pal Alliance camps in the Verdant Brook. It can also be found caged in Brothers of the Eternal Pyre camps near Mount Obsidian. It can also be found caged in Feybreak Warriors camps in the Azure Woodland and the Phantom Isle.",
+      "A Flambelle being attacked by a group of Vanwyrm can also show up as an incident.",
+      "Flambelle is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 396
+  },
+  "rooby": {
+    "prose": [
+      "Rooby is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Rooby can be found in the southern Sea Breeze Archipelago, the Autumn Rocks, the Marsh Island, the Isle of Murmurs, and the Scars of War.",
+      "Rooby can also be found caged in Brothers of the Eternal Pyre camps near Mount Obsidian."
+    ],
+    "regions": ["Isle of Silence", "Marsh Island", "Sea Breeze Archipelago"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1292
+  },
+  "mau": {
+    "prose": [
+      "Mau is passive and will flee when it sees the player, though it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Mau can be found caged in Free Pal Alliance camps near the Verdant Brook."
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ]
+  },
+  "mau-cryst": {
+    "prose": [
+      "Mau Cryst is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Mau Cryst can be found in the Foot of the Astral Mountains and the eastern Astral Mountains.",
+      "A Mau Cryst being attacked by a group of Cryolinx can also appear as an incident.",
+      "Mau Cryst can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Isle of Silence, the Marsh Island, the Bamboo Groves, and the Twilight Dunes. It can also be found caged in PAL Genetic Research Unit camps in the Astral Mountains."
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 600
+  },
+  "rushoar": {
+    "prose": [
+      "Rushoar is aggressive and will attack the player on sight.",
+      "Rushoar can be found in low-level areas like the western Windswept Hills, the Autumn Rocks, the Marsh Island, the western Sea Breeze Archipelago, and the northern Isle of Silence. It typically spawns in groups of 2 to 3 individuals.",
+      "Rushoar can also be found caged in Free Pal Alliance camps near the Verdant Brook."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2404
+  },
+  "foxparks": {
+    "prose": [
+      "Foxparks is commonly found in the northwestern Windswept Hills.",
+      "Foxparks can also spawn together with a Foxparks Cryst as an incident. It can also be found accompanied by numerous early-game Pals.",
+      "Foxparks is passive and will flee when it sees the player, though it will fight back when it or another nearby Foxparks is attacked."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1232
+  },
+  "foxparks-cryst": {
+    "prose": [
+      "Foxparks Cryst is found in the southern Astral Mountains.",
+      "Foxparks Cryst can also spawn together with a Foxparks as an incident.",
+      "A group of Foxparks Cryst can also show up as a raiding party to the player's base in the Snow Region, occasionally accompanied by Loupmoon Cryst, Vanwyrm Cryst, Reindrix, or Maraith.",
+      "Foxparks Cryst can also be found caged in Feybreak Warriors camps around Feybreak.",
+      "Foxparks Cryst is passive and will flee when it sees the player, though it will fight back when it or another nearby Foxparks Cryst is attacked."
+    ],
+    "regions": ["Astral Mountains", "Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sealed Realm of the Frost Flower",
+        "level": 15,
+        "x": -411,
+        "y": -54
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 642
+  },
+  "killamari": {
+    "prose": [
+      "Killamari has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Killamari is found in the Scorched Ashland and the Deserted Ash Plateau of Feybreak.",
+      "Killamari can also be fished up from the saltwater at night around the northern Forest Region shore, from Verdant Brook to Scars of War, as well as the Foot of the Astral Mountains and the eastern grassy area of Astral Mountains."
+    ],
+    "regions": ["Deserted Ash Plateau", "Feybreak Island", "Scorched Ashland"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 80
+  },
+  "killamari-primo": {
+    "prose": [
+      "Killamari Primo is found along the edges of the Desiccated Dunes.",
+      "Killamari Primo can also be found caged in Rayne Syndicate camps in the Flamepulse Islet and near the No. 3 Wildlife Sanctuary.",
+      "Killamari Primo can also be fished up around the coasts of Mount Obsidian.",
+      "Killamari Primo is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "dungeons": [
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 280
+  },
+  "fuddler": {
+    "prose": [
+      "Fuddler is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Fuddler is primarily found in the Twilight Dunes and in the northern reaches of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
+      "A Fuddler accompanying a Hangyu, Digtoise, Tocotoco, and Dumud can also spawn as an incident.",
+      "Fuddler can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Isle of Silence, the Verdant Brook, and the Twilight Dunes."
+    ],
+    "regions": ["Desiccated Dunes", "Twilight Dunes"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As a regular encounter inside the dungeon, and as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon and as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 666
+  },
+  "eikthyrdeer": {
+    "prose": [
+      "Eikthyrdeer is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Eikthyrdeer can be found in low-level areas like the northwestern Windswept Hills, the Autumn Rocks, and the Marsh Island.",
+      "Eikthyrdeer can also be found accompanied by numerous early-game Pals as an incident."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2492
+  },
+  "eikthyrdeer-terra": {
+    "prose": [
+      "Eikthyrdeer Terra is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Eikthyrdeer Terra can be found in the No. 1 Wildlife Sanctuary."
+    ],
+    "regions": ["No. 1 Wildlife Sanctuary"],
+    "spawns": 22
+  },
+  "direhowl": {
+    "prose": [
+      "Direhowl is aggressive and will attack the player and smaller Pals on sight.",
+      "Direhowl is found primarily in low-level areas like the western Golden Hills, the Autumn Rocks, the Twilight Dunes, the western Sea Breeze Archipelago, the Marsh Island, and the Isle of Murmurs. It can also be found in the western half of the Bamboo Groves. It typically spawns in groups of 2 to 3 individuals.",
+      "A group of Direhowl attacking a Jolthog Cryst or a Flopie, or a nest of Direhowl can also spawn as an incident around the map. Direhowl can also be found accompanied by numerous early-game Pals.",
+      "A group of Direhowl accompanied by a group of Leezpunk or Incineram Noct is a potential raiding party to the player's base in the Grassland Region. Direhowl can also raid the player's base in the Forest Region, occasionally accompanied by Incineram.",
+      "Direhowl can also be found as a Predator Pal around the map."
+    ],
+    "regions": [
+      "Bamboo Groves",
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Windswept Hills"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -325,
+        "y": -33
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 2770
+  },
+  "caprity": {
+    "prose": [
+      "Caprity is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Caprity can be found in the Windswept Hills, the northern Moonless Shore, the southern Verdant Brook, the Isle of Silence, the Isle of Murmurs, and the Foot of the Astral Mountains. It typically spawns alone or in a pair.",
+      "A group of Caprity can also be found being attacked by Syndicate Thugs as an incident. It can also be found accompanied by numerous early-game Pals or Caprity Noct.",
+      "Caprity can also be found caged within PAL Genetic Research Unit camps in the Astral Mountains."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Eastern Wild Island",
+      "Isle of Murmurs",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1462
+  },
+  "caprity-noct": {
+    "prose": [
+      "Caprity Noct is passive and will flee when it sees the player, though it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Caprity Noct can be found in the northern reaches of the Loess Plains on Feybreak. It typically spawns alone or in a pair.",
+      "Caprity Noct can spawn together with a Caprity as an incident.",
+      "A group of Caprity Noct can show up as a raiding party to the player's base within Feybreak, accompanied by Croajiro Noct, Splatterina, or Omascul.",
+      "Caprity Noct can also be found caged within Feybreak Warriors camps around Feybreak."
+    ],
+    "regions": ["Crystalized Ancient Tree", "Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sealed Realm of the Luxurious Thicket",
+        "level": 23,
+        "x": -147,
+        "y": -660
+      },
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 55,
+        "x": -1164,
+        "y": -1653
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 666
+  },
+  "swee": {
+    "prose": [
+      "Swee can be found in the eastern Sea Breeze Archipelago, the northeastern regions of the Bamboo Groves and in the southern Astral Mountains. It typically spawns in groups of 2 to 3 individuals.",
+      "A group of Swee, occasionally accompanied by a sole Sweepa, can appear as an incident. Swee can also accompany numerous midgame Pals as an incident.",
+      "Swee can also be found caged within Rayne Syndicate camps around the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, and the Isle of Silence.",
+      "Swee is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Astral Mountains"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As a possible Sweepa boss minion."
+      }
+    ],
+    "spawns": 254
+  },
+  "sweepa": {
+    "prose": [
+      "Sweepa can be found in the northeastern regions of the Bamboo Groves and in the southern Astral Mountains. It will always spawn alongside a small group of Swee.",
+      "A sole Sweepa accompanied by a group of Swee can appear as an incident.",
+      "Sweepa is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Astral Mountains", "Sea Breeze Archipelago"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sea Breeze Archipelago",
+        "level": 11,
+        "x": -228,
+        "y": -592
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 252
+  },
+  "turtacle": {
+    "prose": [
+      "Turtacle is aggressive and will attack the player on sight.",
+      "Turtacle can be found as a regular spawn on the Isle of Decayed Treasures, the western shores of Mount Obsidian, and the southern shores of the Foot of the Astral Mountains. It typically spawns in groups of 2 to 3 individuals.",
+      "Turtacle can also be found caged in Feybreak Warriors camps in the Phantom Isle and the Azure Woodland.",
+      "Turtacle can also be fished up primarily around low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island. It can also be fished up around the Bamboo Groves, the Crescent Moon Shore, the Verdant Brook, the Sunlit Isle, and the Frostbitten Isle."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1584
+  },
+  "turtacle-terra": {
+    "prose": [
+      "Turtacle Terra can be found in the western shores of Mount Obsidian and the Southern Sandbar of Sakurajima.",
+      "A group of Turtacle Terra can also show up as a raiding party to the player's base in the Desert Region, occasionally accompanied by Tocotoco, Robinquill Terra, or Gorirat Terra.",
+      "Turtacle Terra can also be found caged in a Moonflower Clan camp near the Feybreak Shipwreck.",
+      "Turtacle Terra can be fished up around the saltwater of Desiccated Dunes and Sandstone Gate Islet, as well as in the Eternal Summer Isle and Oasis Isle."
+    ],
+    "regions": ["Mount Obsidian"],
+    "spawns": 738
+  },
+  "hangyu": {
+    "prose": [
+      "Hangyu is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Hangyu can be found in the western Windswept Hills, the northern Bamboo Groves, and the northern Desiccated Dunes.",
+      "A Hangyu accompanying a Fuddler, Dumud, Digtoise, and Tocotoco can appear as an incident.",
+      "Hangyu can also be found caged in Rayne Syndicate camps in the Twilight Dunes and the Verdant Brook."
+    ],
+    "regions": ["Windswept Hills"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 666
+  },
+  "hangyu-cryst": {
+    "prose": [
+      "Hangyu Cryst is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Hangyu Cryst can be found in the Foot of the Astral Mountains and the southern Astral Mountains at night.",
+      "A Hangyu Cryst accompanying an NPC Pal Tamer can also spawn as an incident.",
+      "Hangyu Cryst can also be found caged in PAL Genetic Research Unit camps in the Astral Mountains."
+    ],
+    "regions": ["Astral Mountains"],
+    "spawns": 300
+  },
+  "woolipop": {
+    "prose": [
+      "Woolipop is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Woolipop can be found in the southeastern reaches of the Bamboo Groves. It typically spawns alone or in a pair."
+    ],
+    "regions": ["Bamboo Groves"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 136
+  },
+  "woolipop-terra": {
+    "prose": [
+      "Woolipop Terra flees upon spotting a player. It fights back when attacked.",
+      "It can be found exclusively in the Suncrest Islet."
+    ]
+  },
+  "mozzarina": {
+    "prose": [
+      "Mozzarina is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Mozzarina can be found in the Fort Ruins and Marsh Island.",
+      "A group of Mozzarina accompanying a Pal Merchant can also spawn as an incident."
+    ],
+    "regions": ["Bamboo Groves"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 136
+  },
+  "azurobe": {
+    "prose": [
+      "Azurobe is found in many spots around the world, but mostly in a lake of the Whisperwind Cliffs.",
+      "Azurobe can also be fished up in the inner water bodies of Verdant Brook, in the sea between Scars of War and Marsh Island, as well as a single spot in the Abandoned Ruins on the Astral Mountains.",
+      "Azurobe is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Bamboo Groves"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Whisperwind Cliffs",
+        "level": 40,
+        "x": -176,
+        "y": -266
+      }
+    ],
+    "spawns": 234
+  },
+  "azurobe-cryst": {
+    "prose": [
+      "Azurobe Cryst can be fished up in the Astral Mountains, around the Frozen Coral Hill on Feybreak, and on the Isle of the Glacial Core."
+    ],
+    "spawns": 280
+  },
+  "sparkit": {
+    "prose": [
+      "Wild Sparkit are peaceful and might flee when a player approaches.",
+      "Sparkit is found in the western Golden Hills.",
+      "Sparkit can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, and the Isle of Silence."
+    ],
+    "regions": ["Autumn Rocks", "Golden Hills"],
+    "spawns": 392
+  },
+  "kelpsea": {
+    "prose": [
+      "Kelpsea can be found on a beach at the northeastern edge of the Bamboo Groves, the western Marsh Island, and the center of the Sea Breeze Archipelago. It typically spawns in groups of 2 to 3 individuals.",
+      "Kelpsea can also be fished up around low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island, as well as the Bamboo Groves, the Crescent Moon Shore, and the Frostbitten Isle.",
+      "Kelpsea can also be found caged in Rayne Syndicate camps in the Scouring Islet and the Isle of Decayed Treasures.",
+      "Kelpsea has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Eastern Wild Island", "Windswept Hills"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1436
+  },
+  "kelpsea-ignis": {
+    "prose": [
+      "Kelpsea Ignis can be found in the Scars of War and the eastern and northern regions of Mount Obsidian. It typically spawns in groups of 2 to 3 individuals.",
+      "Kelpsea Ignis can also be fished up around the waters surrounding Volcano Island and on and around Feybreak.",
+      "Kelpsea Ignis has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1214
+  },
+  "ribbuny": {
+    "prose": [
+      "Ribbuny is is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Ribbuny can be found in the Eastern Wild Island, Ice Wind Island, the western side of the Sea Breeze Archipelago, the southwestern portion of the Bamboo Groves, and the cherry blossom forest on Sakurajima."
+    ],
+    "regions": ["Eastern Wild Island", "Isle of Murmurs"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1230
+  },
+  "ribbuny-botan": {
+    "prose": [
+      "Ribbuny Botan is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Ribbuny Botan can be found in the Mount Flopie Summit and Windscream Valley."
+    ],
+    "regions": ["Feybreak Island", "Moonless Shore"],
+    "spawns": 310
+  },
+  "jelliette": {
+    "prose": [
+      "Jelliette is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Jelliette can be found as a regular spawn on the Frostbitten Isle.",
+      "Jelliette can also be fished up around low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island, as well as the Bamboo Groves, the Crescent Moon Shore, the Sunlit Isle, and the Isle of Decayed Treasures during the day."
+    ],
+    "regions": ["Feybreak Island", "Scorched Ashland", "Withered Seaside"],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 431
+  },
+  "jellroy": {
+    "prose": [
+      "Jellroy can be found as a regular spawn on Phantom Isle. It typically spawns in groups of 2 to 3 individuals.",
+      "Jellroy can also be fished up around low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island, as well as the Bamboo Groves, the Crescent Moon Shore, the Sunlit Isle, and the Frostbitten Isle at night.",
+      "Jellroy is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Deserted Ash Plateau",
+      "Feybreak Island",
+      "Scorched Ashland",
+      "Withered Seaside"
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 452
+  },
+  "amione": {
+    "prose": [
+      "Amione flees when it sees a player, unless attacked where it will become hostile.",
+      "It can be found near the Bamboo Groves at a lake, or in various spots on Sunreach."
+    ],
+    "regions": ["Sunreach", "Windswept Hills"]
+  },
+  "gloopie": {
+    "prose": [
+      "Gloopie can be found as a regular spawn on the Isle of Decayed Treasures, and on Feybreak Island at the Scorched Ashland and Oilfield Overlook. It typically spawns in groups of 2 to 3 individuals.",
+      "Gloopie can also be fished up around Mount Obsidian and Sakurajima at night.",
+      "Gloopie is passive and will flee when it sees the player, though it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Deserted Ash Plateau",
+      "Feybreak Island",
+      "Scorched Ashland",
+      "Withered Seaside"
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 275
+  },
+  "gloopie-primo": {
+    "prose": [
+      "Gloopie Primo is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Gloopie Primo can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
+    ],
+    "regions": ["Sunreach"]
+  },
+  "galeclaw": {
+    "prose": [
+      "Galeclaw has a neutral temperament, only attacking if attacked first or if the player attacks another Galeclaw.",
+      "Galeclaw can be found in the northwestern area of the Bamboo Groves and in the Crescent Moon Shore. It typically spawns in groups of 2 to 3 individuals."
+    ],
+    "regions": ["Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 940
+  },
+  "wispaw": {
+    "prose": [
+      "Wispaw can be found in the Windswept Hills and Marsh Island at night, or in the Whimsical Wisteria Grove in the World Tree at all times."
+    ],
+    "regions": ["Windswept Hills"]
+  },
+  "nitewing": {
+    "prose": [
+      "Nitewing has a neutral temperament, only attacking if attacked first or if the player attacks another Nitewing.",
+      "Nitewing can be found in many low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island. It can also be found in the Desiccated Dunes."
+    ],
+    "regions": [
+      "Eastern Wild Island",
+      "Flying Fish Coast",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Ice Wind Island",
+        "level": 18,
+        "x": -276,
+        "y": -70
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 3492
+  },
+  "tombat": {
+    "prose": [
+      "Tombat can be found in low-level areas like the Windswept Hills, the Sea Breeze Archipelago, and the Forgotten Island at night.",
+      "Tombat is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Autumn Rocks",
+      "Eastern Wild Island",
+      "Golden Hills",
+      "Isle of Murmurs",
+      "Isle of Silence",
+      "Windswept Hills"
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 1430
+  },
+  "tocotoco": {
+    "prose": [
+      "Tocotoco is aggressive and will attack the player on sight, even if their level is much lower than the player.",
+      "Tocotoco can be found in the Twilight Dunes, the southern and central regions of the Desiccated Dunes, in Southern Sandbar, and Gobfin's Turf. It typically spawns in groups of 3 to 4 individuals."
+    ],
+    "regions": [
+      "Bamboo Groves",
+      "Desiccated Dunes",
+      "Gobfin''s Turf",
+      "Sakurajima - Southern Sandbar",
+      "Twilight Dunes"
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1314
+  },
+  "univolt": {
+    "prose": [
+      "Univolt can be found in the northwestern regions of the Bamboo Groves. It can spawn alone or in a pair.",
+      "Univolt has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Sea Breeze Archipelago"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sea Breeze Archipelago",
+        "level": 31,
+        "x": 172,
+        "y": -418
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 238
+  },
+  "univolt-cryst": {
+    "prose": [
+      "Univolt Cryst is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found at the Boreal Summit in the World Tree.",
+      "There is no Alpha Univolt Cryst as an overworld boss."
+    ]
+  },
+  "gobfin": {
+    "prose": [
+      "Gobfin is aggressive and will attack the player on sight.",
+      "Gobfin appears in the aptly-named Gobfin's Turf near the southern edge of the Verdant Brook, as well as in the Foot of the Volcano and the Kelpsea Hill. It typically spawns in groups of 2 to 4 individuals."
+    ],
+    "regions": ["Gobfin''s Turf", "Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 56
+  },
+  "gobfin-ignis": {
+    "prose": [
+      "Gobfin Ignis is aggressive and will attack the player on sight.",
+      "Gobfin Ignis can be found in the western and northwestern areas of Mount Obsidian."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 152
+  },
+  "loupmoon": {
+    "prose": [
+      "Loupmoon is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Loupmoon can be found in the Bamboo Groves, the Crescent Moon Shore, Gobfin's Turf, the Verdant Brook, and the Scars of War at night. It typically spawns in pairs."
+    ],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 944
+  },
+  "loupmoon-cryst": {
+    "prose": [
+      "Loupmoon Cryst is aggressive and will attack the player on sight.",
+      "Loupmoon Cryst can be found in the Frozen Coral Hill on Feybreak."
+    ],
+    "regions": [
+      "Astral Mountains",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "The Oculus Gate, Tower in Sight"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Ashland",
+        "level": 54,
+        "x": -946,
+        "y": -824
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -194,
+        "y": 246
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 642
+  },
+  "cawgnito": {
+    "regions": [
+      "Dancing Sakura Shrine",
+      "Desiccated Dunes",
+      "Feybreak Island",
+      "Scorched Hill"
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1097
+  },
+  "arsox": {
+    "prose": [
+      "Arsox is aggressive and will attack the player on sight.",
+      "Arsox can be found in the northwestern regions of the Bamboo Groves, the Scars of War, and the southern reaches of the Astral Mountains."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 492
+  },
+  "muffly": {
+    "prose": [
+      "Muffly can be found in the Moonless Shore and the southwest part of Sunreach."
+    ],
+    "regions": ["Moonless Shore", "Sunreach"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "bristla": {
+    "prose": [
+      "Bristla can be found in the Moonless Shore.",
+      "Bristla is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 702
+  },
+  "cinnamoth": {
+    "prose": [
+      "Cinnamoth is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Cinnamoth can be found in the Crescent Moon Shore."
+    ],
+    "regions": ["Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 702
+  },
+  "puffolt": {
+    "prose": [
+      "Puffolt is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found in the Bamboo Groves and the northern part of the Crystalline Archipelago on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "elphidran": {
+    "prose": [
+      "Elphidran can be found in the No. 1 Wildlife Sanctuary.",
+      "Elphidran is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Moonless Shore", "No. 1 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Crescent Moon Shore",
+        "level": 30,
+        "x": 44,
+        "y": -284
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -340,
+        "y": 131
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 22
+  },
+  "elphidran-aqua": {
+    "prose": [
+      "Elphidran Aqua can be found in the Frostbound Mountains and Dancing Sakura Shrine."
+    ],
+    "regions": ["Dancing Sakura Shrine", "Frostbound Mountains"]
+  },
+  "vanwyrm": {
+    "prose": [
+      "Vanwyrm can be found in the Whisperwind Hills, the Ascetic Falls, on Mount Obsidian, and on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau. It typically spawns in pairs.",
+      "Vanwyrm is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Bamboo Groves",
+      "Deserted Ash Plateau",
+      "Feybreak Island",
+      "Mount Obsidian",
+      "Scorched Ashland",
+      "Withered Seaside"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 362,
+        "y": -178
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1742
+  },
+  "vanwyrm-cryst": {
+    "prose": [
+      "Vanwyrm Cryst is primarily found in the Astral Mountains and on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau at night. It can also be found in the Frostbound Mountains at both day and night.",
+      "Vanwyrm Cryst is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Astral Mountains",
+      "Feybreak Island",
+      "Frostbound Mountains",
+      "Frozen Coral Hill"
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 777
+  },
+  "felbat": {
+    "prose": [
+      "Felbat is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Felbat can be found in the Frozen Coral Hill.",
+      "It can be hatched from Large Dark Eggs found on Feybreak Island."
+    ],
+    "regions": ["Feybreak Island", "Frozen Coral Hill", "Isle of Silence"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "vaelet": {
+    "prose": [
+      "Vaelet can be found in the No. 1 Wildlife Sanctuary as a rare spawn.",
+      "Vaelet is aggressive and will attack the player on sight."
+    ],
+    "regions": ["No. 1 Wildlife Sanctuary", "Verdant Brook"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Verdant Brook",
+        "level": 38,
+        "x": 129,
+        "y": -50
+      }
+    ],
+    "spawns": 22
+  },
+  "beegarde": {
+    "prose": [
+      "Beegarde can be found in the Verdant Brook. It typically spawns in groups of 3 to 4 individuals.",
+      "Beegarde is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Verdant Brook"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 410
+  },
+  "elizabee": {
+    "prose": [
+      "Elizabee can be found in the Verdant Brook. It will always spawn alongside a small group of Beegarde.",
+      "Elizabee is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Moonless Shore", "Verdant Brook"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Verdant Stream",
+        "level": 39,
+        "x": 164,
+        "y": -84
+      }
+    ],
+    "spawns": 408
+  },
+  "lovander": {
+    "prose": [
+      "Lovander can be found in the Twilight Dunes and the Desiccated Dunes at night.",
+      "Lovander is aggressive will attack the player on sight. It is also nocturnal and doesn't sleep at night."
+    ],
+    "regions": ["Desiccated Dunes", "Twilight Dunes"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -155,
+        "y": -425,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 833
+  },
+  "grintale": {
+    "prose": [
+      "Grintale is primarily found in the Moonless Shore, the Verdant Brook, and the Scars of War at night. It can also be found in the Mushroom Wetlands on Sakurajima at both day and night.",
+      "Grintale is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Marsh Island",
+      "Moonless Shore",
+      "Sakurajima - Mushroom Wetlands"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Marsh Island",
+        "level": 17,
+        "x": 335,
+        "y": -245
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 669
+  },
+  "tarantriss": {
+    "prose": [
+      "Tarantriss has a neutral temperament, only attacking if attacked first or if the player attacks another Tarantriss. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Tarantriss can be found in the Verdant Brook."
+    ],
+    "regions": ["Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 57,
+        "x": -1341,
+        "y": -1429
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -62,
+        "y": -298
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Feybreak Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1392
+  },
+  "polapup": {
+    "prose": [
+      "Polapup can be found on the Isle of the Glacial Core. It typically spawns in groups of 2 to 4 individuals.",
+      "Polapup can also be fished up around the Frostbound Mountains and the Frozen Coral Hill on Feybreak.",
+      "Polapup is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Astral Mountains"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 254
+  },
+  "polapup-terra": {
+    "prose": [
+      "Polapup Terra flees upon spotting a player. It fights back when attacked.",
+      "It can be found exclusively in the Suncrest Islet."
+    ]
+  },
+  "leezpunk": {
+    "regions": ["Desiccated Dunes", "Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 962
+  },
+  "leezpunk-ignis": {
+    "prose": [
+      "Leezpunk Ignis is aggressive and will attack the player on sight.",
+      "Leezpunk Ignis is primarily found around the western side of Mount Obsidian, though it can also be found in the Scars of War at night."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 184
+  },
+  "gorirat": {
+    "prose": [
+      "Gorirat is aggressive and will attack the player on sight.",
+      "Gorirat can be found in the Verdant Brook and around the Scars of War. It typically spawns in groups of 2 to 3 individuals."
+    ],
+    "regions": ["Verdant Brook"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -275,
+        "y": -553
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 408
+  },
+  "gorirat-terra": {
+    "prose": [
+      "Gorirat Terra is aggressive and will attack the player on sight.",
+      "Gorirat Terra is found on Sakurajima in the Southern Sandbar. It typically spawns in groups of 2 to 3 individuals."
+    ],
+    "regions": ["Sakurajima - Southern Sandbar"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 100
+  },
+  "surfent": {
+    "prose": [
+      "Surfent is aggressive and will attack the player on sight.",
+      "Surfent is primarily found in the freshwater areas of the Bamboo Groves, the Verdant Brook, and Desiccated Dunes. It can also be found in Gobfin's Turf at night. It typically spawns in pairs.",
+      "It can also be fished in the inner water bodies of Verdant Brook, in the sea between Scars of War and Marsh Island, as well as a single spot in the Abandoned Ruins."
+    ],
+    "regions": ["Bamboo Groves", "Desiccated Dunes", "Gobfin''s Turf"],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 218
+  },
+  "surfent-terra": {
+    "prose": [
+      "Surfent Terra is aggressive and will attack the player on sight.",
+      "Surfent Terra is primarily found in the northern regions of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
+      "It can also be fished up from Desert Island's freshwater bodies, as well as in Oasis Isle and Eternal Summer Isle."
+    ],
+    "regions": [
+      "Deserted Ash Plateau",
+      "Desiccated Dunes",
+      "Feybreak Island",
+      "Scorched Ashland"
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1464
+  },
+  "robinquill": {
+    "prose": [
+      "Robinquill is aggressive and will attack the player on sight.",
+      "Robinquill can be found in the Crescent Moon Shore and the Ancient Ritual Site. It typically spawns in groups of 2 to 3 individuals."
+    ],
+    "regions": ["Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 702
+  },
+  "robinquill-terra": {
+    "prose": [
+      "Robinquill Terra is aggressive and will attack the player on sight.",
+      "Robinquill Terra can be found in the southern and central regions of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1000
+  },
+  "flopie": {
+    "prose": [
+      "Flopie is passive and will flee when it sees the player, though it will fight back when attacked.",
+      "Flopie can be found in the Moonless Shore and in the Dancing Sakura Shrine on Sakurajima."
+    ],
+    "regions": ["Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 804
+  },
+  "wixen": {
+    "prose": [
+      "Wixen has a neutral temperament, only attacking if attacked first.",
+      "Wixen can be found in the Scars of War and in the northern and eastern areas of Mount Obsidian."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 396
+  },
+  "wixen-noct": {
+    "prose": [
+      "Wixen Noct has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Wixen Noct can be found on Sakurajima in the Southern Sandbar, the Northern Rock Field, and the grassy area west of the Dancing Sakura Shrine at night."
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 153
+  },
+  "katress": {
+    "prose": [
+      "Katress can be found in the Crescent Moon Shore, the Verdant Brook, and the Scars of War at night. During the day, it can be found in the Land of Absolute Zero and the Foot of the Astral Mountains.",
+      "Katress has a neutral temperament, only attacking if attacked first or if the player attacks another Katress. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Astral Mountains", "Marsh Island", "Moonless Shore"],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 555
+  },
+  "katress-ignis": {
+    "prose": [
+      "Katress Ignis has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Katress Ignis cannot be found as a regular encounter in the overworld."
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "helzephyr": {
+    "prose": [
+      "Helzephyr can be found in the Crescent Moon Shore, the Verdant Brook, and the Scars of War at night.",
+      "Helzephyr is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Feybreak Island",
+      "Gobfin''s Turf",
+      "Moonless Shore",
+      "Scorched Hill",
+      "Verdant Brook"
+    ],
+    "spawns": 583
+  },
+  "helzephyr-lux": {
+    "prose": [
+      "Helzephyr Lux can be found in the Northern Rock Field on Sakurajima.",
+      "Helzephyr Lux is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Sakurajima - Northern Rock Field"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 124
+  },
+  "elgrove": {
+    "prose": [
+      "Elgrove is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found in the Bamboo Groves and the No. 1 Wildlife Sanctuary."
+    ],
+    "regions": ["No. 1 Wildlife Sanctuary"]
+  },
+  "elgrove-cryst": {
+    "prose": [
+      "Elgrove Cryst is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found at the Boreal Summit in the World Tree."
+    ]
+  },
+  "lunaris": {
+    "regions": [
+      "Astral Mountains",
+      "Mount Obsidian",
+      "No. 1 Wildlife Sanctuary",
+      "Sea Breeze Archipelago"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sea Breeze Archipelago",
+        "level": 32,
+        "x": -147,
+        "y": -659
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "fenglope": {
+    "prose": [
+      "Fenglope is has a neutral temperament, only attacking if attacked first.",
+      "Fenglope can be found exclusively in the No. 3 Wildlife Sanctuary."
+    ],
+    "regions": ["Bamboo Groves", "No. 3 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Bamboo Groves",
+        "level": 25,
+        "x": -258,
+        "y": -458
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 252
+  },
+  "fenglope-lux": {
+    "prose": [
+      "Fenglope Lux cannot be found in the overworld as a regular spawn."
+    ],
+    "regions": ["Feybreak Island", "Scorched Hill"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Stone Pillar Cave",
+        "level": 57,
+        "x": -834,
+        "y": -1116
+      }
+    ]
+  },
+  "dinossom": {
+    "prose": [
+      "Dinossom is primarily found in low-level areas like the Flying Fish Coast, the Eastern Wild Island, and Ice Wind Island. It can also be found near oases in the Desiccated Dunes and at the Dancing Sakura Shrine on Sakurajima. It can spawn either alone or in a pair.",
+      "Dinossom has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": [
+      "Dancing Sakura Shrine",
+      "Desiccated Dunes",
+      "Eastern Wild Island",
+      "Isle of Murmurs",
+      "Sea Breeze Archipelago"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 49,
+        "y": 36
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Hillside Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Isolated Island Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1374
+  },
+  "dinossom-lux": {
+    "prose": [
+      "Dinossom Lux can be found throughout most of the Desiccated Dunes. It can spawn either alone or in a pair.",
+      "Dinossom Lux has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Dunes",
+        "level": 47,
+        "x": 350,
+        "y": 538
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1000
+  },
+  "bushi": {
+    "prose": [
+      "Bushi is aggressive and will attack the player on sight.",
+      "Bushi can be found in the southern reaches of Mount Obsidian, the No. 3 Wildlife Sanctuary, Sakurajima, Astral Mountains, and Dessicated Desert."
+    ],
+    "regions": [
+      "Astral Mountains",
+      "Dancing Sakura Shrine",
+      "Desiccated Dunes",
+      "Mount Obsidian",
+      "No. 3 Wildlife Sanctuary"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Bamboo Groves",
+        "level": 23,
+        "x": -116,
+        "y": -491
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 262
+  },
+  "bushi-noct": {
+    "prose": [
+      "Bushi Noct can be found in and around the cherry blossom forest on Sakurajima at night, and throuhought all of Feybreak Island during the day.",
+      "Bushi Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Dancing Sakura Shrine",
+      "Deserted Ash Plateau",
+      "Emberstone Plateau",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Loess Plains",
+      "Scorched Ashland",
+      "Scorched Hill",
+      "Withered Seaside"
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 97
+  },
+  "munchill": {
+    "prose": [
+      "Munchill can be found on the Frostbitten Isle.",
+      "Munchill can also be fished up around the Frostbound Mountains, the Isle of the Glacial Core, and the Frozen Coral Hill on Feybreak.",
+      "Munchill has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Astral Mountains", "Frostbound Mountains"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 252
+  },
+  "mammorest": {
+    "prose": [
+      "Mammorest is primarily found in lower-level areas like the Windswept Hills, Marsh Island and the Forgotten Island. It can also be found in the northwestern regions of the Bamboo Groves and in the southern reaches of the Astral Mountains. It can spawn either alone or in a pair.",
+      "Mammorest has a neutral temperament, only attacking if attacked first or if the player attacks another Mammorest."
+    ],
+    "regions": [
+      "Isle of Silence",
+      "Marsh Island",
+      "Sea Breeze Archipelago",
+      "Windswept Hills"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Windswept Hills",
+        "level": 38,
+        "x": 189,
+        "y": -478
+      }
+    ],
+    "spawns": 1942
+  },
+  "mammorest-cryst": {
+    "prose": [
+      "Mammorest Cryst can be found in the frozen areas of the Astral Mountains. It can spawn either alone or in a pair.",
+      "Mammorest Cryst has a neutral temperament, only attacking if attacked first or if the player attacks another Mammorest Cryst."
+    ],
+    "regions": ["Astral Mountains"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 410
+  },
+  "finsider": {
+    "prose": [
+      "Finsider can be found as a regular encounter on the Sunlit Isle and Eternal Summer Isle. It typically spawns in groups of 2 to 3 individuals.",
+      "Finsider can also be fished up around the Desiccated Dunes.",
+      "Finsider is aggressive and will attack the player on sight."
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 760
+  },
+  "finsider-ignis": {
+    "prose": [
+      "Finsider Ignis can be fished up on the Phantom Isle and throughout most of Feybreak."
+    ],
+    "spawns": 440
+  },
+  "petallia": {
+    "prose": [
+      "Petallia can be found in the No. 1 Wildlife Sanctuary.",
+      "Petallia is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Crescent Moon Shore",
+        "level": 28,
+        "x": -19,
+        "y": -264
+      }
+    ],
+    "spawns": 22
+  },
+  "petallia-ignis": {
+    "prose": [
+      "Petallia Ignis is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Petallia Ignis can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found at the Whimsical Wisteria Grove in the World Tree."
+    ]
+  },
+  "leafan": {
+    "prose": [
+      "Leafan is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Leafan can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found in the Mossanda Forest, and the Enchanted Firmament, an area of Sunreach."
+    ]
+  },
+  "incineram": {
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon and as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 388
+  },
+  "incineram-noct": {
+    "prose": [
+      "Incineram Noct can be found in the No. 2 Wildlife Sanctuary and No. 3 Wildlife Sanctuary.",
+      "Incineram Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["No. 2 Wildlife Sanctuary"],
+    "spawns": 38
+  },
+  "dazzi": {
+    "prose": [
+      "Dazzi can be found throughout most of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
+      "Dazzi is passive and will flee when it sees the player, through it will fight back when attacked."
+    ],
+    "regions": ["Twilight Dunes"],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 1000
+  },
+  "dazzi-noct": {
+    "prose": [
+      "Dazzi Noct can be found in the Emberstone Plateau on Feybreak. It typically spawns in groups of 2 to 3 individuals.",
+      "Dazzi Noct is passive and will flee when it sees the player, through it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Feybreak Island", "Scorched Hill", "Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 53,
+        "x": -1343,
+        "y": -1579
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 40
+  },
+  "pyrin": {
+    "prose": [
+      "Pyrin can be found in the northern and eastern regions of Mount Obsidian.",
+      "Pyrin is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 332
+  },
+  "pyrin-noct": {
+    "prose": [
+      "Pyrin Noct can be found on Mount Obsidian at night.",
+      "Pyrin Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Mount Obsidian", "No. 2 Wildlife Sanctuary"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 360
+  },
+  "relaxaurus": {
+    "prose": [
+      "Relaxaurus can be found in the southeastern portion of the Bamboo Groves and in the Mushroom Wetlands on Sakurajima. It typically spawns in pairs.",
+      "Relaxaurus is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Bamboo Groves"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -24,
+        "y": -348
+      }
+    ],
+    "spawns": 244
+  },
+  "relaxaurus-lux": {
+    "prose": [
+      "Relaxaurus Lux is only found in the wild in specific locations around the world.",
+      "This Pal is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Bamboo Groves"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Bamboo Groves",
+        "level": 31,
+        "x": -203,
+        "y": -346
+      }
+    ]
+  },
+  "foxcicle": {
+    "prose": [
+      "Foxcicle can be found in the Frostbound Mountains.",
+      "Foxcicle is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Astral Mountains", "Frostbound Mountains"],
+    "spawns": 34
+  },
+  "beakon": {
+    "prose": [
+      "Beakon can be found in the northern areas of the Desiccated Dunes and in the Verdant Brook. It can spawn either alone or in a pair.",
+      "Beakon is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Desiccated Dunes", "Sakurajima - Northern Rock Field"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Verdant Brook",
+        "level": 37,
+        "x": 95,
+        "y": 23
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 576
+  },
+  "beakon-cryst": {
+    "prose": [
+      "Beakon Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found at the Boreal Summit in the World Tree."
+    ]
+  },
+  "ghangler": {
+    "prose": [
+      "Ghangler can be found as a regular encounter on Phantom Isle. It typically spawns in groups of 2 to 3 individuals.",
+      "Ghangler can also be fished up around Sakurajima at night.",
+      "Ghangler is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night"
+    ],
+    "regions": [
+      "Deserted Ash Plateau",
+      "Feybreak Island",
+      "Mount Obsidian",
+      "Scorched Ashland"
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon."
+      },
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 148
+  },
+  "ghangler-ignis": {
+    "prose": [
+      "Ghangler Ignis can be fished up throughout most of Feybreak and near the No. 3 Wildlife Sanctuary"
+    ],
+    "spawns": 440
+  },
+  "rayhound": {
+    "prose": [
+      "Rayhound can be found throughout most of the Desiccated Dunes. It typically spawns in pairs.",
+      "Rayhound is aggressive and will attack the player on sight."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Feybreak Island",
+      "Loess Plains",
+      "Verdant Brook"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 246,
+        "y": -105
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1308
+  },
+  "rayhound-cryst": {
+    "prose": [
+      "Rayhound Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found at the Boreal Summit in the World Tree."
+    ],
+    "regions": ["Astral Mountains"]
+  },
+  "menasting": {
+    "prose": [
+      "Menasting is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Menasting is found all over the Dessicated Desert."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Dunes",
+        "level": 44,
+        "x": 515,
+        "y": 102
+      }
+    ],
+    "spawns": 134
+  },
+  "menasting-terra": {
+    "prose": [
+      "Menasting Terra is aggressive and will attack the player on sight.",
+      "Menasting Terra cannot be found in the overworld as a regular spawn."
+    ],
+    "regions": ["No. 3 Wildlife Sanctuary", "Sakurajima Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sakurajima - Northern Rock Field",
+        "level": 54,
+        "x": -575,
+        "y": 332
+      }
+    ]
+  },
+  "needoll": {
+    "prose": [
+      "Needoll is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Needoll can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It can be found in the Desiccated Dunes and Scouring Islet."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scouring Islet",
+        "level": 40,
+        "x": 433,
+        "y": -711
+      }
+    ]
+  },
+  "needoll-noct": {
+    "prose": [
+      "Needoll Noct is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Needoll Noct can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found exclusively in the Desiccated Dunes at night."
+    ]
+  },
+  "reindrix": {
+    "regions": ["Astral Mountains", "Frostbound Mountains"],
+    "spawns": 224
+  },
+  "mossanda": {
+    "prose": [
+      "Mossanda is aggressive and will attack the player on sight.",
+      "Mossanda can be found in the Verdant Brook. It typically spawns alone or in a pair."
+    ],
+    "regions": ["Verdant Brook"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -318,
+        "y": -162
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Mountain Stream Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 408
+  },
+  "mossanda-lux": {
+    "prose": [
+      "Mossanda Lux is aggressive and will attack the player on sight.",
+      "Mossanda Lux cannot be found as a regular overworld encounter."
+    ],
+    "regions": ["Eastern Wild Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Eastern Wild Island",
+        "level": 31,
+        "x": 448,
+        "y": -181
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ]
+  },
+  "chillet": {
+    "prose": [
+      "Chillet can be found in the southern reaches of the Astral Mountains.",
+      "Chillet is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Windswept Hills"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Windswept Hills",
+        "level": 11,
+        "x": 172,
+        "y": -418
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 224
+  },
+  "chillet-ignis": {
+    "prose": [
+      "Chillet Ignis can be found on Sakurajima in the cherry blossom forest surrounding the Dancing Sakura Shrine.",
+      "Chillet Ignis is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 102
+  },
+  "ragnahawk": {
+    "prose": [
+      "Ragnahawk is aggressive and will attack the player on sight.",
+      "Ragnahawk is found primarily in the southern, western, and northwestern regions of Mount Obsidian. It can also be found in the Emberstone Plateau on Feybreak."
+    ],
+    "regions": ["Emberstone Plateau", "Feybreak Island", "Mount Obsidian"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 341,
+        "y": -70
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 426
+  },
+  "moldron": {
+    "prose": [
+      "Moldron attacks the player on sight  It is found in certain areas of Mount Obsidian and the Bicornis Islet."
+    ],
+    "regions": ["Mount Obsidian"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Bicornis Islet",
+        "level": 70,
+        "x": -1126,
+        "y": -1981
+      }
+    ]
+  },
+  "moldron-cryst": {
+    "prose": [
+      "Moldron Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "palumba": {
+    "prose": [
+      "Palumba can be found on Eternal Summer Isle and Oasis Isle, and near oases in the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
+      "Palumba is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 28
+  },
+  "digtoise": {
+    "prose": [
+      "Digtoise is aggressive and will attack the player on sight.",
+      "Digtoise can be found in the Twilight Dunes and the northern regions of the Desiccated Dunes. It typically spawns alone or in pairs."
+    ],
+    "regions": ["Desiccated Dunes", "Twilight Dunes"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -596,
+        "y": -742
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cavern of the Dunes",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 666
+  },
+  "broncherry": {
+    "prose": [
+      "Broncherry can be found in the northwestern and southeastern regions of the Bamboo Groves.",
+      "Broncherry has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Sea Breeze Archipelago"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sea Breeze Archipelago",
+        "level": 23,
+        "x": -222,
+        "y": -669
+      }
+    ],
+    "spawns": 374
+  },
+  "broncherry-aqua": {
+    "prose": [
+      "Broncherry Aqua can be found in the northeastern region of Verdant Brook, around 286, -32.",
+      "Broncherry Aqua has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Bamboo Groves"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Bamboo Groves",
+        "level": 30,
+        "x": -167,
+        "y": -448
+      }
+    ]
+  },
+  "dumud": {
+    "prose": [
+      "Dumud has a neutral temperament, only attacking if attacked first or if the player attacks another Dumud.",
+      "Dumud can be found in the Twilight Dunes and in the Dry Sandy Beach. It can also be fished up from the freshwater bodies of Mount Obsidian."
+    ],
+    "regions": ["Isle of Murmurs", "Mount Obsidian", "Twilight Dunes"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Ice Wind Island",
+        "level": 14,
+        "x": -310,
+        "y": 4
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Ravine Grotto",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 548
+  },
+  "dumud-gild": {
+    "prose": [
+      "Dumud Gild has a neutral temperament, only attacking if attacked first or if the player attacks another Dumud Gild.",
+      "Dumud Gild can be found rarely along the coasts of Mount Obsidian and on Sakurajima in the Northern Rock Field. It can also be fished from the freshwater of the Desiccated Desert, as well as the ocean around Eternal Summer Isle, Oasis Isle, the No. 3 Wildlife Sanctuary, and the Sandstone Gate Islet."
+    ],
+    "regions": ["Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the Dungeon."
+      }
+    ],
+    "spawns": 136
+  },
+  "braloha": {
+    "prose": [
+      "Braloha can be found on Oasis Isle. It typically spawns in groups of 2 to 4 individuals.",
+      "Braloha has a neutral temperament, only attacking if attacked first or if the player attacks another Braloha."
+    ],
+    "regions": ["Desiccated Dunes"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 14
+  },
+  "kitsun": {
+    "prose": [
+      "Kitsun can be found in the Frostbound Mountains at night.",
+      "Kitsun has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["No. 2 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -22,
+        "y": 166,
+        "note": "Appears at night only."
+      }
+    ],
+    "spawns": 17
+  },
+  "kitsun-noct": {
+    "prose": [
+      "Kitsun Noct is only found in the wild as an Alpha Pal.",
+      "Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Feybreak Island", "Scorched Hill"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 57,
+        "x": -1036,
+        "y": -1145
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "blazehowl": {
+    "prose": [
+      "Blazehowl can be found in the western and northwestern areas of Mount Obsidian as well as in the Emberstone Plateau on Feybreak.",
+      "Blazehowl is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Emberstone Plateau", "Feybreak Island", "Mount Obsidian"],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 190
+  },
+  "blazehowl-noct": {
+    "prose": [
+      "Blazehowl Noct can be found on Mount Obsidian and in the Emberstone Plateau at night, as well as in the Frozen Coral Hill on Feybreak.",
+      "Blazehowl Noct is aggressive and will attack the player on sight. Addtionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Mount Obsidian",
+      "No. 2 Wildlife Sanctuary"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -273,
+        "y": 477,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1019
+  },
+  "warsect": {
+    "prose": [
+      "Warsect can be found in the No. 2 Wildlife Sanctuary.",
+      "Warsect is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Gobfin's Turf",
+        "level": 30,
+        "x": 160,
+        "y": -225
+      }
+    ],
+    "spawns": 22
+  },
+  "warsect-terra": {
+    "prose": [
+      "Warsect Terra can be found in the Loess Plains on Feybreak.",
+      "Warsect Terra is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Crystalized Ancient Tree", "Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Loess Plains",
+        "level": 59,
+        "x": -1021,
+        "y": -1448
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 308
+  },
+  "frostplume": {
+    "prose": [
+      "Frostplume is aggressive and will attack the player on sight.",
+      "Frostplume can be found in the Crystalline Archipelago on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 12
+  },
+  "majex": {
+    "prose": [
+      "Majex attacks the player on sight. It is found in the No. 2 Wildlife Sanctuary and Corroded Hollow."
+    ],
+    "regions": ["No. 2 Wildlife Sanctuary"]
+  },
+  "sibelyx": {
+    "prose": [
+      "Sibelyx can be found in the frozen areas of the Astral Mountains. It typically spawns in pairs.",
+      "Sibelyx is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Astral Mountains", "Frostbound Mountains"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sealed Realm of the Pristine",
+        "level": 40,
+        "x": 252,
+        "y": 69
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 410
+  },
+  "sibelyx-primo": {
+    "prose": [
+      "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
+    ],
+    "regions": ["Gilded City"]
+  },
+  "maraith": {
+    "prose": [
+      "Maraith can be found in the snowy areas of the Astral Mountains at night.",
+      "Maraith is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Astral Mountains"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 166,
+        "y": -50,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 359
+  },
+  "shroomer": {
+    "prose": [
+      "Shroomer can be found on Sakurajima in the Mushroom Wetlands. It can spawn either alone or in a pair.",
+      "Shroomer is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Sakurajima - Mushroom Wetlands"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -483,
+        "y": 168
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 114
+  },
+  "shroomer-noct": {
+    "prose": [
+      "Shroomer Noct is found in Mushroom Wetlands on Sakurajima, as well as in the Frozen Coral Hill on Feybreak.",
+      "Shroomer Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Sakurajima - Mushroom Wetlands"
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 697
+  },
+  "icelyn": {
+    "prose": [
+      "Icelyn can be found on the Frostbitten Isle.",
+      "Icelyn is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Astral Mountains"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 12
+  },
+  "gildra": {
+    "prose": [
+      "Gildra is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found in the Desiccated Dunes."
+    ]
+  },
+  "jormuntide": {
+    "prose": [
+      "Jormuntide is aggressive and will attack the player on sight.",
+      "Jormuntide is only found in the wild as an Alpha Pal."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scars of War",
+        "level": 55,
+        "x": 350,
+        "y": -85
+      }
+    ]
+  },
+  "jormuntide-ignis": {
+    "prose": [
+      "Jormuntide Ignis is aggressive and will attack the player on sight.",
+      "Jormuntide Ignis can be found in the Emberstone Plateau on Feybreak."
+    ],
+    "regions": ["Emberstone Plateau", "Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -457,
+        "y": -447
+      }
+    ],
+    "spawns": 60
+  },
+  "suzaku": {
+    "prose": [
+      "Suzaku is aggressive and will attack the player on sight.",
+      "Suzaku can be found throughout the southern and central areas of the Desiccated Desert."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Desert",
+        "level": 45,
+        "x": 404,
+        "y": 256
+      }
+    ],
+    "spawns": 1000
+  },
+  "suzaku-aqua": {
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "dazemu": {
+    "prose": [
+      "Dazemu can be found in the Twilight Dunes and in the Southern Sandbar on Sakurajima. It typically spawns in groups of 2 to 3 individuals.",
+      "Dazemu is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Desiccated Dunes",
+      "Sakurajima - Southern Sandbar",
+      "Twilight Dunes"
+    ],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 375,
+        "y": 315
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 314
+  },
+  "quivern": {
+    "regions": ["Astral Mountains", "Dancing Sakura Shrine", "Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Deep Bamboo Thicket",
+        "level": 23,
+        "x": -256,
+        "y": -131
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 104
+  },
+  "quivern-botan": {
+    "prose": [
+      "Quivern Botan has a neutral temperament, only attacking if attacked first or if the player attacks another Quivern Botan.",
+      "Quivern Botan can be found on Sakurajima in the grassy area west of the Dancing Sakura Shrine."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 82
+  },
+  "lullu": {
+    "prose": [
+      "Lullu can be found in the grassy area next to the cherry blossom forest on Sakurajima.",
+      "Lullu is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 82
+  },
+  "kikit": {
+    "prose": [
+      "Kikit can be found on Sakurajima in the Southern Sandbar and the Northern Rock Field.",
+      "Kikit is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Sakurajima - Northern Rock Field",
+      "Sakurajima - Southern Sandbar"
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 224
+  },
+  "yakumo": {
+    "prose": [
+      "Yakumo can be found in the cherry blossom forest on Sakurajima. It can spawn either alone or in a pair.",
+      "Yakumo is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 102
+  },
+  "skutlass": {
+    "prose": [
+      "Skutlass is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found along the coast of the Twilight Dunes and scattered around Sunreach."
+    ],
+    "regions": ["Sunreach"]
+  },
+  "skutlass-ignis": {
+    "prose": [
+      "Skutlass Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It can be found exclusively at the Flamepulse Islet."
+    ]
+  },
+  "reptyro": {
+    "prose": [
+      "Reptyro can be found in the northern and eastern regions of Mount Obsidian.",
+      "Reptyro is aggressive and will attack the player on sight."
+    ],
+    "dungeons": [
+      {
+        "name": "Volcanic Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 332
+  },
+  "reptyro-cryst": {
+    "regions": ["Astral Mountains", "Feybreak Island", "Frozen Coral Hill"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 182,
+        "y": 94
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "starryon": {
+    "prose": [
+      "Starryon can be found on Feybreak in the Scorched Hill and Frozen Coral Hill at night.",
+      "Starryon is aggresive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Emberstone Plateau",
+      "Feybreak Island",
+      "Loess Plains"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Ashland",
+        "level": 57,
+        "x": -756,
+        "y": -940
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 20,
+        "y": -126,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      },
+      {
+        "name": "Sealed Realm of Terraria",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 1117
+  },
+  "starryon-primo": {
+    "prose": [
+      "Starryon Primo is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found at the Whimsical Wisteria Grove in the World Tree."
+    ]
+  },
+  "pierdon": {
+    "prose": [
+      "Pierdon is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It can be found in the Flamepulse Islet."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Flamepulse Islet",
+        "level": 50,
+        "x": 819,
+        "y": 467
+      }
+    ]
+  },
+  "pierdon-cryst": {
+    "prose": [
+      "Pierdon Cryst is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It can be found in the northern part of the Crystalline Archipelago on Sunreach."
+    ],
+    "regions": ["Sunreach"]
+  },
+  "cryolinx": {
+    "prose": [
+      "Cryolinx can be found in the frozen areas of the Astral Mountains. It typically spawns in pairs.",
+      "Cryolinx is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Astral Mountains"],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 410
+  },
+  "cryolinx-terra": {
+    "prose": [
+      "Cryolinx Terra can be found on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau. It typically spawns in pairs.",
+      "Cryolinx Terra is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Deserted Ash Plateau", "Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 58,
+        "x": -1165,
+        "y": -1557
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 264,
+        "y": 363
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 886
+  },
+  "snugloo": {
+    "prose": [
+      "Snugloo is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Snugloo can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found exclusively in the Frostbound Mountains."
+    ],
+    "regions": ["Frostbound Mountains"]
+  },
+  "wumpo": {
+    "prose": [
+      "Wumpo has a neutral temperament, only attacking if attacked first.",
+      "Wumpo can be found throughout the frozen areas of the Astral Mountains. It can spawn either alone or in a pair."
+    ],
+    "regions": ["Astral Mountains"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -294,
+        "y": 381
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 410
+  },
+  "wumpo-botan": {
+    "prose": [
+      "Wumpo Botan has a neutral temperament, only attacking if attacked first.",
+      "Wumpo Botan can be found in the No. 2 Wildlife Sanctuary."
+    ],
+    "regions": ["Dancing Sakura Shrine", "Eastern Wild Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Eastern Wild Island",
+        "level": 38,
+        "x": 449,
+        "y": -51
+      }
+    ],
+    "spawns": 22
+  },
+  "sootseer": {
+    "prose": [
+      "Sootseer can be found in the Secluded Cemetary on Sakurajima at night.",
+      "Sootseer is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": [
+      "Dancing Sakura Shrine",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "No. 2 Wildlife Sanctuary"
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 5
+  },
+  "carnibora": {
+    "prose": [
+      "Carnibora is highly aggressive, and attacks players on sight. It is found exclusively on the No. 3 Wildlife Sanctuary."
+    ],
+    "regions": ["No. 3 Wildlife Sanctuary"]
+  },
+  "blazamut": {
+    "prose": [
+      "Blazamut is aggressive and will attack the player on sight.",
+      "Blazamut can be found on the Flamepulse Islet."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Mount Obsidian",
+        "level": 49,
+        "x": -442,
+        "y": -561
+      }
+    ],
+    "spawns": 16
+  },
+  "blazamut-ryu": {
+    "prose": [
+      "Blazamut Ryu is aggressive and will attack the player on sight.",
+      "Blazamut Ryu cannot be found as a regular spawn in the overworld."
+    ],
+    "raid": "Blazamut Ryu can be summoned as a Raid Boss in a Summoning Altar using a Blazamut Ryu Slab or a Blazamut Ryu (Ultra) Slab. Once defeated, one of its eggs will be added to the players' inventory."
+  },
+  "dualith": {
+    "prose": [
+      "Dualith is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found in the Foot of the Astral Mountains, and The Verdant Rootpath in the World Tree."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Isle of Circular Ruins",
+        "level": 55,
+        "x": 910,
+        "y": -99
+      }
+    ]
+  },
+  "dualith-noct": {
+    "prose": [
+      "Dualith Noct is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found exclusively in the Forbidden Laboratory."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Glacial Memento Islet",
+        "level": 70,
+        "x": -1694,
+        "y": -948
+      }
+    ]
+  },
+  "anubis": {
+    "prose": [
+      "Anubis is aggressive and will attack the player on sight.",
+      "Anubis can be found in the Sandstone Gate Islet alongside a Sekhmet."
+    ],
+    "regions": ["Twilight Dunes"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Twilight Dunes",
+        "level": 55,
+        "x": -134,
+        "y": -94
+      }
+    ]
+  },
+  "sekhmet": {},
+  "prixter": {
+    "prose": [
+      "Prixter can be found in the Northern Rock Field on Sakurajima. It typically spawns in groups of 2 to 3 individuals.",
+      "Prixter is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Sakurajima - Northern Rock Field"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 496,
+        "y": 212
+      }
+    ],
+    "spawns": 124
+  },
+  "prixter-lux": {
+    "prose": [
+      "is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "tetroise": {
+    "prose": [
+      "Tetroise is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found in the lower part of the Desiccated Dunes, meaning it will never show up on top of a dune."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Dunes",
+        "level": 55,
+        "x": 435,
+        "y": 380
+      }
+    ]
+  },
+  "tetroise-primo": {
+    "prose": [
+      "Tetroise Primo is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found exclusively at the Gilded City in the World Tree."
+    ],
+    "regions": ["Gilded City"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "The Oculus Gate, Tower in Sight",
+        "level": 60,
+        "x": -1082,
+        "y": -1320
+      }
+    ]
+  },
+  "nyafia": {
+    "prose": [
+      "Nyafia can be found in the northern half of the Scorched Hill on Feybreak. It can spawn either alone or in a pair",
+      "Nyafia is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Feybreak Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 57,
+        "x": -1114,
+        "y": -940
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 928
+  },
+  "mimog": {
+    "prose": [
+      "World Tree: Mimog can be found in most places throughout the World Tree, save for the central area bordering the Boreal Summit."
+    ],
+    "regions": [
+      "Astral Mountains",
+      "Crystalized Ancient Tree",
+      "Dancing Sakura Shrine",
+      "Desiccated Dunes",
+      "Feybreak Island",
+      "Mount Obsidian",
+      "Scorched Ashland",
+      "Sunreach"
+    ],
+    "spawns": 8342
+  },
+  "xenovader": {
+    "prose": [
+      "Xenovader can be encountered during a Meteorite Event in most places throughout the Palpagos Islands except for on Sakurajima. It typically spawns in groups of 2 to 3 individuals.",
+      "Xenovader is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ]
+  },
+  "xenogard": {
+    "prose": [
+      "Xenogard is aggressive and will attack the player on sight.",
+      "Xenogard can only spawn in the world as an Alpha during a Meteorite Event in places like Mount Obsidian, the Desiccated Dunes, and the Astral Mountains.",
+      "Xenogard can also be one of the summoned Pals from PAL Genetic Research Unit enemies in one of their Faction Bases."
+    ]
+  },
+  "prunelia": {
+    "prose": [
+      "Prunelia can be found throughout the Scorched Hill on Feybreak.",
+      "Prunelia is passive and will flee from the player, though it will fight back when attacked. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Deserted Ash Plateau", "Feybreak Island", "Loess Plains"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Deserted Ash Plateau",
+        "level": 55,
+        "x": -1355,
+        "y": -968
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1590
+  },
+  "nitemary": {
+    "prose": [
+      "Nitemary can be found in the Frozen Coral Hill on Feybreak.",
+      "Nitemary is passive and will flee when it sees the player, though it will fight back when attacked."
+    ],
+    "regions": [
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Scorched Hill",
+      "The Oculus Gate, Tower in Sight"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 56,
+        "x": -923,
+        "y": -1014
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 640
+  },
+  "nitemary-botan": {
+    "prose": [
+      "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
+    ]
+  },
+  "smokie": {
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Deserted Ash Plateau",
+      "Emberstone Plateau",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Loess Plains",
+      "Scorched Ashland",
+      "Scorched Hill"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Loess Plains",
+        "level": 55,
+        "x": -879,
+        "y": -1467
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the regular encounters inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 926
+  },
+  "smokie-cryst": {
+    "prose": [
+      "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
+    ]
+  },
+  "omascul": {
+    "prose": [
+      "Omascul can be found in the Frozen Coral Hill on Feybreak.",
+      "Omascul has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Deserted Ash Plateau",
+      "Emberstone Plateau",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Loess Plains",
+      "Scorched Ashland",
+      "Scorched Hill",
+      "The Oculus Gate, Tower in Sight",
+      "Withered Seaside"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 55,
+        "x": -1183,
+        "y": -1490
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": 9,
+        "y": -221,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 642
+  },
+  "whalaska": {
+    "prose": [
+      "Whalaska can be found as a regular encounter in the Isle of the Glacial Core.",
+      "Whalaska can also be fished up around the coast of Frozen Coral Hill on Feybreak during the day.",
+      "Whalaska has a neutral temperament, only attacking if attacked first."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Astral Mountains",
+        "level": 55,
+        "x": -179,
+        "y": 842
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Astral Mountains Cavern",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ],
+    "spawns": 109
+  },
+  "whalaska-ignis": {
+    "prose": [
+      "Whalaska Ignis can be found in The World Tree",
+      "Whalaska Ignis has a neutral temperament, only attacking if attacked first."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Mount Obsidian",
+        "level": 58,
+        "x": -970,
+        "y": -538
+      }
+    ],
+    "spawns": 115
+  },
+  "verdash": {
+    "prose": [
+      "Verdash is aggressive and will attack the player on sight.",
+      "Verdash appears in the No. 2 Wildlife Sanctuary and in the grassy areas bordering the Dancing Sakura Shrine in Sakurajima."
+    ],
+    "regions": ["Dancing Sakura Shrine", "Verdant Brook"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Verdant Brook",
+        "level": 35,
+        "x": 285,
+        "y": 10
+      }
+    ],
+    "spawns": 412
+  },
+  "splatterina": {
+    "prose": [
+      "Splatterina can be found in the Scorched Hill and Frozen Coral Hill on Feybreak at night.",
+      "Splatterina is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["Feybreak Island", "Frozen Coral Hill", "Scorched Hill"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 58,
+        "x": -1209,
+        "y": -1326
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -613,
+        "y": 223,
+        "note": "Appears at night only."
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 1115
+  },
+  "gildane": {
+    "prose": [
+      "Gildane can be found on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau.",
+      "Gildane is aggressive and will attack the player on sight."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Feybreak Island",
+      "Loess Plains",
+      "Scorched Hill"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Emberstone Plateau",
+        "level": 58,
+        "x": -761,
+        "y": -1223
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -598,
+        "y": -225
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 886
+  },
+  "dogen": {
+    "prose": [
+      "Dogen can be found in the Dancing Sakura Shrine on Sakurajima.",
+      "Dogen has a neutral temperament, only attacking if attacked first."
+    ],
+    "regions": ["Dancing Sakura Shrine"],
+    "bosses": [
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -240,
+        "y": -273
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Cherry Blossom Cave",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 102
+  },
+  "bulldosu": {
+    "prose": [
+      "Bulldosu is found on the Dancing Sakura Shrine. It is not interested towards the player and remains neutral unless attacked."
+    ],
+    "regions": ["Dancing Sakura Shrine"]
+  },
+  "celesdir": {
+    "prose": [
+      "Celesdir has a neutral temperament, only attacking if attacked first.",
+      "Celesdir can be found very rarely on Feybreak in the Scorched Hill, the Loess Plains, and the Frozen Coral Hill."
+    ],
+    "regions": [
+      "Crystalized Ancient Tree",
+      "Deserted Ash Plateau",
+      "Emberstone Plateau",
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "Loess Plains",
+      "Scorched Ashland",
+      "Scorched Hill",
+      "Withered Seaside"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Crystalized Ancient Tree",
+        "level": 60,
+        "x": -965,
+        "y": -1175
+      }
+    ],
+    "spawns": 2538
+  },
+  "celesdir-noct": {
+    "prose": [
+      "is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked. Its Alpha variant is Warlike."
+    ],
+    "regions": ["Gilded City"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "astegon": {
+    "prose": [
+      "Astegon is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Astegon can be found in the No. 3 Wildlife Sanctuary."
+    ],
+    "regions": ["No. 2 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Mount Obsidian",
+        "level": 48,
+        "x": -615,
+        "y": -429
+      }
+    ],
+    "spawns": 16
+  },
+  "knocklem": {
+    "prose": [
+      "Knocklem is aggressive and will attack the player on sight.",
+      "As a regular Pal, Knocklem can only be found at the No. 3 Wildlife Sanctuary."
+    ],
+    "regions": ["No. 3 Wildlife Sanctuary"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Ruined Fortress City",
+        "level": 55,
+        "x": -585,
+        "y": -250
+      }
+    ]
+  },
+  "knocklem-ignis": {
+    "prose": [
+      "Knocklem Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found in the Bicornis Islet."
+    ]
+  },
+  "silvegis": {
+    "prose": [
+      "Silvegis is aggressive and will attack the player on sight.",
+      "It cannot found in the overworld as a regular spawn."
+    ],
+    "regions": ["Scorched Hill"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 59,
+        "x": -984,
+        "y": -1022
+      }
+    ]
+  },
+  "azurmane": {
+    "prose": [
+      "Azurmane can be found rarely in the Scorched Hill and Frozen Coral Hill on Feybreak at night.",
+      "Azurmane is aggressive and will attack the player on sight."
+    ],
+    "regions": [
+      "Feybreak Island",
+      "Frozen Coral Hill",
+      "The Oculus Gate, Tower in Sight"
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 57,
+        "x": -1106,
+        "y": -1315
+      }
+    ],
+    "spawns": 1269
+  },
+  "valentail": {
+    "prose": [
+      "Valentail flees players on sight, though it will defend itself when provoked. This Pal is found exclusively on Sunreach, more specifically the Crystalline Archipelago."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "snock": {
+    "prose": [
+      "Snock flees the player and fights back when provoked. It is found at the Crystalline Archipelago on Sunreach, where an alpha can also be found."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Enchanted Firmament",
+        "level": 65,
+        "x": -369,
+        "y": -1414
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "snock-terra": {
+    "prose": [
+      "is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "Snock Terra is found at the Dusty Ravine in the World Tree."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "souffline": {
+    "prose": [
+      "Souffline is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Souffline can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found in the Enchanted Firmament on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "lapiron": {
+    "prose": [
+      "Lapiron is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Lapiron can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found in the Farcry Marsh on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "hoodle": {
+    "prose": [
+      "Hoodle is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Hoodle can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found in the eastern part of the Facry Marsh, an area of Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ]
+  },
+  "slowatt": {
+    "prose": [
+      "Slowatt never initiates battle directly and flees upon seeing a player. However, it will start attacking when it is provoked. It is found in the Farcry Marsh, being the only Pal spawning there."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Azure Woodland",
+        "level": 66,
+        "x": -367,
+        "y": -1357
+      }
+    ]
+  },
+  "bakemi": {
+    "prose": [
+      "Bakemi is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Bakemi can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
+      "It is found in the eastern part of the Facry Marsh, an area of Sunreach."
+    ],
+    "regions": ["Sunreach"]
+  },
+  "solmora": {
+    "prose": [
+      "Solmora is not interested towards the player, but will become hostile when attacked. It can be found in various spots on Sunreach."
+    ],
+    "regions": ["Sunreach"]
+  },
+  "solmora-lux": {
+    "prose": [
+      "Solmora Lux is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found at various spots on Sunreach and the World Tree, but mostly in the Gilded City."
+    ]
+  },
+  "lapure": {
+    "prose": [
+      "Lapure is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found in the Crystalline Archipelago on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ]
+  },
+  "eidrolon": {
+    "prose": [
+      "Eidrolon generally ignores players and other creatures unless attacked. It cannot be found in the wild, though non-alpha Eidrolons can be found in the Sunreach Skies dungeon."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Crystalline Archipelago",
+        "level": 69,
+        "x": -489,
+        "y": -1521
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As a regular encounter inside the dungeon."
+      }
+    ]
+  },
+  "eidrolon-ignis": {
+    "prose": [
+      "Eidrolon Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found exclusively in the Corroded Hollow."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "dynamoff": {
+    "prose": [
+      "Dyanmoff is not interested towards the player. It only attacks when provoked.",
+      "It is mostly found at the Waterlily Gorge on Sunreach."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": 67,
+        "x": -308,
+        "y": -1523
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "tropicaw": {
+    "prose": [
+      "Tropicaw is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found in the northern side of the Crystalline Archipelago."
+    ],
+    "regions": ["Sunreach"],
+    "dungeons": [
+      {
+        "name": "Sunreach Skies",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ]
+  },
+  "flaracle": {
+    "prose": [
+      "Flaracle is not interested towards the player. If attacked, it will fight back.",
+      "It is found exclusively in the Corroded Hollow, an area of the World Tree."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": 68,
+        "x": -244,
+        "y": -1520
+      }
+    ]
+  },
+  "ophydia": {
+    "prose": [
+      "Ophydia is generally peaceful, and will not attack the player unless it is attacked first.",
+      "Ophydia cannot be found in the wild."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Waterlily Gorge",
+        "level": 69,
+        "x": -590,
+        "y": -1478
+      }
+    ]
+  },
+  "dupin": {
+    "prose": [
+      "Dupin is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "While there are many spots in Palpagos Islands where it can rarely be found, it can mostly be found at the Whimsical Wisteria Grove in the World Tree.",
+      "The odds of a Dupin spawning outside of the World Tree are unknown."
+    ],
+    "regions": ["Windswept Hills"]
+  },
+  "roujay": {
+    "prose": [
+      "Roujay can be found at the Lacrymal Shoal, Dusty Ravine, Corroded Hollow, and Remnant Riverside. It is not interested towards the player and only attacks upon being provoked."
+    ]
+  },
+  "venusa": {
+    "prose": [
+      "Venusa is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found at the Corroded Hollow in the World Tree."
+    ]
+  },
+  "mycora": {
+    "prose": [
+      "Mycora flees upon seeing the player and fights back when provoked. It is found at the Spore Cloister in the World Tree."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "The World Tree",
+        "level": 78,
+        "x": -35,
+        "y": 731
+      }
+    ]
+  },
+  "loomen": {
+    "prose": [
+      "Loomen is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "It is found in the Spore Cloister."
+    ]
+  },
+  "wistella": {
+    "prose": [
+      "Wistella flees when it sees the player, but fights back when attacked. Additionally, when a Selyne aggros a player, the three Wistellas that spawned alongside it will too.",
+      "It is found exclusively in the Gilded City."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "|variant = Alpha",
+        "level": null,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "solenne": {
+    "prose": [
+      "Solenne is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
+      "It is found at the Lacrymal Shoal in the World Tree."
+    ]
+  },
+  "renjishi": {
+    "prose": [
+      "Renjishi is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "Renjishi cannot be found as a regular overworld spawn."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Corroded Hollow",
+        "level": 78,
+        "x": 56,
+        "y": 838
+      }
+    ]
+  },
+  "aegidron": {
+    "prose": [
+      "Aegidron is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "Aegidron cannot be found in the overworld."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Lacrymal Shoal",
+        "level": 79,
+        "x": -59,
+        "y": 756
+      }
+    ]
+  },
+  "grizzbolt": {
+    "prose": [
+      "Grizzbolt is aggressive and will attack the player on sight.",
+      "Grizzbolt can be found in The Verdant Rootpath."
+    ],
+    "regions": ["No. 1 Wildlife Sanctuary"],
+    "spawns": 22
+  },
+  "lyleen": {
+    "prose": [
+      "Lyleen is uninterested towards the player, but will fight back when attacked.",
+      "Lyleen can be found in the Spore Cloister."
+    ],
+    "regions": ["Sakurajima Island"],
+    "spawns": 16
+  },
+  "lyleen-noct": {
+    "regions": ["Sakurajima Island"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sakurajima",
+        "level": 59,
+        "x": -628,
+        "y": 303
+      }
+    ]
+  },
+  "orserk": {
+    "prose": [
+      "Orserk is aggressive and will attack the player on sight.",
+      "Orserk can be found in the Dusty Ravine.",
+      "World Tree: Orserk can be found throughout the Dusty Ravine, spawning in groups of 2 to 3 individuals."
+    ],
+    "spawns": 16
+  },
+  "faleris": {
+    "prose": [
+      "Faleris is aggressive and will attack the player on sight.",
+      "Faleris can be found in the Lacrymal Shoal."
+    ],
+    "spawns": 16
+  },
+  "faleris-aqua": {
+    "prose": [
+      "Faleris Aqua is aggressive and will attack the player on sight.",
+      "Faleris Aqua can be found on Feybreak Island in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau, at the Crystalline Archipelago on Sunreach, as well as in the World Tree at the Lacrymal Shoal."
+    ],
+    "regions": ["Feybreak Island", "Frozen Coral Hill"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Withered Seaside",
+        "level": 56,
+        "x": -628,
+        "y": -1048
+      },
+      {
+        "variant": "Predator",
+        "location": "",
+        "level": null,
+        "x": -110,
+        "y": 141
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "Feybreak Cavern",
+        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+      }
+    ],
+    "spawns": 886
+  },
+  "shadowbeak": {
+    "regions": ["No. 3 Wildlife Sanctuary"],
+    "spawns": 16
+  },
+  "selyne": {
+    "prose": [
+      "Selyne is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Selyne only appears in the wild during a Meteorite Event on Sakurajima, spawning next to the meteorite when it lands. It has a small chance of spawning as an Alpha variant.",
+      "Selyne can also be found at the Gilded City in the World Tree."
+    ]
+  },
+  "bastigor": {
+    "prose": [
+      "Bastigor can only be found at the Boreal Summit in the World Tree."
+    ]
+  },
+  "shaolong": {},
+  "silvance": {
+    "prose": [
+      "Silvance is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "Silvance cannot spawn in the overworld."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Shinespore Root",
+        "level": 78,
+        "x": -62,
+        "y": 692
+      }
+    ]
+  },
+  "dandilord": {
+    "prose": [
+      "Dandilord is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "Dandilord cannot be found in the overworld."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Rotmist Root",
+        "level": 78,
+        "x": 26,
+        "y": 861
+      }
+    ]
+  },
+  "bellanoir": {
+    "prose": [
+      "Bellanoir is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Bellanoir cannot be found in the overworld. It must be summoned at a Summoning Altar."
+    ],
+    "raid": "Bellanoir can be summoned as a Raid Boss in a Summoning Altar using a Bellanoir's Slab. Once defeated, one of its eggs will be added to the players' inventory."
+  },
+  "bellanoir-libero": {
+    "prose": [
+      "Bellanoir Libero is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Bellanoir Libero cannot be found in the overworld. It must be summoned at a Summoning Altar."
+    ],
+    "raid": "Bellanoir Libero can be summoned as a Raid Boss in a Summoning Altar using a Bellanoir Libero's Slab or a Bellanoir Libero (Ultra) Slab. Once defeated, one of its eggs will be added to the player's inventory."
+  },
+  "xenolord": {
+    "prose": [
+      "Xenolord is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "Xenolord cannot be found in the wild. It must be summoned at a Summoning Altar."
+    ],
+    "raid": "Xenolord can be summoned as a Raid Boss in a Summoning Altar using a Xenolord Slab or a Xenolord (Ultra) Slab. Once defeated, one of its eggs will be added to the players' inventory."
+  },
+  "hartalis": {
+    "prose": [
+      "Hartalis is aggressive and will attack the player on sight.",
+      "Hartalis cannot be found in the overworld. It must be summoned at a Summoning Altar."
+    ],
+    "raid": "Hartalis can be summoned as a Raid Boss in a Summoning Altar using a Hartalis Slab or a Hartalis (Ultra) Slab. Once defeated, one of its eggs will be added to the players' inventory."
+  },
+  "paladius": {
+    "prose": [
+      "Paladius is only found in the wild as an Alpha Pal.",
+      "Paladius is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Desert",
+        "level": 60,
+        "x": 447,
+        "y": 679
+      }
+    ]
+  },
+  "necromus": {
+    "prose": [
+      "Necromus is only found in the wild as an Alpha Pal.",
+      "Necromus is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Desiccated Desert",
+        "level": 60,
+        "x": 447,
+        "y": 679
+      }
+    ]
+  },
+  "frostallion": {
+    "prose": [
+      "Frostallion is only found in the wild as an Alpha Pal.",
+      "Frostallion is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Astral Mountains",
+        "level": 60,
+        "x": -357,
+        "y": 509
+      }
+    ]
+  },
+  "frostallion-noct": {
+    "prose": [
+      "Frostallion Noct is only found in the wild as an Alpha Pal.",
+      "Frostallion Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "regions": ["No. 3 Wildlife Sanctuary", "The Oculus Gate, Tower in Sight"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "No. 3 Wildlife Sanctuary",
+        "level": 65,
+        "x": 689,
+        "y": 648
+      }
+    ]
+  },
+  "neptilius": {
+    "prose": [
+      "Neptilius is only found in the wild as an Alpha Pal.",
+      "Neptilius is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Isle of the Glacial Core",
+        "level": 60,
+        "x": 139,
+        "y": 651
+      }
+    ]
+  },
+  "jetragon": {
+    "prose": [
+      "Jetragon is only found in the wild as an Alpha Pal.",
+      "Jetragon is aggressive and will attack the player on sight."
+    ],
+    "regions": ["Sunreach"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Sunreach",
+        "level": 70,
+        "x": -553,
+        "y": -1332
+      }
+    ]
+  },
+  "panthalus": {},
+  "astralym": {}
+}

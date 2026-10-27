@@ -94,3 +94,30 @@ export interface PassiveSkill {
   rank: number | null;
   description: string;
 }
+
+export interface Boss {
+  /** Alpha, Predator, … */
+  variant: string;
+  location: string;
+  level: number | null;
+  x: number;
+  y: number;
+  note?: string;
+}
+
+/** How to find a Pal, scraped from its wiki page and the wiki's habitat map */
+export interface Obtain {
+  prose?: string[];
+  regions?: string[];
+  bosses?: Boss[];
+  dungeons?: { name: string; note?: string }[];
+  raid?: string;
+  /** Number of wild spawn points; the points themselves load from public/habitats */
+  spawns?: number;
+}
+
+/** Wild spawn points as [x, y] game coordinates */
+export interface Spawns {
+  day: [number, number][];
+  night: [number, number][];
+}

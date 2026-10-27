@@ -1,10 +1,12 @@
-import type { ActiveSkill, PassiveSkill, Pal } from '../types';
+import type { ActiveSkill, Obtain, PassiveSkill, Pal } from '../types';
 import palsJson from './pals.json';
 import skillsJson from './skills.json';
 import passivesJson from './passives.json';
 import combosJson from './combos.json';
 import itemsJson from './items.json';
 import meta from './meta.json';
+import obtainJson from './obtain.json';
+import mapJson from './map.json';
 
 export const pals = palsJson as unknown as Pal[];
 export const activeSkills = skillsJson as unknown as ActiveSkill[];
@@ -26,3 +28,10 @@ export const passiveById = new Map(passiveSkills.map((s) => [s.id, s]));
 /** Pal art lives in public/pals; variants without art of their own have none. */
 export const palIcon = (p: Pal) => `/pals/${p.id}.png`;
 export const palArt = (p: Pal) => `/pals/${p.id}-art.webp`;
+
+export const obtain = obtainJson as unknown as Record<string, Obtain>;
+export const mapBounds = mapJson as {
+  topLeft: [number, number];
+  bottomRight: [number, number];
+};
+export const MAP_URL = '/map/world.webp';
