@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import Navbar from './Components/Navbar';
 import BottomTabs from './Components/BottomTabs';
 import ErrorBoundary from './Components/ErrorBoundary';
+import Footer from './Components/Footer';
 import SearchPalette from './Components/SearchPalette';
 import './index.css';
 
@@ -55,6 +56,7 @@ function App() {
             </Routes>
           </React.Suspense>
         </ErrorBoundary>
+        <Footer />
       </main>
       <BottomTabs />
       <SearchPalette />

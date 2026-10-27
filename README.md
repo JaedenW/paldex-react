@@ -47,8 +47,7 @@ node scripts/scrape.mjs --no-images   # data only
 ```
 
 The script exits with an error if the wiki returns far fewer Pals than expected.
-Wiki text is available under CC BY-SA; Palworld and its artwork belong to
-Pocketpair. This is an unofficial fan project.
+See [Credits](#credits) for licensing.
 
 Breeding follows the wiki's rules: a listed unique combination wins, otherwise
 the child is the Pal whose breeding rank is closest to the parents' average,
@@ -80,3 +79,16 @@ src/
 ```
 
 Colours live in `src/index.css` as `pw-*` design tokens.
+
+## Credits
+
+- **Data and images**: the [Palworld Wiki](https://palworld.wiki.gg) on wiki.gg
+  and its contributors, licensed under
+  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). The files in
+  `src/data` are derived from it (reformatted and combined) and so remain under
+  CC BY-SA 4.0. The date of the last scrape is in `src/data/meta.json`.
+- **Palworld** and its characters, artwork and names belong to Pocketpair, Inc.
+  The Pal icons and art in `public/pals` are theirs, taken from the wiki.
+- This is an unofficial fan project, not affiliated with or endorsed by
+  Pocketpair or wiki.gg. If you are a rights holder and want something removed,
+  open an issue.
