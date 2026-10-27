@@ -11,6 +11,8 @@ import {
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
 import ObtainTab from '../Components/ObtainTab';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumb, Chip, Page, Panel } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
@@ -462,12 +464,16 @@ function PalLink({ pal }: { pal: Pal }) {
 }
 
 function BreedingTab({ pal }: { pal: Pal }) {
-  const [showAll, setShowAll] = React.useState(false);
   const parents = React.useMemo(
     () => createBreeder(pals, uniqueCombos).parentsOf(pal),
     [pal]
   );
-  const visible = showAll ? parents : parents.slice(0, 24);
+  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
+    parents.length,
+    24,
+    pal.id
+  );
+  const visible = parents.slice(0, limit);
 
   return (
     <>
@@ -517,15 +523,11 @@ function BreedingTab({ pal }: { pal: Pal }) {
                 </li>
               ))}
             </ul>
-            {parents.length > visible.length && (
-              <button
-                type="button"
-                className="mt-3 text-sm font-semibold text-pw-teal-dark hover:underline"
-                onClick={() => setShowAll(true)}
-              >
-                Show all {parents.length} pairs
-              </button>
-            )}
+            <InfiniteSentinel
+              sentinelRef={sentinelRef}
+              hasMore={hasMore}
+              showAll={showAll}
+            />
           </>
         )}
       </Panel>

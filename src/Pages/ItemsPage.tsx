@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import InfiniteSentinel from '../Components/InfiniteSentinel';
+import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import { RarityBadge } from '../Components/gearUi';
 import {
   EmptyState,
@@ -38,7 +40,6 @@ export default function ItemsPage() {
   const [type, setType] = useQueryState('type');
   const [rarity, setRarity] = useQueryState('rarity');
   const [sort, setSort] = useQueryState('sort', 'name');
-  const [limit, setLimit] = React.useState(PAGE_SIZE);
 
   const list = React.useMemo(() => {
     const q = normalise(query.trim());
@@ -56,7 +57,11 @@ export default function ItemsPage() {
       .sort(SORTS[sort as keyof typeof SORTS] ?? SORTS.name);
   }, [query, type, rarity, sort]);
 
-  React.useEffect(() => setLimit(PAGE_SIZE), [query, type, rarity, sort]);
+  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
+    list.length,
+    PAGE_SIZE,
+    [query, type, rarity, sort].join('|')
+  );
 
   return (
     <Page wide>
@@ -149,17 +154,11 @@ export default function ItemsPage() {
               </Link>
             ))}
           </div>
-          {list.length > limit && (
-            <div className="mt-6 text-center">
-              <button
-                type="button"
-                className={buttonClass('primary')}
-                onClick={() => setLimit((l) => l + PAGE_SIZE)}
-              >
-                Show more ({list.length - limit} left)
-              </button>
-            </div>
-          )}
+          <InfiniteSentinel
+            sentinelRef={sentinelRef}
+            hasMore={hasMore}
+            showAll={showAll}
+          />
         </>
       )}
     </Page>
