@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router';
 import PalImage from '../Components/PalImage';
+import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumb, Page, PageHeader, Panel } from '../Components/ui';
 import { pals } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
@@ -11,7 +12,6 @@ import {
   workId,
 } from '../Utils/work';
 import NotFoundPage from './NotFoundPage';
-import { cn } from '../Utils/cn';
 
 export default function WorkPage() {
   const { type } = useParams();
@@ -63,20 +63,7 @@ export default function WorkPage() {
                   {p.name}
                 </span>
                 <span className="text-sm text-pw-muted">#{p.number}</span>
-                <span
-                  className="flex gap-0.5"
-                  aria-label={`Level ${p.work[work]}`}
-                >
-                  {Array.from({ length: 4 }, (_, i) => (
-                    <span
-                      key={i}
-                      className={cn(
-                        'size-2.5 rotate-45',
-                        i < (p.work[work] ?? 0) ? 'bg-pw-sun' : 'bg-pw-line'
-                      )}
-                    />
-                  ))}
-                </span>
+                <WorkLevel level={p.work[work] ?? 0} />
               </Link>
             </li>
           ))}

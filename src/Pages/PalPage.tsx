@@ -10,6 +10,7 @@ import {
 } from '../data';
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
+import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumb, Chip, Page, Panel } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
@@ -303,20 +304,7 @@ function OverviewTab({ pal }: { pal: Pal }) {
                       className="flex items-center justify-between rounded-xl bg-pw-cream/70 px-3 py-2 transition hover:bg-pw-cream"
                     >
                       <span className="font-semibold">{type}</span>
-                      <span
-                        className="flex gap-0.5"
-                        aria-label={`Level ${level}`}
-                      >
-                        {Array.from({ length: 4 }, (_, i) => (
-                          <span
-                            key={i}
-                            className={cn(
-                              'size-2.5 rotate-45',
-                              i < level ? 'bg-pw-sun' : 'bg-pw-line'
-                            )}
-                          />
-                        ))}
-                      </span>
+                      <WorkLevel level={level} />
                     </Link>
                   </li>
                 ))}
