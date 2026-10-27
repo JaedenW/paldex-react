@@ -14,7 +14,7 @@ import {
 } from '../Components/ui';
 import { techs } from '../data/gear';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
-import { useQueryState } from '../Hooks/useQueryState';
+import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import {
   byLevel,
   runningTotals,
@@ -67,6 +67,7 @@ export default function TechPage() {
   const [kind, setKind] = useQueryState('kind');
   const [unlocks, setUnlocks] = useQueryState('unlocks');
   const [levelParam, setLevel] = useQueryState('level');
+  const patch = useQueryPatch();
 
   const level = Math.min(
     MAX_LEVEL,
@@ -205,12 +206,14 @@ export default function TechPage() {
           <button
             type="button"
             className={buttonClass('secondary', 'h-9')}
-            onClick={() => {
-              setQuery('');
-              setKind('');
-              setUnlocks('');
-              setLevel('');
-            }}
+            onClick={() =>
+              patch({
+                q: undefined,
+                kind: undefined,
+                unlocks: undefined,
+                level: undefined,
+              })
+            }
           >
             Clear filters
           </button>
