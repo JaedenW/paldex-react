@@ -6,7 +6,16 @@
 import { mkdir, readFile, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { api, cargo, root, slug, sleep, UA, wikitext } from './wiki.mjs';
+import {
+  api,
+  cargo,
+  root,
+  slug,
+  sleep,
+  UA,
+  unusedNames,
+  wikitext,
+} from './wiki.mjs';
 
 const outDir = path.join(root, 'src/data/gear');
 const skipImages = process.argv.includes('--no-images');
@@ -48,7 +57,7 @@ function slugger(label) {
 
 console.log('Fetching tables…');
 const [
-  items,
+  allItems,
   consumables,
   equipment,
   recipes,
@@ -159,6 +168,11 @@ const [
     'targetType!="Pal"'
   ),
 ]);
+
+// Items the wiki marks as unused (leftovers in the game files) are not in the game
+const unused = await unusedNames();
+const items = allItems.filter((i) => !unused.has(i.itemName));
+console.log(`Leaving out ${allItems.length - items.length} unused items`);
 console.log(
   `${items.length} items, ${structures.length} buildings, ${recipes.length} recipes, ${tech.length} technologies`
 );
@@ -274,6 +288,10 @@ const recipeList = recipes
     });
   })
   .filter((r) => r.ingredients?.length)
+  .filter(
+    (r) =>
+      !unused.has(r.product) && !r.ingredients.some((i) => unused.has(i.name))
+  )
   .sort(
     (a, b) =>
       a.product.localeCompare(b.product) ||
@@ -289,9 +307,16 @@ const addUnlock = (techName, kind, name) => {
 };
 for (const i of itemList) addUnlock(i.tech, 'item', i.name);
 for (const s of structureList) addUnlock(s.tech, 'building', s.name);
+// a tech that only ever unlocked unused items is unused itself
+const unlocksUnused = new Set(
+  allItems
+    .filter((i) => unused.has(i.itemName) && i.techName)
+    .map((i) => i.techName)
+);
 const techId = slugger('tech');
 const techList = tech
   .filter((t) => t.techName !== 'Blank') // an empty placeholder row on the wiki
+  .filter((t) => !(unlocksUnused.has(t.techName) && !unlocks.has(t.techName)))
   .map((t) =>
     compact({
       id: techId(t.techName),
@@ -368,7 +393,9 @@ const itemPages = await wikitext(itemList.map((i) => i.name));
 const plain = (t) =>
   t
     .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/\{\{\s*(?:i|icon)\s*\|([^}]*)\}\}/gi, (_, args) => args.split('|').pop())
+    .replace(/\{\{\s*(?:i|icon)\s*\|([^}]*)\}\}/gi, (_, args) =>
+      args.split('|').pop()
+    )
     .replace(/\[\[(?:File|Category):[^\]]*\]\]/gi, '')
     .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, '$1')
     .replace(/\{\{[^{}]*\}\}/g, '')
@@ -380,8 +407,11 @@ let withOther = 0;
 for (const item of itemList) {
   const text = itemPages.get(item.name);
   if (!text) continue;
-  const section = text.match(/===\s*Other Drops\s*===([\s\S]*?)(?=\n==|$)/)?.[1] ?? '';
-  const other = [...section.matchAll(/^\*+\s*(.+)$/gm)].map((m) => plain(m[1])).filter(Boolean);
+  const section =
+    text.match(/===\s*Other Drops\s*===([\s\S]*?)(?=\n==|$)/)?.[1] ?? '';
+  const other = [...section.matchAll(/^\*+\s*(.+)$/gm)]
+    .map((m) => plain(m[1]))
+    .filter(Boolean);
   if (other.length) {
     source(item.name).other = other;
     withOther++;
@@ -393,6 +423,8 @@ for (const entry of Object.values(sources)) {
   for (const k of ['shops', 'found', 'dropped'])
     if (entry[k].length === 0) delete entry[k];
 }
+
+for (const name of unused) delete sources[name];
 
 // Fail loudly if the wiki's schema changes under us
 if (
@@ -439,6 +471,10 @@ await writeFile(
     recipes: recipeList.length,
     tech: techList.length,
   }) + '\n'
+);
+await writeFile(
+  path.join(root, 'src/data/unused.json'),
+  JSON.stringify([...unused].sort()) + '\n'
 );
 await writeFile(
   path.join(root, 'src/data/dropItems.json'),

@@ -15,7 +15,10 @@ export default function Footer() {
         >
           Palworld Wiki
         </a>{' '}
-        on wiki.gg (retrieved {dataSource.scrapedAt}), used under{' '}
+        on wiki.gg
+        {dataSource.gameVersion &&
+          `, covering Palworld ${dataSource.gameVersion}`}{' '}
+        (retrieved {dataSource.scrapedAt}), used under{' '}
         <a
           href="https://creativecommons.org/licenses/by-sa/4.0"
           className={link}

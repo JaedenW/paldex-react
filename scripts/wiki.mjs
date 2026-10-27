@@ -70,3 +70,27 @@ export const slug = (s) =>
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
+
+const decode = (s) => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+
+/**
+ * Names the wiki flags as unused: things in the game files that players can't
+ * get, such as leftover items. They are left out of the app's data.
+ */
+export async function unusedNames() {
+  const rows = await cargo(
+    'ContentFlag',
+    ['itemName', 'flag'],
+    'flag="Unused"'
+  );
+  return new Set(rows.map((r) => decode(r.itemName)));
+}
+
+/** The newest game version the wiki has a page for, and its release date */
+export async function latestVersion() {
+  const rows = await cargo('GameVersions', ['title', 'release_date']);
+  rows.sort((a, b) =>
+    (b['release date'] ?? '').localeCompare(a['release date'] ?? '')
+  );
+  return { version: rows[0]?.title, date: rows[0]?.['release date'] };
+}

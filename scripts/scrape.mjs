@@ -6,16 +6,21 @@ import path from 'node:path';
 import {
   api,
   cargo,
+  latestVersion,
   root,
   slug,
   sleep,
   UA,
+  unusedNames,
   wikitext as fetchWikitext,
 } from './wiki.mjs';
 
 const dataDir = path.join(root, 'src/data');
 const imgDir = path.join(root, 'public/pals');
 const skipImages = process.argv.includes('--no-images');
+
+const unused = await unusedNames();
+const game = await latestVersion();
 
 const num = (v) => (v === '' || v == null ? null : Number(v));
 const clean = (s) =>
@@ -135,7 +140,10 @@ const passiveBy = byPal(passiveLinks),
   statsBy = byPal(stats),
   breedingBy = byPal(breeding);
 const partnerBy = byPal(partner),
-  dropsBy = group(drops, 'targetName');
+  dropsBy = group(
+    drops.filter((d) => !unused.has(d.itemName)),
+    'targetName'
+  );
 const skillInfo = new Map(activeSkills.map((s) => [s.activeSkillName, s]));
 
 const uniqueCombos = [];
@@ -285,6 +293,8 @@ await Promise.all([
   write('meta.json', {
     source: 'https://palworld.wiki.gg',
     scrapedAt: new Date().toISOString().slice(0, 10),
+    gameVersion: game.version,
+    gameVersionDate: game.date,
   }),
 ]);
 

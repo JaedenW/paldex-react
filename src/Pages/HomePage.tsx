@@ -32,7 +32,7 @@ export default function HomePage() {
     <Page>
       <PageHeader
         title="Paldex"
-        subtitle={`A reference for Palworld, from the community wiki (retrieved ${dataSource.scrapedAt}).`}
+        subtitle={`A reference for Palworld${dataSource.gameVersion ? ` ${dataSource.gameVersion}` : ''}, from the community wiki (retrieved ${dataSource.scrapedAt}).`}
       />
 
       <button

@@ -12,10 +12,11 @@ import {
   Select,
   Toolbar,
   buttonClass,
+  ChipRow,
 } from '../Components/ui';
 import { GridIcon, ListIcon } from '../Components/Icons';
 import { pals } from '../data';
-import { useQueryState } from '../Hooks/useQueryState';
+import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { ELEMENTS } from '../Utils/elements';
 import { WORK_TYPES } from '../Utils/work';
@@ -99,6 +100,14 @@ export default function PaldexPage() {
     [query, elementParam, work, sort, variants].join('|')
   );
   const compact = view === 'list';
+  const anyFilter = !!(
+    query ||
+    elementParam ||
+    work ||
+    variants !== 'show' ||
+    sort !== 'number'
+  );
+  const patch = useQueryPatch();
 
   return (
     <Page>
@@ -109,43 +118,19 @@ export default function PaldexPage() {
       />
 
       <Toolbar stickyOnPhones={false}>
-        <SearchInput
-          value={query}
-          onChange={setQuery}
-          placeholder="Search by name or number"
-        />
-        <Select
-          label="Sort by"
-          value={sort as SortKey}
-          onChange={setSort}
-          options={Object.entries(SORTS).map(([value, s]) => ({
-            value: value as SortKey,
-            label: `Sort: ${s.label}`,
-          }))}
-        />
-        <Select
-          label="Work suitability"
-          value={work}
-          onChange={setWork}
-          options={[
-            { value: '', label: 'Any work' },
-            ...WORK_TYPES.map((w) => ({ value: w as string, label: w })),
-          ]}
-        />
-        <Chip
-          active={variants === 'hide'}
-          onClick={() => setVariants(variants === 'hide' ? 'show' : 'hide')}
-        >
-          Hide variants
-        </Chip>
-        <div className="ml-auto flex items-center gap-3">
-          <span
-            className="hidden text-sm text-pw-muted sm:inline"
-            aria-live="polite"
+        {/* on phones: search with the view switch beside it, filters on the next row */}
+        <div className="flex w-full items-center gap-2 lg:contents">
+          <SearchInput
+            value={query}
+            onChange={setQuery}
+            placeholder="Search by name or number"
+            className="flex-1 sm:max-w-xs sm:flex-none"
+          />
+          <div
+            className="flex shrink-0 gap-1 lg:order-2 lg:ml-auto"
+            role="group"
+            aria-label="Card size"
           >
-            {filtered.length} of {pals.length}
-          </span>
-          <div className="flex gap-1" role="group" aria-label="Density">
             <button
               type="button"
               aria-label="Large cards"
@@ -172,11 +157,33 @@ export default function PaldexPage() {
             </button>
           </div>
         </div>
-        <div
-          className="-m-1.5 flex basis-full gap-1.5 overflow-x-auto p-1.5"
-          role="group"
-          aria-label="Elements"
-        >
+        <div className="flex w-full flex-wrap items-center gap-2 lg:contents">
+          <Select
+            label="Sort by"
+            value={sort as SortKey}
+            onChange={setSort}
+            options={Object.entries(SORTS).map(([value, s]) => ({
+              value: value as SortKey,
+              label: `Sort: ${s.label}`,
+            }))}
+          />
+          <Select
+            label="Work suitability"
+            value={work}
+            onChange={setWork}
+            options={[
+              { value: '', label: 'Any work' },
+              ...WORK_TYPES.map((w) => ({ value: w as string, label: w })),
+            ]}
+          />
+          <Chip
+            active={variants === 'hide'}
+            onClick={() => setVariants(variants === 'hide' ? 'show' : 'hide')}
+          >
+            Hide variants
+          </Chip>
+        </div>
+        <ChipRow label="Elements" className="lg:order-3">
           {ELEMENTS.map((e) => (
             <button
               key={e}
@@ -193,8 +200,33 @@ export default function PaldexPage() {
               <ElementBadge element={e} linked={false} />
             </button>
           ))}
-        </div>
+        </ChipRow>
       </Toolbar>
+
+      <div className="-mt-1 mb-3 flex min-h-6 flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <p className="text-sm text-pw-muted" aria-live="polite">
+          {filtered.length === pals.length
+            ? `${pals.length} Pals`
+            : `${filtered.length} of ${pals.length} Pals`}
+        </p>
+        {anyFilter && (
+          <button
+            type="button"
+            onClick={() =>
+              patch({
+                q: undefined,
+                el: undefined,
+                work: undefined,
+                sort: undefined,
+                variants: undefined,
+              })
+            }
+            className="text-sm font-semibold text-pw-link hover:underline"
+          >
+            Clear filters
+          </button>
+        )}
+      </div>
 
       {filtered.length === 0 ? (
         <EmptyState title="No Pals match">Try removing a filter.</EmptyState>

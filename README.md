@@ -89,9 +89,19 @@ node scripts/scrape.mjs --no-images   # Pal data only, no icons
 npm run scrape:obtain                 # where-to-find data and the world map
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
 npm run scrape:breeding               # breeding eligibility and fixed pairings
+npm run audit                         # cross-check the data against the wiki's page text
 ```
 
 The script exits with an error if the wiki returns far fewer Pals than expected.
+
+The data covers the newest Palworld version the wiki documents (shown in the
+footer, and recorded in `src/data/meta.json`). Items the wiki flags as unused,
+meaning leftovers in the game files that players can't get, are left out of
+items, recipes, drops, shops and the tech tree, and a test fails if one slips
+back in. `npm run audit` compares every recipe, Pal stat, breeding rank and
+work suitability with the wiki's own page text and reports anything that
+disagrees. The data is only as current as the wiki, so a change in a newer
+patch shows up once the wiki records it; re-run `npm run scrape` then.
 See [Credits](#credits) for licensing.
 
 Breeding follows the rules on the wiki's Breeding page: two of one species give

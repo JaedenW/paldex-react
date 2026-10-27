@@ -21,7 +21,13 @@ export const activeSkills = skillsJson as unknown as ActiveSkill[];
 export const passiveSkills = passivesJson as unknown as PassiveSkill[];
 /** [parent, parent, child] Pal ids that breed into a specific child */
 export const uniqueCombos = combosJson as [string, string, string][];
-export const dataSource = meta as { source: string; scrapedAt: string };
+export const dataSource = meta as {
+  source: string;
+  scrapedAt: string;
+  /** The newest Palworld version the wiki documents, such as "1.0.5" */
+  gameVersion?: string;
+  gameVersionDate?: string;
+};
 
 export const palById = new Map(pals.map((p) => [p.id, p]));
 export const skillByName = new Map(activeSkills.map((s) => [s.name, s]));

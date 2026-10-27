@@ -13,6 +13,7 @@ import {
   SearchInput,
   Select,
   Toolbar,
+  ChipRow,
 } from '../Components/ui';
 import { activeSkills } from '../data';
 import { useQueryState } from '../Hooks/useQueryState';
@@ -81,11 +82,7 @@ export default function SkillsPage() {
         >
           {list.length} skill{list.length === 1 ? '' : 's'}
         </span>
-        <div
-          className="-m-1.5 flex basis-full gap-1.5 overflow-x-auto p-1.5"
-          role="group"
-          aria-label="Elements"
-        >
+        <ChipRow label="Elements">
           {ELEMENTS.map((e: Element) => (
             <button
               key={e}
@@ -100,7 +97,7 @@ export default function SkillsPage() {
               <ElementBadge element={e} linked={false} />
             </button>
           ))}
-        </div>
+        </ChipRow>
       </Toolbar>
       {list.length === 0 ? (
         <EmptyState title="No skills match">Try removing a filter.</EmptyState>
