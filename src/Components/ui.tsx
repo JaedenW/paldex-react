@@ -39,7 +39,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="mb-5 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+    <header className="mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
       <div className="min-w-0">
         {eyebrow && (
           <p className="mb-1 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-pw-link uppercase">
@@ -119,6 +119,34 @@ export function Toolbar({
       )}
     >
       <div className="flex flex-wrap items-center gap-2">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * A row of filter chips. On phones it scrolls sideways and runs to the screen
+ * edge, so a cut-off chip shows there is more; from large screens it wraps.
+ * Put it inside a Toolbar.
+ */
+export function ChipRow({
+  children,
+  label,
+  className,
+}: {
+  children: ReactNode;
+  label: string;
+  className?: string;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label={label}
+      className={cn(
+        '-mx-4 -my-1.5 flex w-[calc(100%+2rem)] gap-1.5 overflow-x-auto px-4 py-1.5 sm:-mx-6 sm:w-[calc(100%+3rem)] sm:px-6 lg:mx-0 lg:w-full lg:flex-wrap lg:overflow-visible lg:px-0',
+        className
+      )}
+    >
+      {children}
     </div>
   );
 }
