@@ -56,7 +56,7 @@ export default function SkillsPage() {
         title="Active skills"
         subtitle={`${activeSkills.length} attacks. Skill fruits can teach many of them to any Pal.`}
       />
-      <Toolbar>
+      <Toolbar stickyOnPhones={false}>
         <SearchInput
           value={query}
           onChange={setQuery}

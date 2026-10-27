@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router';
 import ElementBadge from '../Components/ElementBadge';
+import LongList from '../Components/LongList';
 import PalCard from '../Components/PalCard';
 import { Breadcrumbs, Page, PageHeader, Panel } from '../Components/ui';
 import { pals, skillById } from '../data';
@@ -60,16 +61,23 @@ export default function SkillPage() {
             </Link>
           </p>
         ) : (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {learners.map(({ pal, level }) => (
-              <div key={pal.id} className="relative">
+          <LongList
+            items={learners}
+            itemKey={(l) => l.pal.id}
+            text={(l) => l.pal.name}
+            noun="Pals"
+            min="9.5rem"
+            first={24}
+            step={48}
+            renderItem={({ pal, level }) => (
+              <div className="relative h-full [&>a]:h-full">
                 <PalCard pal={pal} />
                 <span className="absolute top-2 right-2 rounded-full bg-pw-deep px-2 py-0.5 text-xs font-semibold text-white">
                   Lv. {level}
                 </span>
               </div>
-            ))}
-          </div>
+            )}
+          />
         )}
       </Panel>
     </Page>

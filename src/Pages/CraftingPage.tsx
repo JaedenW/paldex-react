@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import CraftFlow from '../Components/CraftFlow';
 import ItemIcon from '../Components/ItemIcon';
 import { ItemLink, StationLink } from '../Components/gearUi';
 import {
@@ -46,6 +47,7 @@ export default function CraftingPage() {
   const [buildingParam, setBuilding] = useQueryState('building');
   const [qtyParam, setQty] = useQueryState('qty', '1');
   const [expandParam, setExpand] = useQueryState('expand', '1');
+  const [view, setView] = useQueryState('view', 'flow');
   const [query, setQuery] = React.useState('');
   // which way to make each product when there are several, by variant index
   const [choices, setChoices] = React.useState<Record<string, number>>({});
@@ -219,40 +221,82 @@ export default function CraftingPage() {
             </Link>
           </section>
 
-          <Panel title="Raw materials">
-            <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-              {plan.raw.map((r) => (
-                <li
-                  key={r.name}
-                  className="flex items-center justify-between gap-2 rounded-xl bg-pw-cream/70 px-3 py-2"
-                >
-                  <ItemLink name={r.name} />
-                  <span className="font-display text-xl font-bold">
-                    {formatNumber(r.qty)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Panel>
+          <div
+            className="flex flex-wrap items-center gap-2"
+            role="tablist"
+            aria-label="How to show the plan"
+          >
+            <Chip
+              role="tab"
+              aria-selected={view === 'flow'}
+              active={view === 'flow'}
+              onClick={() => setView('flow')}
+            >
+              Flow
+            </Chip>
+            <Chip
+              role="tab"
+              aria-selected={view === 'list'}
+              active={view === 'list'}
+              onClick={() => setView('list')}
+            >
+              List
+            </Chip>
+            <span className="text-sm text-pw-muted">
+              {view === 'flow'
+                ? 'Raw materials on the left, through each component, to the finished item. Hover a box to trace it.'
+                : 'Raw materials, then each step in order.'}
+            </span>
+          </div>
 
-          <Panel title={`Crafting steps (${plan.steps.length})`}>
-            <p className="mb-3 text-sm text-pw-muted">
-              In order: each step uses the ones above it.
-            </p>
-            <ol className="divide-y">
-              {plan.steps.map((s, i) => (
-                <StepRow
-                  key={s.product}
-                  index={i + 1}
-                  step={s}
-                  kind={s.product === target.name ? target.kind : 'item'}
-                  onChoose={(v) =>
-                    setChoices((cur) => ({ ...cur, [s.product]: v }))
-                  }
-                />
-              ))}
-            </ol>
-          </Panel>
+          {view === 'flow' ? (
+            <Panel title="From raw materials to the finished item">
+              <CraftFlow
+                plan={plan}
+                target={target}
+                onChoose={(product, v) =>
+                  setChoices((cur) => ({ ...cur, [product]: v }))
+                }
+              />
+            </Panel>
+          ) : (
+            <>
+              <Panel title="Raw materials">
+                <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {plan.raw.map((r) => (
+                    <li
+                      key={r.name}
+                      className="flex items-center justify-between gap-2 rounded-xl bg-pw-cream/70 px-3 py-2"
+                    >
+                      <ItemLink name={r.name} />
+                      <span className="font-display text-xl font-bold">
+                        {formatNumber(r.qty)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </Panel>
+
+              <Panel title={`Crafting steps (${plan.steps.length})`}>
+                <p className="mb-3 text-sm text-pw-muted">
+                  In order: each step uses the ones above it.
+                </p>
+                <ol className="divide-y">
+                  {plan.steps.map((s, i) => (
+                    <StepRow
+                      key={s.product}
+                      index={i + 1}
+                      step={s}
+                      kind={s.product === target.name ? target.kind : 'item'}
+                      onChoose={(v) =>
+                        setChoices((cur) => ({ ...cur, [s.product]: v }))
+                      }
+                    />
+                  ))}
+                </ol>
+              </Panel>
+            </>
+          )}
 
           {plan.stations.length > 0 && (
             <Panel title="Workbenches needed">

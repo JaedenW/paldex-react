@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { Page, PageHeader, SearchInput, Toolbar } from '../Components/ui';
 import { pals, passiveSkills } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryState } from '../Hooks/useQueryState';
 import { normalise } from '../Utils/text';
+import type { Pal } from '../types';
 import { cn } from '../Utils/cn';
 
 const tone = (rank: number | null) =>
@@ -74,16 +75,44 @@ export default function PassivesPage() {
                 </span>
               </div>
               <p className="mt-1 text-pw-muted">{s.description}</p>
-              {innate.length > 0 && (
-                <p className="mt-2 text-sm">
-                  <span className="font-semibold">Innate to:</span>{' '}
-                  {innate.map((p) => p.name).join(', ')}
-                </p>
-              )}
+              {innate.length > 0 && <InnateTo pals={innate} />}
             </article>
           );
         })}
       </div>
     </Page>
+  );
+}
+
+const INNATE_SHOWN = 6;
+
+/** The Pals that always have a passive, linked, with the rest behind a button */
+function InnateTo({ pals }: { pals: Pal[] }) {
+  const [all, setAll] = React.useState(false);
+  const shown = all ? pals : pals.slice(0, INNATE_SHOWN);
+  return (
+    <p className="mt-2 text-sm">
+      <span className="font-semibold">Always on: </span>
+      {shown.map((p, i) => (
+        <React.Fragment key={p.id}>
+          {i > 0 && ', '}
+          <Link to={`/pal/${p.id}`} className="text-pw-link hover:underline">
+            {p.name}
+          </Link>
+        </React.Fragment>
+      ))}
+      {pals.length > INNATE_SHOWN && (
+        <>
+          {' '}
+          <button
+            type="button"
+            onClick={() => setAll(!all)}
+            className="font-semibold text-pw-link hover:underline"
+          >
+            {all ? 'show fewer' : `and ${pals.length - INNATE_SHOWN} more`}
+          </button>
+        </>
+      )}
+    </p>
   );
 }

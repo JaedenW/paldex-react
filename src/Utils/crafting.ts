@@ -166,3 +166,113 @@ export function planCrafting(
     ),
   };
 }
+
+export interface FlowNode {
+  /** The item's name; unique within a plan */
+  id: string;
+  /** Raw materials are gathered or bought; the rest are crafted */
+  kind: 'raw' | 'craft';
+  /** Units the plan needs of it */
+  qty: number;
+  /** 0 for raw materials, then 1 more than its deepest ingredient */
+  tier: number;
+  /** For crafted nodes: the step that makes it */
+  step?: CraftStep;
+}
+
+export interface FlowEdge {
+  from: string;
+  to: string;
+  /** Units of `from` the `to` step uses in total */
+  qty: number;
+}
+
+export interface FlowLayout {
+  /** Stages from raw materials (first) to the finished item (last), each in drawing order */
+  columns: FlowNode[][];
+  edges: FlowEdge[];
+}
+
+/**
+ * Lays a plan out as stages: raw materials, then components in the order they
+ * can be made, then the item itself. A node's stage is one past its deepest
+ * ingredient, so everything a step needs sits in an earlier stage. Nodes are
+ * ordered within each stage to keep connecting lines from crossing much.
+ */
+export function flowLayout(plan: CraftPlan): FlowLayout {
+  const stepBy = new Map(plan.steps.map((s) => [s.product, s]));
+  const tiers = new Map<string, number>();
+  const tierOf = (name: string): number => {
+    const known = tiers.get(name);
+    if (known !== undefined) return known;
+    const step = stepBy.get(name);
+    const tier = step
+      ? 1 + Math.max(0, ...step.recipe.ingredients.map((i) => tierOf(i.name)))
+      : 0;
+    tiers.set(name, tier);
+    return tier;
+  };
+
+  const nodes: FlowNode[] = [
+    ...plan.raw.map((r): FlowNode => ({
+      id: r.name,
+      kind: 'raw',
+      qty: r.qty,
+      tier: 0,
+    })),
+    ...plan.steps.map((s): FlowNode => ({
+      id: s.product,
+      kind: 'craft',
+      qty: s.needed,
+      tier: tierOf(s.product),
+      step: s,
+    })),
+  ];
+  const edges: FlowEdge[] = plan.steps.flatMap((s) =>
+    s.recipe.ingredients.map((i) => ({
+      from: i.name,
+      to: s.product,
+      qty: s.batches * i.qty,
+    }))
+  );
+
+  const maxTier = Math.max(0, ...nodes.map((n) => n.tier));
+  const columns: FlowNode[][] = Array.from({ length: maxTier + 1 }, () => []);
+  for (const n of nodes) columns[n.tier].push(n);
+
+  // Order each column by where its neighbours sit (as a 0..1 fraction of their
+  // column), sweeping towards the result and then back towards the raw materials.
+  const position = new Map<string, number>();
+  const place = (col: FlowNode[]) =>
+    col.forEach((n, i) =>
+      position.set(n.id, col.length > 1 ? i / (col.length - 1) : 0.5)
+    );
+  columns.forEach(place);
+  const barycentre = (id: string, neighbours: string[]) => {
+    const ps = neighbours
+      .map((n) => position.get(n))
+      .filter((p): p is number => p !== undefined);
+    return ps.length
+      ? ps.reduce((a, b) => a + b, 0) / ps.length
+      : (position.get(id) ?? 0.5);
+  };
+  const inputsOf = (id: string) =>
+    edges.filter((e) => e.to === id).map((e) => e.from);
+  const outputsOf = (id: string) =>
+    edges.filter((e) => e.from === id).map((e) => e.to);
+  for (let t = 1; t < columns.length; t++) {
+    columns[t].sort(
+      (a, b) =>
+        barycentre(a.id, inputsOf(a.id)) - barycentre(b.id, inputsOf(b.id))
+    );
+    place(columns[t]);
+  }
+  for (let t = columns.length - 2; t >= 0; t--) {
+    columns[t].sort(
+      (a, b) =>
+        barycentre(a.id, outputsOf(a.id)) - barycentre(b.id, outputsOf(b.id))
+    );
+    place(columns[t]);
+  }
+  return { columns: columns.filter((c) => c.length > 0), edges };
+}

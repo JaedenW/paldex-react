@@ -108,7 +108,7 @@ export default function PaldexPage() {
         subtitle={`${pals.length} Pals, from the community-maintained Palworld wiki. Filter by element or work suitability.`}
       />
 
-      <Toolbar>
+      <Toolbar stickyOnPhones={false}>
         <SearchInput
           value={query}
           onChange={setQuery}

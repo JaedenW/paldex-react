@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import LongList from './LongList';
 import PalImage from './PalImage';
 import { RecipeCard } from './gearUi';
-import { Panel, buttonClass } from './ui';
+import { Chip, Panel, buttonClass } from './ui';
 import { palById, pals } from '../data';
 import {
   buildings,
@@ -15,7 +16,7 @@ import {
 import { createLinker } from '../Utils/linkify';
 import { groupRecipes } from '../Utils/crafting';
 import { formatNumber } from '../Utils/text';
-import type { Item } from '../types';
+import type { Item, ItemSources } from '../types';
 
 // Pals, then buildings, then items: the first match for a name wins
 const linkText = createLinker([
@@ -81,19 +82,13 @@ export default function ItemAcquire({ item }: { item: Item }) {
   const recipes = groupRecipes(recipesFor(item.name));
   const where = sources[item.name];
   const palList = palDrops.get(item.name) ?? [];
+  const palDrops_ = React.useMemo(() => groupByPal(palList), [palList]);
   const tech = item.tech ? techByName.get(item.tech) : undefined;
-  const found = React.useMemo(
-    () =>
-      [...(where?.found ?? [])]
-        .sort((a, b) => (b.chance ?? 0) - (a.chance ?? 0))
-        .slice(0, 24),
-    [where]
-  );
 
   const tags = [
     recipes.length > 0 && 'Craftable',
     where?.other && 'Gathered or found',
-    palList.length > 0 && `Pal drop (${palList.length})`,
+    palList.length > 0 && `Dropped by Pals (${groupByPal(palList).length})`,
     where?.dropped && `Enemy drop (${where.dropped.length})`,
     where?.shops && `Sold by merchants (${where.shops.length})`,
     where?.found && 'Found in chests',
@@ -168,66 +163,14 @@ export default function ItemAcquire({ item }: { item: Item }) {
         )}
 
         {palList.length > 0 && (
-          <Group title="Dropped by Pals" count={palList.length}>
-            <ul className="grid-fluid [--min:15rem]">
-              {palList.map((p) => {
-                const pal = palById.get(p.palId);
-                return (
-                  <li key={`${p.palId}${p.alpha}`}>
-                    <Link
-                      to={`/pal/${p.palId}?tab=drops`}
-                      className={`${card} transition hover:border-pw-teal`}
-                    >
-                      <span className="flex min-w-0 items-center gap-2">
-                        {pal && (
-                          <PalImage pal={pal} className="size-9 shrink-0" />
-                        )}
-                        <span className="min-w-0">
-                          <span className="block truncate font-semibold">
-                            {p.palName}
-                          </span>
-                          {p.alpha && (
-                            <span className="text-xs text-pw-muted">Alpha</span>
-                          )}
-                        </span>
-                      </span>
-                      <span className="shrink-0 text-right text-sm text-pw-muted">
-                        {range(p.min, p.max)}
-                        <br />
-                        <b className="text-pw-ink">{p.chance}%</b>
-                      </span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+          <Group title="Dropped by Pals" count={palDrops_.length}>
+            <PalDrops drops={palList} />
           </Group>
         )}
 
         {where?.dropped && (
           <Group title="Dropped by enemies" count={where.dropped.length}>
-            <ul className="grid-fluid [--min:15rem]">
-              {where.dropped.map((d, i) => (
-                <li key={i} className={card}>
-                  <span className="min-w-0">
-                    <span className="block truncate font-semibold">
-                      {d.target}
-                      {d.variant ? ` (${d.variant})` : ''}
-                    </span>
-                    <span className="text-xs text-pw-muted">{d.type}</span>
-                  </span>
-                  <span className="shrink-0 text-right text-sm text-pw-muted">
-                    {range(d.min, d.max)}
-                    {d.chance !== undefined && (
-                      <>
-                        <br />
-                        <b className="text-pw-ink">{d.chance}%</b>
-                      </>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <EnemyDrops drops={where.dropped} />
           </Group>
         )}
 
@@ -251,34 +194,9 @@ export default function ItemAcquire({ item }: { item: Item }) {
           </Group>
         )}
 
-        {found.length > 0 && (
-          <Group title="Found in" count={where?.found?.length}>
-            <ul className="grid-fluid [--min:17rem]">
-              {found.map((f, i) => (
-                <li key={i} className={card}>
-                  <span className="min-w-0">
-                    <span className="block truncate font-semibold">
-                      {f.label}
-                    </span>
-                    <span className="text-xs text-pw-muted">{f.category}</span>
-                  </span>
-                  <span className="shrink-0 text-right text-sm text-pw-muted">
-                    {range(f.min, f.max)}
-                    {f.chance !== undefined && (
-                      <>
-                        <br />
-                        <b className="text-pw-ink">{f.chance}%</b>
-                      </>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            {(where?.found?.length ?? 0) > found.length && (
-              <p className="mt-2 text-xs text-pw-muted">
-                Showing the {found.length} best chances.
-              </p>
-            )}
+        {where?.found && (
+          <Group title="Found in" count={where.found.length}>
+            <FoundIn found={where.found} />
           </Group>
         )}
 
@@ -296,5 +214,217 @@ export default function ItemAcquire({ item }: { item: Item }) {
         )}
       </div>
     </Panel>
+  );
+}
+
+type PalDropRow = NonNullable<ReturnType<typeof palDrops.get>>[number];
+
+interface PalDropGroup {
+  palId: string;
+  palName: string;
+  normal?: PalDropRow;
+  alpha?: PalDropRow;
+}
+
+/** A Pal's normal and Alpha drops of an item are one entry, not two */
+function groupByPal(rows: PalDropRow[]): PalDropGroup[] {
+  const groups = new Map<string, PalDropGroup>();
+  for (const r of rows) {
+    const g = groups.get(r.palId) ?? { palId: r.palId, palName: r.palName };
+    if (r.alpha) g.alpha = r;
+    else g.normal = r;
+    groups.set(r.palId, g);
+  }
+  // Pals that drop it normally and most reliably first
+  return [...groups.values()].sort(
+    (a, b) =>
+      (b.normal?.chance ?? -1) - (a.normal?.chance ?? -1) ||
+      (b.alpha?.chance ?? -1) - (a.alpha?.chance ?? -1) ||
+      a.palName.localeCompare(b.palName)
+  );
+}
+
+const dropLine = (r: PalDropRow) => `${range(r.min, r.max)} · ${r.chance}%`;
+
+function PalDrops({ drops }: { drops: PalDropRow[] }) {
+  const groups = React.useMemo(() => groupByPal(drops), [drops]);
+  const [kind, setKind] = React.useState<'all' | 'normal' | 'alpha'>('all');
+  const normalCount = groups.filter((g) => g.normal).length;
+  const alphaOnly = groups.filter((g) => !g.normal).length;
+  const shown = groups.filter(
+    (g) => kind === 'all' || (kind === 'normal' ? g.normal : !g.normal)
+  );
+
+  return (
+    <LongList
+      items={shown}
+      itemKey={(g) => g.palId}
+      text={(g) => g.palName}
+      noun="Pals"
+      min="16rem"
+      resetKey={kind}
+      toolbar={
+        alphaOnly > 0 && normalCount > 0 ? (
+          <>
+            <Chip active={kind === 'all'} onClick={() => setKind('all')}>
+              All ({groups.length})
+            </Chip>
+            <Chip active={kind === 'normal'} onClick={() => setKind('normal')}>
+              Regular drop ({normalCount})
+            </Chip>
+            <Chip active={kind === 'alpha'} onClick={() => setKind('alpha')}>
+              Alpha only ({alphaOnly})
+            </Chip>
+          </>
+        ) : undefined
+      }
+      renderItem={(g) => {
+        const pal = palById.get(g.palId);
+        return (
+          <Link
+            to={`/pal/${g.palId}?tab=drops`}
+            className={`${card} h-full transition hover:border-pw-teal`}
+          >
+            <span className="flex min-w-0 items-center gap-2">
+              {pal && <PalImage pal={pal} className="size-9 shrink-0" />}
+              <span className="block truncate font-semibold">{g.palName}</span>
+            </span>
+            <span className="shrink-0 text-right text-xs leading-snug text-pw-muted">
+              {g.normal && <span className="block">{dropLine(g.normal)}</span>}
+              {g.alpha && (
+                <span className="block">
+                  <b className="text-pw-ink">Alpha</b> {dropLine(g.alpha)}
+                </span>
+              )}
+            </span>
+          </Link>
+        );
+      }}
+    />
+  );
+}
+
+type Dropped = NonNullable<ItemSources['dropped']>;
+
+function EnemyDrops({ drops }: { drops: Dropped }) {
+  const types = [...new Set(drops.map((d) => d.type))].sort();
+  const [type, setType] = React.useState('');
+  const shown = React.useMemo(
+    () =>
+      drops
+        .filter((d) => !type || d.type === type)
+        .sort(
+          (a, b) =>
+            (b.chance ?? 0) - (a.chance ?? 0) ||
+            a.target.localeCompare(b.target)
+        ),
+    [drops, type]
+  );
+  return (
+    <LongList
+      items={shown}
+      itemKey={(d) => `${d.target}|${d.variant ?? ''}|${d.type}`}
+      text={(d) => `${d.target} ${d.variant ?? ''}`}
+      noun="enemies"
+      min="15rem"
+      resetKey={type}
+      toolbar={
+        types.length > 1 ? (
+          <>
+            <Chip active={!type} onClick={() => setType('')}>
+              All ({drops.length})
+            </Chip>
+            {types.map((t) => (
+              <Chip
+                key={t}
+                active={type === t}
+                onClick={() => setType(type === t ? '' : t)}
+              >
+                {t} ({drops.filter((d) => d.type === t).length})
+              </Chip>
+            ))}
+          </>
+        ) : undefined
+      }
+      renderItem={(d) => (
+        <div className={`${card} h-full`}>
+          <span className="min-w-0">
+            <span className="block truncate font-semibold">
+              {d.target}
+              {d.variant ? ` (${d.variant})` : ''}
+            </span>
+            <span className="text-xs text-pw-muted">{d.type}</span>
+          </span>
+          <span className="shrink-0 text-right text-sm text-pw-muted">
+            {range(d.min, d.max)}
+            {d.chance !== undefined && (
+              <>
+                <br />
+                <b className="text-pw-ink">{d.chance}%</b>
+              </>
+            )}
+          </span>
+        </div>
+      )}
+    />
+  );
+}
+
+type Found = NonNullable<ItemSources['found']>;
+
+function FoundIn({ found }: { found: Found }) {
+  const categories = [...new Set(found.map((f) => f.category))].sort();
+  const [category, setCategory] = React.useState('');
+  const shown = React.useMemo(
+    () =>
+      found
+        .filter((f) => !category || f.category === category)
+        .sort((a, b) => (b.chance ?? 0) - (a.chance ?? 0)),
+    [found, category]
+  );
+  return (
+    <LongList
+      items={shown}
+      itemKey={(f) => `${f.category}|${f.label}`}
+      text={(f) => `${f.label} ${f.category}`}
+      noun="places"
+      min="17rem"
+      resetKey={category}
+      toolbar={
+        categories.length > 1 ? (
+          <>
+            <Chip active={!category} onClick={() => setCategory('')}>
+              All ({found.length})
+            </Chip>
+            {categories.map((c) => (
+              <Chip
+                key={c}
+                active={category === c}
+                onClick={() => setCategory(category === c ? '' : c)}
+              >
+                {c} ({found.filter((f) => f.category === c).length})
+              </Chip>
+            ))}
+          </>
+        ) : undefined
+      }
+      renderItem={(f) => (
+        <div className={`${card} h-full`}>
+          <span className="min-w-0">
+            <span className="block truncate font-semibold">{f.label}</span>
+            <span className="text-xs text-pw-muted">{f.category}</span>
+          </span>
+          <span className="shrink-0 text-right text-sm text-pw-muted">
+            {range(f.min, f.max)}
+            {f.chance !== undefined && (
+              <>
+                <br />
+                <b className="text-pw-ink">{f.chance}%</b>
+              </>
+            )}
+          </span>
+        </div>
+      )}
+    />
   );
 }

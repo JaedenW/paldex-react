@@ -76,7 +76,7 @@ export default function ItemsPage() {
         </Link>
       </PageHeader>
 
-      <Toolbar>
+      <Toolbar stickyOnPhones={false}>
         <SearchInput
           value={query}
           onChange={setQuery}

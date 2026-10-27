@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { groupRecipes, planCrafting, recipeVariants } from './crafting';
+import {
+  flowLayout,
+  groupRecipes,
+  planCrafting,
+  recipeVariants,
+} from './crafting';
 import type { Recipe } from '../types';
 
 const recipe = (
@@ -216,5 +221,61 @@ describe('recipe variants', () => {
     const list = [recipe('Fiber', [['Wood', 1]], { station: 'Crusher' })];
     expect(groupRecipes(list)).toHaveLength(1);
     expect(recipeVariants(list)).toHaveLength(0);
+  });
+});
+
+describe('flowLayout', () => {
+  const layout = flowLayout(planCrafting('Machine', 1, { recipesOf }));
+  const stage = (id: string) =>
+    layout.columns.findIndex((c) => c.some((n) => n.id === id));
+
+  it('puts raw materials first, the item last, and components between', () => {
+    expect(layout.columns.map((c) => c.map((n) => n.id).sort())).toEqual([
+      ['Ore', 'Wood'],
+      ['Ingot'],
+      ['Gear'],
+      ['Machine'],
+    ]);
+  });
+
+  it('places every step after everything it needs', () => {
+    for (const e of layout.edges)
+      expect(stage(e.from)).toBeLessThan(stage(e.to));
+  });
+
+  it('connects each ingredient to the step that uses it, with the total quantity', () => {
+    // Gear: 2 batches x 1 Ingot; Machine takes 3 Gear and 2 Ingot; Ingot: 4 batches x 2 Ore
+    const edge = (from: string, to: string) =>
+      layout.edges.find((e) => e.from === from && e.to === to)?.qty;
+    expect(edge('Ingot', 'Gear')).toBe(2);
+    expect(edge('Ingot', 'Machine')).toBe(2);
+    expect(edge('Gear', 'Machine')).toBe(3);
+    expect(edge('Ore', 'Ingot')).toBe(8);
+    expect(edge('Wood', 'Gear')).toBe(2);
+  });
+
+  it('marks raw and crafted nodes and keeps the step on crafted ones', () => {
+    const nodes = layout.columns.flat();
+    expect(
+      nodes
+        .filter((n) => n.kind === 'raw')
+        .map((n) => n.id)
+        .sort()
+    ).toEqual(['Ore', 'Wood']);
+    expect(nodes.find((n) => n.id === 'Gear')?.step?.batches).toBe(2);
+  });
+
+  it('puts the finished item alone in the last stage', () => {
+    expect(layout.columns.at(-1)?.map((n) => n.id)).toEqual(['Machine']);
+  });
+
+  it('handles an item with nothing to expand', () => {
+    const flat = flowLayout(
+      planCrafting('Machine', 1, { recipesOf, expand: false })
+    );
+    expect(flat.columns.map((c) => c.map((n) => n.id).sort())).toEqual([
+      ['Gear', 'Ingot'],
+      ['Machine'],
+    ]);
   });
 });
