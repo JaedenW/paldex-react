@@ -3,22 +3,23 @@ import { Link, useNavigate, useParams } from 'react-router';
 import {
   linkableDrops,
   palById,
+  breeder,
   pals,
   passiveByName,
   skillByName,
-  uniqueCombos,
 } from '../data';
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
 import ObtainTab from '../Components/ObtainTab';
 import InfiniteSentinel from '../Components/InfiniteSentinel';
+import ItemIcon from '../Components/ItemIcon';
 import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumb, Chip, Page, Panel } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryState } from '../Hooks/useQueryState';
-import { createBreeder } from '../Utils/breeding';
+import { METHOD_LABELS } from '../Utils/breedingText';
 import {
   defenceChart,
   ELEMENTS,
@@ -464,10 +465,7 @@ function PalLink({ pal }: { pal: Pal }) {
 }
 
 function BreedingTab({ pal }: { pal: Pal }) {
-  const parents = React.useMemo(
-    () => createBreeder(pals, uniqueCombos).parentsOf(pal),
-    [pal]
-  );
+  const parents = React.useMemo(() => breeder.parentsOf(pal), [pal]);
   const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
     parents.length,
     24,
@@ -497,10 +495,10 @@ function BreedingTab({ pal }: { pal: Pal }) {
         title={`Parents (${parents.length})`}
         actions={
           <Link
-            to={`/breeding?a=${pal.id}`}
+            to={`/breeding?mode=find&c=${pal.id}`}
             className="text-sm font-semibold text-pw-teal-dark hover:underline"
           >
-            Open calculator
+            Open in the calculator
           </Link>
         }
       >
@@ -512,13 +510,18 @@ function BreedingTab({ pal }: { pal: Pal }) {
         ) : (
           <>
             <ul className="space-y-2">
-              {visible.map(([a, b]) => (
+              {visible.map(({ a, b, method }) => (
                 <li
                   key={`${a.id}-${b.id}`}
                   className="grid grid-cols-[1fr_auto_1fr] items-center gap-2"
                 >
                   <PalLink pal={a} />
-                  <span className="font-bold text-pw-sun">+</span>
+                  <span
+                    className="font-bold text-pw-sun"
+                    title={METHOD_LABELS[method]}
+                  >
+                    +
+                  </span>
                   <PalLink pal={b} />
                 </li>
               ))}
@@ -545,16 +548,23 @@ function DropList({ drops }: { drops: Drop[] }) {
           key={d.item}
           className="flex items-center justify-between gap-3 py-2"
         >
-          {linkableDrops.has(d.item) ? (
-            <Link
-              to={`/item/${slugify(d.item)}`}
-              className="font-semibold hover:underline"
-            >
-              {d.item}
-            </Link>
-          ) : (
-            <span className="font-semibold">{d.item}</span>
-          )}
+          <span className="flex min-w-0 items-center gap-3">
+            <ItemIcon
+              id={slugify(d.item)}
+              name={d.item}
+              className="size-10 rounded-lg bg-pw-cream/70"
+            />
+            {linkableDrops.has(d.item) ? (
+              <Link
+                to={`/item/${slugify(d.item)}`}
+                className="font-semibold hover:underline"
+              >
+                {d.item}
+              </Link>
+            ) : (
+              <span className="font-semibold">{d.item}</span>
+            )}
+          </span>
           <span className="shrink-0 text-sm text-pw-muted">
             {d.min === d.max ? `×${d.min}` : `×${d.min}–${d.max}`} · {d.chance}%
           </span>

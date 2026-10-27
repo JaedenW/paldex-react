@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
 import { ItemLink, RecipeCard } from '../Components/gearUi';
+import { groupRecipes } from '../Utils/crafting';
 import { Breadcrumb, Page, Panel, buttonClass } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import {
@@ -112,8 +113,8 @@ function BuildingDetail({ building }: { building: Building }) {
             }
           >
             <div className="space-y-3">
-              {cost.map((r, i) => (
-                <RecipeCard key={i} recipe={r} />
+              {groupRecipes(cost).map((v, i) => (
+                <RecipeCard key={i} recipe={v.recipe} stations={v.stations} />
               ))}
             </div>
           </Panel>

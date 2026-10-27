@@ -9,6 +9,7 @@ import {
   RecipeCard,
   StationLink,
 } from '../Components/gearUi';
+import { groupRecipes } from '../Utils/crafting';
 import { Breadcrumb, Page, Panel, buttonClass } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import {
@@ -214,8 +215,8 @@ function ItemDetail({ item }: { item: Item }) {
             }
           >
             <div className="space-y-3">
-              {made.map((r, i) => (
-                <RecipeCard key={i} recipe={r} />
+              {groupRecipes(made).map((v, i) => (
+                <RecipeCard key={i} recipe={v.recipe} stations={v.stations} />
               ))}
             </div>
           </Panel>

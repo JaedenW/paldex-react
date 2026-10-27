@@ -12,7 +12,7 @@ import {
 } from '../data/gear';
 import { useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
-import { defaultRecipe, planCrafting } from '../Utils/crafting';
+import { planCrafting, type CraftStep } from '../Utils/crafting';
 import { matchScore } from '../Utils/search';
 import { formatNumber } from '../Utils/text';
 import type { Recipe } from '../types';
@@ -40,7 +40,8 @@ export default function CraftingPage() {
   const [qtyParam, setQty] = useQueryState('qty', '1');
   const [expandParam, setExpand] = useQueryState('expand', '1');
   const [query, setQuery] = React.useState('');
-  const [stations, setStations] = React.useState<Record<string, string>>({});
+  // which way to make each product when there are several, by variant index
+  const [choices, setChoices] = React.useState<Record<string, number>>({});
 
   const item = itemParam ? itemById.get(itemParam) : undefined;
   const building = buildingParam ? buildingById.get(buildingParam) : undefined;
@@ -68,7 +69,7 @@ export default function CraftingPage() {
     setItem(t.kind === 'item' ? t.id : '');
     setBuilding(t.kind === 'building' ? t.id : '');
     setQuery('');
-    setStations({});
+    setChoices({});
   };
 
   const plan = React.useMemo(() => {
@@ -82,11 +83,9 @@ export default function CraftingPage() {
     return planCrafting(target.name, qty, {
       recipesOf,
       expand,
-      pick: (name, options) =>
-        options.find((r) => r.station === stations[name] && !r.quality) ??
-        defaultRecipe(options),
+      choose: (name) => choices[name] ?? 0,
     });
-  }, [target, qty, expand, stations]);
+  }, [target, qty, expand, choices]);
 
   return (
     <Page>
@@ -239,9 +238,8 @@ export default function CraftingPage() {
                   index={i + 1}
                   step={s}
                   kind={s.product === target.name ? target.kind : 'item'}
-                  selected={stations[s.product]}
-                  onStation={(st) =>
-                    setStations((cur) => ({ ...cur, [s.product]: st }))
+                  onChoose={(v) =>
+                    setChoices((cur) => ({ ...cur, [s.product]: v }))
                   }
                 />
               ))}
@@ -251,9 +249,12 @@ export default function CraftingPage() {
           {plan.stations.length > 0 && (
             <Panel title="Workbenches needed">
               <ul className="flex flex-wrap gap-2">
-                {plan.stations.map((s) => (
-                  <li key={s} className="rounded-full bg-pw-cream px-3 py-1">
-                    <StationLink name={s} />
+                {plan.stations.map((group) => (
+                  <li
+                    key={group.join('|')}
+                    className="rounded-full bg-pw-cream px-3 py-1"
+                  >
+                    <Stations names={group} />
                   </li>
                 ))}
               </ul>
@@ -265,31 +266,34 @@ export default function CraftingPage() {
   );
 }
 
+/** "A", or "A or B" when several benches make it the same way */
+function Stations({ names }: { names: string[] }) {
+  return (
+    <>
+      {names.map((n, i) => (
+        <React.Fragment key={n}>
+          {i > 0 && <span className="text-pw-muted"> or </span>}
+          <StationLink name={n} />
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
+const summary = (r: Recipe) =>
+  r.ingredients.map((i) => `${i.qty} ${i.name}`).join(', ');
+
 function StepRow({
   index,
   step,
   kind,
-  selected,
-  onStation,
+  onChoose,
 }: {
   index: number;
-  step: {
-    product: string;
-    recipe: Recipe;
-    batches: number;
-    made: number;
-    needed: number;
-  };
+  step: CraftStep;
   kind: 'item' | 'building';
-  selected?: string;
-  onStation: (s: string) => void;
+  onChoose: (variant: number) => void;
 }) {
-  const options = recipesFor(step.product, kind).filter(
-    (r) => !r.quality && r.ingredients.length > 0
-  );
-  const stationsHere = [
-    ...new Set(options.map((r) => r.station).filter((s): s is string => !!s)),
-  ];
   return (
     <li className="flex flex-wrap items-center gap-x-3 gap-y-1 py-2.5">
       <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-pw-sun font-display text-sm font-bold text-pw-deep">
@@ -303,27 +307,30 @@ function StepRow({
           : ''}
       </span>
       <span className="ml-auto text-sm">
-        {stationsHere.length > 1 ? (
-          <select
-            aria-label={`Where to craft ${step.product}`}
-            value={selected ?? step.recipe.station ?? ''}
-            onChange={(e) => onStation(e.target.value)}
-            className="h-8 rounded-full border bg-white px-2 text-sm"
-          >
-            {stationsHere.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        ) : step.recipe.station ? (
-          <StationLink name={step.recipe.station} />
+        {step.stations.length > 0 ? (
+          <Stations names={step.stations} />
         ) : (
           <span className="text-pw-muted">
             {kind === 'building' ? 'Build menu' : ''}
           </span>
         )}
       </span>
+      {step.variants.length > 1 && (
+        <label className="basis-full pl-9 text-sm">
+          <span className="mr-2 text-pw-muted">Recipe</span>
+          <select
+            value={step.variantIndex}
+            onChange={(e) => onChoose(Number(e.target.value))}
+            className="h-8 max-w-full rounded-full border bg-white px-2 text-sm"
+          >
+            {step.variants.map((v, i) => (
+              <option key={i} value={i}>
+                {summary(v.recipe)}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
     </li>
   );
 }
