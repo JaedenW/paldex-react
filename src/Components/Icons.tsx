@@ -120,3 +120,18 @@ export const LayoutIcon = icon(
   </>
 );
 export const ArrowRightIcon = icon(<path d="M5 12h14m-6-6 6 6-6 6" />);
+
+export const CheckIcon = icon(<path d="m5 12 5 5L20 7" />);
+
+export const SunIcon = icon(
+  <>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" />
+  </>
+);
+export const MonitorIcon = icon(
+  <>
+    <rect x="3" y="4" width="18" height="12" rx="2" />
+    <path d="M8 20h8M12 16v4" />
+  </>
+);

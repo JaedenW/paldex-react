@@ -2,6 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      // Set the theme before the page paints, so a dark theme never flashes light.
+      // Mirrors src/Utils/theme.ts: a saved light or dark choice, else the device.
+      (function () {
+        var theme = 'light';
+        try {
+          var saved = localStorage.getItem('paldex.theme');
+          var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          theme =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : dark
+                ? 'dark'
+                : 'light';
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link

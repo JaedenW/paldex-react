@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router';
 import { SearchIcon } from './Icons';
+import ThemeToggle from './ThemeToggle';
 import { GROUPS, HOME } from './sections';
 import { useSearch } from '../Utils/SearchContext';
 import { cn } from '../Utils/cn';
@@ -91,7 +92,10 @@ export function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
         ))}
       </nav>
 
-      <p className="border-t border-white/10 px-5 py-3 text-xs text-white/45">
+      <div className="border-t border-white/10 pt-3">
+        <ThemeToggle />
+      </div>
+      <p className="px-5 pb-3 text-xs text-white/45">
         Unofficial fan project. Data from the community Palworld wiki.
       </p>
     </>

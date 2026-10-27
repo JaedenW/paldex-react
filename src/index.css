@@ -1,11 +1,14 @@
 @import 'tailwindcss';
 
+/* Tailwind's dark: variant follows the page's data-theme, not just the OS setting */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 /*
   Design tokens. Deep ocean navy, lagoon teal and a sun-orange accent, with
   bevelled panels and diamond bullets borrowed from the game's menus. Colours
-  that change in dark mode are redefined below under prefers-color-scheme, so
-  the same utility classes work in both themes. Nothing is stored: the theme
-  follows the device setting.
+  that change in dark mode are redefined below for data-theme="dark", which the
+  theme toggle sets (and an inline script in index.html sets before first paint),
+  so the same utility classes work in both themes.
 */
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -34,24 +37,22 @@
     0 1px 0 rgb(255 255 255 / 0.8) inset, 0 8px 18px rgb(11 29 46 / 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-pw-cream: #0a1621;
-    --color-pw-paper: #142a3b;
-    --color-pw-field: #1b3448;
-    --color-pw-line: #28445b;
-    --color-pw-ink: #e7eff6;
-    --color-pw-muted: #9db0c0;
-    --color-pw-heading: #c4dff5;
-    --color-pw-link: #52d6c9;
-    --color-pw-teal-dark: #52d6c9;
-    --shadow-card:
-      0 1px 0 rgb(255 255 255 / 0.05) inset, 0 2px 0 rgb(0 0 0 / 0.35);
-    --shadow-lift:
-      0 1px 0 rgb(255 255 255 / 0.06) inset, 0 8px 22px rgb(0 0 0 / 0.5);
-    --dot: rgb(255 255 255 / 0.035);
-    color-scheme: dark;
-  }
+:root[data-theme='dark'] {
+  --color-pw-cream: #0a1621;
+  --color-pw-paper: #142a3b;
+  --color-pw-field: #1b3448;
+  --color-pw-line: #28445b;
+  --color-pw-ink: #e7eff6;
+  --color-pw-muted: #9db0c0;
+  --color-pw-heading: #c4dff5;
+  --color-pw-link: #52d6c9;
+  --color-pw-teal-dark: #52d6c9;
+  --shadow-card:
+    0 1px 0 rgb(255 255 255 / 0.05) inset, 0 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-lift:
+    0 1px 0 rgb(255 255 255 / 0.06) inset, 0 8px 22px rgb(0 0 0 / 0.5);
+  --dot: rgb(255 255 255 / 0.035);
+  color-scheme: dark;
 }
 
 :root {
@@ -59,11 +60,6 @@
   --header-h: 3.5rem; /* the top bar, shown below lg */
   --sidebar-w: 16.5rem; /* the side navigation, shown from lg */
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
 }
 
 @utility font-display {

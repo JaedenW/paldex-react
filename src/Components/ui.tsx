@@ -301,32 +301,4 @@ export function SearchInput({
   );
 }
 
-export function Select<T extends string>({
-  value,
-  onChange,
-  options,
-  label,
-}: {
-  value: T;
-  onChange: (v: T) => void;
-  options: { value: T; label: string }[];
-  label: string;
-}) {
-  return (
-    <div className="relative">
-      <select
-        value={value}
-        aria-label={label}
-        onChange={(e) => onChange(e.target.value as T)}
-        className="h-10 appearance-none rounded-full border bg-pw-field pr-9 pl-4 text-sm font-medium outline-none focus:border-pw-teal"
-      >
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
-      <ChevronIcon className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 rotate-90 text-pw-muted" />
-    </div>
-  );
-}
+export { Select } from './Select';
