@@ -90,8 +90,9 @@ export function Panel({
 }
 
 /**
- * Search and filter controls that stay in view while a long grid scrolls.
- * It sticks to the top of the scrolling page and bleeds to its edges.
+ * Search and filter controls that stay in view while a long grid scrolls. On
+ * phones it sticks just under the fixed top bar. The page itself scrolls (not an
+ * inner box), so a tap on the status bar scrolls to the top on iOS.
  */
 export function Toolbar({
   children,
@@ -103,7 +104,7 @@ export function Toolbar({
   return (
     <div
       className={cn(
-        'sticky top-0 z-20 -mx-4 mb-4 border-b bg-pw-cream/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8',
+        'sticky top-(--header-h) z-20 -mx-4 mb-4 border-b bg-pw-cream/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:top-0 lg:-mx-8 lg:px-8',
         className
       )}
     >

@@ -27,11 +27,10 @@ const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
 
 function App() {
   const { pathname } = useLocation();
-  const scrollRef = React.useRef<HTMLElement>(null);
 
-  // each route starts at the top of the scroll area
+  // each route starts at the top of the page
   React.useEffect(() => {
-    scrollRef.current?.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0 });
   }, [pathname]);
 
   return (
@@ -46,8 +45,7 @@ function App() {
       <TopBar />
       <main
         id="content"
-        ref={scrollRef}
-        className="fixed inset-x-0 inset-y-0 top-(--header-h) overflow-y-scroll overscroll-contain lg:top-0 lg:left-(--sidebar-w)"
+        className="min-h-dvh pt-(--header-h) lg:ml-(--sidebar-w) lg:pt-0"
       >
         <ErrorBoundary resetKey={pathname}>
           <React.Suspense

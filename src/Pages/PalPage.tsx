@@ -11,10 +11,12 @@ import {
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
 import ObtainTab from '../Components/ObtainTab';
-import InfiniteSentinel from '../Components/InfiniteSentinel';
+import ParentPairList, {
+  MethodChips,
+  filterPairs,
+} from '../Components/ParentPairList';
 import ItemIcon from '../Components/ItemIcon';
 import Tile from '../Components/Tile';
-import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import WorkLevel from '../Components/WorkLevel';
 import {
   Breadcrumbs,
@@ -23,11 +25,11 @@ import {
   Panel,
   Stat,
   Toolbar,
+  SearchInput,
 } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryState } from '../Hooks/useQueryState';
-import { METHOD_LABELS } from '../Utils/breedingText';
 import {
   defenceChart,
   ELEMENTS,
@@ -186,7 +188,7 @@ export default function PalPage() {
 
       <Toolbar className="mt-5">
         <div
-          className="flex gap-2 overflow-x-auto"
+          className="-m-1.5 flex gap-2 overflow-x-auto p-1.5"
           role="tablist"
           aria-label="Sections of this page"
         >
@@ -493,31 +495,19 @@ function SkillsTab({ pal }: { pal: Pal }) {
   );
 }
 
-function PalLink({ pal }: { pal: Pal }) {
-  return (
-    <Link
-      to={`/pal/${pal.id}`}
-      className="flex items-center gap-2 rounded-xl bg-pw-cream/70 px-2.5 py-1.5 transition hover:bg-pw-cream"
-    >
-      <PalImage pal={pal} className="size-9" />
-      <span className="font-semibold">{pal.name}</span>
-    </Link>
-  );
-}
-
 function BreedingTab({ pal }: { pal: Pal }) {
   const parents = React.useMemo(() => breeder.parentsOf(pal), [pal]);
-  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
-    parents.length,
-    24,
-    pal.id
+  const [text, setText] = React.useState('');
+  const [how, setHow] = React.useState('');
+  const shown = React.useMemo(
+    () => filterPairs(parents, { text, method: how }),
+    [parents, text, how]
   );
-  const visible = parents.slice(0, limit);
 
   return (
     <>
       <Panel title="Breeding">
-        <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <Fact label="Breeding rank">{pal.breeding.rank}</Fact>
           <Fact label="Egg">{pal.breeding.egg || '–'}</Fact>
           <Fact label="Male chance">
@@ -550,27 +540,17 @@ function BreedingTab({ pal }: { pal: Pal }) {
           </p>
         ) : (
           <>
-            <ul className="grid-fluid [--min:20rem]">
-              {visible.map(({ a, b, method }) => (
-                <li
-                  key={`${a.id}-${b.id}`}
-                  className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 rounded-2xl border bg-pw-cream/30 p-1.5"
-                >
-                  <PalLink pal={a} />
-                  <span
-                    className="font-bold text-pw-sun"
-                    title={METHOD_LABELS[method]}
-                  >
-                    +
-                  </span>
-                  <PalLink pal={b} />
-                </li>
-              ))}
-            </ul>
-            <InfiniteSentinel
-              sentinelRef={sentinelRef}
-              hasMore={hasMore}
-              showAll={showAll}
+            <div className="mb-4 space-y-2">
+              <SearchInput
+                value={text}
+                onChange={setText}
+                placeholder="Filter by a parent’s name"
+              />
+              <MethodChips pairs={parents} value={how} onChange={setHow} />
+            </div>
+            <ParentPairList
+              pairs={shown}
+              resetKey={`${pal.id}|${text}|${how}`}
             />
           </>
         )}

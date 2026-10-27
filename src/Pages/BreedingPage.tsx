@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router';
 import { ResultPanel, TraitsPanel } from '../Components/BreedingParts';
-import PalImage from '../Components/PalImage';
 import PalPicker from '../Components/PalPicker';
 import TraitPicker, { type TraitOption } from '../Components/TraitPicker';
-import InfiniteSentinel from '../Components/InfiniteSentinel';
+import ParentPairList, {
+  MethodChips,
+  filterPairs,
+} from '../Components/ParentPairList';
 import {
   Chip,
   EmptyState,
@@ -22,11 +24,7 @@ import {
   passiveSkills,
 } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
-import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
-import { METHOD_LABELS } from '../Utils/breedingText';
-import type { BreedMethod } from '../Utils/breeding';
 import type { Pal } from '../types';
-import { cn } from '../Utils/cn';
 
 const MAX_PARENT_PASSIVES = 4;
 const MAX_PARENT_SKILLS = 8;
@@ -298,8 +296,6 @@ function Calculator({
   );
 }
 
-const METHOD_FILTERS: BreedMethod[] = ['listed', 'rank', 'same', 'gender'];
-
 function FindParents({
   params,
   patch,
@@ -309,32 +305,16 @@ function FindParents({
 }) {
   const child = palById.get(params.get('c') ?? '');
   const withPal = palById.get(params.get('with') ?? '');
-  const methodParam = params.get('how') ?? '';
+  const how = params.get('how') ?? '';
 
   const all = React.useMemo(
     () => (child ? breeder.parentsOf(child) : []),
     [child]
   );
   const shown = React.useMemo(
-    () =>
-      all.filter(
-        (p) =>
-          (!withPal || p.a.id === withPal.id || p.b.id === withPal.id) &&
-          (!methodParam || p.method === methodParam)
-      ),
-    [all, withPal, methodParam]
+    () => filterPairs(all, { palId: withPal?.id, method: how }),
+    [all, withPal, how]
   );
-  const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
-    shown.length,
-    30,
-    `${child?.id}|${withPal?.id}|${methodParam}`
-  );
-
-  const counts = React.useMemo(() => {
-    const c: Partial<Record<BreedMethod, number>> = {};
-    for (const p of all) c[p.method] = (c[p.method] ?? 0) + 1;
-    return c;
-  }, [all]);
 
   return (
     <div className="space-y-4">
@@ -366,78 +346,21 @@ function FindParents({
       ) : (
         <Panel
           title={`${shown.length} pair${shown.length === 1 ? '' : 's'} make ${child.name}`}
-          actions={
-            <div className="flex flex-wrap gap-1.5">
-              <Chip
-                active={!methodParam}
-                onClick={() => patch({ how: undefined })}
-              >
-                All ({all.length})
-              </Chip>
-              {METHOD_FILTERS.filter((m) => counts[m]).map((m) => (
-                <Chip
-                  key={m}
-                  active={methodParam === m}
-                  onClick={() => patch({ how: m })}
-                >
-                  {METHOD_LABELS[m]} ({counts[m]})
-                </Chip>
-              ))}
-            </div>
-          }
         >
-          {shown.length === 0 ? (
-            <p className="text-pw-muted">No pair matches those filters.</p>
-          ) : (
-            <>
-              <ul className="grid-fluid [--min:21rem]">
-                {shown.slice(0, limit).map(({ a, b, method }) => (
-                  <li
-                    key={`${a.id}|${b.id}`}
-                    className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 card p-1.5"
-                  >
-                    <ParentLink pal={a} highlight={a.id === withPal?.id} />
-                    <Link
-                      to={`/breeding?a=${a.id}&b=${b.id}`}
-                      title={`${METHOD_LABELS[method]}. Open in the calculator`}
-                      aria-label={`Open ${a.name} and ${b.name} in the calculator`}
-                      className="flex size-9 items-center justify-center rounded-full bg-pw-sun font-display text-xl font-bold text-pw-deep transition hover:scale-110"
-                    >
-                      +
-                    </Link>
-                    <ParentLink pal={b} highlight={b.id === withPal?.id} />
-                  </li>
-                ))}
-              </ul>
-              <InfiniteSentinel
-                sentinelRef={sentinelRef}
-                hasMore={hasMore}
-                showAll={showAll}
-              />
-            </>
-          )}
+          <div className="mb-4">
+            <MethodChips
+              pairs={all}
+              value={how}
+              onChange={(m) => patch({ how: m || undefined })}
+            />
+          </div>
+          <ParentPairList
+            pairs={shown}
+            highlightId={withPal?.id}
+            resetKey={`${child.id}|${withPal?.id}|${how}`}
+          />
         </Panel>
       )}
     </div>
-  );
-}
-
-function ParentLink({ pal, highlight }: { pal: Pal; highlight?: boolean }) {
-  return (
-    <Link
-      to={`/pal/${pal.id}`}
-      className={cn(
-        'flex items-center gap-2 rounded-xl px-2 py-1 transition hover:bg-pw-cream',
-        highlight && 'bg-pw-sun/20'
-      )}
-    >
-      <PalImage pal={pal} className="size-9 shrink-0" />
-      <span className="min-w-0">
-        <span className="block truncate font-semibold">{pal.name}</span>
-        <span className="block text-xs text-pw-muted">
-          rank {pal.breeding.rank}
-        </span>
-      </span>
-    </Link>
   );
 }
