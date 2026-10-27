@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router';
 import { useSearch } from '../Utils/SearchContext';
-import { search } from '../Utils/search';
+import { searchScored, topResults } from '../Utils/search';
 import { SearchIcon } from './Icons';
 import { cn } from '../Utils/cn';
 
@@ -16,7 +16,18 @@ function Palette({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate();
   const [query, setQuery] = React.useState('');
   const [index, setIndex] = React.useState(0);
-  const results = React.useMemo(() => search(query), [query]);
+  // item, building and tech data is large, so it loads when the palette first opens
+  const [gearSearch, setGearSearch] =
+    React.useState<typeof import('../Utils/gearSearch').searchGear>();
+  React.useEffect(() => {
+    import('../Utils/gearSearch').then((m) =>
+      setGearSearch(() => m.searchGear)
+    );
+  }, []);
+  const results = React.useMemo(
+    () => topResults([...searchScored(query), ...(gearSearch?.(query) ?? [])]),
+    [query, gearSearch]
+  );
   const listRef = React.useRef<HTMLUListElement>(null);
 
   React.useEffect(() => {
@@ -61,7 +72,7 @@ function Palette({ onClose }: { onClose: () => void }) {
               setIndex(0);
             }}
             onKeyDown={onKeyDown}
-            placeholder="Search Pals, skills, passives…"
+            placeholder="Search Pals, items, buildings, skills…"
             className="h-14 flex-1 bg-transparent text-lg outline-none"
           />
           <kbd className="rounded-md border px-1.5 py-0.5 text-xs text-pw-muted">

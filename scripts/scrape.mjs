@@ -3,29 +3,19 @@
 // Icons are saved to public/pals; pass --no-images to skip downloading them.
 import { mkdir, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
-import { api, root, sleep, UA, wikitext as fetchWikitext } from './wiki.mjs';
+import {
+  api,
+  cargo,
+  root,
+  slug,
+  sleep,
+  UA,
+  wikitext as fetchWikitext,
+} from './wiki.mjs';
 
 const dataDir = path.join(root, 'src/data');
 const imgDir = path.join(root, 'public/pals');
 const skipImages = process.argv.includes('--no-images');
-
-async function cargo(table, fields, where) {
-  const rows = [];
-  for (let offset = 0; ; offset += 500) {
-    const json = await api({
-      action: 'cargoquery',
-      tables: table,
-      fields: fields.join(','),
-      ...(where && { where }),
-      limit: '500',
-      offset: String(offset),
-    });
-    const page = json.cargoquery.map((r) => r.title);
-    rows.push(...page);
-    if (page.length < 500) return rows;
-    await sleep(300);
-  }
-}
 
 const num = (v) => (v === '' || v == null ? null : Number(v));
 const clean = (s) =>
@@ -41,13 +31,6 @@ const clean = (s) =>
     .replace(/'''?/g, '')
     .replace(/&nbsp;/g, ' ')
     .trim();
-const slug = (s) =>
-  s
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
 const group = (rows, key) => {
   const map = new Map();
   for (const r of rows) {
@@ -70,7 +53,6 @@ const [
   breeding,
   partner,
   drops,
-  items,
 ] = await Promise.all([
   cargo('Pal', [
     'palName',
@@ -136,7 +118,6 @@ const [
     ],
     'targetType="Pal"'
   ),
-  cargo('Item', ['itemName', 'itemType', 'rarity']),
 ]);
 console.log(
   `${pals.length} pals, ${activeSkills.length} active skills, ${passives.length} passives`
@@ -156,7 +137,6 @@ const passiveBy = byPal(passiveLinks),
 const partnerBy = byPal(partner),
   dropsBy = group(drops, 'targetName');
 const skillInfo = new Map(activeSkills.map((s) => [s.activeSkillName, s]));
-const itemInfo = new Map(items.map((i) => [i.itemName, i]));
 
 const uniqueCombos = [];
 const result = pals
@@ -272,12 +252,6 @@ const passiveList = passives
     description: clean(p.description),
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
-const itemList = Object.fromEntries(
-  [...itemInfo.values()].map((i) => [
-    i.itemName,
-    { type: i.itemType, rarity: i.rarity },
-  ])
-);
 
 const nameToId = new Map(result.map((p) => [p.name, p.id]));
 const combosOut = uniqueCombos
@@ -307,7 +281,6 @@ await Promise.all([
   write('pals.json', result),
   write('skills.json', skills),
   write('passives.json', passiveList),
-  write('items.json', itemList),
   write('combos.json', dedup),
   write('meta.json', {
     source: 'https://palworld.wiki.gg',

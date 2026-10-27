@@ -15,6 +15,12 @@ const SkillsPage = React.lazy(() => import('./Pages/SkillsPage'));
 const SkillPage = React.lazy(() => import('./Pages/SkillPage'));
 const PassivesPage = React.lazy(() => import('./Pages/PassivesPage'));
 const BreedingPage = React.lazy(() => import('./Pages/BreedingPage'));
+const ItemsPage = React.lazy(() => import('./Pages/ItemsPage'));
+const ItemPage = React.lazy(() => import('./Pages/ItemPage'));
+const BuildingsPage = React.lazy(() => import('./Pages/BuildingsPage'));
+const BuildingPage = React.lazy(() => import('./Pages/BuildingPage'));
+const CraftingPage = React.lazy(() => import('./Pages/CraftingPage'));
+const TechPage = React.lazy(() => import('./Pages/TechPage'));
 const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
 
 function App() {
@@ -52,6 +58,12 @@ function App() {
               <Route path="/skill/:id" element={<SkillPage />} />
               <Route path="/passives" element={<PassivesPage />} />
               <Route path="/breeding" element={<BreedingPage />} />
+              <Route path="/items" element={<ItemsPage />} />
+              <Route path="/item/:id" element={<ItemPage />} />
+              <Route path="/buildings" element={<BuildingsPage />} />
+              <Route path="/building/:id" element={<BuildingPage />} />
+              <Route path="/crafting" element={<CraftingPage />} />
+              <Route path="/technology" element={<TechPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </React.Suspense>

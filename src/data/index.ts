@@ -3,20 +3,16 @@ import palsJson from './pals.json';
 import skillsJson from './skills.json';
 import passivesJson from './passives.json';
 import combosJson from './combos.json';
-import itemsJson from './items.json';
 import meta from './meta.json';
 import obtainJson from './obtain.json';
 import mapJson from './map.json';
+import dropItemsJson from './dropItems.json';
 
 export const pals = palsJson as unknown as Pal[];
 export const activeSkills = skillsJson as unknown as ActiveSkill[];
 export const passiveSkills = passivesJson as unknown as PassiveSkill[];
 /** [parent, parent, child] Pal ids that breed into a specific child */
 export const uniqueCombos = combosJson as [string, string, string][];
-export const items = itemsJson as Record<
-  string,
-  { type: string; rarity: string }
->;
 export const dataSource = meta as { source: string; scrapedAt: string };
 
 export const palById = new Map(pals.map((p) => [p.id, p]));
@@ -35,3 +31,6 @@ export const mapBounds = mapJson as {
   bottomRight: [number, number];
 };
 export const MAP_URL = '/map/world.webp';
+
+/** Names of Pal drops that have an item page */
+export const linkableDrops = new Set(dropItemsJson as string[]);

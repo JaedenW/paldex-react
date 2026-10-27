@@ -11,8 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs",
-    "scrape:obtain": "node scripts/scrape-obtain.mjs"
+    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs && node scripts/scrape-gear.mjs",
+    "scrape:obtain": "node scripts/scrape-obtain.mjs",
+    "scrape:gear": "node scripts/scrape-gear.mjs"
   },
   "dependencies": {
     "react": "^19.3.1",
@@ -26,6 +27,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.5",
