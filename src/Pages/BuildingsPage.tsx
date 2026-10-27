@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import Tile from '../Components/Tile';
 import InfiniteSentinel from '../Components/InfiniteSentinel';
 import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
 import {
@@ -9,6 +10,7 @@ import {
   PageHeader,
   SearchInput,
   Select,
+  Toolbar,
   buttonClass,
 } from '../Components/ui';
 import { buildings } from '../data/gear';
@@ -44,8 +46,9 @@ export default function BuildingsPage() {
   );
 
   return (
-    <Page wide>
+    <Page>
       <PageHeader
+        eyebrow="Items & Base"
         title="Buildings"
         subtitle={`${buildings.length} structures to build at your base: foundations, production, storage, defence and decor.`}
       >
@@ -53,7 +56,7 @@ export default function BuildingsPage() {
           Crafting calculator
         </Link>
       </PageHeader>
-      <div className="mb-3 flex flex-wrap items-center gap-2">
+      <Toolbar>
         <SearchInput
           value={query}
           onChange={setQuery}
@@ -68,36 +71,35 @@ export default function BuildingsPage() {
             ...types.map((t) => ({ value: t, label: t })),
           ]}
         />
-      </div>
-      <p className="mb-3 text-sm text-pw-muted" aria-live="polite">
-        {list.length} building{list.length === 1 ? '' : 's'}
-      </p>
+        <span
+          className="ml-auto hidden text-sm text-pw-muted sm:inline"
+          aria-live="polite"
+        >
+          {list.length} building{list.length === 1 ? '' : 's'}
+        </span>
+      </Toolbar>
       {list.length === 0 ? (
         <EmptyState title="No buildings match">
           Try removing a filter.
         </EmptyState>
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="grid-fluid [--min:9.5rem]">
             {list.slice(0, limit).map((b) => (
-              <Link
+              <Tile
                 key={b.id}
                 to={`/building/${b.id}`}
-                className="flex flex-col items-center gap-1.5 rounded-2xl border bg-pw-paper p-3 text-center shadow-card transition hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                <ItemIcon
-                  kind="building"
-                  id={b.id}
-                  name={b.name}
-                  className="size-16"
-                />
-                <p className="line-clamp-2 font-display text-lg leading-tight font-bold">
-                  {b.name}
-                </p>
-                <p className="text-xs text-pw-muted">
-                  {[b.type, b.subtype].filter(Boolean).join(' · ')}
-                </p>
-              </Link>
+                icon={
+                  <ItemIcon
+                    kind="building"
+                    id={b.id}
+                    name={b.name}
+                    className="size-14"
+                  />
+                }
+                title={b.name}
+                meta={[b.type, b.subtype].filter(Boolean).join(' · ')}
+              />
             ))}
           </div>
           <InfiniteSentinel

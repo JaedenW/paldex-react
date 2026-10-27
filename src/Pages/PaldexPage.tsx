@@ -10,6 +10,7 @@ import {
   PageHeader,
   SearchInput,
   Select,
+  Toolbar,
   buttonClass,
 } from '../Components/ui';
 import { GridIcon, ListIcon } from '../Components/Icons';
@@ -100,47 +101,54 @@ export default function PaldexPage() {
   const compact = view === 'list';
 
   return (
-    <Page wide>
+    <Page>
       <PageHeader
+        eyebrow="Pals"
         title="Paldex"
         subtitle={`${pals.length} Pals, from the community-maintained Palworld wiki. Filter by element or work suitability.`}
       />
 
-      <div className="mb-5 space-y-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <SearchInput
-            value={query}
-            onChange={setQuery}
-            placeholder="Search by name or number"
-          />
-          <Select
-            label="Sort by"
-            value={sort as SortKey}
-            onChange={setSort}
-            options={Object.entries(SORTS).map(([value, s]) => ({
-              value: value as SortKey,
-              label: `Sort: ${s.label}`,
-            }))}
-          />
-          <Select
-            label="Work suitability"
-            value={work}
-            onChange={setWork}
-            options={[
-              { value: '', label: 'Any work' },
-              ...WORK_TYPES.map((w) => ({ value: w as string, label: w })),
-            ]}
-          />
-          <Chip
-            active={variants === 'hide'}
-            onClick={() => setVariants(variants === 'hide' ? 'show' : 'hide')}
+      <Toolbar>
+        <SearchInput
+          value={query}
+          onChange={setQuery}
+          placeholder="Search by name or number"
+        />
+        <Select
+          label="Sort by"
+          value={sort as SortKey}
+          onChange={setSort}
+          options={Object.entries(SORTS).map(([value, s]) => ({
+            value: value as SortKey,
+            label: `Sort: ${s.label}`,
+          }))}
+        />
+        <Select
+          label="Work suitability"
+          value={work}
+          onChange={setWork}
+          options={[
+            { value: '', label: 'Any work' },
+            ...WORK_TYPES.map((w) => ({ value: w as string, label: w })),
+          ]}
+        />
+        <Chip
+          active={variants === 'hide'}
+          onClick={() => setVariants(variants === 'hide' ? 'show' : 'hide')}
+        >
+          Hide variants
+        </Chip>
+        <div className="ml-auto flex items-center gap-3">
+          <span
+            className="hidden text-sm text-pw-muted sm:inline"
+            aria-live="polite"
           >
-            Hide variants
-          </Chip>
-          <div className="ml-auto flex gap-1" role="group" aria-label="View">
+            {filtered.length} of {pals.length}
+          </span>
+          <div className="flex gap-1" role="group" aria-label="Density">
             <button
               type="button"
-              aria-label="Card view"
+              aria-label="Large cards"
               aria-pressed={!compact}
               onClick={() => setView('grid')}
               className={buttonClass(
@@ -152,7 +160,7 @@ export default function PaldexPage() {
             </button>
             <button
               type="button"
-              aria-label="List view"
+              aria-label="Compact cards"
               aria-pressed={compact}
               onClick={() => setView('list')}
               className={buttonClass(
@@ -165,7 +173,7 @@ export default function PaldexPage() {
           </div>
         </div>
         <div
-          className="flex flex-wrap gap-1.5"
+          className="-mx-1 flex basis-full gap-1.5 overflow-x-auto px-1 pb-1"
           role="group"
           aria-label="Elements"
         >
@@ -176,7 +184,7 @@ export default function PaldexPage() {
               aria-pressed={selected.includes(e)}
               onClick={() => toggleElement(e)}
               className={cn(
-                'rounded-full transition',
+                'shrink-0 rounded-full transition',
                 selected.length > 0 &&
                   !selected.includes(e) &&
                   'opacity-40 hover:opacity-80'
@@ -186,11 +194,7 @@ export default function PaldexPage() {
             </button>
           ))}
         </div>
-      </div>
-
-      <p className="mb-3 text-sm text-pw-muted" aria-live="polite">
-        {filtered.length} of {pals.length} Pals
-      </p>
+      </Toolbar>
 
       {filtered.length === 0 ? (
         <EmptyState title="No Pals match">Try removing a filter.</EmptyState>
@@ -198,10 +202,8 @@ export default function PaldexPage() {
         <>
           <div
             className={cn(
-              'grid gap-3',
-              compact
-                ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'
-                : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
+              'grid-fluid',
+              compact ? '[--min:15rem]' : '[--min:9.5rem]'
             )}
           >
             {filtered.slice(0, limit).map((p) => (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../Utils/cn';
 import { Link } from 'react-router';
 import { obtain } from '../data';
 import PalMap, { type MapFocus } from './PalMap';
@@ -15,7 +16,7 @@ function ShowOnMap({ onClick }: { onClick: () => void }) {
     <button
       type="button"
       onClick={onClick}
-      className="text-sm font-semibold whitespace-nowrap text-pw-teal-dark hover:underline"
+      className="text-sm font-semibold whitespace-nowrap text-pw-link hover:underline"
     >
       Show on map
     </button>
@@ -78,7 +79,7 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
             <p className="mb-2 text-sm text-pw-muted">Loading spawn points…</p>
           )}
           {failed && (
-            <p className="mb-2 text-sm text-red-700">
+            <p className="mb-2 text-sm text-red-700 dark:text-red-300">
               Couldn’t load this Pal’s spawn points.
             </p>
           )}
@@ -95,16 +96,18 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
           <p className="mb-3 text-sm text-pw-muted">
             The areas with the most spawn points, busiest first.
           </p>
-          <ol className="divide-y">
+          <ol className="grid-fluid [--min:15rem]">
             {spots.map((s, i) => (
               <li
                 key={`${s.x},${s.y}`}
-                className="flex flex-wrap items-center gap-x-3 gap-y-1 py-2.5"
+                className="flex flex-col gap-2 rounded-2xl border bg-pw-cream/30 p-3"
               >
-                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-pw-sun font-display font-bold text-pw-deep">
-                  {i + 1}
+                <span className="flex items-center gap-2">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-pw-sun font-display font-bold text-pw-deep">
+                    {i + 1}
+                  </span>
+                  <code className={coords}>{formatCoords(s.x, s.y)}</code>
                 </span>
-                <code className={coords}>{formatCoords(s.x, s.y)}</code>
                 <span className="text-sm text-pw-muted">
                   {s.count} spawn point{s.count === 1 ? '' : 's'} ·{' '}
                   {s.day && s.night
@@ -113,9 +116,7 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
                       ? 'day only'
                       : 'night only'}
                 </span>
-                <span className="ml-auto">
-                  <ShowOnMap onClick={() => focusOn(s.x, s.y)} />
-                </span>
+                <ShowOnMap onClick={() => focusOn(s.x, s.y)} />
               </li>
             ))}
           </ol>
@@ -128,26 +129,28 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
             alpha.length && !other.length ? 'Alpha boss' : 'Boss locations'
           }
         >
-          <ul className="divide-y">
+          <ul className="grid-fluid [--min:17rem]">
             {bosses.map((b) => (
               <li
                 key={`${b.variant}${b.x},${b.y}`}
-                className="flex flex-wrap items-center gap-x-3 gap-y-1 py-2.5"
+                className="flex flex-col gap-2 rounded-2xl border bg-pw-cream/30 p-3"
               >
-                <span className="rounded-full bg-pw-navy px-2.5 py-0.5 text-xs font-semibold text-white">
-                  {b.variant}
+                <span className="flex flex-wrap items-center gap-2">
+                  <span className="rounded-full bg-pw-navy px-2.5 py-0.5 text-xs font-semibold text-white">
+                    {b.variant}
+                  </span>
+                  {b.level && (
+                    <span className="font-semibold">Lv. {b.level}</span>
+                  )}
+                  {b.location && <span>{b.location}</span>}
                 </span>
-                {b.level && (
-                  <span className="font-semibold">Lv. {b.level}</span>
-                )}
-                {b.location && <span>{b.location}</span>}
-                <code className={coords}>{formatCoords(b.x, b.y)}</code>
+                <code className={cn(coords, 'self-start')}>
+                  {formatCoords(b.x, b.y)}
+                </code>
                 {b.note && (
                   <span className="text-sm text-pw-muted">{b.note}</span>
                 )}
-                <span className="ml-auto">
-                  <ShowOnMap onClick={() => focusOn(b.x, b.y)} />
-                </span>
+                <ShowOnMap onClick={() => focusOn(b.x, b.y)} />
               </li>
             ))}
           </ul>
@@ -156,9 +159,12 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
 
       {info.dungeons && info.dungeons.length > 0 && (
         <Panel title="Dungeons">
-          <ul className="divide-y">
+          <ul className="grid-fluid [--min:16rem]">
             {info.dungeons.map((d) => (
-              <li key={d.name} className="py-2.5">
+              <li
+                key={d.name}
+                className="rounded-2xl border bg-pw-cream/30 p-3"
+              >
                 <p className="font-display text-xl font-bold">{d.name}</p>
                 {d.note && <p className="text-sm text-pw-muted">{d.note}</p>}
               </li>
@@ -179,7 +185,7 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
           {pal.breeding.rank}).{' '}
           <Link
             to={`/pal/${pal.id}?tab=breeding`}
-            className="font-semibold text-pw-teal-dark hover:underline"
+            className="font-semibold text-pw-link hover:underline"
           >
             See which parents produce {pal.name}
           </Link>

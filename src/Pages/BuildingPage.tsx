@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
-import { ItemLink, RecipeCard } from '../Components/gearUi';
+import Tile from '../Components/Tile';
+import { rarityColours } from '../Utils/rarity';
+import { RecipeCard } from '../Components/gearUi';
 import { groupRecipes } from '../Utils/crafting';
-import { Breadcrumb, Page, Panel, buttonClass } from '../Components/ui';
+import { Breadcrumbs, Page, Panel, buttonClass, Stat } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import {
   buildingById,
+  itemByName,
   recipesFor,
   recipesByStation,
   techByName,
@@ -22,14 +25,7 @@ function Fact({
   label: string;
   children: React.ReactNode;
 }) {
-  return (
-    <div>
-      <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-        {label}
-      </dt>
-      <dd className="font-display text-xl font-bold">{children}</dd>
-    </div>
-  );
+  return <Stat label={label}>{children}</Stat>;
 }
 
 export default function BuildingPage() {
@@ -53,8 +49,13 @@ function BuildingDetail({ building }: { building: Building }) {
 
   return (
     <Page>
-      <Breadcrumb to="/buildings" label="Buildings" />
-      <section className="flex flex-col items-center gap-5 rounded-3xl border bg-pw-paper p-5 shadow-card sm:flex-row sm:p-8">
+      <Breadcrumbs
+        items={[
+          { label: 'Buildings', to: '/buildings' },
+          { label: building.name },
+        ]}
+      />
+      <section className="flex flex-col items-center gap-5 card rounded-3xl bg-gradient-to-br from-pw-sun/15 to-transparent p-5 sm:flex-row sm:p-8">
         <ItemIcon
           kind="building"
           id={building.id}
@@ -122,12 +123,36 @@ function BuildingDetail({ building }: { building: Building }) {
 
         {crafts.length > 0 && (
           <Panel title={`Crafts here (${crafts.length})`}>
-            <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-              {crafts.map((name) => (
-                <li key={name}>
-                  <ItemLink name={name} />
-                </li>
-              ))}
+            <ul className="grid-fluid [--min:9rem]">
+              {crafts.map((name) => {
+                const item = itemByName.get(name);
+                return (
+                  <li key={name}>
+                    <Tile
+                      to={item ? `/item/${item.id}` : undefined}
+                      className="h-full"
+                      accent={
+                        item?.rarity ? rarityColours[item.rarity] : undefined
+                      }
+                      icon={
+                        item && item.type !== 'Schematic' ? (
+                          <ItemIcon
+                            id={item.id}
+                            name={name}
+                            rarity={item.rarity}
+                            className="size-14"
+                          />
+                        ) : (
+                          <span className="font-display text-3xl font-bold text-pw-muted">
+                            {name[0]}
+                          </span>
+                        )
+                      }
+                      title={name}
+                    />
+                  </li>
+                );
+              })}
             </ul>
           </Panel>
         )}

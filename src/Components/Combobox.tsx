@@ -99,7 +99,7 @@ export default function Combobox<T>({
           setOpen(true);
         }}
         onKeyDown={onKeyDown}
-        className="h-11 w-full rounded-full border bg-white px-4 outline-none focus:border-pw-teal disabled:opacity-50"
+        className="h-11 w-full rounded-full border bg-pw-field px-4 outline-none focus:border-pw-teal disabled:opacity-50"
       />
       {open && (
         <ul

@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router';
 import PalImage from '../Components/PalImage';
 import WorkLevel from '../Components/WorkLevel';
-import { Breadcrumb, Page, PageHeader, Panel } from '../Components/ui';
+import { Breadcrumbs, Page, PageHeader } from '../Components/ui';
+import { cn } from '../Utils/cn';
 import { pals } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import {
@@ -23,19 +24,22 @@ export default function WorkPage() {
     return (
       <Page>
         <PageHeader
+          eyebrow="Pals"
           title="Work suitability"
           subtitle="What each Pal can do at your base. Higher levels work faster."
         />
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid-fluid [--min:16rem]">
           {WORK_TYPES.map((w) => (
             <Link
               key={w}
               to={`/work/${workId(w)}`}
-              className="rounded-2xl border bg-pw-paper p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-lift"
+              className="flex card-link flex-col gap-1 card p-4"
             >
               <h2 className="text-2xl">{w}</h2>
-              <p className="text-sm text-pw-muted">{workDescriptions[w]}</p>
-              <p className="mt-2 text-sm font-semibold text-pw-teal-dark">
+              <p className="flex-1 text-sm text-pw-muted">
+                {workDescriptions[w]}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-pw-link">
                 {pals.filter((p) => p.work[w]).length} Pals
               </p>
             </Link>
@@ -48,27 +52,42 @@ export default function WorkPage() {
   const list = palsByWork(pals, work);
   return (
     <Page>
-      <Breadcrumb to="/work" label="Work suitability" />
-      <PageHeader title={work} subtitle={workDescriptions[work]} />
-      <Panel title={`${list.length} Pals, best first`}>
-        <ul className="divide-y">
-          {list.map((p) => (
-            <li key={p.id}>
-              <Link
-                to={`/pal/${p.id}`}
-                className="flex items-center gap-3 py-2 hover:bg-pw-cream/60"
+      <Breadcrumbs items={[{ label: 'Work', to: '/work' }, { label: work }]} />
+      <PageHeader
+        eyebrow="Work suitability"
+        title={work}
+        subtitle={`${workDescriptions[work]}. ${list.length} Pals, best first.`}
+      />
+      <ol className="grid-fluid [--min:13.5rem]">
+        {list.map((p, i) => (
+          <li key={p.id}>
+            <Link
+              to={`/pal/${p.id}`}
+              className="relative flex card-link items-center gap-3 card p-3"
+            >
+              <span
+                aria-hidden="true"
+                className={cn(
+                  'absolute top-2 left-2 flex size-6 items-center justify-center rounded-full font-display text-sm font-bold',
+                  i < 3 ? 'bg-pw-sun text-pw-deep' : 'bg-pw-cream text-pw-muted'
+                )}
               >
-                <PalImage pal={p} className="size-10" />
-                <span className="flex-1 font-display text-xl font-bold">
+                {i + 1}
+              </span>
+              <PalImage pal={p} className="mt-2 ml-2 size-14 shrink-0" />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate font-display text-lg leading-tight font-bold">
                   {p.name}
                 </span>
-                <span className="text-sm text-pw-muted">#{p.number}</span>
+                <span className="mb-1 block text-xs text-pw-muted">
+                  #{p.number}
+                </span>
                 <WorkLevel level={p.work[work] ?? 0} />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Panel>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ol>
     </Page>
   );
 }

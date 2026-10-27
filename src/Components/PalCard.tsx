@@ -5,6 +5,7 @@ import PalImage from './PalImage';
 import { elementColours } from '../Utils/elements';
 import { cn } from '../Utils/cn';
 
+/** A Pal as a card: art on a wash of its element's colour, number, name and elements */
 export default function PalCard({
   pal,
   compact = false,
@@ -13,11 +14,14 @@ export default function PalCard({
   compact?: boolean;
 }) {
   const colour = elementColours[pal.elements[0]] ?? '#8c8a82';
+  const wash = {
+    backgroundImage: `radial-gradient(circle at 50% 35%, color-mix(in srgb, ${colour} 28%, transparent), transparent 70%)`,
+  };
   return (
     <Link
       to={`/pal/${pal.id}`}
       className={cn(
-        'group relative flex overflow-hidden rounded-2xl border bg-pw-paper shadow-card transition hover:-translate-y-0.5 hover:shadow-lift',
+        'group relative flex card-link overflow-hidden card',
         compact ? 'items-center gap-3 p-2.5' : 'flex-col items-center p-3 pt-4'
       )}
     >
@@ -26,14 +30,27 @@ export default function PalCard({
         className="absolute inset-x-0 top-0 h-1"
         style={{ backgroundColor: colour }}
       />
-      <PalImage
-        pal={pal}
+      <span
         className={cn(
-          'shrink-0 transition group-hover:scale-105',
-          compact ? 'size-12' : 'size-24'
+          'flex shrink-0 items-center justify-center rounded-full',
+          compact ? 'size-14' : 'size-28'
         )}
-      />
-      <div className={cn('min-w-0', compact ? 'flex-1' : 'mt-2 text-center')}>
+        style={wash}
+      >
+        <PalImage
+          pal={pal}
+          className={cn(
+            'transition duration-200 group-hover:scale-110',
+            compact ? 'size-12' : 'size-24'
+          )}
+        />
+      </span>
+      <div
+        className={cn(
+          'min-w-0',
+          compact ? 'flex-1' : 'mt-1 w-full text-center'
+        )}
+      >
         <p className="text-xs font-semibold tracking-wide text-pw-muted">
           #{pal.number}
         </p>

@@ -7,8 +7,9 @@ import {
   EmptyState,
   Page,
   PageHeader,
-  Panel,
   SearchInput,
+  Stat,
+  Toolbar,
   buttonClass,
 } from '../Components/ui';
 import { buildingByName, techs } from '../data/gear';
@@ -59,6 +60,7 @@ export default function TechPage() {
   return (
     <Page>
       <PageHeader
+        eyebrow="Items & Base"
         title="Technology"
         subtitle={`${techs.length} technologies, unlocked by player level. Filter by level to see what each stage unlocks and what it costs.`}
       >
@@ -67,44 +69,42 @@ export default function TechPage() {
         </Link>
       </PageHeader>
 
-      <Panel className="mb-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <SearchInput
-            value={query}
-            onChange={setQuery}
-            placeholder="Search technologies or unlocks"
+      <Toolbar>
+        <SearchInput
+          value={query}
+          onChange={setQuery}
+          placeholder="Search technologies or unlocks"
+        />
+        <label className="flex items-center gap-2 text-sm font-semibold">
+          Up to level
+          <input
+            type="number"
+            min={0}
+            max={MAX_LEVEL}
+            value={levelParam}
+            placeholder="all"
+            onChange={(e) => setLevel(e.target.value)}
+            className="h-10 w-20 rounded-full border bg-pw-field px-3 text-base"
           />
-          <label className="flex items-center gap-2 text-sm font-semibold">
-            Up to level
-            <input
-              type="number"
-              min={0}
-              max={MAX_LEVEL}
-              value={levelParam}
-              placeholder="all"
-              onChange={(e) => setLevel(e.target.value)}
-              className="h-10 w-20 rounded-full border bg-white px-3 text-base"
-            />
-          </label>
-          <Chip
-            active={kind === 'ancient'}
-            onClick={() => setKind(kind === 'ancient' ? '' : 'ancient')}
-          >
-            Ancient
-          </Chip>
-          <Chip
-            active={kind === 'normal'}
-            onClick={() => setKind(kind === 'normal' ? '' : 'normal')}
-          >
-            Regular
-          </Chip>
-        </div>
-        <dl className="mt-4 grid grid-cols-3 gap-4 border-t pt-4">
-          <Summary label="Technologies">{total.count}</Summary>
-          <Summary label="Technology points">{total.points}</Summary>
-          <Summary label="Ancient points">{total.ancientPoints}</Summary>
-        </dl>
-      </Panel>
+        </label>
+        <Chip
+          active={kind === 'ancient'}
+          onClick={() => setKind(kind === 'ancient' ? '' : 'ancient')}
+        >
+          Ancient
+        </Chip>
+        <Chip
+          active={kind === 'normal'}
+          onClick={() => setKind(kind === 'normal' ? '' : 'normal')}
+        >
+          Regular
+        </Chip>
+      </Toolbar>
+      <dl className="mb-5 grid grid-cols-3 gap-3">
+        <Stat label="Technologies shown">{total.count}</Stat>
+        <Stat label="Technology points">{total.points}</Stat>
+        <Stat label="Ancient points">{total.ancientPoints}</Stat>
+      </dl>
 
       {groups.length === 0 ? (
         <EmptyState title="No technologies match">
@@ -130,7 +130,7 @@ export default function TechPage() {
                       : ''}
                   </span>
                 </div>
-                <ul className="grid gap-2 md:grid-cols-2">
+                <ul className="grid-fluid [--min:22rem]">
                   {g.techs.map((t) => (
                     <TechCard
                       key={t.id}
@@ -145,23 +145,6 @@ export default function TechPage() {
         </div>
       )}
     </Page>
-  );
-}
-
-function Summary({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-        {label}
-      </dt>
-      <dd className="font-display text-2xl font-bold">{children}</dd>
-    </div>
   );
 }
 
@@ -182,8 +165,8 @@ function TechCard({ tech, highlight }: { tech: Tech; highlight: boolean }) {
               className={cn(
                 'rounded-full px-2 py-0.5 text-xs font-semibold',
                 tech.ancient
-                  ? 'bg-amber-100 text-amber-800'
-                  : 'bg-pw-navy/10 text-pw-navy'
+                  ? 'bg-amber-100 text-amber-800 dark:bg-amber-400/20 dark:text-amber-200'
+                  : 'bg-pw-navy/10 text-pw-heading'
               )}
             >
               {tech.cost} {tech.ancient ? 'ancient pt' : 'pt'}

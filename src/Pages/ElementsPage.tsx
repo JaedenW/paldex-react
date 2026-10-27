@@ -38,6 +38,7 @@ export default function ElementsPage() {
   return (
     <Page>
       <PageHeader
+        eyebrow="Pals"
         title="Elements"
         subtitle="Every attack deals double damage to what it’s strong against and half to what resists it. A Pal’s two elements multiply."
       />
@@ -84,8 +85,10 @@ export default function ElementsPage() {
                         key={def}
                         className={cn(
                           'rounded-md py-1.5 font-display text-lg font-bold',
-                          m > 1 && 'bg-red-100 text-red-700',
-                          m < 1 && 'bg-teal-100 text-teal-800',
+                          m > 1 &&
+                            'bg-red-100 text-red-700 dark:bg-red-400/20 dark:text-red-200',
+                          m < 1 &&
+                            'bg-teal-100 text-teal-800 dark:bg-teal-400/20 dark:text-teal-200',
                           m === 1 && 'text-pw-line'
                         )}
                       >
@@ -140,8 +143,8 @@ export default function ElementsPage() {
               <span
                 className={cn(
                   'font-display text-xl font-bold',
-                  defence[e] > 1 && 'text-red-600',
-                  defence[e] < 1 && 'text-pw-teal-dark'
+                  defence[e] > 1 && 'text-red-600 dark:text-red-300',
+                  defence[e] < 1 && 'text-pw-link'
                 )}
               >
                 {formatMultiplier(defence[e])}
@@ -185,7 +188,7 @@ export default function ElementsPage() {
               </p>
               <a
                 href={`/paldex?el=${e}`}
-                className="mt-2 inline-block text-sm font-semibold text-pw-teal-dark hover:underline"
+                className="mt-2 inline-block text-sm font-semibold text-pw-link hover:underline"
               >
                 {count} Pals →
               </a>

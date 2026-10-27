@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router';
-import { Page, PageHeader, SearchInput } from '../Components/ui';
+import { Page, PageHeader, SearchInput, Toolbar } from '../Components/ui';
 import { pals, passiveSkills } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryState } from '../Hooks/useQueryState';
@@ -11,8 +11,8 @@ const tone = (rank: number | null) =>
   !rank
     ? 'bg-pw-line text-pw-ink'
     : rank > 0
-      ? 'bg-amber-100 text-amber-800'
-      : 'bg-red-100 text-red-700';
+      ? 'bg-amber-100 text-amber-800 dark:bg-amber-400/20 dark:text-amber-200'
+      : 'bg-red-100 text-red-700 dark:bg-red-400/20 dark:text-red-200';
 
 export default function PassivesPage() {
   useDocumentTitle('Passive skills');
@@ -36,16 +36,20 @@ export default function PassivesPage() {
   return (
     <Page>
       <PageHeader
+        eyebrow="Pals"
         title="Passive skills"
         subtitle="Traits Pals can carry. Positive ranks help; negative ranks are drawbacks."
       />
-      <div className="mb-4">
+      <Toolbar>
         <SearchInput
           value={query}
           onChange={setQuery}
           placeholder="Search passives"
         />
-      </div>
+        <span className="ml-auto hidden text-sm text-pw-muted sm:inline">
+          {list.length} passive{list.length === 1 ? '' : 's'}
+        </span>
+      </Toolbar>
       <div className="grid gap-3 sm:grid-cols-2">
         {list.map((s) => {
           const innate = pals.filter((p) => p.passiveSkills.includes(s.name));

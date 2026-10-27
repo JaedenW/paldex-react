@@ -6,7 +6,7 @@
 import { mkdir, readFile, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { api, cargo, root, slug, sleep, UA } from './wiki.mjs';
+import { api, cargo, root, slug, sleep, UA, wikitext } from './wiki.mjs';
 
 const outDir = path.join(root, 'src/data/gear');
 const skipImages = process.argv.includes('--no-images');
@@ -361,6 +361,34 @@ for (const d of defeat) {
     })
   );
 }
+// The wiki's item pages list the ways the tables above don't cover: nodes you
+// mine, Pals on a ranch, production buildings, things lying on the ground.
+console.log('Fetching item pages for other ways to get items…');
+const itemPages = await wikitext(itemList.map((i) => i.name));
+const plain = (t) =>
+  t
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\{\{\s*(?:i|icon)\s*\|([^}]*)\}\}/gi, (_, args) => args.split('|').pop())
+    .replace(/\[\[(?:File|Category):[^\]]*\]\]/gi, '')
+    .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, '$1')
+    .replace(/\{\{[^{}]*\}\}/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/'''?/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .trim();
+let withOther = 0;
+for (const item of itemList) {
+  const text = itemPages.get(item.name);
+  if (!text) continue;
+  const section = text.match(/===\s*Other Drops\s*===([\s\S]*?)(?=\n==|$)/)?.[1] ?? '';
+  const other = [...section.matchAll(/^\*+\s*(.+)$/gm)].map((m) => plain(m[1])).filter(Boolean);
+  if (other.length) {
+    source(item.name).other = other;
+    withOther++;
+  }
+}
+console.log(`${withOther} items list other ways to get them`);
+
 for (const entry of Object.values(sources)) {
   for (const k of ['shops', 'found', 'dropped'])
     if (entry[k].length === 0) delete entry[k];
@@ -402,6 +430,16 @@ const dropNames = new Set(
 const linkableDrops = [...dropNames].filter((n) => itemByName.has(n)).sort();
 
 await mkdir(outDir, { recursive: true });
+// Totals for the home page, which shouldn't have to load the item data to count it
+await writeFile(
+  path.join(root, 'src/data/gearCounts.json'),
+  JSON.stringify({
+    items: itemList.length,
+    buildings: structureList.length,
+    recipes: recipeList.length,
+    tech: techList.length,
+  }) + '\n'
+);
 await writeFile(
   path.join(root, 'src/data/dropItems.json'),
   JSON.stringify(linkableDrops) + '\n'

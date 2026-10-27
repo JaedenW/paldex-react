@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router';
 import ElementBadge from '../Components/ElementBadge';
 import PalCard from '../Components/PalCard';
-import { Breadcrumb, Page, PageHeader, Panel } from '../Components/ui';
+import { Breadcrumbs, Page, PageHeader, Panel } from '../Components/ui';
 import { pals, skillById } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import NotFoundPage from './NotFoundPage';
@@ -24,7 +24,9 @@ export default function SkillPage() {
 
   return (
     <Page>
-      <Breadcrumb to="/skills" label="Active skills" />
+      <Breadcrumbs
+        items={[{ label: 'Skills', to: '/skills' }, { label: skill.name }]}
+      />
       <PageHeader title={skill.name} subtitle={skill.description}>
         <ElementBadge element={skill.element} size="lg" />
       </PageHeader>
@@ -52,7 +54,7 @@ export default function SkillPage() {
             No Pal learns this by levelling.{' '}
             <Link
               to="/skills"
-              className="font-semibold text-pw-teal-dark hover:underline"
+              className="font-semibold text-pw-link hover:underline"
             >
               Back to skills
             </Link>
