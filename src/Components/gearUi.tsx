@@ -81,14 +81,26 @@ export function StationLink({ name }: { name: string }) {
   );
 }
 
-export function RecipeCard({ recipe }: { recipe: Recipe }) {
+export function RecipeCard({
+  recipe,
+  stations = recipe.station ? [recipe.station] : [],
+}: {
+  recipe: Recipe;
+  /** Every bench that makes it this way; defaults to the recipe's own */
+  stations?: string[];
+}) {
   return (
     <div className="rounded-xl bg-pw-cream/70 p-3">
       <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-        {recipe.station ? (
+        {stations.length > 0 ? (
           <span>
             <span className="text-pw-muted">At </span>
-            <StationLink name={recipe.station} />
+            {stations.map((name, i) => (
+              <span key={name}>
+                {i > 0 && <span className="text-pw-muted"> or </span>}
+                <StationLink name={name} />
+              </span>
+            ))}
           </span>
         ) : recipe.kind === 'building' ? (
           <span className="font-semibold">Build menu</span>

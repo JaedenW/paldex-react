@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { defaultRecipe, planCrafting } from './crafting';
+import { groupRecipes, planCrafting, recipeVariants } from './crafting';
 import type { Recipe } from '../types';
 
 const recipe = (
@@ -64,10 +64,10 @@ describe('planCrafting', () => {
     expect(order).toEqual(['Ingot', 'Gear', 'Machine']);
   });
 
-  it('lists the stations needed', () => {
+  it('lists the benches needed', () => {
     expect(planCrafting('Machine', 1, { recipesOf }).stations).toEqual([
-      'Bench',
-      'Furnace',
+      ['Bench'],
+      ['Furnace'],
     ]);
   });
 
@@ -101,7 +101,7 @@ describe('planCrafting', () => {
     expect(plan.steps.length).toBeGreaterThan(0);
   });
 
-  it('uses a caller-chosen recipe', () => {
+  it('uses the way to make something that the caller chooses', () => {
     const two = new Map([
       [
         'X',
@@ -113,19 +113,108 @@ describe('planCrafting', () => {
     ]);
     const plan = planCrafting('X', 1, {
       recipesOf: (n) => two.get(n) ?? [],
-      pick: (_, o) => o.find((r) => r.station === 'Fast'),
+      choose: () => 1,
     });
     expect(plan.raw).toEqual([{ name: 'Wood', qty: 3 }]);
+    expect(plan.steps[0].variants).toHaveLength(2);
+    expect(plan.steps[0].variantIndex).toBe(1);
+  });
+
+  it('does not craft raw resources out of other resources', () => {
+    // a Saddle needs Fiber; the Crusher can turn Wood into Fiber, but Fiber is gathered
+    const crushing = new Map([
+      [
+        'Saddle',
+        [
+          recipe(
+            'Saddle',
+            [
+              ['Fiber', 25],
+              ['Leather', 15],
+            ],
+            { station: 'Ancient Workbench' }
+          ),
+        ],
+      ],
+      ['Fiber', [recipe('Fiber', [['Wood', 1]], { station: 'Crusher' })]],
+    ]);
+    const plan = planCrafting('Saddle', 1, {
+      recipesOf: (n) => crushing.get(n) ?? [],
+    });
+    expect(Object.fromEntries(plan.raw.map((r) => [r.name, r.qty]))).toEqual({
+      Fiber: 25,
+      Leather: 15,
+    });
+    expect(plan.steps.map((s) => s.product)).toEqual(['Saddle']);
+  });
+
+  it('does not loop between conversion recipes', () => {
+    const souls = new Map([
+      [
+        'Medium Soul',
+        [recipe('Medium Soul', [['Small Soul', 2]], { station: 'Crusher' })],
+      ],
+      [
+        'Small Soul',
+        [recipe('Small Soul', [['Medium Soul', 1]], { station: 'Crusher' })],
+      ],
+    ]);
+    const plan = planCrafting('Medium Soul', 1, {
+      recipesOf: (n) => souls.get(n) ?? [],
+    });
+    expect(plan.raw).toEqual([{ name: 'Medium Soul', qty: 1 }]);
   });
 });
 
-describe('defaultRecipe', () => {
-  it('prefers the Common recipe over schematic upgrades', () => {
-    const base = recipe('Bow', [['Wood', 1]]);
-    const rare = recipe('Bow', [['Wood', 2]], {
-      quality: 'Rare',
-      schematic: 'Bow Schematic 2',
-    });
-    expect(defaultRecipe([rare, base])).toBe(base);
+describe('recipe variants', () => {
+  it('merges the same recipe at two benches', () => {
+    const same = [
+      recipe('Saddle', [['Fiber', 25]], {
+        station: 'Ancient Workbench',
+        workload: 100,
+      }),
+      recipe('Saddle', [['Fiber', 25]], {
+        station: 'Pal Gear Workbench',
+        workload: 100,
+      }),
+    ];
+    const variants = recipeVariants(same);
+    expect(variants).toHaveLength(1);
+    expect(variants[0].stations).toEqual([
+      'Ancient Workbench',
+      'Pal Gear Workbench',
+    ]);
+  });
+
+  it('keeps recipes with different ingredients apart', () => {
+    const alt = [
+      recipe('Carbon Fiber', [['Charcoal', 5]], { station: 'Line' }),
+      recipe('Carbon Fiber', [['Coal', 2]], { station: 'Line' }),
+    ];
+    expect(recipeVariants(alt)).toHaveLength(2);
+  });
+
+  it('prefers the base recipe over schematic upgrades', () => {
+    const list = [
+      recipe('Bow', [['Wood', 2]], {
+        quality: 'Rare',
+        schematic: 'Bow Schematic 2',
+      }),
+      recipe('Bow', [['Wood', 1]]),
+    ];
+    const variants = recipeVariants(list);
+    expect(variants).toHaveLength(1);
+    expect(variants[0].recipe.quality).toBeUndefined();
+  });
+
+  it('falls back to upgrades when there is no base recipe', () => {
+    const list = [recipe('Bow', [['Wood', 2]], { quality: 'Rare' })];
+    expect(recipeVariants(list)).toHaveLength(1);
+  });
+
+  it('groups without dropping anything when asked to', () => {
+    const list = [recipe('Fiber', [['Wood', 1]], { station: 'Crusher' })];
+    expect(groupRecipes(list)).toHaveLength(1);
+    expect(recipeVariants(list)).toHaveLength(0);
   });
 });

@@ -246,12 +246,10 @@ const structureNames = new Set(structureList.map((s) => s.name));
 const ingredientsBy = new Map();
 for (const r of ingredients) {
   if (!ingredientsBy.has(r.recipeID)) ingredientsBy.set(r.recipeID, []);
-  ingredientsBy
-    .get(r.recipeID)
-    .push({
-      name: canonical(r.ingredientName),
-      qty: num(r.ingredientQty) ?? 1,
-    });
+  ingredientsBy.get(r.recipeID).push({
+    name: canonical(r.ingredientName),
+    qty: num(r.ingredientQty) ?? 1,
+  });
 }
 const schematicBy = new Map(requirements.map((r) => [r.recipeID, r]));
 const recipeList = recipes

@@ -223,3 +223,15 @@ export interface ItemSources {
     max?: number;
   }[];
 }
+
+/** What the wiki's Breeding page says about who can be bred how */
+export interface BreedingRules {
+  /** Pals the wiki's rank table marks as eligible (true) or not; newer Pals are missing */
+  pool: Record<string, boolean>;
+  /** Pals that only come from two parents of their own species */
+  sameOnly: string[];
+  /** Fixed pairings: [parent, parent, child] */
+  special: [string, string, string][];
+  /** Pairings that depend on the mother: [mother, father, child] */
+  byGender: [string, string, string][];
+}

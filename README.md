@@ -31,8 +31,12 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 - Elements: type chart and a defence calculator for one or two elements
 - Work suitabilities: every Pal ranked per job
 - Active skills (with the Pals that learn each) and passive skills
-- Breeding calculator: pick two parents and see the child; the pair lives in
-  the URL so a result can be shared
+- Breeding calculator: search for each parent, set their passive and active
+  skills (a Pal's usual passives are filled in), and see the offspring, how it
+  was decided (fixed pairing, rank maths with the nearest candidates, or which
+  parent is the mother) and the odds of each trait being passed down, including
+  the chance of getting a set of passives you want. A second mode lists every
+  pair of parents that makes a given Pal. Everything is in the URL.
 - Items: every item with type, rarity and description; equipment stats at each
   quality; food effects; how to craft it, what it's used in, which Pals and
   enemies drop it, which merchants sell it and which chests hold it
@@ -64,17 +68,20 @@ npm run scrape                        # everything below
 node scripts/scrape.mjs --no-images   # Pal data only, no icons
 npm run scrape:obtain                 # where-to-find data and the world map
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
+npm run scrape:breeding               # breeding eligibility and fixed pairings
 ```
 
 The script exits with an error if the wiki returns far fewer Pals than expected.
 See [Credits](#credits) for licensing.
 
-Breeding follows the wiki's rules: a listed unique combination wins, otherwise
-the child is the Pal whose breeding rank is closest to the parents' average,
-with ties broken by the lower duplicate priority. The wiki doesn't say which Pals
-are excluded from the rank lookup, so bosses and legendaries (unique-combo Pals
-with rank ≤ 30) are left out by a heuristic in `src/Utils/breeding.ts`; check
-results involving those against the game.
+Breeding follows the rules on the wiki's Breeding page: two of one species give
+that species, a listed pairing (subspecies and other fixed combinations) wins,
+and otherwise the child is the eligible species whose breeding rank is closest
+to ⌊(rank A + rank B + 1) ÷ 2⌋, with ties going to the Pal the wiki lists
+first. Trait odds use the wiki's documented rolls. The wiki's rank table only
+covers about 190 Pals (up to Paldeck #138), so for newer Pals eligibility is
+worked out from the rules (subspecies and own-species-only Pals are excluded);
+that can be wrong for a few of them, so check surprising results in the game.
 
 ## Development
 

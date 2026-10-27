@@ -1,4 +1,11 @@
-import type { ActiveSkill, Obtain, PassiveSkill, Pal } from '../types';
+import type {
+  ActiveSkill,
+  BreedingRules,
+  Obtain,
+  PassiveSkill,
+  Pal,
+} from '../types';
+import { createBreeder } from '../Utils/breeding';
 import palsJson from './pals.json';
 import skillsJson from './skills.json';
 import passivesJson from './passives.json';
@@ -7,6 +14,7 @@ import meta from './meta.json';
 import obtainJson from './obtain.json';
 import mapJson from './map.json';
 import dropItemsJson from './dropItems.json';
+import breedingJson from './breeding.json';
 
 export const pals = palsJson as unknown as Pal[];
 export const activeSkills = skillsJson as unknown as ActiveSkill[];
@@ -34,3 +42,7 @@ export const MAP_URL = '/map/world.webp';
 
 /** Names of Pal drops that have an item page */
 export const linkableDrops = new Set(dropItemsJson as string[]);
+
+export const breedingRules = breedingJson as unknown as BreedingRules;
+/** Species lookup for two parents, built once from the Pal data and wiki rules */
+export const breeder = createBreeder(pals, uniqueCombos, breedingRules);
