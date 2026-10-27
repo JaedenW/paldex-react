@@ -18,6 +18,9 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 
 - Base and Alpha stats, speeds, capture rate, size, food and sell price
 - Work suitability levels, partner skill and element matchups
+- How to get it: an interactive world map of its wild spawn points (day and
+  night), the busiest areas with coordinates, Alpha and Predator boss locations,
+  dungeons, raid bosses and a breeding summary
 - Active skills by level and passive skills
 - Breeding rank, egg, and every parent pair that produces the Pal
 - Normal and Alpha drops
@@ -39,11 +42,16 @@ Nothing is saved: filters, tabs and breeding pairs all live in the URL.
 All data is scraped from the fan-made [Palworld wiki on wiki.gg](https://palworld.wiki.gg)
 through its Cargo tables (structured data, so no HTML parsing) and committed
 under `src/data`, so the app makes no runtime API calls. Pal icons and art are
-saved to `public/pals`. To refresh everything after a game update:
+saved to `public/pals`. Spawn points come from the wiki's interactive habitat
+map data (one small file per Pal in `public/habitats`, loaded when you open a
+Pal's "How to get" tab) and the world map image is saved to `public/map`.
+Coordinates are the in-game map's X, Y. About a third of Pals have no spawn
+points on the wiki yet; their tab shows the wiki's text and any boss locations. To refresh everything after a game update:
 
 ```bash
-npm run scrape                        # data and images
-node scripts/scrape.mjs --no-images   # data only
+npm run scrape                        # everything below
+node scripts/scrape.mjs --no-images   # Pal data only, no icons
+npm run scrape:obtain                 # where-to-find data and the world map
 ```
 
 The script exits with an error if the wiki returns far fewer Pals than expected.
@@ -69,7 +77,7 @@ npm run build      # type-check, then build to build/
 ## Project layout
 
 ```
-scripts/      scrape.mjs, the wiki scraper
+scripts/      scrape.mjs and scrape-obtain.mjs, the wiki scrapers
 src/
   data/       scraped JSON (pals, skills, passives, items, combos)
   Components/ UI building blocks

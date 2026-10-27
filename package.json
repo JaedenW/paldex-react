@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scrape": "node scripts/scrape.mjs"
+    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs",
+    "scrape:obtain": "node scripts/scrape-obtain.mjs"
   },
   "dependencies": {
     "react": "^19.3.1",
