@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CraftFlow from '../Components/CraftFlow';
+import WorkbenchCards from '../Components/WorkbenchCards';
 import ItemIcon from '../Components/ItemIcon';
 import { ItemLink, StationLink } from '../Components/gearUi';
 import {
@@ -301,20 +302,7 @@ export default function CraftingPage() {
             </>
           )}
 
-          {plan.stations.length > 0 && (
-            <Panel title="Workbenches needed">
-              <ul className="flex flex-wrap gap-2">
-                {plan.stations.map((group) => (
-                  <li
-                    key={group.join('|')}
-                    className="rounded-full bg-pw-cream px-3 py-1"
-                  >
-                    <Stations names={group} />
-                  </li>
-                ))}
-              </ul>
-            </Panel>
-          )}
+          {plan.stations.length > 0 && <WorkbenchCards plan={plan} />}
         </div>
       )}
     </Page>

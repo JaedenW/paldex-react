@@ -101,7 +101,7 @@ function Inputs({ node, edges }: { node: FlowNode; edges: FlowEdge[] }) {
       {mine.map((e) => (
         <li
           key={e.from}
-          className="flex items-center gap-1 rounded-full bg-pw-cream/80 py-0.5 pr-2 pl-0.5 text-xs font-medium ring-1 ring-pw-line"
+          className="flex items-center gap-1 rounded-full bg-pw-cream/80 py-0.5 pr-2 pl-0.5 text-xs font-medium text-pw-ink ring-1 ring-pw-line"
         >
           <NodeIcon name={e.from} className="size-5 shrink-0" />
           <span className="font-display text-sm font-bold text-pw-link">
