@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
 import { ItemLink, StationLink } from '../Components/gearUi';
-import { Page, PageHeader, Panel, Chip, EmptyState } from '../Components/ui';
+import {
+  Page,
+  PageHeader,
+  Panel,
+  Chip,
+  EmptyState,
+  Select,
+} from '../Components/ui';
 import {
   buildingById,
   buildings,
@@ -317,20 +324,20 @@ function StepRow({
         )}
       </span>
       {step.variants.length > 1 && (
-        <label className="basis-full pl-9 text-sm">
-          <span className="mr-2 text-pw-muted">Recipe</span>
-          <select
-            value={step.variantIndex}
-            onChange={(e) => onChoose(Number(e.target.value))}
-            className="h-8 max-w-full rounded-full border bg-pw-field px-2 text-sm"
-          >
-            {step.variants.map((v, i) => (
-              <option key={i} value={i}>
-                {summary(v.recipe)}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div className="flex basis-full items-center gap-2 pl-9 text-sm">
+          <span className="text-pw-muted">Recipe</span>
+          <Select
+            label={`Recipe for ${step.product}`}
+            value={String(step.variantIndex)}
+            onChange={(v) => onChoose(Number(v))}
+            options={step.variants.map((v, i) => ({
+              value: String(i),
+              label: summary(v.recipe),
+            }))}
+            className="min-w-0"
+            triggerClassName="h-8 text-sm"
+          />
+        </div>
       )}
     </li>
   );

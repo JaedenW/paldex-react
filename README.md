@@ -15,7 +15,10 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   from the menu button on phones
 - Flexible card grids that fit the screen, filters that stay in view while you
   scroll, and breadcrumbs on detail pages
-- Light and dark themes that follow the device setting (nothing is stored)
+- Light and dark themes, with a toggle at the foot of the side menu: Auto (follows
+  the device), Light or Dark
+- Custom dropdowns with a search box on longer lists, in the same style as the
+  breeding calculator's pickers
 
 **Paldex**
 
@@ -59,8 +62,9 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   each unlocks, and totals for any level range
 - Search everything with Ctrl/⌘ + K or `/`
 
-Nothing is saved: filters, tabs, breeding pairs and crafting plans all live in
-the URL, like a wiki.
+Nothing is saved except one display preference: if you pick Light or Dark
+instead of Auto, that choice is kept in the browser's local storage. Filters,
+tabs, breeding pairs and crafting plans all live in the URL, like a wiki.
 
 ## Data
 
