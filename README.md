@@ -56,10 +56,15 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   enemy drops, merchants and chests, plus what it's used in
 - Buildings: every structure with its build cost and tech unlock, and for
   workbenches everything they craft
-- Crafting calculator: pick an item or building and a quantity to get the raw
-  materials, the crafting steps in order and the workbenches needed
-- Technology: all technologies grouped by player level, with point costs, what
-  each unlocks, and totals for any level range
+- Crafting calculator: pick an item or building and a quantity. A flow view
+  takes you from raw materials, through each component in the order it's made,
+  to the finished item, with curves showing what feeds what (hover a box to
+  trace it) and stacked stages on phones. A list view is there too, you can
+  choose between alternate recipes, and it totals the workbenches needed
+- Technology: all technologies by player level, with a level list to jump
+  around, a "My level" filter, running point totals, filters for regular or
+  ancient techs and for what they unlock (weapons, foundations, production…),
+  and cards showing every item or building each one unlocks
 - Search everything with Ctrl/⌘ + K or `/`
 
 Nothing is saved except one display preference: if you pick Light or Dark

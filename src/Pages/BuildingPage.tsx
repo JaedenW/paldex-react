@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
+import CategoryChips from '../Components/CategoryChips';
+import LongList from '../Components/LongList';
 import Tile from '../Components/Tile';
 import { rarityColours } from '../Utils/rarity';
+import { unlockCategory } from '../Utils/tech';
 import { RecipeCard } from '../Components/gearUi';
 import { groupRecipes } from '../Utils/crafting';
 import { Breadcrumbs, Page, Panel, buttonClass, Stat } from '../Components/ui';
@@ -123,40 +126,66 @@ function BuildingDetail({ building }: { building: Building }) {
 
         {crafts.length > 0 && (
           <Panel title={`Crafts here (${crafts.length})`}>
-            <ul className="grid-fluid [--min:9rem]">
-              {crafts.map((name) => {
-                const item = itemByName.get(name);
-                return (
-                  <li key={name}>
-                    <Tile
-                      to={item ? `/item/${item.id}` : undefined}
-                      className="h-full"
-                      accent={
-                        item?.rarity ? rarityColours[item.rarity] : undefined
-                      }
-                      icon={
-                        item && item.type !== 'Schematic' ? (
-                          <ItemIcon
-                            id={item.id}
-                            name={name}
-                            rarity={item.rarity}
-                            className="size-14"
-                          />
-                        ) : (
-                          <span className="font-display text-3xl font-bold text-pw-muted">
-                            {name[0]}
-                          </span>
-                        )
-                      }
-                      title={name}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+            <CraftsList crafts={crafts} />
           </Panel>
         )}
       </div>
     </Page>
+  );
+}
+
+const craftCategory = (name: string) =>
+  unlockCategory('item', itemByName.get(name)?.type);
+
+function CraftsList({ crafts }: { crafts: string[] }) {
+  const [cat, setCat] = React.useState('');
+  const shown = React.useMemo(
+    () => (cat ? crafts.filter((n) => craftCategory(n).key === cat) : crafts),
+    [crafts, cat]
+  );
+  return (
+    <LongList
+      items={shown}
+      itemKey={(name) => name}
+      text={(name) => name}
+      noun="items"
+      min="9rem"
+      first={24}
+      step={48}
+      resetKey={cat}
+      toolbar={
+        <CategoryChips
+          items={crafts}
+          category={craftCategory}
+          value={cat}
+          onChange={setCat}
+        />
+      }
+      renderItem={(name) => {
+        const item = itemByName.get(name);
+        return (
+          <Tile
+            to={item ? `/item/${item.id}` : undefined}
+            className="h-full"
+            accent={item?.rarity ? rarityColours[item.rarity] : undefined}
+            icon={
+              item && item.type !== 'Schematic' ? (
+                <ItemIcon
+                  id={item.id}
+                  name={name}
+                  rarity={item.rarity}
+                  className="size-14"
+                />
+              ) : (
+                <span className="font-display text-3xl font-bold text-pw-muted">
+                  {name[0]}
+                </span>
+              )
+            }
+            title={name}
+          />
+        );
+      }}
+    />
   );
 }

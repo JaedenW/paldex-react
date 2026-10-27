@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
 import ItemIcon from '../Components/ItemIcon';
-import InfiniteSentinel from '../Components/InfiniteSentinel';
-import { useInfiniteScroll } from '../Hooks/useInfiniteScroll';
+import CategoryChips from '../Components/CategoryChips';
+import LongList from '../Components/LongList';
 import { ItemLink, RarityBadge, StationLink } from '../Components/gearUi';
 import ItemAcquire from '../Components/ItemAcquire';
 import { Breadcrumbs, Page, Panel, Stat } from '../Components/ui';
 import { rarityColours } from '../Utils/rarity';
+import { unlockCategory } from '../Utils/tech';
 import NotFoundPage from './NotFoundPage';
-import { itemById, recipesUsing, techByName } from '../data/gear';
+import {
+  itemById,
+  recipesUsing,
+  techByName,
+  buildingByName,
+  itemByName,
+} from '../data/gear';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { formatNumber } from '../Utils/text';
 import type { GearStats, Item, Recipe } from '../types';
@@ -64,13 +71,6 @@ function ItemDetail({ item }: { item: Item }) {
   const columns = GEAR_COLUMNS.filter((c) =>
     item.gear?.some((g) => g[c.key] !== undefined)
   );
-  const {
-    limit: usesLimit,
-    hasMore: moreUses,
-    sentinelRef: usesSentinel,
-    showAll: showAllUses,
-  } = useInfiniteScroll(uses.length, 12, item.id);
-  const usesShown = uses.slice(0, usesLimit);
 
   return (
     <Page>
@@ -202,51 +202,90 @@ function ItemDetail({ item }: { item: Item }) {
           <Panel
             title={`Used in ${uses.length} recipe${uses.length === 1 ? '' : 's'}`}
           >
-            <ul className="grid-fluid [--min:16rem]">
-              {usesShown.map(({ recipe: r, stations, qty }, i) => (
-                <li
-                  key={i}
-                  className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-xl border bg-pw-cream/30 px-3 py-2"
-                >
-                  <span className="flex items-center gap-2">
-                    {r.kind === 'item' ? (
-                      <ItemLink name={r.product} />
-                    ) : (
-                      <Link
-                        to={`/buildings?q=${encodeURIComponent(r.product)}`}
-                        className="font-semibold hover:underline"
-                      >
-                        {r.product}
-                      </Link>
-                    )}
-                    <RarityBadge rarity={r.quality} />
-                  </span>
-                  <span className="text-sm text-pw-muted">
-                    ×{qty}
-                    {stations.length > 0 ? (
-                      <>
-                        {' '}
-                        at <StationLink name={stations[0]} />
-                        {stations.length > 1 &&
-                          ` and ${stations.length - 1} more`}
-                      </>
-                    ) : r.kind === 'building' ? (
-                      ' (building)'
-                    ) : (
-                      ''
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <InfiniteSentinel
-              sentinelRef={usesSentinel}
-              hasMore={moreUses}
-              showAll={showAllUses}
-            />
+            <UsedIn uses={uses} itemName={item.name} />
           </Panel>
         )}
       </div>
     </Page>
+  );
+}
+
+type Use = { recipe: Recipe; stations: string[]; qty: number };
+
+/** What a recipe makes, as a category: Weapons, Materials, Buildings: Production… */
+function productCategory(r: Recipe) {
+  return r.kind === 'building'
+    ? unlockCategory('building', buildingByName.get(r.product)?.type)
+    : unlockCategory('item', itemByName.get(r.product)?.type);
+}
+
+/** The chips group every building together; the row still says which kind */
+const productGroup = (r: Recipe) =>
+  r.kind === 'building'
+    ? { key: 'buildings', label: 'Buildings' }
+    : productCategory(r);
+
+function UsedIn({ uses, itemName }: { uses: Use[]; itemName: string }) {
+  const [cat, setCat] = React.useState('');
+  const shown = React.useMemo(
+    () =>
+      cat ? uses.filter((u) => productCategory(u.recipe).key === cat) : uses,
+    [uses, cat]
+  );
+  return (
+    <LongList
+      items={shown}
+      itemKey={(u) =>
+        `${u.recipe.kind}|${u.recipe.product}|${u.recipe.quality ?? ''}|${u.qty}`
+      }
+      text={(u) => u.recipe.product}
+      noun="recipes"
+      min="16rem"
+      resetKey={`${itemName}|${cat}`}
+      toolbar={
+        <CategoryChips
+          items={uses}
+          category={(u) => productGroup(u.recipe)}
+          value={cat}
+          onChange={setCat}
+        />
+      }
+      renderItem={({ recipe: r, stations, qty }) => (
+        <div className="flex h-full flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-xl border bg-pw-cream/30 px-3 py-2">
+          <span className="min-w-0">
+            <span className="flex items-center gap-2">
+              {r.kind === 'item' ? (
+                <ItemLink name={r.product} />
+              ) : (
+                <Link
+                  to={`/buildings?q=${encodeURIComponent(r.product)}`}
+                  className="font-semibold hover:underline"
+                >
+                  {r.product}
+                </Link>
+              )}
+              <RarityBadge rarity={r.quality} />
+            </span>
+            <span className="text-xs text-pw-muted">
+              {productCategory(r).label}
+            </span>
+          </span>
+          <span className="text-sm text-pw-muted">
+            ×{qty}
+            {stations.length > 0 ? (
+              <>
+                {' '}
+                at <StationLink name={stations[0]} />
+                {stations.length > 1 && ` and ${stations.length - 1} more`}
+              </>
+            ) : r.kind === 'building' ? (
+              ' (building)'
+            ) : (
+              ''
+            )}
+          </span>
+        </div>
+      )}
+    />
   );
 }

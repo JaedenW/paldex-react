@@ -97,14 +97,24 @@ export function Panel({
 export function Toolbar({
   children,
   className,
+  stickyOnPhones = true,
 }: {
   children: ReactNode;
   className?: string;
+  /**
+   * Whether it also sticks on phones. A bar with several rows would take a big
+   * share of a small screen, so those pages turn this off and it sticks from
+   * tablet width up.
+   */
+  stickyOnPhones?: boolean;
 }) {
   return (
     <div
       className={cn(
-        'sticky top-(--header-h) z-20 -mx-4 mb-4 border-b bg-pw-cream/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:top-0 lg:-mx-8 lg:px-8',
+        'z-20 -mx-4 mb-4 border-b bg-pw-cream/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8',
+        stickyOnPhones
+          ? 'sticky top-(--header-h) lg:top-0'
+          : 'md:sticky md:top-(--header-h) lg:top-0',
         className
       )}
     >

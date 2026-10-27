@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router';
+import LongList from '../Components/LongList';
 import PalImage from '../Components/PalImage';
 import WorkLevel from '../Components/WorkLevel';
 import { Breadcrumbs, Page, PageHeader } from '../Components/ui';
@@ -58,36 +59,43 @@ export default function WorkPage() {
         title={work}
         subtitle={`${workDescriptions[work]}. ${list.length} Pals, best first.`}
       />
-      <ol className="grid-fluid [--min:13.5rem]">
-        {list.map((p, i) => (
-          <li key={p.id}>
-            <Link
-              to={`/pal/${p.id}`}
-              className="relative flex card-link items-center gap-3 card p-3"
+      <LongList
+        items={list.map((p, i) => ({ p, rank: i + 1 }))}
+        itemKey={({ p }) => p.id}
+        text={({ p }) => p.name}
+        noun="Pals"
+        min="13.5rem"
+        first={36}
+        step={72}
+        renderItem={({ p, rank }) => (
+          <Link
+            to={`/pal/${p.id}`}
+            className="relative flex h-full card-link items-center gap-3 card p-3"
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                'absolute top-2 left-2 flex size-6 items-center justify-center rounded-full font-display text-sm font-bold',
+                rank <= 3
+                  ? 'bg-pw-sun text-pw-deep'
+                  : 'bg-pw-cream text-pw-muted'
+              )}
             >
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'absolute top-2 left-2 flex size-6 items-center justify-center rounded-full font-display text-sm font-bold',
-                  i < 3 ? 'bg-pw-sun text-pw-deep' : 'bg-pw-cream text-pw-muted'
-                )}
-              >
-                {i + 1}
+              {rank}
+            </span>
+            <PalImage pal={p} className="mt-2 ml-2 size-14 shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block truncate font-display text-lg leading-tight font-bold">
+                {p.name}
               </span>
-              <PalImage pal={p} className="mt-2 ml-2 size-14 shrink-0" />
-              <span className="min-w-0 flex-1">
-                <span className="block truncate font-display text-lg leading-tight font-bold">
-                  {p.name}
-                </span>
-                <span className="mb-1 block text-xs text-pw-muted">
-                  #{p.number}
-                </span>
-                <WorkLevel level={p.work[work] ?? 0} />
+              <span className="mb-1 block text-xs text-pw-muted">
+                #{p.number}
               </span>
-            </Link>
-          </li>
-        ))}
-      </ol>
+              <WorkLevel level={p.work[work] ?? 0} />
+            </span>
+          </Link>
+        )}
+      />
     </Page>
   );
 }

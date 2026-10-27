@@ -56,7 +56,7 @@ export default function BuildingsPage() {
           Crafting calculator
         </Link>
       </PageHeader>
-      <Toolbar>
+      <Toolbar stickyOnPhones={false}>
         <SearchInput
           value={query}
           onChange={setQuery}
