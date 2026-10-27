@@ -82,7 +82,7 @@ export default function SkillsPage() {
           {list.length} skill{list.length === 1 ? '' : 's'}
         </span>
         <div
-          className="-mx-1 flex basis-full gap-1.5 overflow-x-auto px-1 pb-1"
+          className="-m-1.5 flex basis-full gap-1.5 overflow-x-auto p-1.5"
           role="group"
           aria-label="Elements"
         >

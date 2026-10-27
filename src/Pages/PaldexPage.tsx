@@ -153,10 +153,10 @@ export default function PaldexPage() {
               onClick={() => setView('grid')}
               className={buttonClass(
                 compact ? 'secondary' : 'primary',
-                'w-10 px-0'
+                'w-10 px-0!'
               )}
             >
-              <GridIcon />
+              <GridIcon className="size-6" />
             </button>
             <button
               type="button"
@@ -165,15 +165,15 @@ export default function PaldexPage() {
               onClick={() => setView('list')}
               className={buttonClass(
                 compact ? 'primary' : 'secondary',
-                'w-10 px-0'
+                'w-10 px-0!'
               )}
             >
-              <ListIcon />
+              <ListIcon className="size-6" />
             </button>
           </div>
         </div>
         <div
-          className="-mx-1 flex basis-full gap-1.5 overflow-x-auto px-1 pb-1"
+          className="-m-1.5 flex basis-full gap-1.5 overflow-x-auto p-1.5"
           role="group"
           aria-label="Elements"
         >

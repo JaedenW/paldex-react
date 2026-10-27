@@ -19,7 +19,11 @@ const icon = (d: React.ReactNode) =>
       <svg
         {...base}
         {...props}
-        className={cn(!/\bsize-/.test(className ?? '') && 'size-5', className)}
+        className={cn(
+          'shrink-0',
+          !/\bsize-/.test(className ?? '') && 'size-5',
+          className
+        )}
       >
         {d}
       </svg>
