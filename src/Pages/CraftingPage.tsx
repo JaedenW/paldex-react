@@ -18,7 +18,7 @@ import {
   items,
   recipesFor,
 } from '../data/gear';
-import { useQueryState } from '../Hooks/useQueryState';
+import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { planCrafting, type CraftStep } from '../Utils/crafting';
 import { matchScore } from '../Utils/search';
@@ -43,8 +43,9 @@ const targets: Target[] = [
 
 export default function CraftingPage() {
   useDocumentTitle('Crafting calculator');
-  const [itemParam, setItem] = useQueryState('item');
-  const [buildingParam, setBuilding] = useQueryState('building');
+  const [itemParam] = useQueryState('item');
+  const [buildingParam] = useQueryState('building');
+  const patch = useQueryPatch();
   const [qtyParam, setQty] = useQueryState('qty', '1');
   const [expandParam, setExpand] = useQueryState('expand', '1');
   const [view, setView] = useQueryState('view', 'flow');
@@ -74,9 +75,11 @@ export default function CraftingPage() {
   }, [query]);
 
   const choose = (t: Target) => {
-    // one URL parameter at a time keeps item and building from both being set
-    setItem(t.kind === 'item' ? t.id : '');
-    setBuilding(t.kind === 'building' ? t.id : '');
+    // one update, so setting the item doesn't get overwritten by clearing the building
+    patch({
+      item: t.kind === 'item' ? t.id : undefined,
+      building: t.kind === 'building' ? t.id : undefined,
+    });
     setQuery('');
     setChoices({});
   };
