@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router';
 import { SearchIcon } from './Icons';
+import MoreMenu from './MoreMenu';
+import { MoreIcon } from './Icons';
 import { SECTIONS } from './sections';
 import { useSearch } from '../Utils/SearchContext';
 import { cn } from '../Utils/cn';
@@ -37,7 +39,7 @@ export default function Navbar() {
               to={s.to}
               aria-current={active ? 'page' : undefined}
               className={cn(
-                'inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm font-semibold transition',
+                'inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold transition',
                 active
                   ? 'bg-pw-sun text-pw-deep'
                   : 'text-white/80 hover:bg-white/10 hover:text-white'
@@ -48,13 +50,27 @@ export default function Navbar() {
             </Link>
           );
         })}
+        <MoreMenu
+          placement="below"
+          buttonClassName={({ highlighted }) =>
+            cn(
+              'inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold transition',
+              highlighted
+                ? 'bg-pw-sun text-pw-deep'
+                : 'text-white/80 hover:bg-white/10 hover:text-white'
+            )
+          }
+        >
+          <MoreIcon className="size-4" />
+          More
+        </MoreMenu>
       </nav>
 
       <button
         type="button"
         onClick={openSearch}
         aria-label="Search"
-        className="ml-auto hidden h-10 w-64 items-center gap-2.5 rounded-full bg-white/10 px-4 text-left text-sm text-white/70 ring-1 ring-white/20 transition hover:bg-white/20 sm:flex"
+        className="ml-auto hidden h-10 w-64 items-center gap-2.5 rounded-full bg-white/10 px-4 text-left text-sm text-white/70 ring-1 ring-white/20 transition hover:bg-white/20 xl:flex"
       >
         <SearchIcon className="size-4 shrink-0" />
         <span className="flex-1">Search…</span>
@@ -66,7 +82,7 @@ export default function Navbar() {
         type="button"
         onClick={openSearch}
         aria-label="Search"
-        className="ml-auto flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:hidden"
+        className="ml-auto flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 xl:hidden"
       >
         <SearchIcon />
       </button>

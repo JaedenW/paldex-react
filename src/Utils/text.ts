@@ -15,3 +15,13 @@ export function formatNumber(n: number | null | undefined, digits = 0) {
     ? '–'
     : n.toLocaleString('en', { maximumFractionDigits: digits });
 }
+
+/** URL id for an item or building name; mirrors `slug` in scripts/wiki.mjs */
+export function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}

@@ -33,16 +33,27 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 - Active skills (with the Pals that learn each) and passive skills
 - Breeding calculator: pick two parents and see the child; the pair lives in
   the URL so a result can be shared
+- Items: every item with type, rarity and description; equipment stats at each
+  quality; food effects; how to craft it, what it's used in, which Pals and
+  enemies drop it, which merchants sell it and which chests hold it
+- Buildings: every structure with its build cost and tech unlock, and for
+  workbenches everything they craft
+- Crafting calculator: pick an item or building and a quantity to get the raw
+  materials, the crafting steps in order and the workbenches needed
+- Technology: all technologies grouped by player level, with point costs, what
+  each unlocks, and totals for any level range
 - Search everything with Ctrl/⌘ + K or `/`
 
-Nothing is saved: filters, tabs and breeding pairs all live in the URL.
+Nothing is saved: filters, tabs, breeding pairs and crafting plans all live in
+the URL, like a wiki.
 
 ## Data
 
 All data is scraped from the fan-made [Palworld wiki on wiki.gg](https://palworld.wiki.gg)
 through its Cargo tables (structured data, so no HTML parsing) and committed
 under `src/data`, so the app makes no runtime API calls. Pal icons and art are
-saved to `public/pals`. Spawn points come from the wiki's interactive habitat
+saved to `public/pals`; item and building icons are shrunk to 96px WebP in
+`public/items` and `public/buildings` (schematics share a placeholder). Spawn points come from the wiki's interactive habitat
 map data (one small file per Pal in `public/habitats`, loaded when you open a
 Pal's "How to get" tab) and the world map image is saved to `public/map`.
 Coordinates are the in-game map's X, Y. About a third of Pals have no spawn
@@ -52,6 +63,7 @@ points on the wiki yet; their tab shows the wiki's text and any boss locations. 
 npm run scrape                        # everything below
 node scripts/scrape.mjs --no-images   # Pal data only, no icons
 npm run scrape:obtain                 # where-to-find data and the world map
+npm run scrape:gear                   # items, recipes, buildings, tech and icons
 ```
 
 The script exits with an error if the wiki returns far fewer Pals than expected.
@@ -77,9 +89,10 @@ npm run build      # type-check, then build to build/
 ## Project layout
 
 ```
-scripts/      scrape.mjs and scrape-obtain.mjs, the wiki scrapers
+scripts/      scrape.mjs, scrape-obtain.mjs and scrape-gear.mjs, the wiki scrapers
 src/
-  data/       scraped JSON (pals, skills, passives, items, combos)
+  data/       scraped JSON (pals, skills, passives, combos); gear/ holds items,
+              buildings, recipes, tech and sources, loaded only by those pages
   Components/ UI building blocks
   Hooks/      URL-backed state, document title
   Pages/      one file per route

@@ -121,3 +121,105 @@ export interface Spawns {
   day: [number, number][];
   night: [number, number][];
 }
+
+export type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary';
+
+export interface GearStats {
+  quality?: Rarity;
+  sell?: number;
+  durability?: number;
+  attack?: number;
+  defense?: number;
+  health?: number;
+  shield?: number;
+  glider?: number;
+  stamina?: number;
+  capture?: number;
+  effect?: string;
+  ammo?: string;
+}
+
+export interface Item {
+  id: string;
+  name: string;
+  type: string;
+  subtype?: string;
+  description?: string;
+  rarity?: Rarity;
+  sell?: number;
+  weight?: number;
+  /** Name of the technology that unlocks it */
+  tech?: string;
+  food?: {
+    nutrition?: number;
+    sanity?: number;
+    corruption?: number;
+    effect?: string;
+  };
+  /** One row of stats per quality */
+  gear?: GearStats[];
+}
+
+export interface Building {
+  id: string;
+  name: string;
+  type?: string;
+  subtype?: string;
+  description?: string;
+  hp?: number;
+  capacity?: number;
+  support?: boolean;
+  tech?: string;
+}
+
+export interface Recipe {
+  /** Name of the item or building this makes */
+  product: string;
+  kind: 'item' | 'building';
+  qty: number;
+  /** Workbench or machine; absent for buildings */
+  station?: string;
+  workload?: number;
+  /** Absent for Common */
+  quality?: Rarity;
+  ingredients: { name: string; qty: number }[];
+  /** Schematic item needed for this quality */
+  schematic?: string;
+}
+
+export interface Tech {
+  id: string;
+  name: string;
+  /** Player level needed */
+  level: number;
+  /** Technology points, or ancient technology points when ancient */
+  cost: number;
+  ancient?: boolean;
+  requires?: string;
+  unlocks?: { kind: 'item' | 'building'; name: string }[];
+}
+
+export interface ItemSources {
+  shops?: {
+    merchant: string;
+    cost?: number;
+    currency?: string;
+    min?: number;
+    max?: number;
+  }[];
+  found?: {
+    category: string;
+    label: string;
+    chance?: number;
+    min?: number;
+    max?: number;
+  }[];
+  dropped?: {
+    target: string;
+    type: string;
+    variant?: string;
+    chance?: number;
+    min?: number;
+    max?: number;
+  }[];
+}

@@ -2,7 +2,7 @@ import { activeSkills, pals, passiveSkills } from '../data';
 import { normalise } from './text';
 
 export interface SearchResult {
-  kind: 'Pal' | 'Skill' | 'Passive' | 'Element' | 'Work';
+  kind: 'Pal' | 'Skill' | 'Passive' | 'Item' | 'Building' | 'Tech';
   label: string;
   detail?: string;
   to: string;
@@ -20,10 +20,28 @@ export function matchScore(name: string, query: string): number {
   return n.includes(q) ? 1 : 0;
 }
 
+export interface Scored {
+  score: number;
+  result: SearchResult;
+}
+
+/** Best matches first, merged across sources by score */
+export function topResults(scored: Scored[], limit = 12): SearchResult[] {
+  return [...scored]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((s) => s.result);
+}
+
 export function search(query: string, limit = 12): SearchResult[] {
+  return topResults(searchScored(query), limit);
+}
+
+/** Pals, skills and passives, scored; items and buildings are added by gearSearch */
+export function searchScored(query: string): Scored[] {
   const q = query.trim();
   if (!q) return [];
-  const scored: { score: number; result: SearchResult }[] = [];
+  const scored: Scored[] = [];
   const push = (name: string, result: SearchResult, bonus = 0) => {
     const score = matchScore(name, q);
     if (score) scored.push({ score: score * 10 + bonus, result });
@@ -50,8 +68,5 @@ export function search(query: string, limit = 12): SearchResult[] {
   for (const s of passiveSkills) {
     push(s.name, { kind: 'Passive', label: s.name, to: `/passives#${s.id}` });
   }
-  return scored
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((s) => s.result);
+  return scored;
 }

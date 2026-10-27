@@ -1,11 +1,15 @@
 import type { ComponentType, SVGProps } from 'react';
 import {
   BoltIcon,
+  BoxIcon,
   EggIcon,
+  FlaskIcon,
   HammerIcon,
+  HomeIcon,
   PawIcon,
   SparkIcon,
   SwordIcon,
+  WrenchIcon,
 } from './Icons';
 
 export interface Section {
@@ -21,6 +25,7 @@ const startsWith =
   (p: string) =>
     prefixes.some((x) => p === x || p.startsWith(`${x}/`));
 
+/** The sections that get a place in the top bar and the bottom tabs */
 export const SECTIONS: Section[] = [
   {
     id: 'paldex',
@@ -30,6 +35,38 @@ export const SECTIONS: Section[] = [
     isActive: startsWith('/paldex', '/pal'),
   },
   {
+    id: 'items',
+    label: 'Items',
+    to: '/items',
+    icon: BoxIcon,
+    isActive: startsWith('/items', '/item'),
+  },
+  {
+    id: 'buildings',
+    label: 'Buildings',
+    to: '/buildings',
+    icon: HomeIcon,
+    isActive: startsWith('/buildings', '/building'),
+  },
+  {
+    id: 'technology',
+    label: 'Tech',
+    to: '/technology',
+    icon: FlaskIcon,
+    isActive: startsWith('/technology'),
+  },
+  {
+    id: 'crafting',
+    label: 'Crafting',
+    to: '/crafting',
+    icon: WrenchIcon,
+    isActive: startsWith('/crafting'),
+  },
+];
+
+/** Everything else lives in the More menu */
+export const MORE_SECTIONS: Section[] = [
+  {
     id: 'elements',
     label: 'Elements',
     to: '/elements',
@@ -38,28 +75,28 @@ export const SECTIONS: Section[] = [
   },
   {
     id: 'work',
-    label: 'Work',
+    label: 'Work suitability',
     to: '/work',
     icon: HammerIcon,
     isActive: startsWith('/work'),
   },
   {
     id: 'skills',
-    label: 'Skills',
+    label: 'Active skills',
     to: '/skills',
     icon: SwordIcon,
     isActive: startsWith('/skills', '/skill'),
   },
   {
     id: 'passives',
-    label: 'Passives',
+    label: 'Passive skills',
     to: '/passives',
     icon: SparkIcon,
     isActive: startsWith('/passives'),
   },
   {
     id: 'breeding',
-    label: 'Breeding',
+    label: 'Breeding calculator',
     to: '/breeding',
     icon: EggIcon,
     isActive: startsWith('/breeding'),

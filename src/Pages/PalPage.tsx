@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
 import {
+  linkableDrops,
   palById,
   pals,
   passiveByName,
   skillByName,
   uniqueCombos,
-  items,
 } from '../data';
 import ElementBadge from '../Components/ElementBadge';
 import PalImage from '../Components/PalImage';
@@ -23,7 +23,7 @@ import {
   formatMultiplier,
   elementColours,
 } from '../Utils/elements';
-import { compareNumbers, formatNumber } from '../Utils/text';
+import { compareNumbers, formatNumber, slugify } from '../Utils/text';
 import { workDescriptions, workId } from '../Utils/work';
 import type { Drop, Pal, PalStats, WorkType } from '../types';
 import { cn } from '../Utils/cn';
@@ -543,10 +543,18 @@ function DropList({ drops }: { drops: Drop[] }) {
           key={d.item}
           className="flex items-center justify-between gap-3 py-2"
         >
-          <span className="font-semibold">{d.item}</span>
+          {linkableDrops.has(d.item) ? (
+            <Link
+              to={`/item/${slugify(d.item)}`}
+              className="font-semibold hover:underline"
+            >
+              {d.item}
+            </Link>
+          ) : (
+            <span className="font-semibold">{d.item}</span>
+          )}
           <span className="shrink-0 text-sm text-pw-muted">
             {d.min === d.max ? `×${d.min}` : `×${d.min}–${d.max}`} · {d.chance}%
-            {items[d.item]?.type ? ` · ${items[d.item].type}` : ''}
           </span>
         </li>
       ))}

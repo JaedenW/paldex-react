@@ -43,3 +43,30 @@ export async function wikitext(titles) {
   }
   return out;
 }
+
+/** Every row of a Cargo table (500 per request), optionally filtered */
+export async function cargo(table, fields, where) {
+  const rows = [];
+  for (let offset = 0; ; offset += 500) {
+    const json = await api({
+      action: 'cargoquery',
+      tables: table,
+      fields: fields.join(','),
+      ...(where && { where }),
+      limit: '500',
+      offset: String(offset),
+    });
+    const page = json.cargoquery.map((r) => r.title);
+    rows.push(...page);
+    if (page.length < 500) return rows;
+    await sleep(300);
+  }
+}
+
+export const slug = (s) =>
+  s
+    .toLowerCase()
+    .normalize('NFKD') // also turns Ⅱ into II
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');

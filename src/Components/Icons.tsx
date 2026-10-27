@@ -1,4 +1,5 @@
 import type { SVGProps } from 'react';
+import { cn } from '../Utils/cn';
 
 const base = {
   viewBox: '0 0 24 24',
@@ -12,9 +13,14 @@ const base = {
 
 type P = SVGProps<SVGSVGElement>;
 const icon = (d: React.ReactNode) =>
-  function Icon(props: P) {
+  function Icon({ className, ...props }: P) {
+    // default to 20px, but let callers resize or recolour without losing it
     return (
-      <svg {...base} className="size-5" {...props}>
+      <svg
+        {...base}
+        {...props}
+        className={cn(!/\bsize-/.test(className ?? '') && 'size-5', className)}
+      >
         {d}
       </svg>
     );
@@ -73,4 +79,33 @@ export const SwordIcon = icon(
 );
 export const SparkIcon = icon(
   <path d="M12 3v4m0 10v4M3 12h4m10 0h4m-3.5-6.5-2.8 2.8M9.3 14.7l-2.8 2.8m0-11 2.8 2.8m5.4 5.4 2.8 2.8" />
+);
+
+export const BoxIcon = icon(
+  <>
+    <path d="M21 8 12 3 3 8v8l9 5 9-5Z" />
+    <path d="m3 8 9 5 9-5M12 13v8" />
+  </>
+);
+export const HomeIcon = icon(
+  <>
+    <path d="m3 11 9-8 9 8" />
+    <path d="M5 10v10h14V10M10 20v-6h4v6" />
+  </>
+);
+export const FlaskIcon = icon(
+  <>
+    <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" />
+    <path d="M7.5 15h9" />
+  </>
+);
+export const WrenchIcon = icon(
+  <path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7V21h3.3l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.6 2.6-2.4-.6-.6-2.4Z" />
+);
+export const MoreIcon = icon(
+  <>
+    <circle cx="5" cy="12" r="1.2" />
+    <circle cx="12" cy="12" r="1.2" />
+    <circle cx="19" cy="12" r="1.2" />
+  </>
 );
