@@ -253,11 +253,17 @@ export default function CraftFlow({
     const set = new Set([focus]);
     const up = (id: string) => {
       for (const e of layout.edges)
-        if (e.to === id && !set.has(e.from)) (set.add(e.from), up(e.from));
+        if (e.to === id && !set.has(e.from)) {
+          set.add(e.from);
+          up(e.from);
+        }
     };
     const down = (id: string) => {
       for (const e of layout.edges)
-        if (e.from === id && !set.has(e.to)) (set.add(e.to), down(e.to));
+        if (e.from === id && !set.has(e.to)) {
+          set.add(e.to);
+          down(e.to);
+        }
     };
     up(focus);
     down(focus);

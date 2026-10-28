@@ -12,9 +12,9 @@ import passivesJson from './passives.json';
 import combosJson from './combos.json';
 import meta from './meta.json';
 import obtainJson from './obtain.json';
-import mapJson from './map.json';
 import dropItemsJson from './dropItems.json';
 import breedingJson from './breeding.json';
+import worldMapJson from './worldmap.json';
 
 export const pals = palsJson as unknown as Pal[];
 export const activeSkills = skillsJson as unknown as ActiveSkill[];
@@ -40,11 +40,6 @@ export const palIcon = (p: Pal) => `/pals/${p.id}.png`;
 export const palArt = (p: Pal) => `/pals/${p.id}-art.webp`;
 
 export const obtain = obtainJson as unknown as Record<string, Obtain>;
-export const mapBounds = mapJson as {
-  topLeft: [number, number];
-  bottomRight: [number, number];
-};
-export const MAP_URL = '/map/world.webp';
 
 /** Names of Pal drops that have an item page */
 export const linkableDrops = new Set(dropItemsJson as string[]);
@@ -53,11 +48,7 @@ export const breedingRules = breedingJson as unknown as BreedingRules;
 /** Species lookup for two parents, built once from the Pal data and wiki rules */
 export const breeder = createBreeder(pals, uniqueCombos, breedingRules);
 
-import gearCountsJson from './gearCounts.json';
-/** Totals for items, buildings, recipes and technologies, without loading them */
-export const gearCounts = gearCountsJson as {
-  items: number;
-  buildings: number;
-  recipes: number;
-  tech: number;
-};
+// The main map's bounds and picture, shared with the Pal page's spawn map
+const worldMap = worldMapJson.maps.world;
+export const mapBounds = worldMap.bounds;
+export const MAP_URL = worldMap.full;

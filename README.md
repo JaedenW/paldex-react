@@ -98,7 +98,7 @@ points on the wiki yet; their tab shows the wiki's text and any boss locations. 
 
 ```bash
 npm run scrape                        # everything below
-node scripts/scrape.mjs --no-images   # Pal data only, no icons
+node scripts/scrape.ts --no-images    # Pal data only, no icons
 npm run scrape:obtain                 # where-to-find data and the world map
 npm run scrape:worldmap               # map markers and the World Tree picture
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
@@ -141,15 +141,16 @@ that can be wrong for a few of them, so check surprising results in the game.
 npm install
 npm start          # dev server at http://localhost:3000
 npm test           # unit tests
-npm run typecheck  # TypeScript
+npm run typecheck  # TypeScript (app and scripts)
+npm run lint       # oxlint
 npm run build      # type-check, then build to build/
 ```
 
 ## Project layout
 
 ```
-scripts/      the wiki scrapers (scrape.mjs, scrape-obtain.mjs, scrape-worldmap.mjs,
-              scrape-gear.mjs, scrape-breeding.mjs) and audit.mjs
+scripts/      the wiki scrapers (scrape.ts, scrape-obtain.ts, scrape-worldmap.ts,
+              scrape-gear.ts, scrape-breeding.ts) and audit.ts
 src/
   data/       scraped JSON (pals, skills, passives, combos); gear/ holds items,
               buildings, recipes, tech and sources, loaded only by those pages

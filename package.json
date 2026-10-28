@@ -9,14 +9,15 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "lint": "oxlint src scripts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs && node scripts/scrape-worldmap.mjs && node scripts/scrape-gear.mjs && node scripts/scrape-breeding.mjs",
-    "scrape:obtain": "node scripts/scrape-obtain.mjs",
-    "scrape:worldmap": "node scripts/scrape-worldmap.mjs",
-    "scrape:gear": "node scripts/scrape-gear.mjs",
-    "scrape:breeding": "node scripts/scrape-breeding.mjs",
-    "audit": "node scripts/audit.mjs"
+    "scrape": "node scripts/scrape.ts && node scripts/scrape-obtain.ts && node scripts/scrape-worldmap.ts && node scripts/scrape-gear.ts && node scripts/scrape-breeding.ts",
+    "scrape:obtain": "node scripts/scrape-obtain.ts",
+    "scrape:worldmap": "node scripts/scrape-worldmap.ts",
+    "scrape:gear": "node scripts/scrape-gear.ts",
+    "scrape:breeding": "node scripts/scrape-breeding.ts",
+    "audit": "node scripts/audit.ts"
   },
   "dependencies": {
     "react": "^19.3.1",
@@ -25,9 +26,11 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.90.0",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "sharp": "^0.35.5",
