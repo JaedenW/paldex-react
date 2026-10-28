@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { items, recipes, sources, techs } from './gear';
 import { dataSource, pals } from './index';
 import unusedJson from './unused.json';
+import worldmap from './worldmap.json';
+import type { MapMarker } from '../Utils/worldmap';
 
 // These guard the scraped data: what the wiki marks as unused, or that has no
 // number in the Paldeck, is not in the game and must not appear in the app.
@@ -48,5 +50,47 @@ describe('scraped data', () => {
     expect(unique(items.map((i) => i.id))).toBe(true);
     expect(unique(techs.map((t) => t.id))).toBe(true);
     expect(unique(pals.map((p) => p.id))).toBe(true);
+  });
+});
+
+describe('world map data', () => {
+  const markers = worldmap.markers as MapMarker[];
+  const inside = (m: MapMarker) => {
+    const b = worldmap.maps[m.map].bounds;
+    return m.x >= b.left && m.x <= b.right && m.y >= b.bottom && m.y <= b.top;
+  };
+
+  it('has markers for both maps, with unique ids', () => {
+    expect(markers.filter((m) => m.map === 'world').length).toBeGreaterThan(
+      200
+    );
+    expect(markers.filter((m) => m.map === 'tree').length).toBeGreaterThan(10);
+    expect(new Set(markers.map((m) => m.id)).size).toBe(markers.length);
+  });
+
+  it('puts every marker on its own map', () => {
+    expect(markers.filter((m) => !inside(m))).toEqual([]);
+  });
+
+  it('points Pal markers at Pals that exist', () => {
+    const known = new Set(pals.map((p) => p.id));
+    expect(markers.filter((m) => m.pal && !known.has(m.pal))).toEqual([]);
+  });
+
+  it('only uses layers the page knows about', () => {
+    const layers = new Set([
+      'statue',
+      'tower',
+      'alpha',
+      'predator',
+      'bounty',
+      'oilrig',
+      'merchant',
+    ]);
+    expect(markers.filter((m) => !layers.has(m.layer))).toEqual([]);
+  });
+
+  it('marks the World Tree placement as an estimate', () => {
+    expect(worldmap.maps.tree.approximate).toBe(true);
   });
 });

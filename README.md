@@ -9,8 +9,8 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 
 **Navigation and design**
 
-- A plain home page: search, and every section in one grid, grouped as Pals
-  and Items & Base
+- The home page is the world map (below); every other section is in the side
+  menu, grouped as Pals and Items & Base
 - The same side menu everywhere: fixed on wide screens, and a slide-in drawer
   from the menu button on phones
 - Flexible card grids that fit the screen, filters that stay in view while you
@@ -19,6 +19,17 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   the device), Light or Dark
 - Custom dropdowns with a search box on longer lists, in the same style as the
   breeding calculator's pickers
+
+**World map** (the home page)
+
+- An interactive map of the Palpagos Islands and the World Tree: drag to pan,
+  scroll or pinch to zoom, tap a marker for its details
+- Layers: fast travel statues, towers (with boss and level), Alpha bosses,
+  predator Pals, bounty targets, oil rigs and wandering merchants
+- Search for a Pal to show where it spawns, day and night, for up to four Pals
+  at once, or search for any place and fly to it
+- Everything about the view is in the address (map, layers, Pals, selection and
+  position), so a link shares exactly what you see
 
 **Paldex**
 
@@ -89,6 +100,7 @@ points on the wiki yet; their tab shows the wiki's text and any boss locations. 
 npm run scrape                        # everything below
 node scripts/scrape.mjs --no-images   # Pal data only, no icons
 npm run scrape:obtain                 # where-to-find data and the world map
+npm run scrape:worldmap               # map markers and the World Tree picture
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
 npm run scrape:breeding               # breeding eligibility and fixed pairings
 npm run audit                         # cross-check the data against the wiki's page text
@@ -105,6 +117,14 @@ work suitability with the wiki's own page text and reports anything that
 disagrees. The data is only as current as the wiki, so a change in a newer
 patch shows up once the wiki records it; re-run `npm run scrape` then.
 See [Credits](#credits) for licensing.
+
+The map's markers come from the wiki's tables and map data (statues, towers,
+Alpha bosses, bounties, predators, oil rigs and merchants). The wiki has no
+spawn data for the World Tree yet, and gives World Tree coordinates without
+saying how they line up with its picture. The statues and Alpha bosses span the
+whole landmass, so their bounding box is fitted to it; the scales agree on both
+axes and known places land in the right terrain, but those positions are an
+estimate, and the map says so.
 
 Breeding follows the rules on the wiki's Breeding page: two of one species give
 that species, a listed pairing (subspecies and other fixed combinations) wins,
@@ -128,7 +148,8 @@ npm run build      # type-check, then build to build/
 ## Project layout
 
 ```
-scripts/      scrape.mjs, scrape-obtain.mjs and scrape-gear.mjs, the wiki scrapers
+scripts/      the wiki scrapers (scrape.mjs, scrape-obtain.mjs, scrape-worldmap.mjs,
+              scrape-gear.mjs, scrape-breeding.mjs) and audit.mjs
 src/
   data/       scraped JSON (pals, skills, passives, combos); gear/ holds items,
               buildings, recipes, tech and sources, loaded only by those pages

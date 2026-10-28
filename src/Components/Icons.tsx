@@ -146,3 +146,33 @@ export const LockIcon = icon(
     <path d="M8 11V8a4 4 0 0 1 8 0v3" />
   </>
 );
+
+export const MapIcon = icon(
+  <>
+    <path d="M9 4 3 6.5v13L9 17l6 3 6-2.5v-13L15 7Z" />
+    <path d="M9 4v13M15 7v13" />
+  </>
+);
+export const LayersIcon = icon(
+  <>
+    <path d="m12 3 9 5-9 5-9-5Z" />
+    <path d="m3 13 9 5 9-5" />
+  </>
+);
+export const PlusIcon = icon(<path d="M12 5v14M5 12h14" />);
+export const MinusIcon = icon(<path d="M5 12h14" />);
+export const FitIcon = icon(
+  <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+);
+export const LinkIcon = icon(
+  <>
+    <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1" />
+    <path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />
+  </>
+);
+export const CopyIcon = icon(
+  <>
+    <rect x="9" y="9" width="11" height="11" rx="2" />
+    <path d="M5 15V6a2 2 0 0 1 2-2h9" />
+  </>
+);

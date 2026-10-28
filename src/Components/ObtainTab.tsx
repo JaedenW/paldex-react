@@ -74,7 +74,19 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
       </Panel>
 
       {hasMap && (
-        <Panel title="Map">
+        <Panel
+          title="Map"
+          actions={
+            info.spawns ? (
+              <Link
+                to={`/?pal=${pal.id}`}
+                className="text-sm font-semibold text-pw-link hover:underline"
+              >
+                Open on the world map
+              </Link>
+            ) : undefined
+          }
+        >
           {loading && (
             <p className="mb-2 text-sm text-pw-muted">Loading spawn points…</p>
           )}
