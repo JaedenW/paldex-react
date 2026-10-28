@@ -12,19 +12,19 @@ export default class ErrorBoundary extends React.Component<
   Props,
   { error: Error | null }
 > {
-  state = { error: null as Error | null };
+  override state = { error: null as Error | null };
 
   static getDerivedStateFromError(error: Error) {
     return { error };
   }
 
-  componentDidUpdate(prev: Props) {
+  override componentDidUpdate(prev: Props) {
     if (prev.resetKey !== this.props.resetKey && this.state.error) {
       this.setState({ error: null });
     }
   }
 
-  render() {
+  override render() {
     if (!this.state.error) return this.props.children;
     return (
       <div className="mx-auto max-w-xl px-4 py-12">

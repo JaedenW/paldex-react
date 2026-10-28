@@ -4,8 +4,7 @@ import type { Boss, Spawns } from '../types';
 import { boundsOf, formatCoords } from '../Utils/map';
 import { cn } from '../Utils/cn';
 
-const [LEFT, TOP] = mapBounds.topLeft;
-const [RIGHT, BOTTOM] = mapBounds.bottomRight;
+const { left: LEFT, top: TOP, right: RIGHT, bottom: BOTTOM } = mapBounds;
 const MAP_WIDTH = RIGHT - LEFT;
 const MIN_SPAN = 60;
 
