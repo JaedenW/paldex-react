@@ -58,8 +58,10 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
   workbenches everything they craft
 - Crafting calculator: pick an item or building and a quantity. A flow view
   takes you from raw materials, through each component in the order it's made,
-  to the finished item, with curves showing what feeds what (hover a box to
-  trace it) and stacked stages on phones. A list view is there too, you can
+  to the finished item, with curves showing what feeds what (hover or tap a box
+  to trace it). On phones it becomes a numbered timeline with a one-line
+  summary, a compact grid of raw materials that says what each goes into, and
+  ingredient chips that say which step each one comes from. A list view is there too, you can
   choose between alternate recipes, and it totals the workbenches needed
 - Technology: all technologies by player level, with a level list to jump
   around, a "My level" filter, running point totals, filters for regular or

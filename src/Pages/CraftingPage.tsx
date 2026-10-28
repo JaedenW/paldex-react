@@ -248,7 +248,7 @@ export default function CraftingPage() {
             </Chip>
             <span className="text-sm text-pw-muted">
               {view === 'flow'
-                ? 'Raw materials on the left, through each component, to the finished item. Hover a box to trace it.'
+                ? 'Raw materials, through each component, to the finished item. Hover or tap a box to trace it.'
                 : 'Raw materials, then each step in order.'}
             </span>
           </div>
