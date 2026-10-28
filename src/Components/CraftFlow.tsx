@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import ItemIcon from './ItemIcon';
 import { StationLink } from './gearUi';
+import { BoxIcon, CheckIcon } from './Icons';
 import { Select } from './ui';
 import { buildingByName, itemByName } from '../data/gear';
 import {
@@ -90,27 +91,81 @@ function Name({
 
 const qtyText = (n: number) => `×${formatNumber(n)}`;
 
-/** The ingredients a crafted node uses, as small chips */
-function Inputs({ node, edges }: { node: FlowNode; edges: FlowEdge[] }) {
+/**
+ * The ingredients a crafted node uses, as small chips. Each says where it comes
+ * from: a teal dot for something you gather, or "step N" for a component made
+ * earlier in the flow, so the chain reads without lines.
+ */
+function Inputs({
+  node,
+  edges,
+  stageOf,
+}: {
+  node: FlowNode;
+  edges: FlowEdge[];
+  stageOf: (name: string) => number;
+}) {
   const mine = edges.filter((e) => e.to === node.id);
   return (
-    <ul
-      className="mt-2 flex flex-wrap gap-1"
-      aria-label={`Ingredients for ${node.id}`}
+    <div className="mt-2.5">
+      <p className="mb-1 text-[11px] font-semibold tracking-[0.12em] text-pw-muted uppercase">
+        Needs
+      </p>
+      <ul
+        className="flex flex-wrap gap-1"
+        aria-label={`Ingredients for ${node.id}`}
+      >
+        {mine.map((e) => {
+          const stage = stageOf(e.from);
+          return (
+            <li
+              key={e.from}
+              className="flex items-center gap-1 rounded-full bg-pw-cream/80 py-0.5 pr-2 pl-0.5 text-xs font-medium text-pw-ink ring-1 ring-pw-line"
+            >
+              <NodeIcon name={e.from} className="size-5 shrink-0" />
+              <span className="font-display text-sm font-bold text-pw-link">
+                {qtyText(e.qty)}
+              </span>
+              <span className="max-w-32 truncate">{e.from}</span>
+              {stage > 0 ? (
+                <span className="rounded-full bg-pw-sun/25 px-1.5 text-[10px] font-bold text-pw-ink">
+                  step {stage}
+                </span>
+              ) : (
+                <span
+                  aria-label="gathered"
+                  title="gathered"
+                  className="size-1.5 rounded-full bg-pw-teal"
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+/** The marker on the phone timeline: a bag for gathering, a number for a step, a tick for the result */
+function StageBadge({ index, last }: { index: number; last: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn(
+        'absolute top-0 left-0 flex size-8 items-center justify-center rounded-full font-display text-base font-bold ring-4 ring-pw-paper lg:hidden',
+        index === 0 && 'bg-pw-teal text-white',
+        index > 0 && !last && 'bg-pw-sun text-pw-deep',
+        last && 'bg-pw-navy text-white'
+      )}
     >
-      {mine.map((e) => (
-        <li
-          key={e.from}
-          className="flex items-center gap-1 rounded-full bg-pw-cream/80 py-0.5 pr-2 pl-0.5 text-xs font-medium text-pw-ink ring-1 ring-pw-line"
-        >
-          <NodeIcon name={e.from} className="size-5 shrink-0" />
-          <span className="font-display text-sm font-bold text-pw-link">
-            {qtyText(e.qty)}
-          </span>
-          <span className="max-w-32 truncate">{e.from}</span>
-        </li>
-      ))}
-    </ul>
+      {index === 0 ? (
+        <BoxIcon className="size-4" />
+      ) : last ? (
+        <CheckIcon className="size-4" />
+      ) : (
+        index
+      )}
+    </span>
   );
 }
 
@@ -131,8 +186,11 @@ function StageHeader({
         ? 'finished item'
         : `step ${index}`;
   return (
-    <div className="mb-2 flex items-center gap-2">
-      <span aria-hidden="true" className="size-2 rotate-45 bg-pw-sun" />
+    <div className="mb-2 flex min-h-8 items-center gap-2 lg:min-h-0">
+      <span
+        aria-hidden="true"
+        className="hidden size-2 rotate-45 bg-pw-sun lg:block"
+      />
       <h3 className="font-display text-lg leading-none">{label}</h3>
       <span className="text-xs text-pw-muted">{sub}</span>
     </div>
@@ -141,10 +199,13 @@ function StageHeader({
 
 /**
  * The plan as a flow: raw materials on the left, components in the order they
- * are made, the item on the right, with curves showing what feeds what. Hover or
- * focus a node to trace what goes into it and what it goes into. On phones the
- * stages stack from top to bottom and the curves are left out, since each crafted
- * node already lists its ingredients.
+ * are made, the item on the right, with curves showing what feeds what. Hover,
+ * tap or focus a box to trace what goes into it and what it goes into.
+ *
+ * On phones the stages run down a numbered timeline instead, with the raw
+ * materials in a compact two-column grid, each saying what it goes into, and
+ * each crafted box saying which step every ingredient comes from, so the chain
+ * reads without the curves.
  */
 export default function CraftFlow({
   plan,
@@ -168,6 +229,23 @@ export default function CraftFlow({
     }[]
   >([]);
   const [focus, setFocus] = React.useState<string>();
+
+  // which stage each thing is in (0 = gathered), and what each thing goes into
+  const stages = React.useMemo(() => {
+    const map = new Map<string, number>();
+    layout.columns.forEach((col, i) => col.forEach((n) => map.set(n.id, i)));
+    return map;
+  }, [layout]);
+  const stageOf = React.useCallback(
+    (name: string) => stages.get(name) ?? 0,
+    [stages]
+  );
+  const goesInto = React.useMemo(() => {
+    const map = new Map<string, string[]>();
+    for (const e of layout.edges)
+      map.set(e.from, [...(map.get(e.from) ?? []), e.to]);
+    return map;
+  }, [layout]);
 
   // everything upstream and downstream of the focused node, to highlight its trail
   const related = React.useMemo(() => {
@@ -228,50 +306,80 @@ export default function CraftFlow({
   };
 
   const lastColumn = layout.columns.length - 1;
+  const rawCount = layout.columns[0]?.length ?? 0;
+  const components = layout.columns
+    .slice(1, lastColumn)
+    .reduce((n, col) => n + col.length, 0);
 
   return (
-    <div className="-mx-1 overflow-x-auto px-1 pb-2">
-      <div
-        ref={innerRef}
-        className="relative flex flex-col gap-1 lg:min-w-max lg:flex-row lg:gap-12 lg:p-1"
-      >
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 hidden size-full overflow-visible lg:block"
-        >
-          {paths.map((p) => {
-            const on = !related || (related.has(p.from) && related.has(p.to));
-            return (
-              <g
-                key={p.key}
-                className={cn(
-                  'transition-opacity',
-                  related && !on && 'opacity-10'
-                )}
-              >
-                <path
-                  d={p.d}
-                  fill="none"
-                  strokeWidth={on && related ? 2.5 : 1.75}
-                  className={cn(
-                    on && related ? 'stroke-pw-sun' : 'stroke-pw-teal/50'
-                  )}
-                />
-                <circle
-                  cx={p.end[0]}
-                  cy={p.end[1]}
-                  r={3.5}
-                  className={on && related ? 'fill-pw-sun' : 'fill-pw-teal/60'}
-                />
-              </g>
-            );
-          })}
-        </svg>
+    <div>
+      {/* phones: the whole plan in one line before the details */}
+      <p className="mb-4 flex flex-wrap items-center gap-1.5 text-xs font-semibold lg:hidden">
+        <span className="rounded-full bg-pw-teal/15 px-2.5 py-1 text-pw-link ring-1 ring-pw-teal/30">
+          {rawCount} to gather
+        </span>
+        {components > 0 && (
+          <>
+            <span aria-hidden="true" className="text-pw-muted">
+              →
+            </span>
+            <span className="rounded-full bg-pw-sun/20 px-2.5 py-1 ring-1 ring-pw-sun/40">
+              {components} component{components === 1 ? '' : 's'}
+            </span>
+          </>
+        )}
+        <span aria-hidden="true" className="text-pw-muted">
+          →
+        </span>
+        <span className="rounded-full bg-pw-navy px-2.5 py-1 text-white">
+          {target.name}
+        </span>
+      </p>
 
-        {layout.columns.map((col, i) => (
-          <React.Fragment key={i}>
+      <div className="-mx-1 overflow-x-auto px-1 pb-2">
+        <div
+          ref={innerRef}
+          className="relative flex flex-col gap-5 lg:min-w-max lg:flex-row lg:gap-12 lg:p-1"
+        >
+          <svg
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 hidden size-full overflow-visible lg:block"
+          >
+            {paths.map((p) => {
+              const on = !related || (related.has(p.from) && related.has(p.to));
+              return (
+                <g
+                  key={p.key}
+                  className={cn(
+                    'transition-opacity',
+                    related && !on && 'opacity-10'
+                  )}
+                >
+                  <path
+                    d={p.d}
+                    fill="none"
+                    strokeWidth={on && related ? 2.5 : 1.75}
+                    className={cn(
+                      on && related ? 'stroke-pw-sun' : 'stroke-pw-teal/50'
+                    )}
+                  />
+                  <circle
+                    cx={p.end[0]}
+                    cy={p.end[1]}
+                    r={3.5}
+                    className={
+                      on && related ? 'fill-pw-sun' : 'fill-pw-teal/60'
+                    }
+                  />
+                </g>
+              );
+            })}
+          </svg>
+
+          {layout.columns.map((col, i) => (
             <section
-              className="relative z-10 lg:w-56 lg:shrink-0"
+              key={i}
+              className="relative z-10 pl-11 lg:w-56 lg:shrink-0 lg:pl-0"
               aria-label={
                 i === 0
                   ? 'Raw materials'
@@ -280,15 +388,31 @@ export default function CraftFlow({
                     : `Crafting step ${i}`
               }
             >
+              {/* the timeline: a line down the left from each marker to the next */}
+              {i < lastColumn && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-9 -bottom-5 left-[15px] w-0.5 rounded-full bg-pw-sun/40 lg:hidden"
+                />
+              )}
+              <StageBadge index={i} last={i === lastColumn} />
               <StageHeader
                 index={i}
                 last={i === lastColumn}
                 count={col.length}
               />
-              <ol className="flex flex-col gap-2">
+              <ol
+                className={cn(
+                  'gap-2',
+                  i === 0
+                    ? 'grid grid-cols-2 lg:flex lg:flex-col'
+                    : 'flex flex-col'
+                )}
+              >
                 {col.map((node) => {
                   const dim = related && !related.has(node.id);
                   const isTarget = i === lastColumn && node.id === target.name;
+                  // hover with a mouse; a tap or the keyboard moves focus instead
                   const common = {
                     ref: register(node.id),
                     tabIndex: 0,
@@ -298,21 +422,44 @@ export default function CraftFlow({
                     onBlur: () => setFocus(undefined),
                   };
                   const step = node.step;
+                  const into = goesInto.get(node.id);
                   return (
                     <li key={node.id}>
                       {node.kind === 'raw' ? (
                         <div
                           {...common}
                           className={cn(
-                            'flex items-center gap-2.5 rounded-xl border bg-pw-paper p-2 pr-3 shadow-card transition-opacity',
+                            'h-full rounded-xl border bg-pw-paper p-2.5 shadow-card transition-opacity outline-none focus-visible:ring-2 focus-visible:ring-pw-teal lg:flex lg:items-center lg:gap-2.5 lg:p-2 lg:pr-3',
                             dim && 'opacity-40'
                           )}
                         >
+                          {/* phones: a compact tile */}
+                          <div className="lg:hidden">
+                            <div className="flex items-center gap-2">
+                              <NodeIcon
+                                name={node.id}
+                                className="size-9 shrink-0"
+                              />
+                              <span className="ml-auto font-display text-2xl leading-none font-bold">
+                                {formatNumber(node.qty)}
+                              </span>
+                            </div>
+                            <Name
+                              name={node.id}
+                              className="mt-1.5 line-clamp-2 block text-sm leading-tight font-semibold"
+                            />
+                            {into && (
+                              <p className="mt-0.5 line-clamp-2 text-[11px] leading-tight text-pw-muted">
+                                → {into.join(', ')}
+                              </p>
+                            )}
+                          </div>
+                          {/* wide screens: a row, with the curves showing where it goes */}
                           <NodeIcon
                             name={node.id}
-                            className="size-10 shrink-0"
+                            className="hidden size-10 shrink-0 lg:block"
                           />
-                          <span className="min-w-0 flex-1">
+                          <span className="hidden min-w-0 flex-1 lg:block">
                             <Name
                               name={node.id}
                               className="block truncate font-semibold"
@@ -321,7 +468,7 @@ export default function CraftFlow({
                               gather or buy
                             </span>
                           </span>
-                          <span className="font-display text-2xl leading-none font-bold">
+                          <span className="hidden font-display text-2xl leading-none font-bold lg:block">
                             {formatNumber(node.qty)}
                           </span>
                         </div>
@@ -329,7 +476,7 @@ export default function CraftFlow({
                         <div
                           {...common}
                           className={cn(
-                            'rounded-xl bg-pw-navy p-3 text-white shadow-lift ring-2 ring-pw-sun transition-opacity',
+                            'rounded-xl bg-pw-navy p-3 text-white shadow-lift ring-2 ring-pw-sun transition-opacity outline-none focus-visible:ring-4',
                             dim && 'opacity-40'
                           )}
                         >
@@ -370,13 +517,19 @@ export default function CraftFlow({
                               {formatNumber(node.qty)}
                             </span>
                           </div>
-                          {step && <Inputs node={node} edges={layout.edges} />}
+                          {step && (
+                            <Inputs
+                              node={node}
+                              edges={layout.edges}
+                              stageOf={stageOf}
+                            />
+                          )}
                         </div>
                       ) : (
                         <div
                           {...common}
                           className={cn(
-                            'rounded-xl border border-l-4 border-l-pw-sun bg-pw-paper p-2.5 shadow-card transition-opacity',
+                            'rounded-xl border border-l-4 border-l-pw-sun bg-pw-paper p-2.5 shadow-card transition-opacity outline-none focus-visible:ring-2 focus-visible:ring-pw-teal',
                             dim && 'opacity-40'
                           )}
                         >
@@ -412,7 +565,18 @@ export default function CraftFlow({
                               ))}
                             </p>
                           )}
-                          {step && <Inputs node={node} edges={layout.edges} />}
+                          {step && (
+                            <Inputs
+                              node={node}
+                              edges={layout.edges}
+                              stageOf={stageOf}
+                            />
+                          )}
+                          {into && (
+                            <p className="mt-2 text-[11px] text-pw-muted lg:hidden">
+                              → goes into {into.join(', ')}
+                            </p>
+                          )}
                           {step && step.variants.length > 1 && (
                             <Select
                               label={`Recipe for ${node.id}`}
@@ -425,7 +589,7 @@ export default function CraftFlow({
                                   .join(', '),
                               }))}
                               className="mt-2"
-                              triggerClassName="h-8 w-full text-xs"
+                              triggerClassName="h-9 w-full text-xs"
                             />
                           )}
                         </div>
@@ -435,26 +599,8 @@ export default function CraftFlow({
                 })}
               </ol>
             </section>
-            {i < lastColumn && (
-              <div
-                aria-hidden="true"
-                className="flex justify-center py-1 text-pw-sun lg:hidden"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="size-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 5v14m-6-6 6 6 6-6" />
-                </svg>
-              </div>
-            )}
-          </React.Fragment>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
