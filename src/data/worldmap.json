@@ -1,0 +1,3070 @@
+{
+  "maps": {
+    "world": {
+      "name": "Palpagos Islands",
+      "bounds": {
+        "left": -1923.226,
+        "top": 1032.799,
+        "right": 1234.833,
+        "bottom": -2125.261
+      },
+      "image": "/map/world-2048.webp",
+      "full": "/map/world.webp"
+    },
+    "tree": {
+      "name": "World Tree",
+      "bounds": {
+        "left": -111.097,
+        "right": 123.981,
+        "top": 893.58,
+        "bottom": 658.502
+      },
+      "focus": {
+        "left": -88.829,
+        "right": 108.829,
+        "top": 866.491,
+        "bottom": 686.509
+      },
+      "image": "/map/tree-2048.webp",
+      "full": "/map/tree.webp",
+      "approximate": true
+    }
+  },
+  "markers": [
+    {
+      "id": "alpha/aegidron/-59,756",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Aegidron",
+      "pal": "aegidron",
+      "region": "Lacrymal Shoal",
+      "level": 79,
+      "x": -59,
+      "y": 756
+    },
+    {
+      "id": "alpha/dandilord/26,861",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Dandilord",
+      "pal": "dandilord",
+      "region": "Rotmist Root",
+      "level": 78,
+      "x": 26,
+      "y": 861
+    },
+    {
+      "id": "alpha/mycora/-35,731",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Mycora",
+      "pal": "mycora",
+      "region": "The World Tree",
+      "level": 78,
+      "x": -35,
+      "y": 731
+    },
+    {
+      "id": "alpha/renjishi/56,838",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Renjishi",
+      "pal": "renjishi",
+      "region": "Corroded Hollow",
+      "level": 78,
+      "x": 56,
+      "y": 838
+    },
+    {
+      "id": "alpha/silvance/-62,692",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Silvance",
+      "pal": "silvance",
+      "region": "Shinespore Root",
+      "level": 78,
+      "x": -62,
+      "y": 692
+    },
+    {
+      "id": "statue/abandoned-laboratory/-71,854",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Abandoned Laboratory",
+      "x": -71,
+      "y": 854
+    },
+    {
+      "id": "statue/alluvion-lakefront/40,757",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Alluvion Lakefront",
+      "x": 40,
+      "y": 757
+    },
+    {
+      "id": "statue/boreal-summit/-25,840",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Boreal Summit",
+      "x": -25,
+      "y": 840
+    },
+    {
+      "id": "statue/corroded-hollow/36,838",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Corroded Hollow",
+      "x": 36,
+      "y": 838
+    },
+    {
+      "id": "statue/dusty-ravine/67,816",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Dusty Ravine",
+      "x": 67,
+      "y": 816
+    },
+    {
+      "id": "statue/forbidden-laboratory/-83,854",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Forbidden Laboratory",
+      "x": -83,
+      "y": 854
+    },
+    {
+      "id": "statue/gilded-city-ruins/-18,777",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Gilded City Ruins",
+      "x": -18,
+      "y": 777
+    },
+    {
+      "id": "statue/lacrymal-shoal/-58,746",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Lacrymal Shoal",
+      "x": -58,
+      "y": 746
+    },
+    {
+      "id": "statue/remnant-riverside/16,833",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Remnant Riverside",
+      "x": 16,
+      "y": 833
+    },
+    {
+      "id": "statue/rotmist-root/28,859",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Rotmist Root",
+      "x": 28,
+      "y": 859
+    },
+    {
+      "id": "statue/shinespore-root/-61,693",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Shinespore Root",
+      "x": -61,
+      "y": 693
+    },
+    {
+      "id": "statue/spore-cloister/-19,750",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Spore Cloister",
+      "x": -19,
+      "y": 750
+    },
+    {
+      "id": "statue/the-verdant-rootpath/103,772",
+      "layer": "statue",
+      "map": "tree",
+      "name": "The Verdant Rootpath",
+      "x": 103,
+      "y": 772
+    },
+    {
+      "id": "statue/whimsical-wisteria-grove/60,781",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Whimsical Wisteria Grove",
+      "x": 60,
+      "y": 781
+    },
+    {
+      "id": "statue/within-the-seal/-76,764",
+      "layer": "statue",
+      "map": "tree",
+      "name": "Within the Seal",
+      "x": -76,
+      "y": 764
+    },
+    {
+      "id": "alpha/anubis/-134,-94",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Anubis",
+      "pal": "anubis",
+      "region": "Twilight Dunes",
+      "level": 55,
+      "x": -134,
+      "y": -94
+    },
+    {
+      "id": "alpha/astegon/-615,-429",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Astegon",
+      "pal": "astegon",
+      "region": "Mount Obsidian",
+      "level": 48,
+      "x": -615,
+      "y": -429
+    },
+    {
+      "id": "alpha/azurmane/-1106,-1315",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Azurmane",
+      "pal": "azurmane",
+      "region": "Frozen Coral Hill",
+      "level": 57,
+      "x": -1106,
+      "y": -1315
+    },
+    {
+      "id": "alpha/azurobe/-176,-266",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Azurobe",
+      "pal": "azurobe",
+      "region": "Whisperwind Cliffs",
+      "level": 40,
+      "x": -176,
+      "y": -266
+    },
+    {
+      "id": "alpha/beakon/95,23",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Beakon",
+      "pal": "beakon",
+      "region": "Verdant Brook",
+      "level": 37,
+      "x": 95,
+      "y": 23
+    },
+    {
+      "id": "alpha/blazamut/-442,-561",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Blazamut",
+      "pal": "blazamut",
+      "region": "Mount Obsidian",
+      "level": 49,
+      "x": -442,
+      "y": -561
+    },
+    {
+      "id": "alpha/broncherry/-222,-669",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Broncherry",
+      "pal": "broncherry",
+      "region": "Sea Breeze Archipelago",
+      "level": 23,
+      "x": -222,
+      "y": -669
+    },
+    {
+      "id": "alpha/bushi/-116,-491",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Bushi",
+      "pal": "bushi",
+      "region": "Bamboo Groves",
+      "level": 23,
+      "x": -116,
+      "y": -491
+    },
+    {
+      "id": "alpha/caprity-noct/-1164,-1653",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Caprity Noct",
+      "pal": "caprity-noct",
+      "region": "Frozen Coral Hill",
+      "level": 55,
+      "x": -1164,
+      "y": -1653
+    },
+    {
+      "id": "alpha/caprity-noct/-147,-660",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Caprity Noct",
+      "pal": "caprity-noct",
+      "region": "Sealed Realm of the Luxurious Thicket",
+      "level": 23,
+      "x": -147,
+      "y": -660
+    },
+    {
+      "id": "alpha/celesdir/-965,-1175",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Celesdir",
+      "pal": "celesdir",
+      "region": "Crystalized Ancient Tree",
+      "level": 60,
+      "x": -965,
+      "y": -1175
+    },
+    {
+      "id": "alpha/chillet/172,-418",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Chillet",
+      "pal": "chillet",
+      "region": "Windswept Hills",
+      "level": 11,
+      "x": 172,
+      "y": -418
+    },
+    {
+      "id": "alpha/cryolinx-terra/-1165,-1557",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Cryolinx Terra",
+      "pal": "cryolinx-terra",
+      "region": "Frozen Coral Hill",
+      "level": 58,
+      "x": -1165,
+      "y": -1557
+    },
+    {
+      "id": "alpha/dazzi-noct/-1343,-1579",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dazzi Noct",
+      "pal": "dazzi-noct",
+      "region": "Frozen Coral Hill",
+      "level": 53,
+      "x": -1343,
+      "y": -1579
+    },
+    {
+      "id": "alpha/dinossom-lux/350,538",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dinossom Lux",
+      "pal": "dinossom-lux",
+      "region": "Desiccated Dunes",
+      "level": 47,
+      "x": 350,
+      "y": 538
+    },
+    {
+      "id": "alpha/dualith/910,-99",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dualith",
+      "pal": "dualith",
+      "region": "Isle of Circular Ruins",
+      "level": 55,
+      "x": 910,
+      "y": -99
+    },
+    {
+      "id": "alpha/dualith-noct/-1694,-948",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dualith Noct",
+      "pal": "dualith-noct",
+      "region": "Glacial Memento Islet",
+      "level": 70,
+      "x": -1694,
+      "y": -948
+    },
+    {
+      "id": "alpha/dumud/-310,4",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dumud",
+      "pal": "dumud",
+      "region": "Ice Wind Island",
+      "level": 14,
+      "x": -310,
+      "y": 4
+    },
+    {
+      "id": "alpha/eidrolon/-489,-1521",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Eidrolon",
+      "pal": "eidrolon",
+      "region": "Crystalline Archipelago",
+      "level": 69,
+      "x": -489,
+      "y": -1521
+    },
+    {
+      "id": "alpha/elizabee/164,-84",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Elizabee",
+      "pal": "elizabee",
+      "region": "Verdant Stream",
+      "level": 39,
+      "x": 164,
+      "y": -84
+    },
+    {
+      "id": "alpha/elphidran/44,-284",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Elphidran",
+      "pal": "elphidran",
+      "region": "Crescent Moon Shore",
+      "level": 30,
+      "x": 44,
+      "y": -284
+    },
+    {
+      "id": "alpha/faleris-aqua/-628,-1048",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Faleris Aqua",
+      "pal": "faleris-aqua",
+      "region": "Withered Seaside",
+      "level": 56,
+      "x": -628,
+      "y": -1048
+    },
+    {
+      "id": "alpha/fenglope/-258,-458",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Fenglope",
+      "pal": "fenglope",
+      "region": "Bamboo Groves",
+      "level": 25,
+      "x": -258,
+      "y": -458
+    },
+    {
+      "id": "alpha/fenglope-lux/-834,-1116",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Fenglope Lux",
+      "pal": "fenglope-lux",
+      "region": "Stone Pillar Cave",
+      "level": 57,
+      "x": -834,
+      "y": -1116
+    },
+    {
+      "id": "alpha/foxparks-cryst/-411,-54",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Foxparks Cryst",
+      "pal": "foxparks-cryst",
+      "region": "Sealed Realm of the Frost Flower",
+      "level": 15,
+      "x": -411,
+      "y": -54
+    },
+    {
+      "id": "alpha/frostallion/-357,509",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Frostallion",
+      "pal": "frostallion",
+      "region": "Astral Mountains",
+      "level": 60,
+      "x": -357,
+      "y": 509
+    },
+    {
+      "id": "alpha/frostallion-noct/689,648",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Frostallion Noct",
+      "pal": "frostallion-noct",
+      "region": "No. 3 Wildlife Sanctuary",
+      "level": 65,
+      "x": 689,
+      "y": 648
+    },
+    {
+      "id": "alpha/gildane/-761,-1223",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Gildane",
+      "pal": "gildane",
+      "region": "Emberstone Plateau",
+      "level": 58,
+      "x": -761,
+      "y": -1223
+    },
+    {
+      "id": "alpha/grintale/335,-245",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Grintale",
+      "pal": "grintale",
+      "region": "Marsh Island",
+      "level": 17,
+      "x": 335,
+      "y": -245
+    },
+    {
+      "id": "alpha/gumoss/-113,-628",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Gumoss",
+      "pal": "gumoss",
+      "region": "Sea Breeze Archipelago",
+      "level": 11,
+      "x": -113,
+      "y": -628
+    },
+    {
+      "id": "alpha/jetragon/-553,-1332",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Jetragon",
+      "pal": "jetragon",
+      "region": "Sunreach",
+      "level": 70,
+      "x": -553,
+      "y": -1332
+    },
+    {
+      "id": "alpha/jormuntide/350,-85",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Jormuntide",
+      "pal": "jormuntide",
+      "region": "Scars of War",
+      "level": 55,
+      "x": 350,
+      "y": -85
+    },
+    {
+      "id": "alpha/katress/241,-332",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Katress",
+      "pal": "katress",
+      "region": "Marsh Island",
+      "level": 23,
+      "x": 241,
+      "y": -332
+    },
+    {
+      "id": "alpha/kingpaca/50,-460",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Kingpaca",
+      "pal": "kingpaca",
+      "region": "Windswept Hills",
+      "level": 23,
+      "x": 50,
+      "y": -460
+    },
+    {
+      "id": "alpha/kingpaca-cryst/-385,355",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Kingpaca Cryst",
+      "pal": "kingpaca-cryst",
+      "region": "Astral Mountains",
+      "level": 46,
+      "x": -385,
+      "y": 355
+    },
+    {
+      "id": "alpha/kitsun-noct/-1036,-1145",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Kitsun Noct",
+      "pal": "kitsun-noct",
+      "region": "Scorched Hill",
+      "level": 57,
+      "x": -1036,
+      "y": -1145
+    },
+    {
+      "id": "alpha/knocklem/-585,-250",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Knocklem",
+      "pal": "knocklem",
+      "region": "Ruined Fortress City",
+      "level": 55,
+      "x": -585,
+      "y": -250
+    },
+    {
+      "id": "alpha/loupmoon-cryst/-946,-824",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Loupmoon Cryst",
+      "pal": "loupmoon-cryst",
+      "region": "Scorched Ashland",
+      "level": 54,
+      "x": -946,
+      "y": -824
+    },
+    {
+      "id": "alpha/lunaris/-147,-659",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Lunaris",
+      "pal": "lunaris",
+      "region": "Sea Breeze Archipelago",
+      "level": 32,
+      "x": -147,
+      "y": -659
+    },
+    {
+      "id": "alpha/lyleen-noct/-628,303",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Lyleen Noct",
+      "pal": "lyleen-noct",
+      "region": "Sakurajima",
+      "level": 59,
+      "x": -628,
+      "y": 303
+    },
+    {
+      "id": "alpha/mammorest/189,-478",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Mammorest",
+      "pal": "mammorest",
+      "region": "Windswept Hills",
+      "level": 38,
+      "x": 189,
+      "y": -478
+    },
+    {
+      "id": "alpha/menasting/515,102",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Menasting",
+      "pal": "menasting",
+      "region": "Desiccated Dunes",
+      "level": 44,
+      "x": 515,
+      "y": 102
+    },
+    {
+      "id": "alpha/menasting-terra/-575,332",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Menasting Terra",
+      "pal": "menasting-terra",
+      "region": "Sakurajima - Northern Rock Field",
+      "level": 54,
+      "x": -575,
+      "y": 332
+    },
+    {
+      "id": "alpha/moldron/-1126,-1981",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Moldron",
+      "pal": "moldron",
+      "region": "Bicornis Islet",
+      "level": 70,
+      "x": -1126,
+      "y": -1981
+    },
+    {
+      "id": "alpha/mossanda-lux/448,-181",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Mossanda Lux",
+      "pal": "mossanda-lux",
+      "region": "Eastern Wild Island",
+      "level": 31,
+      "x": 448,
+      "y": -181
+    },
+    {
+      "id": "alpha/necromus/447,679",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Necromus",
+      "pal": "necromus",
+      "region": "Desiccated Desert",
+      "level": 60,
+      "x": 447,
+      "y": 679
+    },
+    {
+      "id": "alpha/needoll/433,-711",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Needoll",
+      "pal": "needoll",
+      "region": "Scouring Islet",
+      "level": 40,
+      "x": 433,
+      "y": -711
+    },
+    {
+      "id": "alpha/neptilius/139,651",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Neptilius",
+      "pal": "neptilius",
+      "region": "Isle of the Glacial Core",
+      "level": 60,
+      "x": 139,
+      "y": 651
+    },
+    {
+      "id": "alpha/nitemary/-923,-1014",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Nitemary",
+      "pal": "nitemary",
+      "region": "Scorched Hill",
+      "level": 56,
+      "x": -923,
+      "y": -1014
+    },
+    {
+      "id": "alpha/nitewing/-276,-70",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Nitewing",
+      "pal": "nitewing",
+      "region": "Ice Wind Island",
+      "level": 18,
+      "x": -276,
+      "y": -70
+    },
+    {
+      "id": "alpha/nyafia/-1114,-940",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Nyafia",
+      "pal": "nyafia",
+      "region": "Scorched Hill",
+      "level": 57,
+      "x": -1114,
+      "y": -940
+    },
+    {
+      "id": "alpha/omascul/-1183,-1490",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Omascul",
+      "pal": "omascul",
+      "region": "Frozen Coral Hill",
+      "level": 55,
+      "x": -1183,
+      "y": -1490
+    },
+    {
+      "id": "alpha/ophydia/-590,-1478",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Ophydia",
+      "pal": "ophydia",
+      "region": "Waterlily Gorge",
+      "level": 69,
+      "x": -590,
+      "y": -1478
+    },
+    {
+      "id": "alpha/paladius/447,679",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Paladius",
+      "pal": "paladius",
+      "region": "Desiccated Desert",
+      "level": 60,
+      "x": 447,
+      "y": 679
+    },
+    {
+      "id": "alpha/penking/121,-333",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Penking",
+      "pal": "penking",
+      "region": "Autumn Rocks",
+      "level": 15,
+      "x": 121,
+      "y": -333
+    },
+    {
+      "id": "alpha/penking/113,-353",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Penking",
+      "pal": "penking",
+      "region": "Sealed Realm of the Frozen Wings",
+      "level": 15,
+      "x": 113,
+      "y": -353
+    },
+    {
+      "id": "alpha/petallia/-19,-264",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Petallia",
+      "pal": "petallia",
+      "region": "Crescent Moon Shore",
+      "level": 28,
+      "x": -19,
+      "y": -264
+    },
+    {
+      "id": "alpha/pierdon/819,467",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Pierdon",
+      "pal": "pierdon",
+      "region": "Flamepulse Islet",
+      "level": 50,
+      "x": 819,
+      "y": 467
+    },
+    {
+      "id": "alpha/prunelia/-1355,-968",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Prunelia",
+      "pal": "prunelia",
+      "region": "Deserted Ash Plateau",
+      "level": 55,
+      "x": -1355,
+      "y": -968
+    },
+    {
+      "id": "alpha/quivern/-256,-131",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Quivern",
+      "pal": "quivern",
+      "region": "Deep Bamboo Thicket",
+      "level": 23,
+      "x": -256,
+      "y": -131
+    },
+    {
+      "id": "alpha/relaxaurus-lux/-203,-346",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Relaxaurus Lux",
+      "pal": "relaxaurus-lux",
+      "region": "Bamboo Groves",
+      "level": 31,
+      "x": -203,
+      "y": -346
+    },
+    {
+      "id": "alpha/sibelyx/252,69",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Sibelyx",
+      "pal": "sibelyx",
+      "region": "Sealed Realm of the Pristine",
+      "level": 40,
+      "x": 252,
+      "y": 69
+    },
+    {
+      "id": "alpha/silvegis/-984,-1022",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Silvegis",
+      "pal": "silvegis",
+      "region": "Scorched Hill",
+      "level": 59,
+      "x": -984,
+      "y": -1022
+    },
+    {
+      "id": "alpha/slowatt/-367,-1357",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Slowatt",
+      "pal": "slowatt",
+      "region": "Azure Woodland",
+      "level": 66,
+      "x": -367,
+      "y": -1357
+    },
+    {
+      "id": "alpha/smokie/-879,-1467",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Smokie",
+      "pal": "smokie",
+      "region": "Loess Plains",
+      "level": 55,
+      "x": -879,
+      "y": -1467
+    },
+    {
+      "id": "alpha/snock/-369,-1414",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Snock",
+      "pal": "snock",
+      "region": "Enchanted Firmament",
+      "level": 65,
+      "x": -369,
+      "y": -1414
+    },
+    {
+      "id": "alpha/splatterina/-1209,-1326",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Splatterina",
+      "pal": "splatterina",
+      "region": "Scorched Hill",
+      "level": 58,
+      "x": -1209,
+      "y": -1326
+    },
+    {
+      "id": "alpha/starryon/-756,-940",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Starryon",
+      "pal": "starryon",
+      "region": "Scorched Ashland",
+      "level": 57,
+      "x": -756,
+      "y": -940
+    },
+    {
+      "id": "alpha/suzaku/404,256",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Suzaku",
+      "pal": "suzaku",
+      "region": "Desiccated Desert",
+      "level": 45,
+      "x": 404,
+      "y": 256
+    },
+    {
+      "id": "alpha/sweepa/-228,-592",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Sweepa",
+      "pal": "sweepa",
+      "region": "Sea Breeze Archipelago",
+      "level": 11,
+      "x": -228,
+      "y": -592
+    },
+    {
+      "id": "alpha/tarantriss/-1341,-1429",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Tarantriss",
+      "pal": "tarantriss",
+      "region": "Frozen Coral Hill",
+      "level": 57,
+      "x": -1341,
+      "y": -1429
+    },
+    {
+      "id": "alpha/tetroise/435,380",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Tetroise",
+      "pal": "tetroise",
+      "region": "Desiccated Dunes",
+      "level": 55,
+      "x": 435,
+      "y": 380
+    },
+    {
+      "id": "alpha/tetroise-primo/-1082,-1320",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Tetroise Primo",
+      "pal": "tetroise-primo",
+      "region": "The Oculus Gate, Tower in Sight",
+      "level": 60,
+      "x": -1082,
+      "y": -1320
+    },
+    {
+      "id": "alpha/univolt/172,-418",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Univolt",
+      "pal": "univolt",
+      "region": "Sea Breeze Archipelago",
+      "level": 31,
+      "x": 172,
+      "y": -418
+    },
+    {
+      "id": "alpha/verdash/285,10",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Verdash",
+      "pal": "verdash",
+      "region": "Verdant Brook",
+      "level": 35,
+      "x": 285,
+      "y": 10
+    },
+    {
+      "id": "alpha/verdash/129,-50",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Verdash",
+      "pal": "verdash",
+      "region": "Verdant Brook",
+      "level": 38,
+      "x": 129,
+      "y": -50
+    },
+    {
+      "id": "alpha/warsect/160,-225",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Warsect",
+      "pal": "warsect",
+      "region": "Gobfin's Turf",
+      "level": 30,
+      "x": 160,
+      "y": -225
+    },
+    {
+      "id": "alpha/warsect-terra/-1021,-1448",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Warsect Terra",
+      "pal": "warsect-terra",
+      "region": "Loess Plains",
+      "level": 59,
+      "x": -1021,
+      "y": -1448
+    },
+    {
+      "id": "alpha/whalaska/-179,842",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Whalaska",
+      "pal": "whalaska",
+      "region": "Astral Mountains",
+      "level": 55,
+      "x": -179,
+      "y": 842
+    },
+    {
+      "id": "alpha/whalaska-ignis/-970,-538",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Whalaska Ignis",
+      "pal": "whalaska-ignis",
+      "region": "Mount Obsidian",
+      "level": 58,
+      "x": -970,
+      "y": -538
+    },
+    {
+      "id": "alpha/wumpo-botan/449,-51",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Wumpo Botan",
+      "pal": "wumpo-botan",
+      "region": "Eastern Wild Island",
+      "level": 38,
+      "x": 449,
+      "y": -51
+    },
+    {
+      "id": "bounty/aloha/-592,-235",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Aloha",
+      "region": "Mount Obsidian",
+      "level": 39,
+      "x": -592,
+      "y": -235
+    },
+    {
+      "id": "bounty/billy/-1080,-904",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Billy",
+      "region": "Scorched Hill",
+      "level": 57,
+      "x": -1080,
+      "y": -904
+    },
+    {
+      "id": "bounty/brick/76,96",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Brick",
+      "region": "Verdant Brook",
+      "level": 30,
+      "x": 76,
+      "y": 96
+    },
+    {
+      "id": "bounty/cache/-1387,-1485",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Cache",
+      "region": "Frozen Coral Hill",
+      "level": 58,
+      "x": -1387,
+      "y": -1485
+    },
+    {
+      "id": "bounty/clint/-362,318",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Clint",
+      "region": "Astral Mountains",
+      "level": 49,
+      "x": -362,
+      "y": 318
+    },
+    {
+      "id": "bounty/crash/-290,-622",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Crash",
+      "region": "Sea Breeze Archipelago",
+      "level": 15,
+      "x": -290,
+      "y": -622
+    },
+    {
+      "id": "bounty/dart/268,-216",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Dart",
+      "region": "Verdant Brook",
+      "level": 23,
+      "x": 268,
+      "y": -216
+    },
+    {
+      "id": "bounty/dazzle/-845,-1281",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Dazzle",
+      "region": "Scorched Hill",
+      "level": 56,
+      "x": -845,
+      "y": -1281
+    },
+    {
+      "id": "bounty/dyna-and-mite/349,-6",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Dyna and Mite",
+      "region": "Verdant Brook",
+      "level": 26,
+      "x": 349,
+      "y": -6
+    },
+    {
+      "id": "bounty/ego/-12,-88",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Ego",
+      "region": "Moonless Shore",
+      "level": 23,
+      "x": -12,
+      "y": -88
+    },
+    {
+      "id": "bounty/flare/-520,-755",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Flare",
+      "region": "Mount Obsidian",
+      "level": 38,
+      "x": -520,
+      "y": -755
+    },
+    {
+      "id": "bounty/fumble/162,-2",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Fumble",
+      "region": "Verdant Brook",
+      "level": 28,
+      "x": 162,
+      "y": -2
+    },
+    {
+      "id": "bounty/gnaw/-741,-1004",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Gnaw",
+      "region": "Withered Seaside",
+      "level": 57,
+      "x": -741,
+      "y": -1004
+    },
+    {
+      "id": "bounty/grill/-265,-258",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Grill",
+      "region": "Bamboo Groves",
+      "level": 20,
+      "x": -265,
+      "y": -258
+    },
+    {
+      "id": "bounty/hawk/52,-513",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Hawk",
+      "region": "Golden Hills",
+      "level": 12,
+      "x": 52,
+      "y": -513
+    },
+    {
+      "id": "bounty/hawk/53,-516",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Hawk",
+      "region": "Golden Hills",
+      "level": 12,
+      "x": 53,
+      "y": -516
+    },
+    {
+      "id": "bounty/jade/-323,-117",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Jade",
+      "region": "Bamboo Groves",
+      "level": 19,
+      "x": -323,
+      "y": -117
+    },
+    {
+      "id": "bounty/lasso/-67,-203",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Lasso",
+      "region": "Moonless Shore",
+      "level": 21,
+      "x": -67,
+      "y": -203
+    },
+    {
+      "id": "bounty/mimic/-1193,-1707",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Mimic",
+      "region": "Frozen Coral Hill",
+      "level": 57,
+      "x": -1193,
+      "y": -1707
+    },
+    {
+      "id": "bounty/nimble/-524,105",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Nimble",
+      "region": "Mushroom Wetlands",
+      "level": 52,
+      "x": -524,
+      "y": 105
+    },
+    {
+      "id": "bounty/phantom/533,133",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Phantom",
+      "region": "Dessicated Desert",
+      "level": 36,
+      "x": 533,
+      "y": 133
+    },
+    {
+      "id": "bounty/pinch/-1173,-1226",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Pinch",
+      "region": "Scorched Hill",
+      "level": 57,
+      "x": -1173,
+      "y": -1226
+    },
+    {
+      "id": "bounty/quill/-195,481",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Quill",
+      "region": "Astral Mountains",
+      "level": 43,
+      "x": -195,
+      "y": 481
+    },
+    {
+      "id": "bounty/ram/-1080,-904",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Ram",
+      "region": "Scorched Hill",
+      "level": 59,
+      "x": -1080,
+      "y": -904
+    },
+    {
+      "id": "bounty/scoot/-15,-482",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Scoot",
+      "region": "Golden Hills",
+      "level": 10,
+      "x": -15,
+      "y": -482
+    },
+    {
+      "id": "bounty/scoot/-15,-483",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Scoot",
+      "region": "Golden Hills",
+      "level": 10,
+      "x": -15,
+      "y": -483
+    },
+    {
+      "id": "bounty/shadow/-432,-453",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Shadow",
+      "region": "Mount Obsidian",
+      "level": 41,
+      "x": -432,
+      "y": -453
+    },
+    {
+      "id": "bounty/siren/-266,-394",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Siren",
+      "region": "Bamboo Groves",
+      "level": 16,
+      "x": -266,
+      "y": -394
+    },
+    {
+      "id": "bounty/skim/-91,145",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Skim",
+      "region": "Astral Mountains",
+      "level": 42,
+      "x": -91,
+      "y": 145
+    },
+    {
+      "id": "bounty/turncoat/-2,-386",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Turncoat",
+      "region": "Windswept Hills",
+      "level": 15,
+      "x": -2,
+      "y": -386
+    },
+    {
+      "id": "bounty/urchin/-674,230",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Urchin",
+      "region": "Dancing Sakura Shrine",
+      "level": 53,
+      "x": -674,
+      "y": 230
+    },
+    {
+      "id": "bounty/whip/320,370",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Whip",
+      "region": "Desiccated Desert",
+      "level": 40,
+      "x": 320,
+      "y": 370
+    },
+    {
+      "id": "bounty/whisk/-121,312",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Whisk",
+      "region": "Astral Mountains",
+      "level": 45,
+      "x": -121,
+      "y": 312
+    },
+    {
+      "id": "bounty/whisper/413,590",
+      "layer": "bounty",
+      "map": "world",
+      "name": "Whisper",
+      "region": "Dessicated Desert",
+      "level": 37,
+      "x": 413,
+      "y": 590
+    },
+    {
+      "id": "merchant/forgotten-island-beach-merchant/-397,19",
+      "layer": "merchant",
+      "map": "world",
+      "name": "Forgotten Island beach merchant",
+      "x": -397,
+      "y": 19
+    },
+    {
+      "id": "merchant/marsh-island-shore-merchant/434,-273",
+      "layer": "merchant",
+      "map": "world",
+      "name": "Marsh Island shore merchant",
+      "x": 434,
+      "y": -273
+    },
+    {
+      "id": "merchant/sea-breeze-archipelago-merchant/-190,-600",
+      "layer": "merchant",
+      "map": "world",
+      "name": "Sea Breeze Archipelago merchant",
+      "x": -190,
+      "y": -600
+    },
+    {
+      "id": "merchant/small-settlement-merchant/78,-477",
+      "layer": "merchant",
+      "map": "world",
+      "name": "Small Settlement merchant",
+      "x": 78,
+      "y": -477
+    },
+    {
+      "id": "oilrig/rayne-syndicate-barge-oil-rig/162,-277",
+      "layer": "oilrig",
+      "map": "world",
+      "name": "Rayne Syndicate Barge Oil Rig",
+      "level": 30,
+      "x": 162,
+      "y": -277
+    },
+    {
+      "id": "oilrig/rayne-syndicate-oil-rig/581,-430",
+      "layer": "oilrig",
+      "map": "world",
+      "name": "Rayne Syndicate Oil Rig",
+      "level": 55,
+      "x": 581,
+      "y": -430
+    },
+    {
+      "id": "oilrig/rayne-syndicate-platform-oil-rig/-1730,-1452",
+      "layer": "oilrig",
+      "map": "world",
+      "name": "Rayne Syndicate Platform Oil Rig",
+      "level": 60,
+      "x": -1730,
+      "y": -1452
+    },
+    {
+      "id": "predator/blazehowl-noct/-273,477",
+      "layer": "predator",
+      "map": "world",
+      "name": "Blazehowl Noct",
+      "pal": "blazehowl-noct",
+      "x": -273,
+      "y": 477,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/cryolinx-terra/264,363",
+      "layer": "predator",
+      "map": "world",
+      "name": "Cryolinx Terra",
+      "pal": "cryolinx-terra",
+      "x": 264,
+      "y": 363
+    },
+    {
+      "id": "predator/dazemu/375,315",
+      "layer": "predator",
+      "map": "world",
+      "name": "Dazemu",
+      "pal": "dazemu",
+      "x": 375,
+      "y": 315
+    },
+    {
+      "id": "predator/digtoise/-596,-742",
+      "layer": "predator",
+      "map": "world",
+      "name": "Digtoise",
+      "pal": "digtoise",
+      "x": -596,
+      "y": -742
+    },
+    {
+      "id": "predator/dinossom/49,36",
+      "layer": "predator",
+      "map": "world",
+      "name": "Dinossom",
+      "pal": "dinossom",
+      "x": 49,
+      "y": 36
+    },
+    {
+      "id": "predator/direhowl/-325,-33",
+      "layer": "predator",
+      "map": "world",
+      "name": "Direhowl",
+      "pal": "direhowl",
+      "x": -325,
+      "y": -33
+    },
+    {
+      "id": "predator/dogen/-240,-273",
+      "layer": "predator",
+      "map": "world",
+      "name": "Dogen",
+      "pal": "dogen",
+      "x": -240,
+      "y": -273
+    },
+    {
+      "id": "predator/elphidran/-340,131",
+      "layer": "predator",
+      "map": "world",
+      "name": "Elphidran",
+      "pal": "elphidran",
+      "x": -340,
+      "y": 131
+    },
+    {
+      "id": "predator/faleris-aqua/-110,141",
+      "layer": "predator",
+      "map": "world",
+      "name": "Faleris Aqua",
+      "pal": "faleris-aqua",
+      "x": -110,
+      "y": 141
+    },
+    {
+      "id": "predator/gildane/-598,-225",
+      "layer": "predator",
+      "map": "world",
+      "name": "Gildane",
+      "pal": "gildane",
+      "x": -598,
+      "y": -225
+    },
+    {
+      "id": "predator/gorirat/-275,-553",
+      "layer": "predator",
+      "map": "world",
+      "name": "Gorirat",
+      "pal": "gorirat",
+      "x": -275,
+      "y": -553
+    },
+    {
+      "id": "predator/jormuntide-ignis/-457,-447",
+      "layer": "predator",
+      "map": "world",
+      "name": "Jormuntide Ignis",
+      "pal": "jormuntide-ignis",
+      "x": -457,
+      "y": -447
+    },
+    {
+      "id": "predator/kitsun/-22,166",
+      "layer": "predator",
+      "map": "world",
+      "name": "Kitsun",
+      "pal": "kitsun",
+      "x": -22,
+      "y": 166,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/loupmoon-cryst/-194,246",
+      "layer": "predator",
+      "map": "world",
+      "name": "Loupmoon Cryst",
+      "pal": "loupmoon-cryst",
+      "x": -194,
+      "y": 246
+    },
+    {
+      "id": "predator/lovander/-155,-425",
+      "layer": "predator",
+      "map": "world",
+      "name": "Lovander",
+      "pal": "lovander",
+      "x": -155,
+      "y": -425,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/maraith/166,-50",
+      "layer": "predator",
+      "map": "world",
+      "name": "Maraith",
+      "pal": "maraith",
+      "x": 166,
+      "y": -50,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/mossanda/-318,-162",
+      "layer": "predator",
+      "map": "world",
+      "name": "Mossanda",
+      "pal": "mossanda",
+      "x": -318,
+      "y": -162
+    },
+    {
+      "id": "predator/omascul/9,-221",
+      "layer": "predator",
+      "map": "world",
+      "name": "Omascul",
+      "pal": "omascul",
+      "x": 9,
+      "y": -221,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/prixter/496,212",
+      "layer": "predator",
+      "map": "world",
+      "name": "Prixter",
+      "pal": "prixter",
+      "x": 496,
+      "y": 212
+    },
+    {
+      "id": "predator/ragnahawk/341,-70",
+      "layer": "predator",
+      "map": "world",
+      "name": "Ragnahawk",
+      "pal": "ragnahawk",
+      "x": 341,
+      "y": -70
+    },
+    {
+      "id": "predator/rayhound/246,-105",
+      "layer": "predator",
+      "map": "world",
+      "name": "Rayhound",
+      "pal": "rayhound",
+      "x": 246,
+      "y": -105
+    },
+    {
+      "id": "predator/relaxaurus/-24,-348",
+      "layer": "predator",
+      "map": "world",
+      "name": "Relaxaurus",
+      "pal": "relaxaurus",
+      "x": -24,
+      "y": -348
+    },
+    {
+      "id": "predator/reptyro-cryst/182,94",
+      "layer": "predator",
+      "map": "world",
+      "name": "Reptyro Cryst",
+      "pal": "reptyro-cryst",
+      "x": 182,
+      "y": 94
+    },
+    {
+      "id": "predator/shroomer/-483,168",
+      "layer": "predator",
+      "map": "world",
+      "name": "Shroomer",
+      "pal": "shroomer",
+      "x": -483,
+      "y": 168
+    },
+    {
+      "id": "predator/splatterina/-613,223",
+      "layer": "predator",
+      "map": "world",
+      "name": "Splatterina",
+      "pal": "splatterina",
+      "x": -613,
+      "y": 223,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/starryon/20,-126",
+      "layer": "predator",
+      "map": "world",
+      "name": "Starryon",
+      "pal": "starryon",
+      "x": 20,
+      "y": -126,
+      "note": "Appears at night only."
+    },
+    {
+      "id": "predator/tarantriss/-62,-298",
+      "layer": "predator",
+      "map": "world",
+      "name": "Tarantriss",
+      "pal": "tarantriss",
+      "x": -62,
+      "y": -298
+    },
+    {
+      "id": "predator/vanwyrm/362,-178",
+      "layer": "predator",
+      "map": "world",
+      "name": "Vanwyrm",
+      "pal": "vanwyrm",
+      "x": 362,
+      "y": -178
+    },
+    {
+      "id": "predator/wumpo/-294,381",
+      "layer": "predator",
+      "map": "world",
+      "name": "Wumpo",
+      "pal": "wumpo",
+      "x": -294,
+      "y": 381
+    },
+    {
+      "id": "statue/altar-of-the-windcaller/347,-71",
+      "layer": "statue",
+      "map": "world",
+      "name": "Altar of the Windcaller",
+      "region": "Scars of War",
+      "x": 347,
+      "y": -71
+    },
+    {
+      "id": "statue/amethyst-outcrop/-1183,-1742",
+      "layer": "statue",
+      "map": "world",
+      "name": "Amethyst Outcrop",
+      "region": "Frozen Coral Hill",
+      "x": -1183,
+      "y": -1742
+    },
+    {
+      "id": "statue/ancient-civilization-ruins/-398,-633",
+      "layer": "statue",
+      "map": "world",
+      "name": "Ancient Civilization Ruins",
+      "region": "Mount Obsidian",
+      "x": -398,
+      "y": -633
+    },
+    {
+      "id": "statue/ancient-ritual-site/-15,-292",
+      "layer": "statue",
+      "map": "world",
+      "name": "Ancient Ritual Site",
+      "region": "Crescent Moon Shore",
+      "x": -15,
+      "y": -292
+    },
+    {
+      "id": "statue/anubis-dunes/-130,-79",
+      "layer": "statue",
+      "map": "world",
+      "name": "Anubis Dunes",
+      "region": "Anubis Dunes",
+      "x": -130,
+      "y": -79
+    },
+    {
+      "id": "statue/arena-entrance/629,15",
+      "layer": "statue",
+      "map": "world",
+      "name": "Arena Entrance",
+      "region": "Desiccated Dunes",
+      "x": 629,
+      "y": 15
+    },
+    {
+      "id": "statue/ascetic-falls/-224,-441",
+      "layer": "statue",
+      "map": "world",
+      "name": "Ascetic Falls",
+      "region": "Bamboo Groves",
+      "x": -224,
+      "y": -441
+    },
+    {
+      "id": "statue/azure-cliffs/-1112,-1616",
+      "layer": "statue",
+      "map": "world",
+      "name": "Azure Cliffs",
+      "region": "Frozen Coral Hill",
+      "x": -1112,
+      "y": -1616
+    },
+    {
+      "id": "statue/azure-covenant-tower-entrance/-433,-1424",
+      "layer": "statue",
+      "map": "world",
+      "name": "Azure Covenant Tower Entrance",
+      "region": "Sunreach",
+      "x": -433,
+      "y": -1424
+    },
+    {
+      "id": "statue/beach-of-everlasting-summer/-803,-565",
+      "layer": "statue",
+      "map": "world",
+      "name": "Beach of Everlasting Summer",
+      "region": "Mount Obsidian",
+      "x": -803,
+      "y": -565
+    },
+    {
+      "id": "statue/bicornis-islet/-1153,-1874",
+      "layer": "statue",
+      "map": "world",
+      "name": "Bicornis Islet",
+      "region": "Bicornis Islet",
+      "x": -1153,
+      "y": -1874
+    },
+    {
+      "id": "statue/bridge-of-the-twin-knights/-13,-372",
+      "layer": "statue",
+      "map": "world",
+      "name": "Bridge of the Twin Knights",
+      "region": "Windswept Island",
+      "x": -13,
+      "y": -372
+    },
+    {
+      "id": "statue/cherry-blossom-crossroads/-516,213",
+      "layer": "statue",
+      "map": "world",
+      "name": "Cherry Blossom Crossroads",
+      "region": "Sakurajima",
+      "x": -516,
+      "y": 213
+    },
+    {
+      "id": "statue/cinnamoth-forest/-69,-272",
+      "layer": "statue",
+      "map": "world",
+      "name": "Cinnamoth Forest",
+      "region": "Crescent Moon Shore",
+      "x": -69,
+      "y": -272
+    },
+    {
+      "id": "statue/cold-shore/-43,11",
+      "layer": "statue",
+      "map": "world",
+      "name": "Cold Shore",
+      "region": "Foot of the Astral Mountains",
+      "x": -43,
+      "y": 11
+    },
+    {
+      "id": "statue/crimson-cliffs/-689,-989",
+      "layer": "statue",
+      "map": "world",
+      "name": "Crimson Cliffs",
+      "region": "Withered Seaside",
+      "x": -689,
+      "y": -989
+    },
+    {
+      "id": "statue/crimson-labyrinth/-1158,-1150",
+      "layer": "statue",
+      "map": "world",
+      "name": "Crimson Labyrinth",
+      "region": "Scorched Hill",
+      "x": -1158,
+      "y": -1150
+    },
+    {
+      "id": "statue/crystalline-archipelago/-386,-1536",
+      "layer": "statue",
+      "map": "world",
+      "name": "Crystalline Archipelago",
+      "region": "Sunreach",
+      "x": -386,
+      "y": -1536
+    },
+    {
+      "id": "statue/crystallized-great-tree/-947,-1134",
+      "layer": "statue",
+      "map": "world",
+      "name": "Crystallized Great Tree",
+      "region": "Crystallized Ancient Tree",
+      "x": -947,
+      "y": -1134
+    },
+    {
+      "id": "statue/deep-bamboo-thicket/-325,-199",
+      "layer": "statue",
+      "map": "world",
+      "name": "Deep Bamboo Thicket",
+      "region": "Deep Bamboo Thicket",
+      "x": -325,
+      "y": -199
+    },
+    {
+      "id": "statue/deep-sand-dunes/528,526",
+      "layer": "statue",
+      "map": "world",
+      "name": "Deep Sand Dunes",
+      "region": "Desiccated Dunes",
+      "x": 528,
+      "y": 526
+    },
+    {
+      "id": "statue/desert-backbone/541,187",
+      "layer": "statue",
+      "map": "world",
+      "name": "Desert Backbone",
+      "region": "Desiccated Dunes",
+      "x": 541,
+      "y": 187
+    },
+    {
+      "id": "statue/deserted-ash-plateau/-1399,-1018",
+      "layer": "statue",
+      "map": "world",
+      "name": "Deserted Ash Plateau",
+      "region": "Deserted Ash Plateau",
+      "x": -1399,
+      "y": -1018
+    },
+    {
+      "id": "statue/deserted-islet/-172,33",
+      "layer": "statue",
+      "map": "world",
+      "name": "Deserted Islet",
+      "region": "Foot of the Astral Mountains",
+      "x": -172,
+      "y": 33
+    },
+    {
+      "id": "statue/desiccated-coast/694,301",
+      "layer": "statue",
+      "map": "world",
+      "name": "Desiccated Coast",
+      "region": "Desiccated Dunes",
+      "x": 694,
+      "y": 301
+    },
+    {
+      "id": "statue/desolate-church/63,-416",
+      "layer": "statue",
+      "map": "world",
+      "name": "Desolate Church",
+      "region": "Autumn Rocks",
+      "x": 63,
+      "y": -416
+    },
+    {
+      "id": "statue/dry-dunes/-698,-635",
+      "layer": "statue",
+      "map": "world",
+      "name": "Dry Dunes",
+      "region": "Dry Sandy Beach",
+      "x": -698,
+      "y": -635
+    },
+    {
+      "id": "statue/duneshelter/356,347",
+      "layer": "statue",
+      "map": "world",
+      "name": "Duneshelter",
+      "region": "Desiccated Dunes",
+      "x": 356,
+      "y": 347
+    },
+    {
+      "id": "statue/dustview-coast/421,9",
+      "layer": "statue",
+      "map": "world",
+      "name": "Dustview Coast",
+      "region": "Scars of War",
+      "x": 421,
+      "y": 9
+    },
+    {
+      "id": "statue/eastern-wild-island/548,-102",
+      "layer": "statue",
+      "map": "world",
+      "name": "Eastern Wild Island",
+      "region": "Eastern Wild Island",
+      "x": 548,
+      "y": -102
+    },
+    {
+      "id": "statue/emberstone-plateau/-720,-1194",
+      "layer": "statue",
+      "map": "world",
+      "name": "Emberstone Plateau",
+      "region": "Emberstone Plateau",
+      "x": -720,
+      "y": -1194
+    },
+    {
+      "id": "statue/enchanted-firmament/-214,-1512",
+      "layer": "statue",
+      "map": "world",
+      "name": "Enchanted Firmament",
+      "region": "Sunreach",
+      "x": -214,
+      "y": -1512
+    },
+    {
+      "id": "statue/eternal-pyre-tower-entrance/-595,-531",
+      "layer": "statue",
+      "map": "world",
+      "name": "Eternal Pyre Tower Entrance",
+      "region": "Mount Obsidian",
+      "x": -595,
+      "y": -531
+    },
+    {
+      "id": "statue/exile-s-cape/-1398,-1661",
+      "layer": "statue",
+      "map": "world",
+      "name": "Exile's Cape",
+      "region": "Frozen Coral Hill",
+      "x": -1398,
+      "y": -1661
+    },
+    {
+      "id": "statue/farcry-marsh/-325,-1411",
+      "layer": "statue",
+      "map": "world",
+      "name": "Farcry Marsh",
+      "region": "Sunreach",
+      "x": -325,
+      "y": -1411
+    },
+    {
+      "id": "statue/feybreak-shipwreck/-1389,-1470",
+      "layer": "statue",
+      "map": "world",
+      "name": "Feybreak Shipwreck",
+      "region": "Feybreak Shipwreck",
+      "x": -1389,
+      "y": -1470
+    },
+    {
+      "id": "statue/feybreak-tower-entrance/-1288,-1665",
+      "layer": "statue",
+      "map": "world",
+      "name": "Feybreak Tower Entrance",
+      "region": "Frozen Coral Hill",
+      "x": -1288,
+      "y": -1665
+    },
+    {
+      "id": "statue/fisherman-s-point/-480,-745",
+      "layer": "statue",
+      "map": "world",
+      "name": "Fisherman's Point",
+      "region": "Dry Sandy Beach",
+      "x": -480,
+      "y": -745
+    },
+    {
+      "id": "statue/flamepulse-islet/761,408",
+      "layer": "statue",
+      "map": "world",
+      "name": "Flamepulse Islet",
+      "region": "Flamepulse Islet",
+      "x": 761,
+      "y": 408
+    },
+    {
+      "id": "statue/foot-of-the-volcano/-353,-492",
+      "layer": "statue",
+      "map": "world",
+      "name": "Foot of the Volcano",
+      "region": "Foot of the Volcano",
+      "x": -353,
+      "y": -492
+    },
+    {
+      "id": "statue/foot-of-the-world-tree/-839,689",
+      "layer": "statue",
+      "map": "world",
+      "name": "Foot of the World Tree",
+      "region": "Foot of the World Tree",
+      "x": -839,
+      "y": 689
+    },
+    {
+      "id": "statue/fort-ruins/181,-390",
+      "layer": "statue",
+      "map": "world",
+      "name": "Fort Ruins",
+      "region": "Fortress Ruins",
+      "x": 181,
+      "y": -390
+    },
+    {
+      "id": "statue/free-pal-alliance-tower-entrance/34,-308",
+      "layer": "statue",
+      "map": "world",
+      "name": "Free Pal Alliance Tower Entrance",
+      "region": "Crescent Moon Shore",
+      "x": 34,
+      "y": -308
+    },
+    {
+      "id": "statue/frostbitten-isle/-72,-973",
+      "layer": "statue",
+      "map": "world",
+      "name": "Frostbitten Isle",
+      "region": "Frostbitten Isle",
+      "x": -72,
+      "y": -973
+    },
+    {
+      "id": "statue/frostbound-mountains-summit/167,45",
+      "layer": "statue",
+      "map": "world",
+      "name": "Frostbound Mountains Summit",
+      "region": "Frostbound Mountains",
+      "x": 167,
+      "y": 45
+    },
+    {
+      "id": "statue/frozen-dune-cape/254,544",
+      "layer": "statue",
+      "map": "world",
+      "name": "Frozen Dune Cape",
+      "region": "Desiccated Dunes",
+      "x": 254,
+      "y": 544
+    },
+    {
+      "id": "statue/garden-beneath-the-astral-mountains/-405,505",
+      "layer": "statue",
+      "map": "world",
+      "name": "Garden Beneath the Astral Mountains",
+      "region": "Astral Mountains",
+      "x": -405,
+      "y": 505
+    },
+    {
+      "id": "statue/garden-beneath-the-cliffs/-228,187",
+      "layer": "statue",
+      "map": "world",
+      "name": "Garden Beneath the Cliffs",
+      "region": "Foot of the Astral Mountains",
+      "x": -228,
+      "y": 187
+    },
+    {
+      "id": "statue/glacial-memento-islet/-1659,-969",
+      "layer": "statue",
+      "map": "world",
+      "name": "Glacial Memento Islet",
+      "region": "Glacial Memento Islet",
+      "x": -1659,
+      "y": -969
+    },
+    {
+      "id": "statue/gobfin-s-turf/149,-208",
+      "layer": "statue",
+      "map": "world",
+      "name": "Gobfin's Turf",
+      "region": "Verdant Brook",
+      "x": 149,
+      "y": -208
+    },
+    {
+      "id": "statue/grassy-behemoth-hills/172,-475",
+      "layer": "statue",
+      "map": "world",
+      "name": "Grassy Behemoth Hills",
+      "region": "Windswept Island",
+      "x": 172,
+      "y": -475
+    },
+    {
+      "id": "statue/heatwave-gate/-356,-387",
+      "layer": "statue",
+      "map": "world",
+      "name": "Heatwave Gate",
+      "region": "Foot of the Volcano",
+      "x": -356,
+      "y": -387
+    },
+    {
+      "id": "statue/hidden-passage-to-the-oculus-gate/-1048,-1252",
+      "layer": "statue",
+      "map": "world",
+      "name": "Hidden Passage to the Oculus Gate",
+      "region": "Loess Plains",
+      "x": -1048,
+      "y": -1252
+    },
+    {
+      "id": "statue/hill-entrance/-996,-841",
+      "layer": "statue",
+      "map": "world",
+      "name": "Hill Entrance",
+      "region": "Scorched Hill",
+      "x": -996,
+      "y": -841
+    },
+    {
+      "id": "statue/hill-of-beginnings/240,-512",
+      "layer": "statue",
+      "map": "world",
+      "name": "Hill of Beginnings",
+      "region": "Windswept Island",
+      "x": 240,
+      "y": -512
+    },
+    {
+      "id": "statue/hypocrite-hill/71,-248",
+      "layer": "statue",
+      "map": "world",
+      "name": "Hypocrite Hill",
+      "region": "Crescent Moon Shore",
+      "x": 71,
+      "y": -248
+    },
+    {
+      "id": "statue/icy-weasel-hill/4,184",
+      "layer": "statue",
+      "map": "world",
+      "name": "Icy Weasel Hill",
+      "region": "Foot of the Astral Mountains",
+      "x": 4,
+      "y": 184
+    },
+    {
+      "id": "statue/investigator-s-fork/-217,-206",
+      "layer": "statue",
+      "map": "world",
+      "name": "Investigator's Fork",
+      "region": "Deep Bamboo Thicket",
+      "x": -217,
+      "y": -206
+    },
+    {
+      "id": "statue/islandhopper-coast/241,-310",
+      "layer": "statue",
+      "map": "world",
+      "name": "Islandhopper Coast",
+      "region": "Marsh Island",
+      "x": 241,
+      "y": -310
+    },
+    {
+      "id": "statue/isle-of-decayed-treasures/623,-169",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of Decayed Treasures",
+      "region": "Isle of Decayed Treasures",
+      "x": 623,
+      "y": -169
+    },
+    {
+      "id": "statue/isle-of-murmurs/-353,77",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of Murmurs",
+      "region": "Isle of Murmurs",
+      "x": -353,
+      "y": 77
+    },
+    {
+      "id": "statue/isle-of-murmurs-beach/-226,-16",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of Murmurs Beach",
+      "region": "Isle of Murmurs",
+      "x": -226,
+      "y": -16
+    },
+    {
+      "id": "statue/isle-of-silence/-543,-29",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of Silence",
+      "region": "Isle of Silence",
+      "x": -543,
+      "y": -29
+    },
+    {
+      "id": "statue/isle-of-silence-church-ruins/-461,-13",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of Silence Church Ruins",
+      "region": "Isle of Silence",
+      "x": -461,
+      "y": -13
+    },
+    {
+      "id": "statue/isle-of-the-glacial-core/139,637",
+      "layer": "statue",
+      "map": "world",
+      "name": "Isle of the Glacial Core",
+      "region": "Isle of the Glacial Core",
+      "x": 139,
+      "y": 637
+    },
+    {
+      "id": "statue/islet-of-circular-ruins/940,-64",
+      "layer": "statue",
+      "map": "world",
+      "name": "Islet of Circular Ruins",
+      "region": "Islet of Circular Ruins",
+      "x": 940,
+      "y": -64
+    },
+    {
+      "id": "statue/kelpsea-hill/-408,-101",
+      "layer": "statue",
+      "map": "world",
+      "name": "Kelpsea Hill",
+      "region": "Deep Bamboo Thicket",
+      "x": -408,
+      "y": -101
+    },
+    {
+      "id": "statue/lake-center/16,-212",
+      "layer": "statue",
+      "map": "world",
+      "name": "Lake Center",
+      "region": "Crescent Moon Shore",
+      "x": 16,
+      "y": -212
+    },
+    {
+      "id": "statue/land-of-absolute-zero/-239,492",
+      "layer": "statue",
+      "map": "world",
+      "name": "Land of Absolute Zero",
+      "region": "Astral Mountains",
+      "x": -239,
+      "y": 492
+    },
+    {
+      "id": "statue/loess-plains/-891,-1456",
+      "layer": "statue",
+      "map": "world",
+      "name": "Loess Plains",
+      "region": "Loess Plains",
+      "x": -891,
+      "y": -1456
+    },
+    {
+      "id": "statue/marsh-island/430,-345",
+      "layer": "statue",
+      "map": "world",
+      "name": "Marsh Island",
+      "region": "Marsh Island",
+      "x": 430,
+      "y": -345
+    },
+    {
+      "id": "statue/marsh-island-church-ruins/399,-276",
+      "layer": "statue",
+      "map": "world",
+      "name": "Marsh Island Church Ruins",
+      "region": "Marsh Island",
+      "x": 399,
+      "y": -276
+    },
+    {
+      "id": "statue/moonflower-tower-entrance/-602,214",
+      "layer": "statue",
+      "map": "world",
+      "name": "Moonflower Tower Entrance",
+      "region": "Sakurajima",
+      "x": -602,
+      "y": 214
+    },
+    {
+      "id": "statue/mossanda-forest/233,-117",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mossanda Forest",
+      "region": "Verdant Brook",
+      "x": 233,
+      "y": -117
+    },
+    {
+      "id": "statue/mossanda-inner-coast/279,-220",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mossanda Inner Coast",
+      "region": "Verdant Brook",
+      "x": 279,
+      "y": -220
+    },
+    {
+      "id": "statue/mount-flopie-summit/21,-95",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mount Flopie Summit",
+      "region": "Crescent Moon Shore",
+      "x": 21,
+      "y": -95
+    },
+    {
+      "id": "statue/mount-obsidian-anubis-statue/-540,-638",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mount Obsidian - Anubis Statue",
+      "region": "Dry Sandy Beach",
+      "x": -540,
+      "y": -638
+    },
+    {
+      "id": "statue/mount-obsidian-midpoint/-498,-444",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mount Obsidian - Midpoint",
+      "region": "Mount Obsidian",
+      "x": -498,
+      "y": -444
+    },
+    {
+      "id": "statue/mount-obsidian-trail/-818,-356",
+      "layer": "statue",
+      "map": "world",
+      "name": "Mount Obsidian Trail",
+      "region": "Mount Obsidian",
+      "x": -818,
+      "y": -356
+    },
+    {
+      "id": "statue/natural-bridge/376,-212",
+      "layer": "statue",
+      "map": "world",
+      "name": "Natural Bridge",
+      "region": "Eastern Wild Island",
+      "x": 376,
+      "y": -212
+    },
+    {
+      "id": "statue/no-man-s-trail/-36,95",
+      "layer": "statue",
+      "map": "world",
+      "name": "No Man's Trail",
+      "region": "Foot of the Astral Mountains",
+      "x": -36,
+      "y": 95
+    },
+    {
+      "id": "statue/oasis-isle/885,196",
+      "layer": "statue",
+      "map": "world",
+      "name": "Oasis Isle",
+      "region": "Oasis Isle",
+      "x": 885,
+      "y": 196
+    },
+    {
+      "id": "statue/oilfield-overlook/-1343,-1287",
+      "layer": "statue",
+      "map": "world",
+      "name": "Oilfield Overlook",
+      "region": "Deserted Ash Plateau",
+      "x": -1343,
+      "y": -1287
+    },
+    {
+      "id": "statue/pal-genetic-research-unit-tower-entrance/-139,465",
+      "layer": "statue",
+      "map": "world",
+      "name": "PAL Genetic Research Unit Tower Entrance",
+      "region": "Astral Mountains",
+      "x": -139,
+      "y": 465
+    },
+    {
+      "id": "statue/phantom-isle/-887,-186",
+      "layer": "statue",
+      "map": "world",
+      "name": "Phantom Isle",
+      "region": "Phantom Isle",
+      "x": -887,
+      "y": -186
+    },
+    {
+      "id": "statue/pidf-tower-entrance/542,335",
+      "layer": "statue",
+      "map": "world",
+      "name": "PIDF Tower Entrance",
+      "region": "Desiccated Dunes",
+      "x": 542,
+      "y": 335
+    },
+    {
+      "id": "statue/pristine-snow-field/-344,270",
+      "layer": "statue",
+      "map": "world",
+      "name": "Pristine Snow Field",
+      "region": "Astral Mountains",
+      "x": -344,
+      "y": 270
+    },
+    {
+      "id": "statue/ravine-entrance/-67,-425",
+      "layer": "statue",
+      "map": "world",
+      "name": "Ravine Entrance",
+      "region": "Windswept Island",
+      "x": -67,
+      "y": -425
+    },
+    {
+      "id": "statue/rayne-syndicate-tower-entrance/118,-422",
+      "layer": "statue",
+      "map": "world",
+      "name": "Rayne Syndicate Tower Entrance",
+      "region": "Windswept Island",
+      "x": 118,
+      "y": -422
+    },
+    {
+      "id": "statue/ruined-fortress-city/-563,-247",
+      "layer": "statue",
+      "map": "world",
+      "name": "Ruined Fortress City",
+      "region": "Ruined Fortress City",
+      "x": -563,
+      "y": -247
+    },
+    {
+      "id": "statue/sakurajima-mushroom-wetlands/-464,132",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sakurajima - Mushroom Wetlands",
+      "region": "Sakurajima",
+      "x": -464,
+      "y": 132
+    },
+    {
+      "id": "statue/sakurajima-northern-rock-field/-522,341",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sakurajima - Northern Rock Field",
+      "region": "Sakurajima",
+      "x": -522,
+      "y": 341
+    },
+    {
+      "id": "statue/sakurajima-southern-sandbar/-650,81",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sakurajima - Southern Sandbar",
+      "region": "Sakurajima",
+      "x": -650,
+      "y": 81
+    },
+    {
+      "id": "statue/sakurajima-west-coast/-722,174",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sakurajima: West Coast",
+      "region": "Sakurajima",
+      "x": -722,
+      "y": 174
+    },
+    {
+      "id": "statue/sand-dunes-entrance/282,160",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sand Dunes Entrance",
+      "region": "Desiccated Dunes",
+      "x": 282,
+      "y": 160
+    },
+    {
+      "id": "statue/sandbar-of-solitude/529,40",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sandbar of Solitude",
+      "region": "Desiccated Dunes",
+      "x": 529,
+      "y": 40
+    },
+    {
+      "id": "statue/sandstone-gate-islet/-1296,-660",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sandstone Gate Islet",
+      "region": "Sandstone Gate Islet",
+      "x": -1296,
+      "y": -660
+    },
+    {
+      "id": "statue/scorched-ashland/-811,-828",
+      "layer": "statue",
+      "map": "world",
+      "name": "Scorched Ashland",
+      "region": "Scorched Ashland",
+      "x": -811,
+      "y": -828
+    },
+    {
+      "id": "statue/scorched-hill/-1192,-1254",
+      "layer": "statue",
+      "map": "world",
+      "name": "Scorched Hill",
+      "region": "Scorched Hill",
+      "x": -1192,
+      "y": -1254
+    },
+    {
+      "id": "statue/scouring-islet/447,-713",
+      "layer": "statue",
+      "map": "world",
+      "name": "Scouring Islet",
+      "region": "Scouring Islet",
+      "x": 447,
+      "y": -713
+    },
+    {
+      "id": "statue/sea-breeze-archipelago-castaway-beach/-99,-711",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sea Breeze Archipelago - Castaway Beach",
+      "region": "Sea Breeze Archipelago",
+      "x": -99,
+      "y": -711
+    },
+    {
+      "id": "statue/sea-breeze-archipelago-church/-73,-551",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sea Breeze Archipelago Church",
+      "region": "Sea Breeze Archipelago",
+      "x": -73,
+      "y": -551
+    },
+    {
+      "id": "statue/sea-breeze-coast/-280,-648",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sea Breeze Coast",
+      "region": "Sea Breeze Archipelago",
+      "x": -280,
+      "y": -648
+    },
+    {
+      "id": "statue/sealed-realm-of-terraria/-422,-795",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of Terraria",
+      "region": "Isle of Eternal Summer",
+      "x": -422,
+      "y": -795
+    },
+    {
+      "id": "statue/sealed-realm-of-the-ardent/-110,-468",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Ardent",
+      "region": "Bamboo Groves",
+      "x": -110,
+      "y": -468
+    },
+    {
+      "id": "statue/sealed-realm-of-the-frozen-wings/119,-337",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Frozen Wings",
+      "region": "Autumn Rocks",
+      "x": 119,
+      "y": -337
+    },
+    {
+      "id": "statue/sealed-realm-of-the-myriad-flames/-264,-155",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Myriad Flames",
+      "region": "Deep Bamboo Thicket",
+      "x": -264,
+      "y": -155
+    },
+    {
+      "id": "statue/sealed-realm-of-the-mystic/120,-61",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Mystic",
+      "region": "Verdant Brook",
+      "x": 120,
+      "y": -61
+    },
+    {
+      "id": "statue/sealed-realm-of-the-swift/286,18",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Swift",
+      "region": "Verdant Brook",
+      "x": 286,
+      "y": 18
+    },
+    {
+      "id": "statue/sealed-realm-of-the-swordmaster/-215,-348",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sealed Realm of the Swordmaster",
+      "region": "Bamboo Groves",
+      "x": -215,
+      "y": -348
+    },
+    {
+      "id": "statue/seaward-passage/322,659",
+      "layer": "statue",
+      "map": "world",
+      "name": "Seaward Passage",
+      "region": "Desiccated Dunes",
+      "x": 322,
+      "y": 659
+    },
+    {
+      "id": "statue/secluded-cemetery/-668,265",
+      "layer": "statue",
+      "map": "world",
+      "name": "Secluded Cemetery",
+      "region": "Sakurajima",
+      "x": -668,
+      "y": 265
+    },
+    {
+      "id": "statue/shady-mushroom-cliffs/-1307,-1410",
+      "layer": "statue",
+      "map": "world",
+      "name": "Shady Mushroom Cliffs",
+      "region": "Frozen Coral Hill",
+      "x": -1307,
+      "y": -1410
+    },
+    {
+      "id": "statue/shield-dragon-tunnel/-970,-977",
+      "layer": "statue",
+      "map": "world",
+      "name": "Shield Dragon Tunnel",
+      "region": "Scorched Hill",
+      "x": -970,
+      "y": -977
+    },
+    {
+      "id": "statue/silent-lake/-1203,-1496",
+      "layer": "statue",
+      "map": "world",
+      "name": "Silent Lake",
+      "region": "Frozen Coral Hill",
+      "x": -1203,
+      "y": -1496
+    },
+    {
+      "id": "statue/small-cove/-205,-545",
+      "layer": "statue",
+      "map": "world",
+      "name": "Small Cove",
+      "region": "Sea Breeze Archipelago",
+      "x": -205,
+      "y": -545
+    },
+    {
+      "id": "statue/small-settlement/73,-485",
+      "layer": "statue",
+      "map": "world",
+      "name": "Small Settlement",
+      "region": "Golden Hills",
+      "x": 73,
+      "y": -485
+    },
+    {
+      "id": "statue/snowy-mountain-crossroads/95,-3",
+      "layer": "statue",
+      "map": "world",
+      "name": "Snowy Mountain Crossroads",
+      "region": "Verdant Brook",
+      "x": 95,
+      "y": -3
+    },
+    {
+      "id": "statue/stone-pillar-cave-entrance/-897,-1011",
+      "layer": "statue",
+      "map": "world",
+      "name": "Stone Pillar Cave Entrance",
+      "region": "Scorched Hill",
+      "x": -897,
+      "y": -1011
+    },
+    {
+      "id": "statue/suncrest-islet/-880,135",
+      "layer": "statue",
+      "map": "world",
+      "name": "Suncrest Islet",
+      "region": "Suncrest Islet",
+      "x": -880,
+      "y": 135
+    },
+    {
+      "id": "statue/sunlit-isle/386,-462",
+      "layer": "statue",
+      "map": "world",
+      "name": "Sunlit Isle",
+      "region": "Sunlit Isle",
+      "x": 386,
+      "y": -462
+    },
+    {
+      "id": "statue/thawtide-cape/85,422",
+      "layer": "statue",
+      "map": "world",
+      "name": "Thawtide Cape",
+      "region": "Astral Mountains",
+      "x": 85,
+      "y": 422
+    },
+    {
+      "id": "statue/the-azure-tapestry/-479,-1382",
+      "layer": "statue",
+      "map": "world",
+      "name": "The Azure Tapestry",
+      "region": "Sunreach",
+      "x": -479,
+      "y": -1382
+    },
+    {
+      "id": "statue/the-furthest-flats/473,686",
+      "layer": "statue",
+      "map": "world",
+      "name": "The Furthest Flats",
+      "region": "Desiccated Dunes",
+      "x": 473,
+      "y": 686
+    },
+    {
+      "id": "statue/the-oculus-gate-tower-in-sight/-1118,-1386",
+      "layer": "statue",
+      "map": "world",
+      "name": "The Oculus Gate, Tower in Sight",
+      "region": "Frozen Coral Hill",
+      "x": -1118,
+      "y": -1386
+    },
+    {
+      "id": "statue/thirst-s-end/684,113",
+      "layer": "statue",
+      "map": "world",
+      "name": "Thirst's End",
+      "region": "Desiccated Dunes",
+      "x": 684,
+      "y": 113
+    },
+    {
+      "id": "statue/unthawable-lake/-101,287",
+      "layer": "statue",
+      "map": "world",
+      "name": "Unthawable Lake",
+      "region": "Astral Mountains",
+      "x": -101,
+      "y": 287
+    },
+    {
+      "id": "statue/verdant-stream/119,107",
+      "layer": "statue",
+      "map": "world",
+      "name": "Verdant Stream",
+      "region": "Verdant Brook",
+      "x": 119,
+      "y": 107
+    },
+    {
+      "id": "statue/waterlily-gorge/-531,-1498",
+      "layer": "statue",
+      "map": "world",
+      "name": "Waterlily Gorge",
+      "region": "Sunreach",
+      "x": -531,
+      "y": -1498
+    },
+    {
+      "id": "statue/whisperwind-cliffs/-141,-312",
+      "layer": "statue",
+      "map": "world",
+      "name": "Whisperwind Cliffs",
+      "region": "Bamboo Groves",
+      "x": -141,
+      "y": -312
+    },
+    {
+      "id": "statue/whisperwind-hill/-268,-246",
+      "layer": "statue",
+      "map": "world",
+      "name": "Whisperwind Hill",
+      "region": "Bamboo Groves",
+      "x": -268,
+      "y": -246
+    },
+    {
+      "id": "statue/wildlands-floodgate/-864,-1310",
+      "layer": "statue",
+      "map": "world",
+      "name": "Wildlands Floodgate",
+      "region": "Scorched Hill",
+      "x": -864,
+      "y": -1310
+    },
+    {
+      "id": "statue/windscream-valley/-177,-409",
+      "layer": "statue",
+      "map": "world",
+      "name": "Windscream Valley",
+      "region": "Bamboo Groves",
+      "x": -177,
+      "y": -409
+    },
+    {
+      "id": "statue/windwatch-outlook/199,296",
+      "layer": "statue",
+      "map": "world",
+      "name": "Windwatch Outlook",
+      "region": "Desiccated Dunes",
+      "x": 199,
+      "y": 296
+    },
+    {
+      "id": "tower/azure-covenant-tower/-423,-1425",
+      "layer": "tower",
+      "map": "world",
+      "name": "Azure Covenant Tower",
+      "region": "Sunreach",
+      "x": -423,
+      "y": -1425,
+      "boss": "Auri and Shaolong",
+      "level": 68,
+      "hardLevel": 80
+    },
+    {
+      "id": "tower/brothers-of-the-eternal-pyre-tower/-587,-517",
+      "layer": "tower",
+      "map": "world",
+      "name": "Brothers of the Eternal Pyre Tower",
+      "region": "Mount Obsidian",
+      "x": -587,
+      "y": -517,
+      "boss": "Axel and Orserk",
+      "level": 30,
+      "hardLevel": 76
+    },
+    {
+      "id": "tower/feybreak-tower/-1294,-1669",
+      "layer": "tower",
+      "map": "world",
+      "name": "Feybreak Tower",
+      "region": "Feybreak Island",
+      "x": -1294,
+      "y": -1669,
+      "boss": "Bjorn and Bastigor",
+      "level": 60,
+      "hardLevel": 80
+    },
+    {
+      "id": "tower/free-pal-alliance-tower/36,-311",
+      "layer": "tower",
+      "map": "world",
+      "name": "Free Pal Alliance Tower",
+      "region": "Crescent Moon Shore",
+      "x": 36,
+      "y": -311,
+      "boss": "Lily and Lyleen",
+      "level": 20,
+      "hardLevel": 74
+    },
+    {
+      "id": "tower/moonflower-tower/-597,206",
+      "layer": "tower",
+      "map": "world",
+      "name": "Moonflower Tower",
+      "region": "Sakurajima Island",
+      "x": -597,
+      "y": 206,
+      "boss": "Saya and Selyne",
+      "level": 55,
+      "hardLevel": 80
+    },
+    {
+      "id": "tower/pal-genetic-research-unit-tower/-148,447",
+      "layer": "tower",
+      "map": "world",
+      "name": "PAL Genetic Research Unit Tower",
+      "region": "Astral Mountains",
+      "x": -148,
+      "y": 447,
+      "boss": "Victor and Shadowbeak",
+      "level": 50,
+      "hardLevel": 80
+    },
+    {
+      "id": "tower/pidf-tower/556,335",
+      "layer": "tower",
+      "map": "world",
+      "name": "PIDF Tower",
+      "region": "Desiccated Dunes",
+      "x": 556,
+      "y": 335,
+      "boss": "Marcus and Faleris",
+      "level": 40,
+      "hardLevel": 78
+    },
+    {
+      "id": "tower/tower-of-the-rayne-syndicate/113,-431",
+      "layer": "tower",
+      "map": "world",
+      "name": "Tower of the Rayne Syndicate",
+      "region": "Windswept Hills",
+      "x": 113,
+      "y": -431,
+      "boss": "Zoe and Grizzbolt",
+      "level": 10,
+      "hardLevel": 72
+    }
+  ]
+}

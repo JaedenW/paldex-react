@@ -11,8 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs && node scripts/scrape-gear.mjs && node scripts/scrape-breeding.mjs",
+    "scrape": "node scripts/scrape.mjs && node scripts/scrape-obtain.mjs && node scripts/scrape-worldmap.mjs && node scripts/scrape-gear.mjs && node scripts/scrape-breeding.mjs",
     "scrape:obtain": "node scripts/scrape-obtain.mjs",
+    "scrape:worldmap": "node scripts/scrape-worldmap.mjs",
     "scrape:gear": "node scripts/scrape-gear.mjs",
     "scrape:breeding": "node scripts/scrape-breeding.mjs",
     "audit": "node scripts/audit.mjs"

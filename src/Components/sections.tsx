@@ -6,7 +6,7 @@ import {
   FlaskIcon,
   HammerIcon,
   HomeIcon,
-  LayoutIcon,
+  MapIcon,
   PawIcon,
   SparkIcon,
   SwordIcon,
@@ -32,10 +32,10 @@ const startsWith =
 
 export const HOME: Section = {
   id: 'home',
-  label: 'Home',
+  label: 'Map',
   to: '/',
-  icon: LayoutIcon,
-  description: 'Everything in one place',
+  icon: MapIcon,
+  description: 'The world map: spawns, bosses, towers and fast travel',
   accent: '#1fb5a8',
   isActive: (p) => p === '/',
 };

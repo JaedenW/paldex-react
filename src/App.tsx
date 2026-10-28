@@ -78,7 +78,7 @@ function App() {
             </Routes>
           </React.Suspense>
         </ErrorBoundary>
-        <Footer />
+        {pathname !== '/' && <Footer />}
       </main>
       <SearchPalette />
     </>
