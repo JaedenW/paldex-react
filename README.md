@@ -42,9 +42,10 @@ what two parents will breed. Built with React, TypeScript, Vite and Tailwind CSS
 
 - Base and Alpha stats, speeds, capture rate, size, food and sell price
 - Work suitability levels, partner skill and element matchups
-- How to get it: an interactive world map of its wild spawn points (day and
-  night), the busiest areas with coordinates, Alpha and Predator boss locations,
-  dungeons, raid bosses and a breeding summary
+- How to get it: the same map as the home page, with its wild spawn points (day
+  and night), its bosses and the World Tree regions it lives in, plus the busiest
+  areas with coordinates, dungeons, raid bosses with their slabs, and its egg and
+  parent pairs
 - Active skills by level and passive skills
 - Breeding rank, egg, and every parent pair that produces the Pal
 - Normal and Alpha drops
@@ -99,9 +100,9 @@ points on the wiki yet; their tab shows the wiki's text and any boss locations. 
 ```bash
 npm run scrape                        # everything below
 node scripts/scrape.ts --no-images    # Pal data only, no icons
-npm run scrape:obtain                 # where-to-find data and the world map
-npm run scrape:worldmap               # map markers and the World Tree picture
+npm run scrape:worldmap               # map markers and pictures
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
+npm run scrape:obtain                 # where-to-find data, matched to the map markers
 npm run scrape:breeding               # breeding eligibility and fixed pairings
 npm run audit                         # cross-check the data against the wiki's page text
 ```
@@ -120,11 +121,13 @@ See [Credits](#credits) for licensing.
 
 The map's markers come from the wiki's tables and map data (statues, towers,
 Alpha bosses, bounties, predators, oil rigs and merchants). The wiki has no
-spawn data for the World Tree yet, and gives World Tree coordinates without
-saying how they line up with its picture. The statues and Alpha bosses span the
+spawn data for the World Tree yet, so a Pal's World Tree regions come from the
+wording of its page and show as that region's statue. It also gives World Tree
+coordinates without saying how they line up with its picture. The statues and Alpha bosses span the
 whole landmass, so their bounding box is fitted to it; the scales agree on both
 axes and known places land in the right terrain, but those positions are an
-estimate, and the map says so.
+estimate, and the map says so. A few Alphas have only a region on the wiki; they
+are placed by hand in `scripts/scrape-worldmap.ts` and marked as estimates.
 
 Breeding follows the rules on the wiki's Breeding page: two of one species give
 that species, a listed pairing (subspecies and other fixed combinations) wins,

@@ -3,10 +3,8 @@ import PalImage from './PalImage';
 import { obtain, palById, pals } from '../data';
 import { matchScore } from '../Utils/search';
 import { layerById, type MapMarker } from '../Utils/worldmap';
-import worldmap from '../data/worldmap.json';
+import { MARKERS } from '../data/worldmap';
 import type { Pal } from '../types';
-
-const markers = worldmap.markers as MapMarker[];
 
 export const markerTitle = (m: MapMarker) =>
   m.layer === 'alpha'
@@ -38,15 +36,14 @@ export function searchMap(query: string): MapResult[] {
     )
     .slice(0, 5)
     .map((x): MapResult => ({ kind: 'pal', pal: x.pal, spawns: x.spawns }));
-  const placeHits = markers
-    .map((marker) => ({
-      marker,
-      score: Math.max(
-        matchScore(marker.name, q),
-        matchScore(marker.region ?? '', q) * 0.5,
-        matchScore(marker.boss ?? '', q) * 0.7
-      ),
-    }))
+  const placeHits = MARKERS.map((marker) => ({
+    marker,
+    score: Math.max(
+      matchScore(marker.name, q),
+      matchScore(marker.region ?? '', q) * 0.5,
+      matchScore(marker.boss ?? '', q) * 0.7
+    ),
+  }))
     .filter((x) => x.score > 0)
     .sort(
       (a, b) => b.score - a.score || a.marker.name.localeCompare(b.marker.name)
@@ -88,7 +85,9 @@ export default function MapSearch({
                 <span className="block text-xs text-pw-muted">
                   {r.spawns > 0
                     ? 'Show where it spawns'
-                    : 'No spawn points on the wiki'}
+                    : obtain[r.pal.id]?.tree
+                      ? 'Lives on the World Tree'
+                      : 'No spawn points on the wiki'}
                 </span>
               </span>
               <span className="rounded-full bg-pw-navy/10 px-2 py-0.5 text-xs font-semibold text-pw-heading">

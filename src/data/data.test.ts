@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { items, recipes, sources, techs } from './gear';
-import { dataSource, pals } from './index';
+import { dataSource, obtain, pals } from './index';
+import { MARKERS } from './worldmap';
 import unusedJson from './unused.json';
 import worldmap from './worldmap.json';
 import type { MapMarker } from '../Utils/worldmap';
@@ -92,5 +93,73 @@ describe('world map data', () => {
 
   it('marks the World Tree placement as an estimate', () => {
     expect(worldmap.maps.tree.approximate).toBe(true);
+  });
+});
+
+describe('where to find each Pal', () => {
+  const markers = MARKERS;
+  const byId = new Map(markers.map((m) => [m.id, m]));
+  const entries = Object.entries(obtain);
+
+  it('shows bosses where the world map does', () => {
+    const wrong = entries.flatMap(([id, e]) =>
+      (e.bosses ?? []).filter((b) => {
+        if (!b.markerId) return false;
+        const m = byId.get(b.markerId);
+        return (
+          !m || m.pal !== id || m.map !== b.map || m.x !== b.x || m.y !== b.y
+        );
+      })
+    );
+    expect(wrong).toEqual([]);
+  });
+
+  it('gives every Alpha and predator marker to its Pal', () => {
+    const listed = new Set(
+      entries.flatMap(([, e]) => (e.bosses ?? []).map((b) => b.markerId))
+    );
+    const missing = markers.filter(
+      (m) =>
+        (m.layer === 'alpha' || m.layer === 'predator') && !listed.has(m.id)
+    );
+    expect(missing).toEqual([]);
+  });
+
+  it('gives every placed boss a marker on the map', () => {
+    const bad = entries.flatMap(([, e]) =>
+      (e.bosses ?? []).filter(
+        (b) => b.x !== undefined && !byId.has(b.markerId ?? '')
+      )
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('marks estimated bosses as estimates on both maps', () => {
+    const bad = entries.flatMap(([, e]) =>
+      (e.bosses ?? []).filter(
+        (b) => !!b.approximate !== !!byId.get(b.markerId ?? '')?.approximate
+      )
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('has no placeholder boss coordinates or broken locations', () => {
+    const bad = entries.flatMap(([, e]) =>
+      (e.bosses ?? []).filter(
+        (b) => (b.x === 0 && b.y === 0) || b.location.startsWith('|')
+      )
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('names real World Tree regions', () => {
+    const bad = entries.flatMap(([, e]) =>
+      (e.tree?.places ?? []).filter((id) => byId.get(id)?.map !== 'tree')
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('keeps every Pal the wiki puts on the World Tree', () => {
+    expect(entries.filter(([, e]) => e.tree).length).toBeGreaterThan(25);
   });
 });

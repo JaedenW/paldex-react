@@ -14,24 +14,12 @@ import {
   toScreen,
   toWorld,
   zoomAround,
-  type Bounds,
+  type MapDef,
   type MapMarker,
   type Size,
+  type TimeOfDay,
   type View,
 } from '../Utils/worldmap';
-
-export interface MapDef {
-  id: string;
-  name: string;
-  bounds: Bounds;
-  /** The part to frame when showing the whole map, when the picture has empty margins */
-  focus?: Bounds;
-  /** A small picture that loads first */
-  image: string;
-  /** The full-resolution picture, loaded once someone zooms in */
-  full: string;
-  approximate?: boolean;
-}
 
 export interface SpawnSet {
   id: string;
@@ -49,6 +37,9 @@ export interface WorldMapHandle {
 
 // the pictures' own edge colour, so the map has no visible border
 const BACKGROUND = '#0d151c';
+const SPAWN_OUTLINE = '#081420';
+// marks the selected marker, picked-out markers and a pin
+const RING = '#fde047';
 
 // Pal pictures for Alpha and predator markers, shared by every map
 const icons = new Map<string, HTMLImageElement | undefined>();
@@ -78,13 +69,21 @@ const WorldMap = React.forwardRef<
     map: MapDef;
     markers: MapMarker[];
     spawns: SpawnSet[];
-    time: 'both' | 'day' | 'night';
+    time: TimeOfDay;
     selectedId?: string;
+    /** Markers to pick out with a ring and their name, at any zoom */
+    highlightIds?: Set<string>;
+    /** How far to zoom in, from the whole map, before every marker shows its name */
+    labelZoom?: number;
+    /** A point to mark on the map */
+    pin?: [number, number];
     /** The view to open with, such as one from a shared link */
     initialView?: View;
     /** Pixels at each edge covered by controls: framing and flying to a place keep it clear of them */
     insets?: { top: number; right: number; bottom: number; left: number };
     onSelect: (marker: MapMarker | undefined) => void;
+    /** Called with the map position of a tap that missed every marker */
+    onTap?: (x: number, y: number) => void;
     /** Called a moment after the view stops changing */
     onViewChange?: (view: View) => void;
     className?: string;
@@ -96,9 +95,13 @@ const WorldMap = React.forwardRef<
     spawns,
     time,
     selectedId,
+    highlightIds,
+    labelZoom = 2.6,
+    pin,
     initialView,
     insets,
     onSelect,
+    onTap,
     onViewChange,
     className,
   },
@@ -130,6 +133,9 @@ const WorldMap = React.forwardRef<
     spawns,
     time,
     selectedId,
+    highlightIds,
+    labelZoom,
+    pin,
     insets,
     onViewChange,
   };
@@ -195,6 +201,9 @@ const WorldMap = React.forwardRef<
       spawns: sets,
       time: tod,
       selectedId: sel,
+      highlightIds: bright,
+      labelZoom: nameAt,
+      pin: pinned,
     } = live.current;
     const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -258,7 +267,7 @@ const WorldMap = React.forwardRef<
         ...(tod !== 'day' ? set.night : []),
       ];
       ctx.fillStyle = set.colour;
-      ctx.globalAlpha = 0.55;
+      ctx.globalAlpha = 0.75;
       ctx.beginPath();
       for (const [x, y] of pts) {
         const [sx, sy] = toScreen(view, s, x, y);
@@ -267,31 +276,40 @@ const WorldMap = React.forwardRef<
         ctx.arc(sx, sy, pr, 0, Math.PI * 2);
       }
       ctx.fill();
+      // an outline, so a dot shows up on ground of its own colour
+      ctx.globalAlpha = 0.5;
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = SPAWN_OUTLINE;
+      ctx.stroke();
       ctx.globalAlpha = 1;
     }
 
     // markers, with the selected one on top; names appear as you zoom in
     const zoom = fitSpan(b, s) / view.span;
     const r = clamp(4.2 + 2.7 * Math.log2(Math.max(zoom, 0.5)), 3.6, 13);
-    const labelled = zoom > 2.6;
+    const labelled = zoom > nameAt;
     const taken = new Set<string>();
+    // picked-out markers over the rest, and the selected one over those
+    const rank = (mk: MapMarker) =>
+      mk.id === sel ? 2 : bright?.has(mk.id) ? 1 : 0;
     const onScreen = marks
       .map((mk) => ({ mk, p: toScreen(view, s, mk.x, mk.y) }))
       .filter(
         ({ p }) =>
           p[0] > -20 && p[1] > -20 && p[0] < s.w + 20 && p[1] < s.h + 20
       )
-      .sort((a, c) => Number(a.mk.id === sel) - Number(c.mk.id === sel));
+      .sort((a, c) => rank(a.mk) - rank(c.mk));
     for (const { mk, p } of onScreen) {
       const def = layerById.get(mk.layer);
       if (!def) continue;
       const selected = mk.id === sel;
-      const rr = selected ? r + 2 : r;
-      if (selected) {
+      const picked = selected || !!bright?.has(mk.id);
+      const rr = picked ? r + 2 : r;
+      if (picked) {
         ctx.beginPath();
-        ctx.arc(p[0], p[1], rr + 5, 0, Math.PI * 2);
-        ctx.strokeStyle = '#fde047';
-        ctx.lineWidth = 3;
+        ctx.arc(p[0], p[1], rr + (selected ? 5 : 3), 0, Math.PI * 2);
+        ctx.strokeStyle = RING;
+        ctx.lineWidth = selected ? 3 : 2;
         ctx.stroke();
       }
       ctx.beginPath();
@@ -318,9 +336,9 @@ const WorldMap = React.forwardRef<
           ctx.fillText(def.glyph, p[0], p[1] + 0.5);
         }
       }
-      if (labelled || selected) {
+      if (labelled || picked) {
         const cell = `${Math.floor(p[0] / 80)},${Math.floor(p[1] / 18)}`;
-        if (!selected && taken.has(cell)) continue;
+        if (!picked && taken.has(cell)) continue;
         taken.add(cell);
         ctx.font = '600 12px Inter, system-ui, sans-serif';
         ctx.textAlign = 'left';
@@ -331,6 +349,27 @@ const WorldMap = React.forwardRef<
         ctx.fillStyle = '#fff';
         ctx.fillText(mk.name, p[0] + rr + 5, p[1]);
       }
+    }
+
+    if (pinned) {
+      const [px, py] = toScreen(view, s, pinned[0], pinned[1]);
+      ctx.beginPath();
+      ctx.arc(px, py, 9, 0, Math.PI * 2);
+      for (const [dx, dy] of [
+        [1, 0],
+        [-1, 0],
+        [0, 1],
+        [0, -1],
+      ]) {
+        ctx.moveTo(px + dx * 6, py + dy * 6);
+        ctx.lineTo(px + dx * 15, py + dy * 15);
+      }
+      ctx.strokeStyle = 'rgba(8,20,32,0.9)';
+      ctx.lineWidth = 4.5;
+      ctx.stroke();
+      ctx.strokeStyle = RING;
+      ctx.lineWidth = 2;
+      ctx.stroke();
     }
     // requestDraw is built from this callback and never changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -469,17 +508,17 @@ const WorldMap = React.forwardRef<
   }, []);
 
   // load the small picture for this map, and start from the whole map when it changes
-  const firstMap = React.useRef(true);
+  const shownMap = React.useRef(map);
   React.useEffect(() => {
     setReady(false);
     lowRef.current = undefined;
     fullRef.current = undefined;
     fullRequested.current = false;
     window.clearTimeout(notifyTimer.current); // a view on the old map means nothing here
-    if (!firstMap.current && sizeRef.current.w > 0) {
+    if (shownMap.current !== map && sizeRef.current.w > 0) {
       viewRef.current = fitFree();
     }
-    firstMap.current = false;
+    shownMap.current = map;
     let cancelled = false;
     const img = new Image();
     img.onload = () => {
@@ -497,7 +536,7 @@ const WorldMap = React.forwardRef<
 
   React.useEffect(
     () => requestDraw(),
-    [markers, spawns, time, selectedId, size, requestDraw]
+    [markers, spawns, time, selectedId, highlightIds, pin, size, requestDraw]
   );
   React.useEffect(
     () => () => {
@@ -605,7 +644,17 @@ const WorldMap = React.forwardRef<
     pointers.current.delete(e.pointerId);
     if (wasTap) {
       const pos = local(e);
-      onSelect(hit(pos[0], pos[1], e.pointerType !== 'mouse'));
+      const marker = hit(pos[0], pos[1], e.pointerType !== 'mouse');
+      onSelect(marker);
+      if (!marker && onTap) {
+        const [x, y] = toWorld(
+          viewRef.current,
+          sizeRef.current,
+          pos[0],
+          pos[1]
+        );
+        onTap(x, y);
+      }
     }
   };
   const onDoubleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {

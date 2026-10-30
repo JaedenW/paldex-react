@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
+import CraftBreakdown from '../Components/CraftBreakdown';
 import ItemIcon from '../Components/ItemIcon';
 import CategoryChips from '../Components/CategoryChips';
 import LongList from '../Components/LongList';
@@ -8,7 +9,7 @@ import { rarityColours } from '../Utils/rarity';
 import { unlockCategory } from '../Utils/tech';
 import { RecipeCard } from '../Components/gearUi';
 import { groupRecipes } from '../Utils/crafting';
-import { Breadcrumbs, Page, Panel, buttonClass, Stat } from '../Components/ui';
+import { Breadcrumbs, Page, Panel, Stat } from '../Components/ui';
 import NotFoundPage from './NotFoundPage';
 import {
   buildingById,
@@ -95,17 +96,7 @@ function BuildingDetail({ building }: { building: Building }) {
         </Panel>
 
         {cost.length > 0 && (
-          <Panel
-            title="Build cost"
-            actions={
-              <Link
-                to={`/crafting?building=${building.id}`}
-                className={buttonClass('accent', 'h-9')}
-              >
-                Raw materials
-              </Link>
-            }
-          >
+          <Panel title="Build cost">
             <div className="space-y-3">
               {groupRecipes(cost).map((v, i) => (
                 <RecipeCard key={i} recipe={v.recipe} stations={v.stations} />
@@ -113,6 +104,15 @@ function BuildingDetail({ building }: { building: Building }) {
             </div>
           </Panel>
         )}
+
+        <CraftBreakdown
+          key={building.id}
+          target={{
+            kind: 'building',
+            id: building.id,
+            name: building.name,
+          }}
+        />
 
         {crafts.length > 0 && (
           <Panel title={`Crafts here (${crafts.length})`}>

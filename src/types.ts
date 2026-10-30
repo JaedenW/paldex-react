@@ -1,3 +1,5 @@
+import type { MapId } from './Utils/worldmap';
+
 export type Element =
   | 'Neutral'
   | 'Fire'
@@ -100,9 +102,24 @@ export interface Boss {
   variant: string;
   location: string;
   level: number | null;
-  x: number;
-  y: number;
+  /** Absent when the wiki doesn't record where it is */
+  x?: number;
+  y?: number;
+  /** Which map the coordinates are on */
+  map: MapId;
+  /** Its marker on the world map, when it has one */
+  markerId?: string;
+  /** The wiki only names the area, so this position is an estimate */
+  approximate?: boolean;
   note?: string;
+}
+
+/** Where a Pal lives on the World Tree, which has no spawn points on the wiki */
+export interface TreeHabitat {
+  /** Fast-travel statue markers named after the regions it lives in */
+  places: string[];
+  /** The wiki also says it is found widely, not only in those regions */
+  widespread?: boolean;
 }
 
 /** How to find a Pal, scraped from its wiki page and the wiki's habitat map */
@@ -112,6 +129,11 @@ export interface Obtain {
   bosses?: Boss[];
   dungeons?: { name: string; note?: string }[];
   raid?: string;
+  /** Items that summon it as a raid boss */
+  slabs?: { name: string; id?: string }[];
+  /** Temperature its egg likes in an incubator */
+  eggTemperature?: string;
+  tree?: TreeHabitat;
   /** Number of wild spawn points; the points themselves load from public/habitats */
   spawns?: number;
 }

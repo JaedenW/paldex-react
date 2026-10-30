@@ -15,12 +15,15 @@ export default function MarkerCard({
   marker,
   canShowSpawns,
   onShowSpawns,
+  mainMapHref,
   onClose,
 }: {
   marker: MapMarker;
   /** The marker is a Pal with spawn points that are not on the map yet */
-  canShowSpawns: boolean;
-  onShowSpawns: () => void;
+  canShowSpawns?: boolean;
+  onShowSpawns?: () => void;
+  /** On a Pal's own page: a link to this marker on the home page's map */
+  mainMapHref?: string;
   onClose: () => void;
 }) {
   const [note, setNote] = React.useState('');
@@ -50,6 +53,12 @@ export default function MarkerCard({
       ['Hard mode', marker.hardLevel ? `Lv. ${marker.hardLevel}` : undefined],
       ['Area', marker.region],
       ['Coordinates', coordsBadge],
+      [
+        'Position',
+        marker.approximate
+          ? 'Estimated: the wiki only names the area'
+          : undefined,
+      ],
       ['Note', marker.note],
     ] as [string, React.ReactNode][]
   ).filter(([, v]) => v !== undefined && v !== '');
@@ -102,7 +111,18 @@ export default function MarkerCard({
       </dl>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        {pal && (
+        {mainMapHref && (
+          <Link
+            to={mainMapHref}
+            className={cn(
+              small,
+              'bg-pw-navy text-white ring-0 hover:bg-pw-deep'
+            )}
+          >
+            Open on the world map
+          </Link>
+        )}
+        {pal && !mainMapHref && (
           <Link
             to={`/pal/${pal.id}`}
             className={cn(
@@ -131,7 +151,14 @@ export default function MarkerCard({
         </button>
         <button
           type="button"
-          onClick={() => copy(window.location.href, 'Link copied')}
+          onClick={() =>
+            copy(
+              mainMapHref
+                ? new URL(mainMapHref, window.location.origin).href
+                : window.location.href,
+              'Link copied'
+            )
+          }
           className={cn(small, 'bg-pw-field')}
         >
           <LinkIcon className="size-4" /> Copy link
