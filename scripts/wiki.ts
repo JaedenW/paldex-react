@@ -90,13 +90,7 @@ export async function cargo(
   }
 }
 
-export const slug = (s: string) =>
-  s
-    .toLowerCase()
-    .normalize('NFKD') // also turns Ⅱ into II
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+export { slugify as slug } from '../src/Utils/text.ts';
 
 /** HTML entities the wiki leaves in names and text */
 export const decodeEntities = (s = ''): string =>

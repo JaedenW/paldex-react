@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { Link } from 'react-router';
 import { cn } from '../Utils/cn';
 import { ChevronIcon, SearchIcon } from './Icons';
@@ -10,8 +10,6 @@ export function Page({
 }: {
   children: ReactNode;
   className?: string;
-  /** Kept so existing pages still compile; every page now shares one width */
-  wide?: boolean;
 }) {
   return (
     <div
@@ -152,9 +150,20 @@ export function ChipRow({
 }
 
 /** Used as a heading for a block of controls or results inside a page */
-export function SectionLabel({ children }: { children: ReactNode }) {
+export function SectionLabel({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <p className="mb-1.5 text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase">
+    <p
+      className={cn(
+        'text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase',
+        className
+      )}
+    >
       {children}
     </p>
   );
@@ -259,19 +268,6 @@ export function Breadcrumbs({
   );
 }
 
-/** A single back link; prefer Breadcrumbs on detail pages */
-export function Breadcrumb({ to, label }: { to: string; label: string }) {
-  return (
-    <Link
-      to={to}
-      className="mb-4 inline-flex items-center gap-1 text-sm font-medium text-pw-link hover:underline"
-    >
-      <ChevronIcon className="size-4 rotate-180" />
-      {label}
-    </Link>
-  );
-}
-
 const BUTTON = {
   primary: 'bg-pw-navy text-white hover:bg-pw-deep ring-1 ring-white/10',
   accent: 'bg-pw-sun text-pw-deep hover:brightness-105',
@@ -290,12 +286,43 @@ export function buttonClass(
   );
 }
 
+/** Goes under a list that reveals a step at a time, with how much is showing */
+export function ShowMoreBar({
+  shown,
+  total,
+  next,
+  onShowMore,
+}: {
+  shown: number;
+  total: number;
+  /** How many the button adds */
+  next: number;
+  onShowMore: () => void;
+}) {
+  return (
+    <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+      <span className="text-sm text-pw-muted">
+        Showing {shown} of {total}
+      </span>
+      {next > 0 && (
+        <button
+          type="button"
+          onClick={onShowMore}
+          className={buttonClass('primary')}
+        >
+          Show {next} more
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function Chip({
   active,
   children,
   className,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { active?: boolean }) {
+}: ButtonHTMLAttributes<HTMLButtonElement> & { active?: boolean }) {
   return (
     <button
       type="button"

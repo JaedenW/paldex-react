@@ -15,6 +15,7 @@ export default function Combobox<T>({
   render,
   emptyHint,
   disabled,
+  inputId,
   className,
 }: {
   label: string;
@@ -27,6 +28,8 @@ export default function Combobox<T>({
   /** Shown when nothing has been typed yet */
   emptyHint?: string;
   disabled?: boolean;
+  /** For a visible <label> to point at */
+  inputId?: string;
   className?: string;
 }) {
   const id = React.useId();
@@ -79,6 +82,7 @@ export default function Combobox<T>({
   return (
     <div ref={wrapRef} className={cn('relative', className)}>
       <input
+        id={inputId}
         type="text"
         role="combobox"
         aria-label={label}

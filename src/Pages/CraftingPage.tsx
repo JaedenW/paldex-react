@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import CraftFlow from '../Components/CraftFlow';
 import WorkbenchCards from '../Components/WorkbenchCards';
+import Combobox from '../Components/Combobox';
 import ItemIcon from '../Components/ItemIcon';
 import { ItemLink, StationLink } from '../Components/gearUi';
 import {
@@ -21,19 +22,17 @@ import {
 } from '../data/gear';
 import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
-import { planCrafting, type CraftStep } from '../Utils/crafting';
+import {
+  planCrafting,
+  recipeSummary,
+  type CraftStep,
+  type CraftTarget,
+} from '../Utils/crafting';
 import { matchScore } from '../Utils/search';
 import { formatNumber } from '../Utils/text';
-import type { Recipe } from '../types';
-
-interface Target {
-  kind: 'item' | 'building';
-  id: string;
-  name: string;
-}
 
 // Everything that has a recipe to expand
-const targets: Target[] = [
+const targets: CraftTarget[] = [
   ...items
     .filter((i) => recipesFor(i.name).length > 0 && i.type !== 'Schematic')
     .map((i) => ({ kind: 'item' as const, id: i.id, name: i.name })),
@@ -41,6 +40,15 @@ const targets: Target[] = [
     .filter((b) => recipesFor(b.name, 'building').length > 0)
     .map((b) => ({ kind: 'building' as const, id: b.id, name: b.name })),
 ];
+
+function suggestTargets(query: string) {
+  return targets
+    .map((t) => ({ t, score: matchScore(t.name, query) }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.t.name.localeCompare(b.t.name))
+    .slice(0, 8)
+    .map((x) => x.t);
+}
 
 export default function CraftingPage() {
   useDocumentTitle('Crafting calculator');
@@ -50,38 +58,25 @@ export default function CraftingPage() {
   const [qtyParam, setQty] = useQueryState('qty', '1');
   const [expandParam, setExpand] = useQueryState('expand', '1');
   const [view, setView] = useQueryState('view', 'flow');
-  const [query, setQuery] = React.useState('');
   // which way to make each product when there are several, by variant index
   const [choices, setChoices] = React.useState<Record<string, number>>({});
 
-  const item = itemParam ? itemById.get(itemParam) : undefined;
-  const building = buildingParam ? buildingById.get(buildingParam) : undefined;
-  const target: Target | undefined = building
-    ? { kind: 'building', id: building.id, name: building.name }
-    : item
-      ? { kind: 'item', id: item.id, name: item.name }
-      : undefined;
+  const target = React.useMemo((): CraftTarget | undefined => {
+    const building = buildingById.get(buildingParam);
+    if (building)
+      return { kind: 'building', id: building.id, name: building.name };
+    const item = itemById.get(itemParam);
+    return item && { kind: 'item', id: item.id, name: item.name };
+  }, [itemParam, buildingParam]);
   const qty = Math.min(9999, Math.max(1, Math.floor(Number(qtyParam)) || 1));
   const expand = expandParam !== '0';
 
-  const suggestions = React.useMemo(() => {
-    const q = query.trim();
-    if (!q) return [];
-    return targets
-      .map((t) => ({ t, score: matchScore(t.name, q) }))
-      .filter((x) => x.score > 0)
-      .sort((a, b) => b.score - a.score || a.t.name.localeCompare(b.t.name))
-      .slice(0, 8)
-      .map((x) => x.t);
-  }, [query]);
-
-  const choose = (t: Target) => {
+  const choose = (t: CraftTarget) => {
     // one update, so setting the item doesn't get overwritten by clearing the building
     patch({
       item: t.kind === 'item' ? t.id : undefined,
       building: t.kind === 'building' ? t.id : undefined,
     });
-    setQuery('');
     setChoices({});
   };
 
@@ -110,60 +105,47 @@ export default function CraftingPage() {
 
       <Panel className="mb-4">
         <div className="grid gap-4 sm:grid-cols-[1fr_8rem]">
-          <div className="relative">
+          <div>
             <label
               htmlFor="craft-search"
-              className="mb-1 block text-xs font-semibold tracking-wide text-pw-muted uppercase"
+              className="mb-1 block text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase"
             >
               Item or building
             </label>
-            <input
-              id="craft-search"
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) =>
-                e.key === 'Enter' && suggestions[0] && choose(suggestions[0])
-              }
+            <Combobox<CraftTarget>
+              inputId="craft-search"
+              label="Item or building"
               placeholder={
                 target
                   ? `${target.name} (search to change)`
                   : 'Search for something to craft'
               }
-              autoComplete="off"
-              className="h-11 w-full rounded-full border bg-pw-field px-4 outline-none focus:border-pw-teal"
+              suggest={suggestTargets}
+              onPick={choose}
+              keyOf={(t) => `${t.kind}-${t.id}`}
+              emptyHint="Type the name of an item or building"
+              render={(t) => (
+                <span className="flex items-center gap-3">
+                  <ItemIcon
+                    kind={t.kind}
+                    id={t.id}
+                    name={t.name}
+                    className="size-8"
+                  />
+                  <span className="flex-1 font-semibold">{t.name}</span>
+                  <span className="text-xs text-pw-muted">
+                    {t.kind === 'building'
+                      ? 'Building'
+                      : itemById.get(t.id)?.type}
+                  </span>
+                </span>
+              )}
             />
-            {suggestions.length > 0 && (
-              <ul className="absolute z-10 mt-1 max-h-72 w-full overflow-y-auto rounded-2xl border bg-pw-paper p-1 shadow-lift">
-                {suggestions.map((t) => (
-                  <li key={`${t.kind}${t.id}`}>
-                    <button
-                      type="button"
-                      onClick={() => choose(t)}
-                      className="flex w-full items-center gap-3 rounded-xl px-3 py-1.5 text-left hover:bg-pw-cream"
-                    >
-                      <ItemIcon
-                        kind={t.kind}
-                        id={t.id}
-                        name={t.name}
-                        className="size-8"
-                      />
-                      <span className="flex-1 font-semibold">{t.name}</span>
-                      <span className="text-xs text-pw-muted">
-                        {t.kind === 'building'
-                          ? 'Building'
-                          : itemById.get(t.id)?.type}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
           <div>
             <label
               htmlFor="craft-qty"
-              className="mb-1 block text-xs font-semibold tracking-wide text-pw-muted uppercase"
+              className="mb-1 block text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase"
             >
               Quantity
             </label>
@@ -227,23 +209,13 @@ export default function CraftingPage() {
 
           <div
             className="flex flex-wrap items-center gap-2"
-            role="tablist"
+            role="group"
             aria-label="How to show the plan"
           >
-            <Chip
-              role="tab"
-              aria-selected={view === 'flow'}
-              active={view === 'flow'}
-              onClick={() => setView('flow')}
-            >
+            <Chip active={view === 'flow'} onClick={() => setView('flow')}>
               Flow
             </Chip>
-            <Chip
-              role="tab"
-              aria-selected={view === 'list'}
-              active={view === 'list'}
-              onClick={() => setView('list')}
-            >
+            <Chip active={view === 'list'} onClick={() => setView('list')}>
               List
             </Chip>
             <span className="text-sm text-pw-muted">
@@ -323,9 +295,6 @@ function Stations({ names }: { names: string[] }) {
   );
 }
 
-const summary = (r: Recipe) =>
-  r.ingredients.map((i) => `${i.qty} ${i.name}`).join(', ');
-
 function StepRow({
   index,
   step,
@@ -367,7 +336,7 @@ function StepRow({
             onChange={(v) => onChoose(Number(v))}
             options={step.variants.map((v, i) => ({
               value: String(i),
-              label: summary(v.recipe),
+              label: recipeSummary(v.recipe),
             }))}
             className="min-w-0"
             triggerClassName="h-8 text-sm"

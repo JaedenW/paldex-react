@@ -24,6 +24,7 @@ import {
   passiveSkills,
 } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
+import { useQueryPatch } from '../Hooks/useQueryState';
 import type { Pal } from '../types';
 
 const MAX_PARENT_PASSIVES = 4;
@@ -76,25 +77,9 @@ const innatePassives = (pal: Pal | undefined) =>
 
 export default function BreedingPage() {
   useDocumentTitle('Breeding calculator');
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
+  const patch = useQueryPatch();
   const mode = params.get('mode') === 'find' ? 'find' : 'calc';
-
-  /** Changes several URL values at once; an empty value removes the key */
-  const patch = React.useCallback(
-    (changes: Record<string, string | undefined>) =>
-      setParams(
-        (prev) => {
-          const next = new URLSearchParams(prev);
-          for (const [k, v] of Object.entries(changes)) {
-            if (v) next.set(k, v);
-            else next.delete(k);
-          }
-          return next;
-        },
-        { replace: true }
-      ),
-    [setParams]
-  );
 
   return (
     <Page>
@@ -105,23 +90,16 @@ export default function BreedingPage() {
       />
       <div
         className="mb-4 flex flex-wrap gap-2"
-        role="tablist"
+        role="group"
         aria-label="Calculator mode"
       >
         <Chip
-          role="tab"
-          aria-selected={mode === 'calc'}
           active={mode === 'calc'}
           onClick={() => patch({ mode: undefined })}
         >
           Parents → offspring
         </Chip>
-        <Chip
-          role="tab"
-          aria-selected={mode === 'find'}
-          active={mode === 'find'}
-          onClick={() => patch({ mode: 'find' })}
-        >
+        <Chip active={mode === 'find'} onClick={() => patch({ mode: 'find' })}>
           Find parents for a Pal
         </Chip>
       </div>
@@ -134,7 +112,7 @@ export default function BreedingPage() {
   );
 }
 
-type Patch = (changes: Record<string, string | undefined>) => void;
+type Patch = ReturnType<typeof useQueryPatch>;
 
 function Calculator({
   params,
@@ -161,19 +139,12 @@ function Calculator({
   const skillsA = validSkills(readList(params.get('sa')) ?? []);
   const skillsB = validSkills(readList(params.get('sb')) ?? []);
 
-  const pool = React.useMemo(
-    () =>
-      [...new Set([...passivesA, ...passivesB])]
-        .map((id) => passiveById.get(id)!)
-        .filter(Boolean),
-    [passivesA, passivesB]
+  const pool = [...new Set([...passivesA, ...passivesB])].flatMap(
+    (id) => passiveById.get(id) ?? []
   );
-  const skillPool = React.useMemo(() => {
-    const ids = [...new Set([...skillsA, ...skillsB])];
-    return ids
-      .map((id) => inheritable.find((s) => s.id === id)!)
-      .filter(Boolean);
-  }, [skillsA, skillsB]);
+  const skillPool = [...new Set([...skillsA, ...skillsB])].flatMap(
+    (id) => inheritable.find((s) => s.id === id) ?? []
+  );
   const wanted = (readList(params.get('want')) ?? []).filter((id) =>
     pool.some((p) => p.id === id)
   );

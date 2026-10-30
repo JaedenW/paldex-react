@@ -15,7 +15,6 @@ export function useShowMore(
   const shown = Math.min(limit, total);
   return {
     shown,
-    remaining: total - shown,
     next: Math.min(step, total - shown),
     showMore: () => setLimit((l) => l + step),
   };

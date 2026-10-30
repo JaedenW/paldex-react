@@ -1,4 +1,4 @@
-import { buildings, items, techs } from '../data/gear';
+import { buildingIcon, buildings, itemIcon, items, techs } from '../data/gear';
 import { matchScore, type Scored } from './search';
 
 /**
@@ -20,7 +20,7 @@ export function searchGear(query: string): Scored[] {
       label: i.name,
       detail: i.subtype ?? i.type,
       to: `/item/${i.id}`,
-      icon: i.type === 'Schematic' ? undefined : `/items/${i.id}.webp`,
+      icon: i.type === 'Schematic' ? undefined : itemIcon(i),
     });
   }
   for (const b of buildings) {
@@ -29,7 +29,7 @@ export function searchGear(query: string): Scored[] {
       label: b.name,
       detail: b.subtype ?? b.type,
       to: `/building/${b.id}`,
-      icon: `/buildings/${b.id}.webp`,
+      icon: buildingIcon(b),
     });
   }
   for (const t of techs) {

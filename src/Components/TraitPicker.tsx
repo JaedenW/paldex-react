@@ -1,5 +1,6 @@
 import React from 'react';
 import Combobox from './Combobox';
+import { SectionLabel } from './ui';
 import { matchScore } from '../Utils/search';
 import { cn } from '../Utils/cn';
 
@@ -72,9 +73,7 @@ export default function TraitPicker({
   return (
     <div>
       <div className="mb-1.5 flex items-baseline justify-between gap-2">
-        <p className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-          {label}
-        </p>
+        <SectionLabel>{label}</SectionLabel>
         {max !== undefined && (
           <span className="text-xs text-pw-muted">
             {selected.length} of {max}

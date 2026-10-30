@@ -1,6 +1,7 @@
 import React from 'react';
-import { SearchInput, buttonClass } from './ui';
+import { SearchInput, ShowMoreBar } from './ui';
 import { useShowMore } from '../Hooks/useShowMore';
+import { normalise } from '../Utils/text';
 
 /**
  * A grid for lists that can run to hundreds of entries: it starts with a short
@@ -41,15 +42,15 @@ export default function LongList<T>({
   className?: string;
 }) {
   const [q, setQ] = React.useState('');
-  const query = q.trim().toLowerCase();
+  const query = normalise(q.trim());
   const filtered = React.useMemo(
     () =>
       query && text
-        ? items.filter((i) => text(i).toLowerCase().includes(query))
+        ? items.filter((i) => normalise(text(i)).includes(query))
         : items,
     [items, text, query]
   );
-  const { shown, remaining, next, showMore } = useShowMore(
+  const { shown, next, showMore } = useShowMore(
     filtered.length,
     first,
     step,
@@ -60,7 +61,7 @@ export default function LongList<T>({
   return (
     <div className={className}>
       {(showFilter || toolbar) && (
-        <div className="mb-3 flex flex-wrap items-center gap-2">
+        <div className="mb-3 flex flex-wrap items-center gap-2 empty:hidden">
           {showFilter && (
             <SearchInput
               value={q}
@@ -86,20 +87,12 @@ export default function LongList<T>({
             ))}
           </ul>
           {filtered.length > first && (
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-              <span className="text-sm text-pw-muted">
-                Showing {shown} of {filtered.length}
-              </span>
-              {remaining > 0 && (
-                <button
-                  type="button"
-                  onClick={showMore}
-                  className={buttonClass('primary')}
-                >
-                  Show {next} more
-                </button>
-              )}
-            </div>
+            <ShowMoreBar
+              shown={shown}
+              total={filtered.length}
+              next={next}
+              onShowMore={showMore}
+            />
           )}
         </>
       )}

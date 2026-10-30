@@ -20,6 +20,7 @@ export default class ErrorBoundary extends React.Component<
 
   override componentDidUpdate(prev: Props) {
     if (prev.resetKey !== this.props.resetKey && this.state.error) {
+      // eslint-disable-next-line react/no-did-update-set-state -- only runs once per error
       this.setState({ error: null });
     }
   }

@@ -86,7 +86,7 @@ export default function MarkerCard({
           <h2 className="font-display text-2xl leading-tight break-words">
             {markerTitle(marker)}
           </h2>
-          <p className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
+          <p className="text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase">
             {def?.label}
           </p>
         </div>

@@ -59,6 +59,7 @@ function Palette({ onClose }: { onClose: () => void }) {
     >
       <div
         role="dialog"
+        aria-modal="true"
         aria-label="Search"
         className="w-full max-w-xl overflow-hidden rounded-2xl bg-pw-paper shadow-lift"
       >
@@ -66,6 +67,7 @@ function Palette({ onClose }: { onClose: () => void }) {
           <SearchIcon className="text-pw-muted" />
           <input
             autoFocus
+            aria-label="Search Pals, items, buildings and skills"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);

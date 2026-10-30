@@ -1,10 +1,12 @@
 import React from 'react';
-import { MAP_URL, mapBounds } from '../data';
+import worldmap from '../data/worldmap.json';
 import type { Boss, Spawns } from '../types';
 import { boundsOf, formatCoords } from '../Utils/map';
+import { clamp, type View } from '../Utils/worldmap';
 import { cn } from '../Utils/cn';
 
-const { left: LEFT, top: TOP, right: RIGHT, bottom: BOTTOM } = mapBounds;
+const { bounds, full: MAP_URL } = worldmap.maps.world;
+const { left: LEFT, top: TOP, right: RIGHT, bottom: BOTTOM } = bounds;
 const MAP_WIDTH = RIGHT - LEFT;
 const MIN_SPAN = 60;
 
@@ -13,22 +15,12 @@ const DAY = '#FA9B02';
 const NIGHT = '#7ED3F8';
 const BOTH = '#b6f26b';
 
-interface View {
-  cx: number;
-  cy: number;
-  /** World units across the visible width */
-  span: number;
-}
-
 export interface MapFocus {
   x: number;
   y: number;
   /** Changes whenever the same point should be focused again */
   key: number;
 }
-
-const clamp = (v: number, min: number, max: number) =>
-  Math.min(max, Math.max(min, v));
 
 function fitView(points: [number, number][]): View {
   const b = boundsOf(points);
@@ -206,7 +198,7 @@ export default function PalMap({
     view,
     scale,
     toScreen,
-    spawns,
+    groups,
     bosses,
     showDay,
     showNight,

@@ -1,3 +1,4 @@
+import { compareNumbers } from './text';
 import type { Pal, WorkType } from '../types';
 
 export const WORK_TYPES: WorkType[] = [
@@ -41,6 +42,6 @@ export function palsByWork(pals: Pal[], work: WorkType) {
     .sort(
       (a, b) =>
         (b.work[work] ?? 0) - (a.work[work] ?? 0) ||
-        a.number.localeCompare(b.number, 'en', { numeric: true })
+        compareNumbers(a.number, b.number)
     );
 }
