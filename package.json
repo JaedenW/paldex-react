@@ -12,7 +12,7 @@
     "lint": "oxlint src scripts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "scrape": "node scripts/scrape.ts && node scripts/scrape-obtain.ts && node scripts/scrape-worldmap.ts && node scripts/scrape-gear.ts && node scripts/scrape-breeding.ts",
+    "scrape": "node scripts/scrape.ts && node scripts/scrape-worldmap.ts && node scripts/scrape-gear.ts && node scripts/scrape-obtain.ts && node scripts/scrape-breeding.ts",
     "scrape:obtain": "node scripts/scrape-obtain.ts",
     "scrape:worldmap": "node scripts/scrape-worldmap.ts",
     "scrape:gear": "node scripts/scrape-gear.ts",

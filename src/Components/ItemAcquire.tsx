@@ -4,7 +4,7 @@ import CategoryChips from './CategoryChips';
 import LongList from './LongList';
 import PalImage from './PalImage';
 import { RecipeCard } from './gearUi';
-import { Chip, Panel, buttonClass } from './ui';
+import { Chip, Panel } from './ui';
 import { palById, pals } from '../data';
 import {
   buildings,
@@ -141,12 +141,6 @@ export default function ItemAcquire({ item }: { item: Item }) {
                 <RecipeCard key={i} recipe={v.recipe} stations={v.stations} />
               ))}
             </div>
-            <Link
-              to={`/crafting?item=${item.id}`}
-              className={buttonClass('accent', 'mt-3 h-9')}
-            >
-              Total raw materials
-            </Link>
           </Group>
         )}
 

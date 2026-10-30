@@ -43,6 +43,18 @@
       "y": 756
     },
     {
+      "id": "alpha/celesdir-noct/-15,775",
+      "name": "Celesdir Noct",
+      "region": "Gilded City",
+      "map": "tree",
+      "x": -15,
+      "y": 775,
+      "layer": "alpha",
+      "pal": "celesdir-noct",
+      "level": 79,
+      "approximate": true
+    },
+    {
       "id": "alpha/dandilord/26,861",
       "layer": "alpha",
       "map": "tree",
@@ -218,6 +230,17 @@
       "y": -94
     },
     {
+      "id": "alpha/arsox/-116,491",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Arsox",
+      "pal": "arsox",
+      "region": "Sealed Realm of the Ardent",
+      "level": 15,
+      "x": -116,
+      "y": 491
+    },
+    {
       "id": "alpha/astegon/-615,-429",
       "layer": "alpha",
       "map": "world",
@@ -227,6 +250,18 @@
       "level": 48,
       "x": -615,
       "y": -429
+    },
+    {
+      "id": "alpha/astegon/-675,-113",
+      "name": "Astegon",
+      "region": "No. 2 Wildlife Sanctuary",
+      "map": "world",
+      "x": -675,
+      "y": -113,
+      "layer": "alpha",
+      "pal": "astegon",
+      "level": 55,
+      "approximate": true
     },
     {
       "id": "alpha/azurmane/-1106,-1315",
@@ -295,17 +330,6 @@
       "y": -491
     },
     {
-      "id": "alpha/caprity-noct/-1164,-1653",
-      "layer": "alpha",
-      "map": "world",
-      "name": "Caprity Noct",
-      "pal": "caprity-noct",
-      "region": "Frozen Coral Hill",
-      "level": 55,
-      "x": -1164,
-      "y": -1653
-    },
-    {
       "id": "alpha/caprity-noct/-147,-660",
       "layer": "alpha",
       "map": "world",
@@ -323,7 +347,7 @@
       "name": "Celesdir",
       "pal": "celesdir",
       "region": "Crystalized Ancient Tree",
-      "level": 60,
+      "level": 65,
       "x": -965,
       "y": -1175
     },
@@ -432,7 +456,7 @@
       "map": "world",
       "name": "Elphidran",
       "pal": "elphidran",
-      "region": "Crescent Moon Shore",
+      "region": "Moonless Shore",
       "level": 30,
       "x": 44,
       "y": -284
@@ -469,6 +493,17 @@
       "level": 57,
       "x": -834,
       "y": -1116
+    },
+    {
+      "id": "alpha/foxcicle/241,-332",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Foxcicle",
+      "pal": "foxcicle",
+      "region": "Marsh Island",
+      "level": 15,
+      "x": 241,
+      "y": -332
     },
     {
       "id": "alpha/foxparks-cryst/-411,-54",
@@ -526,6 +561,18 @@
       "y": -245
     },
     {
+      "id": "alpha/grizzbolt/56,-675",
+      "name": "Grizzbolt",
+      "region": "No. 1 Wildlife Sanctuary",
+      "map": "world",
+      "x": 56,
+      "y": -675,
+      "layer": "alpha",
+      "pal": "grizzbolt",
+      "level": 30,
+      "approximate": true
+    },
+    {
       "id": "alpha/gumoss/-113,-628",
       "layer": "alpha",
       "map": "world",
@@ -557,17 +604,6 @@
       "level": 55,
       "x": 350,
       "y": -85
-    },
-    {
-      "id": "alpha/katress/241,-332",
-      "layer": "alpha",
-      "map": "world",
-      "name": "Katress",
-      "pal": "katress",
-      "region": "Marsh Island",
-      "level": 23,
-      "x": 241,
-      "y": -332
     },
     {
       "id": "alpha/kingpaca/50,-460",
@@ -614,15 +650,15 @@
       "y": -250
     },
     {
-      "id": "alpha/loupmoon-cryst/-946,-824",
+      "id": "alpha/loupmoon-cryst/-1147,-1414",
       "layer": "alpha",
       "map": "world",
       "name": "Loupmoon Cryst",
       "pal": "loupmoon-cryst",
-      "region": "Scorched Ashland",
-      "level": 54,
-      "x": -946,
-      "y": -824
+      "region": "Frozen Coral Hill",
+      "level": 66,
+      "x": -1147,
+      "y": -1414
     },
     {
       "id": "alpha/lunaris/-147,-659",
@@ -823,17 +859,6 @@
       "y": -353
     },
     {
-      "id": "alpha/petallia/-19,-264",
-      "layer": "alpha",
-      "map": "world",
-      "name": "Petallia",
-      "pal": "petallia",
-      "region": "Crescent Moon Shore",
-      "level": 28,
-      "x": -19,
-      "y": -264
-    },
-    {
       "id": "alpha/pierdon/819,467",
       "layer": "alpha",
       "map": "world",
@@ -878,6 +903,17 @@
       "y": -346
     },
     {
+      "id": "alpha/ribbuny-botan/-1211,-1353",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Ribbuny Botan",
+      "pal": "ribbuny-botan",
+      "region": "Scorched Hill",
+      "level": 53,
+      "x": -1211,
+      "y": -1353
+    },
+    {
       "id": "alpha/sibelyx/252,69",
       "layer": "alpha",
       "map": "world",
@@ -917,7 +953,7 @@
       "name": "Smokie",
       "pal": "smokie",
       "region": "Loess Plains",
-      "level": 55,
+      "level": 60,
       "x": -879,
       "y": -1467
     },
@@ -1021,6 +1057,17 @@
       "y": -418
     },
     {
+      "id": "alpha/vaelet/-19,-265",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Vaelet",
+      "pal": "vaelet",
+      "region": "Ancient Ritual Site",
+      "level": 27,
+      "x": -19,
+      "y": -265
+    },
+    {
       "id": "alpha/verdash/285,10",
       "layer": "alpha",
       "map": "world",
@@ -1032,37 +1079,15 @@
       "y": 10
     },
     {
-      "id": "alpha/verdash/129,-50",
-      "layer": "alpha",
-      "map": "world",
-      "name": "Verdash",
-      "pal": "verdash",
-      "region": "Verdant Brook",
-      "level": 38,
-      "x": 129,
-      "y": -50
-    },
-    {
-      "id": "alpha/warsect/160,-225",
-      "layer": "alpha",
-      "map": "world",
-      "name": "Warsect",
-      "pal": "warsect",
-      "region": "Gobfin's Turf",
-      "level": 30,
-      "x": 160,
-      "y": -225
-    },
-    {
-      "id": "alpha/warsect-terra/-1021,-1448",
+      "id": "alpha/warsect-terra/-1019,-1236",
       "layer": "alpha",
       "map": "world",
       "name": "Warsect Terra",
       "pal": "warsect-terra",
-      "region": "Loess Plains",
-      "level": 59,
-      "x": -1021,
-      "y": -1448
+      "region": "Hidden Passage to the Oculus Gate",
+      "level": 64,
+      "x": -1019,
+      "y": -1236
     },
     {
       "id": "alpha/whalaska/-179,842",
@@ -1085,6 +1110,18 @@
       "level": 58,
       "x": -970,
       "y": -538
+    },
+    {
+      "id": "alpha/wistella/-420,-1468",
+      "name": "Wistella",
+      "region": "Sunreach",
+      "map": "world",
+      "x": -420,
+      "y": -1468,
+      "layer": "alpha",
+      "pal": "wistella",
+      "level": 66,
+      "approximate": true
     },
     {
       "id": "alpha/wumpo-botan/449,-51",

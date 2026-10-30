@@ -19,11 +19,12 @@ import {
   itemById,
   items,
   recipesFor,
+  techByName,
 } from '../data/gear';
+import { useCraftPlan } from '../Hooks/useCraftPlan';
 import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import {
-  planCrafting,
   recipeSummary,
   type CraftStep,
   type CraftTarget,
@@ -58,8 +59,6 @@ export default function CraftingPage() {
   const [qtyParam, setQty] = useQueryState('qty', '1');
   const [expandParam, setExpand] = useQueryState('expand', '1');
   const [view, setView] = useQueryState('view', 'flow');
-  // which way to make each product when there are several, by variant index
-  const [choices, setChoices] = React.useState<Record<string, number>>({});
 
   const target = React.useMemo((): CraftTarget | undefined => {
     const building = buildingById.get(buildingParam);
@@ -77,23 +76,16 @@ export default function CraftingPage() {
       item: t.kind === 'item' ? t.id : undefined,
       building: t.kind === 'building' ? t.id : undefined,
     });
-    setChoices({});
   };
 
-  const plan = React.useMemo(() => {
-    if (!target) return undefined;
-    // the building's own recipe is under "building"; everything it needs is an item
-    const recipesOf = (name: string) =>
-      recipesFor(
-        name,
-        name === target.name && target.kind === 'building' ? 'building' : 'item'
-      );
-    return planCrafting(target.name, qty, {
-      recipesOf,
-      expand,
-      choose: (name) => choices[name] ?? 0,
-    });
-  }, [target, qty, expand, choices]);
+  const { plan, choose: chooseRecipe } = useCraftPlan(target, qty, expand);
+  const techName = target
+    ? (target.kind === 'item'
+        ? itemById.get(target.id)
+        : buildingById.get(target.id)
+      )?.tech
+    : undefined;
+  const tech = techName ? techByName.get(techName) : undefined;
 
   return (
     <Page>
@@ -194,6 +186,18 @@ export default function CraftingPage() {
               <p className="font-display text-3xl font-bold">
                 {qty} × {target.name}
               </p>
+              {tech && (
+                <p className="text-sm text-white/70">
+                  Unlocked by{' '}
+                  <Link
+                    to={`/technology?q=${encodeURIComponent(tech.name)}`}
+                    className="font-semibold text-pw-sun hover:underline"
+                  >
+                    {tech.name}
+                  </Link>{' '}
+                  at level {tech.level}
+                </p>
+              )}
             </div>
             <Link
               to={
@@ -227,13 +231,7 @@ export default function CraftingPage() {
 
           {view === 'flow' ? (
             <Panel title="From raw materials to the finished item">
-              <CraftFlow
-                plan={plan}
-                target={target}
-                onChoose={(product, v) =>
-                  setChoices((cur) => ({ ...cur, [product]: v }))
-                }
-              />
+              <CraftFlow plan={plan} target={target} onChoose={chooseRecipe} />
             </Panel>
           ) : (
             <>
@@ -264,9 +262,7 @@ export default function CraftingPage() {
                       index={i + 1}
                       step={s}
                       kind={s.product === target.name ? target.kind : 'item'}
-                      onChoose={(v) =>
-                        setChoices((cur) => ({ ...cur, [s.product]: v }))
-                      }
+                      onChoose={(v) => chooseRecipe(s.product, v)}
                     />
                   ))}
                 </ol>

@@ -13,6 +13,8 @@
 
 # misc
 .DS_Store
+# copies a file sync leaves when a script rewrites a folder
+* [0-9].*
 .env.local
 .env.development.local
 .env.test.local

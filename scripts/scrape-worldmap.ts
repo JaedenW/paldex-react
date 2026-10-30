@@ -224,7 +224,7 @@ const seen = new Set<string>();
 for (const e of located) {
   if (e.x === undefined || e.y === undefined) continue;
   const variant = e.row.variantType;
-  const name = decode(e.row.entityName);
+  const name = decode(e.row.entityName).replace(/;\s*$/, ''); // a stray ; on the wiki
   const key = `${variant}|${name}|${round(e.x)}|${round(e.y)}`;
   if (seen.has(key)) continue;
   seen.add(key);
@@ -251,6 +251,60 @@ for (const e of located) {
       y: e.y,
     });
   }
+}
+
+// ---- Alphas the wiki only places in a region
+// Rather than leave these off the map, each goes where the evidence points. They
+// are marked approximate, and the app says so. Each is dropped once the wiki gives
+// real coordinates, or stops listing that Alpha.
+const ESTIMATED_ALPHAS: (Pick<MapMarker, 'name' | 'map' | 'x' | 'y'> & {
+  region: string;
+})[] = [
+  // the middle of each sanctuary's ringed island, read off the map picture
+  {
+    name: 'Grizzbolt',
+    region: 'No. 1 Wildlife Sanctuary',
+    map: 'world',
+    x: 56,
+    y: -675,
+  },
+  {
+    name: 'Astegon',
+    region: 'No. 2 Wildlife Sanctuary',
+    map: 'world',
+    x: -675,
+    y: -113,
+  },
+  // the middle of the other Alphas the wiki lists on Sunreach
+  { name: 'Wistella', region: 'Sunreach', map: 'world', x: -420, y: -1468 },
+  // beside the Gilded City Ruins statue: level 79 fits the World Tree's Alphas,
+  // not the Gilded City on Sunreach
+  { name: 'Celesdir Noct', region: 'Gilded City', map: 'tree', x: -15, y: 775 },
+];
+const alphaRows = await cargo(
+  'LocationEntity',
+  ['locationName', 'entityName', 'level'],
+  'variantType="Alpha"'
+);
+for (const e of ESTIMATED_ALPHAS) {
+  const row = alphaRows.find(
+    (r) =>
+      decode(r.entityName) === e.name && decode(r.locationName) === e.region
+  );
+  const placed = markers.some(
+    (m) => m.layer === 'alpha' && m.name === e.name && m.region === e.region
+  );
+  if (!row || placed) {
+    console.log(`  No longer estimating ${e.name} in ${e.region}`);
+    continue;
+  }
+  add({
+    ...e,
+    layer: 'alpha',
+    pal: palIdByName.get(e.name),
+    level: num(row.level),
+    approximate: true,
+  });
 }
 
 // ---- where the World Tree picture sits in the coordinates

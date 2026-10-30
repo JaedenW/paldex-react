@@ -80,6 +80,7 @@ export default function PalPage() {
   React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (
+        e.defaultPrevented || // the map uses the arrow keys itself
         (e.target as HTMLElement).matches('input, select, textarea') ||
         e.metaKey ||
         e.ctrlKey
@@ -208,7 +209,7 @@ export default function PalPage() {
 
       <div className="mt-4 space-y-4">
         {tab === 'obtain' ? (
-          <ObtainTab pal={pal} />
+          <ObtainTab key={pal.id} pal={pal} />
         ) : tab === 'skills' ? (
           <SkillsTab pal={pal} />
         ) : tab === 'breeding' ? (

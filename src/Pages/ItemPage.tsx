@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
+import CraftBreakdown from '../Components/CraftBreakdown';
 import ItemIcon from '../Components/ItemIcon';
 import CategoryChips from '../Components/CategoryChips';
 import LongList from '../Components/LongList';
@@ -187,6 +188,13 @@ function ItemDetail({ item }: { item: Item }) {
         )}
 
         <ItemAcquire item={item} />
+
+        {item.type !== 'Schematic' && (
+          <CraftBreakdown
+            key={item.id}
+            target={{ kind: 'item', id: item.id, name: item.name }}
+          />
+        )}
 
         {uses.length > 0 && (
           <Panel

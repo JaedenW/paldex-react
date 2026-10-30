@@ -23,6 +23,24 @@ export interface Size {
   h: number;
 }
 
+export type TimeOfDay = 'both' | 'day' | 'night';
+
+export interface MapDef {
+  id: string;
+  name: string;
+  bounds: Bounds;
+  /** The part to frame when showing the whole map, when the picture has empty margins */
+  focus?: Bounds;
+  /** A small picture that loads first */
+  image: string;
+  /** The full-resolution picture, loaded once someone zooms in */
+  full: string;
+  approximate?: boolean;
+}
+
+/** How much of a map to show when flying to one place on it */
+export const flySpan = (map: MapDef) => (map.approximate ? 30 : 260);
+
 export type LayerId =
   'statue' | 'tower' | 'alpha' | 'predator' | 'bounty' | 'oilrig' | 'merchant';
 export type MapId = 'world' | 'tree';
@@ -41,6 +59,8 @@ export interface MapMarker {
   hardLevel?: number;
   boss?: string;
   note?: string;
+  /** The wiki only names the area, so this position is an estimate */
+  approximate?: boolean;
 }
 
 export interface LayerDef {

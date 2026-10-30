@@ -2,20 +2,14 @@ import React from 'react';
 import { Link, useSearchParams } from 'react-router';
 import MapSearch, { markerTitle } from '../Components/MapSearch';
 import MarkerCard from '../Components/MarkerCard';
+import { MapSwitch, TimeSwitch, ZoomButtons } from '../Components/MapControls';
 import WorldMap, {
-  type MapDef,
   type SpawnSet,
   type WorldMapHandle,
 } from '../Components/WorldMap';
-import {
-  CloseIcon,
-  FitIcon,
-  LayersIcon,
-  MinusIcon,
-  PlusIcon,
-} from '../Components/Icons';
+import { CloseIcon, LayersIcon } from '../Components/Icons';
 import { obtain, palById } from '../data';
-import worldmap from '../data/worldmap.json';
+import { MAPS, MARKERS as ALL, markerById } from '../data/worldmap';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useMediaQuery } from '../Hooks/useMediaQuery';
 import { useQueryPatch } from '../Hooks/useQueryState';
@@ -24,6 +18,7 @@ import {
   LAYERS,
   MAX_SPAWN_PALS,
   SPAWN_COLOURS,
+  flySpan,
   formatAt,
   formatLayers,
   parseAt,
@@ -31,14 +26,11 @@ import {
   type LayerId,
   type MapId,
   type MapMarker,
+  type TimeOfDay,
   type View,
 } from '../Utils/worldmap';
 import type { Pal } from '../types';
 import { cn } from '../Utils/cn';
-
-const MAPS = worldmap.maps as Record<MapId, MapDef>;
-const ALL = worldmap.markers as MapMarker[];
-const MAP_IDS: MapId[] = ['world', 'tree'];
 
 // how many markers each layer has on each map, for the panel
 const COUNTS: Record<MapId, Partial<Record<LayerId, number>>> = {
@@ -46,9 +38,6 @@ const COUNTS: Record<MapId, Partial<Record<LayerId, number>>> = {
   tree: {},
 };
 for (const m of ALL) COUNTS[m.map][m.layer] = (COUNTS[m.map][m.layer] ?? 0) + 1;
-
-const roundButton =
-  'pointer-events-auto flex size-11 items-center justify-center rounded-full bg-pw-paper text-pw-ink shadow-lift ring-1 ring-pw-line transition hover:ring-pw-teal active:translate-y-px';
 
 /**
  * The home page: the world map. Everything about the view (which map, layers,
@@ -74,7 +63,7 @@ export default function HomePage() {
         .slice(0, MAX_SPAWN_PALS),
     [palParam]
   );
-  const tod =
+  const tod: TimeOfDay =
     params.get('tod') === 'day'
       ? 'day'
       : params.get('tod') === 'night'
@@ -125,7 +114,7 @@ export default function HomePage() {
   // fly to a place chosen in search or a shared link, once the right map is showing
   React.useEffect(() => {
     if (selected && flyToSelection.current) {
-      mapRef.current?.flyTo(selected.x, selected.y, map.approximate ? 30 : 260);
+      mapRef.current?.flyTo(selected.x, selected.y, flySpan(map));
       // cleared a moment later, so strict mode's repeated effect run still flies
       const t = window.setTimeout(() => (flyToSelection.current = false), 150);
       return () => window.clearTimeout(t);
@@ -172,6 +161,12 @@ export default function HomePage() {
       return;
     }
     if (!obtain[pal.id]?.spawns) {
+      const place = markerById.get(obtain[pal.id]?.tree?.places[0] ?? '');
+      if (place) {
+        say(`${pal.name} lives in ${place.name} on the World Tree.`);
+        pickPlace(place);
+        return;
+      }
       const alpha = ALL.find((m) => m.pal === pal.id && m.layer === 'alpha');
       say(
         `The wiki has no spawn points for ${pal.name}.${alpha ? ' Its Alpha boss is selected instead.' : ''}`
@@ -257,28 +252,11 @@ export default function HomePage() {
           </button>
         </div>
 
-        <div
-          role="group"
-          aria-label="Map"
-          className="pointer-events-auto flex rounded-full bg-pw-paper p-1 shadow-lift ring-1 ring-pw-line"
-        >
-          {MAP_IDS.map((id) => (
-            <button
-              key={id}
-              type="button"
-              aria-pressed={mapId === id}
-              onClick={() => mapId !== id && setMap(id)}
-              className={cn(
-                'h-9 flex-1 rounded-full px-3 text-sm font-semibold transition',
-                mapId === id
-                  ? 'bg-pw-sun text-pw-deep'
-                  : 'text-pw-ink hover:bg-pw-cream'
-              )}
-            >
-              {MAPS[id].name}
-            </button>
-          ))}
-        </div>
+        <MapSwitch
+          value={mapId}
+          onChange={setMap}
+          className="pointer-events-auto"
+        />
 
         {palIds.length > 0 && (
           <section
@@ -330,26 +308,11 @@ export default function HomePage() {
                 );
               })}
             </ul>
-            <div
-              role="group"
-              aria-label="Time of day"
-              className="mt-2 flex rounded-full bg-pw-cream p-0.5 ring-1 ring-pw-line"
-            >
-              {(['both', 'day', 'night'] as const).map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  aria-pressed={tod === t}
-                  onClick={() => patch({ tod: t === 'both' ? undefined : t })}
-                  className={cn(
-                    'h-8 flex-1 rounded-full text-sm font-semibold transition',
-                    tod === t ? 'bg-pw-navy text-white' : 'hover:bg-pw-field'
-                  )}
-                >
-                  {t === 'both' ? 'Day & night' : t === 'day' ? 'Day' : 'Night'}
-                </button>
-              ))}
-            </div>
+            <TimeSwitch
+              value={tod}
+              onChange={(t) => patch({ tod: t === 'both' ? undefined : t })}
+              className="mt-2"
+            />
             {loading && (
               <p className="mt-1.5 text-xs text-pw-muted">
                 Loading spawn points…
@@ -450,39 +413,10 @@ export default function HomePage() {
         )}
       </div>
 
-      {/* zoom */}
-      <div
-        className={cn(
-          'pointer-events-none absolute top-1/2 right-2 z-20 flex -translate-y-1/2 flex-col gap-1.5 lg:right-3',
-          panelOpen && 'max-lg:hidden'
-        )}
-      >
-        <button
-          type="button"
-          aria-label="Zoom in"
-          className={roundButton}
-          onClick={() => mapRef.current?.zoomBy(0.6)}
-        >
-          <PlusIcon />
-        </button>
-        <button
-          type="button"
-          aria-label="Zoom out"
-          className={roundButton}
-          onClick={() => mapRef.current?.zoomBy(1 / 0.6)}
-        >
-          <MinusIcon />
-        </button>
-        <button
-          type="button"
-          aria-label="Show the whole map"
-          title="Show the whole map"
-          className={roundButton}
-          onClick={() => mapRef.current?.reset()}
-        >
-          <FitIcon />
-        </button>
-      </div>
+      <ZoomButtons
+        mapRef={mapRef}
+        className={cn('lg:right-3', panelOpen && 'max-lg:hidden')}
+      />
 
       {/* the selected marker */}
       {selected && (
