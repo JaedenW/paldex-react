@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link } from 'react-router';
 import { Page, PageHeader, SearchInput, Toolbar } from '../Components/ui';
 import { pals, passiveSkills } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
+import { useHashTarget } from '../Hooks/useHashTarget';
 import { useQueryState } from '../Hooks/useQueryState';
 import { normalise } from '../Utils/text';
 import type { Pal } from '../types';
@@ -18,7 +19,7 @@ const tone = (rank: number | null) =>
 export default function PassivesPage() {
   useDocumentTitle('Passive skills');
   const [query, setQuery] = useQueryState('q');
-  const { hash } = useLocation();
+  const hash = useHashTarget();
   const q = normalise(query.trim());
   const list = passiveSkills.filter(
     (s) =>
@@ -26,13 +27,6 @@ export default function PassivesPage() {
       normalise(s.name).includes(q) ||
       normalise(s.description).includes(q)
   );
-
-  React.useEffect(() => {
-    if (hash)
-      document
-        .getElementById(hash.slice(1))
-        ?.scrollIntoView({ block: 'center' });
-  }, [hash]);
 
   return (
     <Page>

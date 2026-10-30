@@ -2,6 +2,8 @@
 // map's X, Y; a view is the point at the centre of the screen and how many map
 // units fit across it. Everything here is plain functions so it can be tested.
 
+import { boundsOf } from './map';
+
 export interface Bounds {
   left: number;
   top: number;
@@ -165,29 +167,22 @@ export function fitPoints(
   size: Size,
   minSpan: number
 ): View {
-  if (points.length === 0) return fitView(bounds, size);
-  const xs = points.map((p) => p[0]);
-  const ys = points.map((p) => p[1]);
-  const w = Math.max(...xs) - Math.min(...xs);
-  const h = Math.max(...ys) - Math.min(...ys);
+  const box = boundsOf(points);
+  if (!box) return fitView(bounds, size);
   const span = Math.max(
-    w * 1.3,
-    h * 1.3 * (size.w / Math.max(1, size.h)),
+    (box.maxX - box.minX) * 1.3,
+    (box.maxY - box.minY) * 1.3 * (size.w / Math.max(1, size.h)),
     minSpan
   );
   return clampView(
-    {
-      cx: (Math.max(...xs) + Math.min(...xs)) / 2,
-      cy: (Math.max(...ys) + Math.min(...ys)) / 2,
-      span,
-    },
+    { cx: (box.maxX + box.minX) / 2, cy: (box.maxY + box.minY) / 2, span },
     bounds,
     size,
     minSpan
   );
 }
 
-const clamp = (v: number, min: number, max: number) =>
+export const clamp = (v: number, min: number, max: number) =>
   Math.min(max, Math.max(min, v));
 
 /** Keeps the view on the map: zoomed in no further than minSpan, out no further than a bit past the whole map */

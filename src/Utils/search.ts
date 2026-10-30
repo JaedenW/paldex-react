@@ -1,4 +1,4 @@
-import { activeSkills, pals, passiveSkills } from '../data';
+import { activeSkills, palIcon, pals, passiveSkills } from '../data';
 import { normalise } from './text';
 
 export interface SearchResult {
@@ -52,7 +52,7 @@ export function searchScored(query: string): Scored[] {
       label: p.name,
       detail: `#${p.number}`,
       to: `/pal/${p.id}`,
-      icon: `/pals/${p.id}.png`,
+      icon: palIcon(p),
     };
     if (q.replace(/^#/, '') === p.number) scored.push({ score: 100, result });
     else push(p.name, result, 5);

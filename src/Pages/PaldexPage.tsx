@@ -63,9 +63,13 @@ export default function PaldexPage() {
   const [view, setView] = useQueryState('view', 'grid');
   const [variants, setVariants] = useQueryState('variants', 'show');
 
-  const selected = elementParam
-    .split(',')
-    .filter((e): e is Element => ELEMENTS.includes(e as Element));
+  const selected = React.useMemo(
+    () =>
+      elementParam
+        .split(',')
+        .filter((e): e is Element => ELEMENTS.includes(e as Element)),
+    [elementParam]
+  );
   const toggleElement = (e: Element) =>
     setElementParam(
       (selected.includes(e)
@@ -86,13 +90,8 @@ export default function PaldexPage() {
       .filter((p) => selected.every((e) => p.elements.includes(e)))
       .filter((p) => !work || (p.work[work as WorkType] ?? 0) > 0)
       .filter((p) => variants === 'show' || !/[A-Z]$/.test(p.number))
-      .sort(
-        work && sort === 'number'
-          ? SORTS.number.cmp
-          : (SORTS[sort as SortKey] ?? SORTS.number).cmp
-      );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, elementParam, work, sort, variants]);
+      .sort((SORTS[sort as SortKey] ?? SORTS.number).cmp);
+  }, [query, selected, work, sort, variants]);
 
   const { limit, hasMore, sentinelRef, showAll } = useInfiniteScroll(
     filtered.length,

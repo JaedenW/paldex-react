@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import type { ReactNode, SVGProps } from 'react';
 import { cn } from '../Utils/cn';
 
 const base = {
@@ -12,7 +12,7 @@ const base = {
 } as const;
 
 type P = SVGProps<SVGSVGElement>;
-const icon = (d: React.ReactNode) =>
+const icon = (d: ReactNode) =>
   function Icon({ className, ...props }: P) {
     // default to 20px, but let callers resize or recolour without losing it
     return (
@@ -46,9 +46,6 @@ export const PawIcon = icon(
     <path d="M12 11c-3 0-5 3-5 5.2 0 1.6 1.2 2.3 2.6 2.3 1 0 1.5-.4 2.4-.4s1.4.4 2.4.4c1.4 0 2.6-.7 2.6-2.3C17 14 15 11 12 11Z" />
   </>
 );
-export const FlameIcon = icon(
-  <path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-6 1-9Z" />
-);
 export const HammerIcon = icon(
   <>
     <path d="m14 7 3 3-9 9a2.1 2.1 0 0 1-3-3Z" />
@@ -56,9 +53,6 @@ export const HammerIcon = icon(
   </>
 );
 export const BoltIcon = icon(<path d="M13 2 4 14h7l-1 8 9-12h-7Z" />);
-export const HeartIcon = icon(
-  <path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11Z" />
-);
 export const EggIcon = icon(
   <path d="M12 3c3.5 0 6 6 6 10a6 6 0 0 1-12 0c0-4 2.5-10 6-10Z" />
 );
@@ -73,7 +67,6 @@ export const GridIcon = icon(
 export const ListIcon = icon(
   <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
 );
-export const ArrowLeftIcon = icon(<path d="m12 19-7-7 7-7M5 12h14" />);
 export const ChevronIcon = icon(<path d="m9 6 6 6-6 6" />);
 export const MoonIcon = icon(
   <path d="M21 13a8 8 0 1 1-10-10 6.5 6.5 0 0 0 10 10Z" />
@@ -106,24 +99,8 @@ export const FlaskIcon = icon(
 export const WrenchIcon = icon(
   <path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7V21h3.3l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.6 2.6-2.4-.6-.6-2.4Z" />
 );
-export const MoreIcon = icon(
-  <>
-    <circle cx="5" cy="12" r="1.2" />
-    <circle cx="12" cy="12" r="1.2" />
-    <circle cx="19" cy="12" r="1.2" />
-  </>
-);
 
 export const MenuIcon = icon(<path d="M4 6h16M4 12h16M4 18h16" />);
-export const LayoutIcon = icon(
-  <>
-    <rect x="3" y="3" width="8" height="10" rx="1.5" />
-    <rect x="13" y="3" width="8" height="6" rx="1.5" />
-    <rect x="13" y="11" width="8" height="10" rx="1.5" />
-    <rect x="3" y="15" width="8" height="6" rx="1.5" />
-  </>
-);
-export const ArrowRightIcon = icon(<path d="M5 12h14m-6-6 6 6-6 6" />);
 
 export const CheckIcon = icon(<path d="m5 12 5 5L20 7" />);
 

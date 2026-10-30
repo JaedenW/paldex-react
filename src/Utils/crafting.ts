@@ -23,6 +23,17 @@ export interface CraftStep {
   variantIndex: number;
 }
 
+/** What the crafting calculator is working out */
+export interface CraftTarget {
+  kind: Recipe['kind'];
+  id: string;
+  name: string;
+}
+
+/** A recipe's ingredients in a line, to tell its variants apart */
+export const recipeSummary = (r: Recipe) =>
+  r.ingredients.map((i) => `${i.qty} ${i.name}`).join(', ');
+
 export interface CraftPlan {
   /** Craft in this order: ingredients before the things that use them */
   steps: CraftStep[];

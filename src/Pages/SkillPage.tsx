@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router';
 import ElementBadge from '../Components/ElementBadge';
 import LongList from '../Components/LongList';
 import PalCard from '../Components/PalCard';
-import { Breadcrumbs, Page, PageHeader, Panel } from '../Components/ui';
+import { Breadcrumbs, Page, PageHeader, Panel, Stat } from '../Components/ui';
 import { pals, skillById } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import NotFoundPage from './NotFoundPage';
@@ -40,12 +40,9 @@ export default function SkillPage() {
             ['Boss skill', skill.boss ? 'Yes' : 'No'],
             ['Inheritable', skill.inheritable ? 'Yes' : 'No'],
           ].map(([label, value]) => (
-            <div key={label}>
-              <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-                {label}
-              </dt>
-              <dd className="font-display text-2xl font-bold">{value}</dd>
-            </div>
+            <Stat key={label} label={label}>
+              {value}
+            </Stat>
           ))}
         </dl>
       </Panel>

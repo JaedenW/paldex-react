@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router';
 import TechCard, { techCategoryKeys } from '../Components/TechCard';
 import {
   Chip,
@@ -14,6 +13,7 @@ import {
 } from '../Components/ui';
 import { techs } from '../data/gear';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
+import { useHashTarget } from '../Hooks/useHashTarget';
 import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import {
   byLevel,
@@ -28,12 +28,11 @@ const MAX_LEVEL = Math.max(...techs.map((t) => t.level));
 const totals = runningTotals(techs);
 
 /** The level whose section is nearest the top of the screen, for the level list */
-function useActiveLevel(levels: number[]) {
+function useActiveLevel(groups: { level: number }[]) {
   const [active, setActive] = React.useState<number>();
-  const key = levels.join(',');
   React.useEffect(() => {
-    const els = levels
-      .map((l) => document.getElementById(`level-${l}`))
+    const els = groups
+      .map((g) => document.getElementById(`level-${g.level}`))
       .filter((e): e is HTMLElement => !!e);
     if (els.length === 0) return;
     const visible = new Set<number>();
@@ -50,8 +49,7 @@ function useActiveLevel(levels: number[]) {
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+  }, [groups]);
   return active;
 }
 
@@ -62,7 +60,7 @@ const goToLevel = (level: number) =>
 
 export default function TechPage() {
   useDocumentTitle('Technology');
-  const { hash } = useLocation();
+  const hash = useHashTarget();
   const [query, setQuery] = useQueryState('q');
   const [kind, setKind] = useQueryState('kind');
   const [unlocks, setUnlocks] = useQueryState('unlocks');
@@ -111,15 +109,8 @@ export default function TechPage() {
 
   const groups = React.useMemo(() => byLevel(shown), [shown]);
   const sum = totalCost(shown);
-  const active = useActiveLevel(groups.map((g) => g.level));
+  const active = useActiveLevel(groups);
   const filtered = !!(query || kind || unlocks || level);
-
-  React.useEffect(() => {
-    if (hash)
-      document
-        .getElementById(hash.slice(1))
-        ?.scrollIntoView({ block: 'center' });
-  }, [hash]);
 
   const counts = {
     all: techs.length,
@@ -170,7 +161,7 @@ export default function TechPage() {
       <Toolbar stickyOnPhones={false}>
         <div
           className="flex gap-1.5"
-          role="tablist"
+          role="group"
           aria-label="Kind of technology"
         >
           {(
@@ -182,8 +173,6 @@ export default function TechPage() {
           ).map(([value, label, n]) => (
             <Chip
               key={label}
-              role="tab"
-              aria-selected={kind === value}
               active={kind === value}
               onClick={() => setKind(value)}
             >

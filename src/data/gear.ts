@@ -34,10 +34,7 @@ function groupBy<T>(rows: T[], key: (row: T) => string | undefined) {
 }
 
 /** Recipes by what they make; buildings and items share a namespace per kind */
-export const recipesByProduct = groupBy(
-  recipes,
-  (r) => `${r.kind}:${r.product}`
-);
+const recipesByProduct = groupBy(recipes, (r) => `${r.kind}:${r.product}`);
 // base recipe first, then each upgrade in order
 for (const list of recipesByProduct.values()) {
   list.sort(

@@ -1,5 +1,9 @@
 import React from 'react';
+import { palIcon } from '../data';
+import { cn } from '../Utils/cn';
+import { formatCoords } from '../Utils/map';
 import {
+  clamp,
   clampView,
   fitPoints,
   fitSpan,
@@ -47,23 +51,19 @@ export interface WorldMapHandle {
 const BACKGROUND = '#0d151c';
 
 // Pal pictures for Alpha and predator markers, shared by every map
-const icons = new Map<string, HTMLImageElement | 'failed'>();
+const icons = new Map<string, HTMLImageElement | undefined>();
 function icon(id: string, onLoad: () => void) {
-  const known = icons.get(id);
-  if (known) return known === 'failed' ? undefined : known;
-  if (icons.has(id)) return undefined; // already requested
-  icons.set(id, 'failed'); // marks it requested until it loads
+  if (icons.has(id)) return icons.get(id); // undefined until it has loaded
+  icons.set(id, undefined);
   const img = new Image();
   img.onload = () => {
     icons.set(id, img);
     onLoad();
   };
-  img.src = `/pals/${id}.png`;
+  img.src = palIcon({ id });
   return undefined;
 }
 
-const clamp = (v: number, min: number, max: number) =>
-  Math.min(max, Math.max(min, v));
 const easeInOut = (t: number) =>
   t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
@@ -124,8 +124,17 @@ const WorldMap = React.forwardRef<
   }>();
 
   // everything the draw loop reads, kept in a ref so it never goes stale
-  const live = React.useRef({ map, markers, spawns, time, selectedId, insets });
-  live.current = { map, markers, spawns, time, selectedId, insets };
+  const latest = {
+    map,
+    markers,
+    spawns,
+    time,
+    selectedId,
+    insets,
+    onViewChange,
+  };
+  const live = React.useRef(latest);
+  live.current = latest;
 
   const width = map.bounds.right - map.bounds.left;
   const minSpan = width / 45;
@@ -207,6 +216,7 @@ const WorldMap = React.forwardRef<
       fullRequested.current = true;
       const img = new Image();
       img.onload = () => {
+        if (live.current.map !== m) return; // the map changed while it loaded
         fullRef.current = img;
         requestDraw();
       };
@@ -322,6 +332,8 @@ const WorldMap = React.forwardRef<
         ctx.fillText(mk.name, p[0] + rr + 5, p[1]);
       }
     }
+    // requestDraw is built from this callback and never changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const requestDraw = React.useCallback(() => {
@@ -340,11 +352,26 @@ const WorldMap = React.forwardRef<
       requestDraw();
       window.clearTimeout(notifyTimer.current);
       notifyTimer.current = window.setTimeout(
-        () => onViewChange?.(viewRef.current),
+        () => live.current.onViewChange?.(viewRef.current),
         400
       );
     },
-    [minSpan, onViewChange, requestDraw]
+    [minSpan, requestDraw]
+  );
+
+  /** The view after zooming by `factor` around a point on the screen */
+  const zoomed = React.useCallback(
+    (factor: number, sx: number, sy: number) =>
+      zoomAround(
+        viewRef.current,
+        sizeRef.current,
+        factor,
+        sx,
+        sy,
+        live.current.map.bounds,
+        minSpan
+      ),
+    [minSpan]
   );
 
   const fly = React.useCallback(
@@ -389,21 +416,11 @@ const WorldMap = React.forwardRef<
       fit: (points) => fly(fitFree(points)),
       zoomBy: (factor) => {
         const s = sizeRef.current;
-        fly(
-          zoomAround(
-            viewRef.current,
-            s,
-            factor,
-            s.w / 2,
-            s.h / 2,
-            live.current.map.bounds,
-            minSpan
-          )
-        );
+        fly(zoomed(factor, s.w / 2, s.h / 2));
       },
       reset: () => fly(fitFree()),
     }),
-    [fly, fitFree, framed, minSpan]
+    [fly, fitFree, framed, minSpan, zoomed]
   );
 
   // follow the size of the box
@@ -458,6 +475,7 @@ const WorldMap = React.forwardRef<
     lowRef.current = undefined;
     fullRef.current = undefined;
     fullRequested.current = false;
+    window.clearTimeout(notifyTimer.current); // a view on the old map means nothing here
     if (!firstMap.current && sizeRef.current.w > 0) {
       viewRef.current = fitFree();
     }
@@ -475,7 +493,7 @@ const WorldMap = React.forwardRef<
     return () => {
       cancelled = true;
     };
-  }, [map, requestDraw]);
+  }, [map, fitFree, requestDraw]);
 
   React.useEffect(
     () => requestDraw(),
@@ -500,20 +518,16 @@ const WorldMap = React.forwardRef<
       cancelAnimationFrame(flyRef.current);
       const rect = canvas.getBoundingClientRect();
       setView(
-        zoomAround(
-          viewRef.current,
-          sizeRef.current,
+        zoomed(
           Math.exp(e.deltaY * 0.0016),
           e.clientX - rect.left,
-          e.clientY - rect.top,
-          live.current.map.bounds,
-          minSpan
+          e.clientY - rect.top
         )
       );
     };
     canvas.addEventListener('wheel', onWheel, { passive: false });
     return () => canvas.removeEventListener('wheel', onWheel);
-  }, [minSpan, setView]);
+  }, [setView, zoomed]);
 
   // pointers: one finger or the mouse pans, two fingers pinch, a quick touch is a tap
   const pointers = React.useRef(new Map<number, [number, number]>());
@@ -543,7 +557,7 @@ const WorldMap = React.forwardRef<
     const s = sizeRef.current;
     if (coordsRef.current) {
       const [wx, wy] = toWorld(viewRef.current, s, pos[0], pos[1]);
-      coordsRef.current.textContent = `${Math.round(wx)}, ${Math.round(wy)}`;
+      coordsRef.current.textContent = formatCoords(wx, wy);
     }
     const prev = pointers.current.get(e.pointerId);
     if (!prev) {
@@ -574,15 +588,7 @@ const WorldMap = React.forwardRef<
       const after = Math.hypot(pos[0] - o[0], pos[1] - o[1]);
       if (before > 0 && after > 0)
         setView(
-          zoomAround(
-            viewRef.current,
-            s,
-            before / after,
-            (pos[0] + o[0]) / 2,
-            (pos[1] + o[1]) / 2,
-            live.current.map.bounds,
-            minSpan
-          )
+          zoomed(before / after, (pos[0] + o[0]) / 2, (pos[1] + o[1]) / 2)
         );
     } else {
       const v = viewRef.current;
@@ -604,64 +610,23 @@ const WorldMap = React.forwardRef<
   };
   const onDoubleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    fly(
-      zoomAround(
-        viewRef.current,
-        sizeRef.current,
-        0.5,
-        e.clientX - rect.left,
-        e.clientY - rect.top,
-        live.current.map.bounds,
-        minSpan
-      )
-    );
+    fly(zoomed(0.5, e.clientX - rect.left, e.clientY - rect.top));
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     const v = viewRef.current;
     const step = v.span * 0.12;
     const s = sizeRef.current;
+    const zoomKey = (factor: number) => () =>
+      setView(zoomed(factor, s.w / 2, s.h / 2));
     const keys: Record<string, () => void> = {
       ArrowLeft: () => setView({ ...v, cx: v.cx - step }),
       ArrowRight: () => setView({ ...v, cx: v.cx + step }),
       ArrowUp: () => setView({ ...v, cy: v.cy + step }),
       ArrowDown: () => setView({ ...v, cy: v.cy - step }),
-      '+': () =>
-        setView(
-          zoomAround(
-            v,
-            s,
-            0.7,
-            s.w / 2,
-            s.h / 2,
-            live.current.map.bounds,
-            minSpan
-          )
-        ),
-      '=': () =>
-        setView(
-          zoomAround(
-            v,
-            s,
-            0.7,
-            s.w / 2,
-            s.h / 2,
-            live.current.map.bounds,
-            minSpan
-          )
-        ),
-      '-': () =>
-        setView(
-          zoomAround(
-            v,
-            s,
-            1 / 0.7,
-            s.w / 2,
-            s.h / 2,
-            live.current.map.bounds,
-            minSpan
-          )
-        ),
+      '+': zoomKey(0.7),
+      '=': zoomKey(0.7),
+      '-': zoomKey(1 / 0.7),
       '0': () => fly(fitFree()),
       Escape: () => onSelect(undefined),
     };
@@ -680,7 +645,11 @@ const WorldMap = React.forwardRef<
       tabIndex={0}
       aria-label={`${map.name} map. Arrow keys pan, plus and minus zoom, zero shows the whole map. Use search and the layers panel to find places.`}
       onKeyDown={onKeyDown}
-      className={`relative size-full overflow-hidden bg-[#0d151c] outline-none focus-visible:ring-2 focus-visible:ring-pw-teal focus-visible:ring-inset ${className ?? ''}`}
+      style={{ backgroundColor: BACKGROUND }}
+      className={cn(
+        'relative size-full overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-pw-teal focus-visible:ring-inset',
+        className
+      )}
     >
       <canvas
         ref={canvasRef}

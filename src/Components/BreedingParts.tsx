@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import ElementBadge from './ElementBadge';
 import PalImage from './PalImage';
-import { Panel } from './ui';
+import { Panel, SectionLabel } from './ui';
 import type { BreedResult } from '../Utils/breeding';
 import { METHOD_LABELS } from '../Utils/breedingText';
 import {
@@ -47,7 +48,7 @@ function ChildCard({ pal, note }: { pal: Pal; note?: string }) {
   );
 }
 
-function Mono({ children }: { children: React.ReactNode }) {
+function Mono({ children }: { children: ReactNode }) {
   return (
     <span className="rounded-md bg-pw-cream px-1.5 py-0.5 font-mono text-sm font-semibold">
       {children}
@@ -140,9 +141,7 @@ function RankWorking({
         </span>
       </p>
       <div>
-        <p className="mb-1 text-xs font-semibold tracking-wide text-pw-muted uppercase">
-          Nearest eligible species
-        </p>
+        <SectionLabel className="mb-1">Nearest eligible species</SectionLabel>
         <ol className="divide-y rounded-xl border">
           {rank.candidates.map(({ pal, diff }) => (
             <li
@@ -280,7 +279,7 @@ export function TraitsPanel({
                   ) : (
                     <dl className="grid grid-cols-2 gap-3">
                       <div>
-                        <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
+                        <dt className="text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase">
                           Inherits all {wantedCount} you picked
                         </dt>
                         <dd className="font-display text-2xl font-bold">
@@ -288,7 +287,7 @@ export function TraitsPanel({
                         </dd>
                       </div>
                       <div>
-                        <dt className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
+                        <dt className="text-xs font-semibold tracking-[0.12em] text-pw-muted uppercase">
                           Those and nothing else
                         </dt>
                         <dd className="font-display text-2xl font-bold">
@@ -301,9 +300,7 @@ export function TraitsPanel({
               )}
 
               <div className="mt-4 space-y-1.5">
-                <p className="text-xs font-semibold tracking-wide text-pw-muted uppercase">
-                  How many the child inherits
-                </p>
+                <SectionLabel>How many the child inherits</SectionLabel>
                 {odds.countOdds.map((p, k) =>
                   p > 0 ? (
                     <Bar

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useLocation, useNavigate, useParams } from 'react-router';
 import {
   linkableDrops,
   palById,
@@ -68,6 +68,7 @@ export default function PalPage() {
   const { id } = useParams();
   const pal = palById.get(id ?? '');
   const navigate = useNavigate();
+  const { search } = useLocation();
   const [tab, setTab] = useQueryState('tab', 'overview');
   useDocumentTitle(pal?.name);
 
@@ -90,11 +91,11 @@ export default function PalPage() {
           : e.key === 'ArrowRight'
             ? next
             : undefined;
-      if (target) navigate(`/pal/${target.id}${window.location.search}`);
+      if (target) navigate(`/pal/${target.id}${search}`);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next, navigate]);
+  }, [prev, next, search, navigate]);
 
   if (!pal) return <NotFoundPage />;
   const colour = elementColours[pal.elements[0]] ?? '#8c8a82';
@@ -157,7 +158,7 @@ export default function PalPage() {
         <div className="relative grid grid-cols-2 divide-x border-t text-sm font-semibold">
           {prev ? (
             <Link
-              to={`/pal/${prev.id}${window.location.search}`}
+              to={`/pal/${prev.id}${search}`}
               className="flex items-center gap-2 truncate px-4 py-2.5 hover:bg-pw-cream/60"
             >
               <PalImage pal={prev} className="size-7 shrink-0" />
@@ -171,7 +172,7 @@ export default function PalPage() {
           )}
           {next ? (
             <Link
-              to={`/pal/${next.id}${window.location.search}`}
+              to={`/pal/${next.id}${search}`}
               className="flex items-center justify-end gap-2 truncate px-4 py-2.5 hover:bg-pw-cream/60"
             >
               <span className="truncate">
@@ -189,14 +190,12 @@ export default function PalPage() {
       <Toolbar className="mt-5">
         <div
           className="-m-1.5 flex gap-2 overflow-x-auto p-1.5"
-          role="tablist"
+          role="group"
           aria-label="Sections of this page"
         >
           {TABS.map((t) => (
             <Chip
               key={t.id}
-              role="tab"
-              aria-selected={tab === t.id}
               active={tab === t.id}
               onClick={() => setTab(t.id)}
               className="shrink-0"
@@ -254,16 +253,6 @@ function StatBar({
   );
 }
 
-function Fact({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return <Stat label={label}>{children}</Stat>;
-}
-
 function OverviewTab({ pal }: { pal: Pal }) {
   const [alpha, setAlpha] = React.useState(false);
   const stats: PalStats = alpha && pal.alphaStats ? pal.alphaStats : pal.stats;
@@ -310,16 +299,16 @@ function OverviewTab({ pal }: { pal: Pal }) {
             />
           </div>
           <dl className="mt-5 grid grid-cols-2 gap-4 border-t pt-4 sm:grid-cols-3">
-            <Fact label="Stamina">{formatNumber(stats.stamina)}</Fact>
-            <Fact label="Walk / run">
+            <Stat label="Stamina">{formatNumber(stats.stamina)}</Stat>
+            <Stat label="Walk / run">
               {formatNumber(stats.walk)} / {formatNumber(stats.run)}
-            </Fact>
-            <Fact label="Ride sprint">{formatNumber(stats.rideSprint)}</Fact>
-            <Fact label="Swim">{formatNumber(stats.swim)}</Fact>
-            <Fact label="Transport">{formatNumber(stats.transport)}</Fact>
-            <Fact label="Capture rate">
+            </Stat>
+            <Stat label="Ride sprint">{formatNumber(stats.rideSprint)}</Stat>
+            <Stat label="Swim">{formatNumber(stats.swim)}</Stat>
+            <Stat label="Transport">{formatNumber(stats.transport)}</Stat>
+            <Stat label="Capture rate">
               {formatNumber(stats.captureRate, 2)}×
-            </Fact>
+            </Stat>
           </dl>
         </Panel>
 
@@ -363,7 +352,7 @@ function OverviewTab({ pal }: { pal: Pal }) {
         </div>
       </div>
 
-      <Panel title="Element matchups" className="">
+      <Panel title="Element matchups">
         <p className="mb-3 text-sm text-pw-muted">
           Damage this Pal takes from each element.
         </p>
@@ -390,10 +379,10 @@ function OverviewTab({ pal }: { pal: Pal }) {
 
       <Panel title="Details">
         <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <Fact label="Size">{pal.size || '–'}</Fact>
-          <Fact label="Food">{pal.hunger ?? '–'}</Fact>
-          <Fact label="Sell price">{formatNumber(pal.sellPrice)}</Fact>
-          <Fact label="EXP ratio">{formatNumber(stats.expRatio, 2)}×</Fact>
+          <Stat label="Size">{pal.size || '–'}</Stat>
+          <Stat label="Food">{pal.hunger ?? '–'}</Stat>
+          <Stat label="Sell price">{formatNumber(pal.sellPrice)}</Stat>
+          <Stat label="EXP ratio">{formatNumber(stats.expRatio, 2)}×</Stat>
         </dl>
       </Panel>
     </>
@@ -508,14 +497,14 @@ function BreedingTab({ pal }: { pal: Pal }) {
     <>
       <Panel title="Breeding">
         <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Fact label="Breeding rank">{pal.breeding.rank}</Fact>
-          <Fact label="Egg">{pal.breeding.egg || '–'}</Fact>
-          <Fact label="Male chance">
+          <Stat label="Breeding rank">{pal.breeding.rank}</Stat>
+          <Stat label="Egg">{pal.breeding.egg || '–'}</Stat>
+          <Stat label="Male chance">
             {pal.breeding.maleProbability ?? '–'}%
-          </Fact>
-          <Fact label="Tie-break priority">
+          </Stat>
+          <Stat label="Tie-break priority">
             {formatNumber(pal.breeding.priority)}
-          </Fact>
+          </Stat>
         </dl>
         <p className="mt-4 text-sm text-pw-muted">
           Lower ranks are stronger. A child takes the rank nearest the parents’
@@ -595,13 +584,13 @@ function DropList({ drops }: { drops: Drop[] }) {
 
 function DropsTab({ pal }: { pal: Pal }) {
   return (
-    <div className="space-y-4">
+    <>
       <Panel title="Drops">
         <DropList drops={pal.drops} />
       </Panel>
       <Panel title="Alpha drops">
         <DropList drops={pal.alphaDrops} />
       </Panel>
-    </div>
+    </>
   );
 }

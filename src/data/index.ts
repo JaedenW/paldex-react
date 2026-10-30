@@ -14,7 +14,6 @@ import meta from './meta.json';
 import obtainJson from './obtain.json';
 import dropItemsJson from './dropItems.json';
 import breedingJson from './breeding.json';
-import worldMapJson from './worldmap.json';
 
 export const pals = palsJson as unknown as Pal[];
 export const activeSkills = skillsJson as unknown as ActiveSkill[];
@@ -36,7 +35,7 @@ export const passiveByName = new Map(passiveSkills.map((s) => [s.name, s]));
 export const passiveById = new Map(passiveSkills.map((s) => [s.id, s]));
 
 /** Pal art lives in public/pals; variants without art of their own have none. */
-export const palIcon = (p: Pal) => `/pals/${p.id}.png`;
+export const palIcon = (p: { id: string }) => `/pals/${p.id}.png`;
 export const palArt = (p: Pal) => `/pals/${p.id}-art.webp`;
 
 export const obtain = obtainJson as unknown as Record<string, Obtain>;
@@ -44,11 +43,6 @@ export const obtain = obtainJson as unknown as Record<string, Obtain>;
 /** Names of Pal drops that have an item page */
 export const linkableDrops = new Set(dropItemsJson as string[]);
 
-export const breedingRules = breedingJson as unknown as BreedingRules;
+const breedingRules = breedingJson as unknown as BreedingRules;
 /** Species lookup for two parents, built once from the Pal data and wiki rules */
 export const breeder = createBreeder(pals, uniqueCombos, breedingRules);
-
-// The main map's bounds and picture, shared with the Pal page's spawn map
-const worldMap = worldMapJson.maps.world;
-export const mapBounds = worldMap.bounds;
-export const MAP_URL = worldMap.full;

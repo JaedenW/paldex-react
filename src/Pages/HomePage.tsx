@@ -17,7 +17,9 @@ import {
 import { obtain, palById } from '../data';
 import worldmap from '../data/worldmap.json';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
+import { useMediaQuery } from '../Hooks/useMediaQuery';
 import { useQueryPatch } from '../Hooks/useQueryState';
+import { useSpawnsOf } from '../Hooks/useSpawns';
 import {
   LAYERS,
   MAX_SPAWN_PALS,
@@ -31,7 +33,7 @@ import {
   type MapMarker,
   type View,
 } from '../Utils/worldmap';
-import type { Pal, Spawns } from '../types';
+import type { Pal } from '../types';
 import { cn } from '../Utils/cn';
 
 const MAPS = worldmap.maps as Record<MapId, MapDef>;
@@ -44,37 +46,6 @@ const COUNTS: Record<MapId, Partial<Record<LayerId, number>>> = {
   tree: {},
 };
 for (const m of ALL) COUNTS[m.map][m.layer] = (COUNTS[m.map][m.layer] ?? 0) + 1;
-
-// a Pal's spawn points are fetched once, the first time they are asked for
-const spawnCache = new Map<string, Spawns | null>();
-function useSpawns(ids: string[]) {
-  const [data, setData] = React.useState<Record<string, Spawns | null>>({});
-  const key = ids.join(',');
-  React.useEffect(() => {
-    let cancelled = false;
-    for (const id of ids) {
-      if (spawnCache.has(id)) {
-        setData((d) =>
-          id in d ? d : { ...d, [id]: spawnCache.get(id) ?? null }
-        );
-        continue;
-      }
-      fetch(`/habitats/${id}.json`)
-        .then((r) => (r.ok ? (r.json() as Promise<Spawns>) : null))
-        .catch(() => null)
-        .then((spawns) => {
-          spawnCache.set(id, spawns);
-          if (!cancelled) setData((d) => ({ ...d, [id]: spawns }));
-        });
-    }
-    return () => {
-      cancelled = true;
-    };
-    // `key` stands for the list of ids
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
-  return data;
-}
 
 const roundButton =
   'pointer-events-auto flex size-11 items-center justify-center rounded-full bg-pw-paper text-pw-ink shadow-lift ring-1 ring-pw-line transition hover:ring-pw-teal active:translate-y-px';
@@ -115,11 +86,8 @@ export default function HomePage() {
     parseAt(params.get('at'))
   );
 
-  const [panelOpen, setPanelOpen] = React.useState(
-    () =>
-      typeof window !== 'undefined' &&
-      window.matchMedia('(min-width: 64rem)').matches
-  );
+  const isWide = useMediaQuery('(min-width: 64rem)');
+  const [panelOpen, setPanelOpen] = React.useState(isWide);
   const [notice, setNotice] = React.useState('');
   const flyToSelection = React.useRef(!!selected && !initialView);
   const pendingFit = React.useRef<string | undefined>(undefined);
@@ -127,7 +95,7 @@ export default function HomePage() {
     palIds.length > 0 && !initialView && !selected
   );
 
-  const spawnData = useSpawns(palIds);
+  const spawnData = useSpawnsOf(palIds);
   const spawnSets: SpawnSet[] = palIds.flatMap((id, i) => {
     const s = spawnData[id];
     return s
@@ -174,7 +142,7 @@ export default function HomePage() {
     if (points.length) mapRef.current?.fit(points);
   }, [palIds, spawnData]);
 
-  // frame a Pal's spawns when they first arrive
+  // frame a Pal's spawns once it has been added and they have arrived
   React.useEffect(() => {
     const id = pendingFit.current;
     const s = id ? spawnData[id] : undefined;
@@ -182,7 +150,7 @@ export default function HomePage() {
       pendingFit.current = undefined;
       mapRef.current?.fit([...s.day, ...s.night]);
     }
-  }, [spawnData]);
+  }, [palIds, spawnData]);
 
   const setMap = (id: MapId) =>
     patch({
@@ -216,19 +184,12 @@ export default function HomePage() {
       return;
     }
     pendingFit.current = pal.id;
-    if (spawnCache.get(pal.id)) pendingFit.current = pal.id;
     patch({
       pal: [...palIds, pal.id].join(','),
       ...(mapId === 'tree'
         ? { map: undefined, at: undefined, m: undefined }
         : {}),
     });
-    const cached = spawnCache.get(pal.id);
-    if (cached)
-      window.setTimeout(
-        () => mapRef.current?.fit([...cached.day, ...cached.night]),
-        60
-      );
   };
 
   const removePal = (id: string) =>
@@ -248,11 +209,7 @@ export default function HomePage() {
   };
 
   const selectedPal = selected?.pal ? palById.get(selected.pal) : undefined;
-  const hasTreeNote = mapId === 'tree';
   // the controls cover part of the map; keep framing and flying clear of them
-  const isWide =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(min-width: 64rem)').matches;
   const hasCard = !!selected;
   const insets = React.useMemo(
     () =>
@@ -301,7 +258,7 @@ export default function HomePage() {
         </div>
 
         <div
-          role="tablist"
+          role="group"
           aria-label="Map"
           className="pointer-events-auto flex rounded-full bg-pw-paper p-1 shadow-lift ring-1 ring-pw-line"
         >
@@ -309,8 +266,7 @@ export default function HomePage() {
             <button
               key={id}
               type="button"
-              role="tab"
-              aria-selected={mapId === id}
+              aria-pressed={mapId === id}
               onClick={() => mapId !== id && setMap(id)}
               className={cn(
                 'h-9 flex-1 rounded-full px-3 text-sm font-semibold transition',
@@ -408,7 +364,7 @@ export default function HomePage() {
           </section>
         )}
 
-        {hasTreeNote && (
+        {map.approximate && (
           <p className="pointer-events-auto rounded-full bg-amber-100 px-3 py-1.5 text-center text-xs font-semibold text-amber-900 shadow-lift dark:bg-amber-400/20 dark:text-amber-100">
             Marker positions on the World Tree are estimated
           </p>
@@ -483,7 +439,7 @@ export default function HomePage() {
               can show up to {MAX_SPAWN_PALS} at once.
             </p>
 
-            {hasTreeNote && (
+            {map.approximate && (
               <p className="rounded-xl bg-amber-100 px-3 py-2 text-xs text-amber-900 dark:bg-amber-400/15 dark:text-amber-100">
                 World Tree positions are estimated. The wiki gives coordinates
                 but not how they line up with the picture, so a marker can be a

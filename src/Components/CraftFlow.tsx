@@ -7,18 +7,14 @@ import { Select } from './ui';
 import { buildingByName, itemByName } from '../data/gear';
 import {
   flowLayout,
+  recipeSummary,
   type CraftPlan,
+  type CraftTarget,
   type FlowEdge,
   type FlowNode,
 } from '../Utils/crafting';
 import { formatNumber } from '../Utils/text';
 import { cn } from '../Utils/cn';
-
-interface Target {
-  kind: 'item' | 'building';
-  id: string;
-  name: string;
-}
 
 /** An item's or building's icon by name, with a letter when there isn't one */
 function NodeIcon({
@@ -213,7 +209,7 @@ export default function CraftFlow({
   onChoose,
 }: {
   plan: CraftPlan;
-  target: Target;
+  target: CraftTarget;
   onChoose: (product: string, variant: number) => void;
 }) {
   const layout = React.useMemo(() => flowLayout(plan), [plan]);
@@ -590,9 +586,7 @@ export default function CraftFlow({
                               onChange={(v) => onChoose(node.id, Number(v))}
                               options={step.variants.map((v, k) => ({
                                 value: String(k),
-                                label: v.recipe.ingredients
-                                  .map((x) => `${x.qty} ${x.name}`)
-                                  .join(', '),
+                                label: recipeSummary(v.recipe),
                               }))}
                               className="mt-2"
                               triggerClassName="h-9 w-full text-xs"

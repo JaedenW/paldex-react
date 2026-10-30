@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import CategoryChips from './CategoryChips';
 import LongList from './LongList';
 import PalImage from './PalImage';
 import { RecipeCard } from './gearUi';
@@ -81,14 +82,16 @@ const card =
 export default function ItemAcquire({ item }: { item: Item }) {
   const recipes = groupRecipes(recipesFor(item.name));
   const where = sources[item.name];
-  const palList = palDrops.get(item.name) ?? [];
-  const palDrops_ = React.useMemo(() => groupByPal(palList), [palList]);
+  const palGroups = React.useMemo(
+    () => groupByPal(palDrops.get(item.name) ?? []),
+    [item.name]
+  );
   const tech = item.tech ? techByName.get(item.tech) : undefined;
 
   const tags = [
     recipes.length > 0 && 'Craftable',
     where?.other && 'Gathered or found',
-    palList.length > 0 && `Dropped by Pals (${groupByPal(palList).length})`,
+    palGroups.length > 0 && `Dropped by Pals (${palGroups.length})`,
     where?.dropped && `Enemy drop (${where.dropped.length})`,
     where?.shops && `Sold by merchants (${where.shops.length})`,
     where?.found && 'Found in chests',
@@ -162,9 +165,9 @@ export default function ItemAcquire({ item }: { item: Item }) {
           </Group>
         )}
 
-        {palList.length > 0 && (
-          <Group title="Dropped by Pals" count={palDrops_.length}>
-            <PalDrops drops={palList} />
+        {palGroups.length > 0 && (
+          <Group title="Dropped by Pals" count={palGroups.length}>
+            <PalDrops groups={palGroups} />
           </Group>
         )}
 
@@ -246,8 +249,7 @@ function groupByPal(rows: PalDropRow[]): PalDropGroup[] {
 
 const dropLine = (r: PalDropRow) => `${range(r.min, r.max)} · ${r.chance}%`;
 
-function PalDrops({ drops }: { drops: PalDropRow[] }) {
-  const groups = React.useMemo(() => groupByPal(drops), [drops]);
+function PalDrops({ groups }: { groups: PalDropGroup[] }) {
   const [kind, setKind] = React.useState<'all' | 'normal' | 'alpha'>('all');
   const normalCount = groups.filter((g) => g.normal).length;
   const alphaOnly = groups.filter((g) => !g.normal).length;
@@ -307,7 +309,6 @@ function PalDrops({ drops }: { drops: PalDropRow[] }) {
 type Dropped = NonNullable<ItemSources['dropped']>;
 
 function EnemyDrops({ drops }: { drops: Dropped }) {
-  const types = [...new Set(drops.map((d) => d.type))].sort();
   const [type, setType] = React.useState('');
   const shown = React.useMemo(
     () =>
@@ -329,22 +330,12 @@ function EnemyDrops({ drops }: { drops: Dropped }) {
       min="15rem"
       resetKey={type}
       toolbar={
-        types.length > 1 ? (
-          <>
-            <Chip active={!type} onClick={() => setType('')}>
-              All ({drops.length})
-            </Chip>
-            {types.map((t) => (
-              <Chip
-                key={t}
-                active={type === t}
-                onClick={() => setType(type === t ? '' : t)}
-              >
-                {t} ({drops.filter((d) => d.type === t).length})
-              </Chip>
-            ))}
-          </>
-        ) : undefined
+        <CategoryChips
+          items={drops}
+          category={(d) => ({ key: d.type, label: d.type })}
+          value={type}
+          onChange={setType}
+        />
       }
       renderItem={(d) => (
         <div className={`${card} h-full`}>
@@ -373,7 +364,6 @@ function EnemyDrops({ drops }: { drops: Dropped }) {
 type Found = NonNullable<ItemSources['found']>;
 
 function FoundIn({ found }: { found: Found }) {
-  const categories = [...new Set(found.map((f) => f.category))].sort();
   const [category, setCategory] = React.useState('');
   const shown = React.useMemo(
     () =>
@@ -391,22 +381,12 @@ function FoundIn({ found }: { found: Found }) {
       min="17rem"
       resetKey={category}
       toolbar={
-        categories.length > 1 ? (
-          <>
-            <Chip active={!category} onClick={() => setCategory('')}>
-              All ({found.length})
-            </Chip>
-            {categories.map((c) => (
-              <Chip
-                key={c}
-                active={category === c}
-                onClick={() => setCategory(category === c ? '' : c)}
-              >
-                {c} ({found.filter((f) => f.category === c).length})
-              </Chip>
-            ))}
-          </>
-        ) : undefined
+        <CategoryChips
+          items={found}
+          category={(f) => ({ key: f.category, label: f.category })}
+          value={category}
+          onChange={setCategory}
+        />
       }
       renderItem={(f) => (
         <div className={`${card} h-full`}>

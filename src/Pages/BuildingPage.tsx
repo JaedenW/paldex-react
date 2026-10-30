@@ -21,16 +21,6 @@ import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { formatNumber } from '../Utils/text';
 import type { Building } from '../types';
 
-function Fact({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return <Stat label={label}>{children}</Stat>;
-}
-
 export default function BuildingPage() {
   const { id } = useParams();
   const building = buildingById.get(id ?? '');
@@ -81,12 +71,12 @@ function BuildingDetail({ building }: { building: Building }) {
       <div className="mt-4 space-y-4">
         <Panel title="Details">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <Fact label="HP">{formatNumber(building.hp)}</Fact>
-            <Fact label="Capacity">{formatNumber(building.capacity)}</Fact>
-            <Fact label="Supports other buildings">
+            <Stat label="HP">{formatNumber(building.hp)}</Stat>
+            <Stat label="Capacity">{formatNumber(building.capacity)}</Stat>
+            <Stat label="Supports other buildings">
               {building.support ? 'Yes' : 'No'}
-            </Fact>
-            <Fact label="Unlocked by">
+            </Stat>
+            <Stat label="Unlocked by">
               {tech ? (
                 <Link
                   to={`/technology?q=${encodeURIComponent(tech.name)}`}
@@ -100,7 +90,7 @@ function BuildingDetail({ building }: { building: Building }) {
               ) : (
                 '–'
               )}
-            </Fact>
+            </Stat>
           </dl>
         </Panel>
 

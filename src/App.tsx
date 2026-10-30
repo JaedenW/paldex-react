@@ -26,12 +26,12 @@ const TechPage = React.lazy(() => import('./Pages/TechPage'));
 const NotFoundPage = React.lazy(() => import('./Pages/NotFoundPage'));
 
 function App() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
-  // each route starts at the top of the page
+  // each route starts at the top of the page, unless a #link points further down it
   React.useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [pathname]);
+    if (!hash) window.scrollTo({ top: 0 });
+  }, [pathname, hash]);
 
   return (
     <>

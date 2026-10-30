@@ -20,16 +20,6 @@ import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { formatNumber } from '../Utils/text';
 import type { GearStats, Item, Recipe } from '../types';
 
-function Fact({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return <Stat label={label}>{children}</Stat>;
-}
-
 const GEAR_COLUMNS: { key: keyof GearStats; label: string }[] = [
   { key: 'attack', label: 'Attack' },
   { key: 'defense', label: 'Defense' },
@@ -112,11 +102,11 @@ function ItemDetail({ item }: { item: Item }) {
       <div className="mt-4 space-y-4">
         <Panel title="Details">
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <Fact label="Weight">{formatNumber(item.weight, 2)}</Fact>
-            <Fact label="Sell value">
+            <Stat label="Weight">{formatNumber(item.weight, 2)}</Stat>
+            <Stat label="Sell value">
               {item.sell ? formatNumber(item.sell) : '–'}
-            </Fact>
-            <Fact label="Unlocked by">
+            </Stat>
+            <Stat label="Unlocked by">
               {tech ? (
                 <Link
                   to={`/technology?q=${encodeURIComponent(tech.name)}`}
@@ -130,23 +120,23 @@ function ItemDetail({ item }: { item: Item }) {
               ) : (
                 '–'
               )}
-            </Fact>
+            </Stat>
             {item.food && (
-              <Fact label="Nutrition">
+              <Stat label="Nutrition">
                 {formatNumber(item.food.nutrition, 1)}
-              </Fact>
+              </Stat>
             )}
           </dl>
           {item.food &&
             (item.food.effect || item.food.sanity !== undefined) && (
               <dl className="mt-4 grid grid-cols-2 gap-4 border-t pt-4 sm:grid-cols-4">
                 {item.food.sanity !== undefined && (
-                  <Fact label="Sanity">
+                  <Stat label="Sanity">
                     {formatNumber(item.food.sanity, 1)}
-                  </Fact>
+                  </Stat>
                 )}
                 {item.food.effect && (
-                  <Fact label="Effect">{item.food.effect}</Fact>
+                  <Stat label="Effect">{item.food.effect}</Stat>
                 )}
               </dl>
             )}
@@ -257,12 +247,7 @@ function UsedIn({ uses, itemName }: { uses: Use[]; itemName: string }) {
               {r.kind === 'item' ? (
                 <ItemLink name={r.product} />
               ) : (
-                <Link
-                  to={`/buildings?q=${encodeURIComponent(r.product)}`}
-                  className="font-semibold hover:underline"
-                >
-                  {r.product}
-                </Link>
+                <StationLink name={r.product} />
               )}
               <RarityBadge rarity={r.quality} />
             </span>

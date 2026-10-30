@@ -1,9 +1,10 @@
 import { Link } from 'react-router';
 import PalImage from './PalImage';
-import { Chip, buttonClass } from './ui';
+import { Chip, ShowMoreBar } from './ui';
 import { useShowMore } from '../Hooks/useShowMore';
 import type { BreedMethod } from '../Utils/breeding';
 import { METHOD_LABELS } from '../Utils/breedingText';
+import { normalise } from '../Utils/text';
 import { cn } from '../Utils/cn';
 import type { Pal } from '../types';
 
@@ -20,14 +21,12 @@ export function filterPairs(
   pairs: ParentPair[],
   opts: { text?: string; palId?: string; method?: string }
 ) {
-  const q = opts.text?.trim().toLowerCase();
+  const q = normalise(opts.text?.trim() ?? '');
   return pairs.filter(
     (p) =>
       (!opts.palId || p.a.id === opts.palId || p.b.id === opts.palId) &&
       (!opts.method || p.method === opts.method) &&
-      (!q ||
-        p.a.name.toLowerCase().includes(q) ||
-        p.b.name.toLowerCase().includes(q))
+      (!q || normalise(p.a.name).includes(q) || normalise(p.b.name).includes(q))
   );
 }
 
@@ -106,7 +105,7 @@ export default function ParentPairList({
   first?: number;
   step?: number;
 }) {
-  const { shown, remaining, next, showMore } = useShowMore(
+  const { shown, next, showMore } = useShowMore(
     pairs.length,
     first,
     step,
@@ -135,20 +134,14 @@ export default function ParentPairList({
           </li>
         ))}
       </ul>
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-        <span className="text-sm text-pw-muted">
-          Showing {shown} of {pairs.length}
-        </span>
-        {remaining > 0 && (
-          <button
-            type="button"
-            onClick={showMore}
-            className={buttonClass('primary')}
-          >
-            Show {next} more
-          </button>
-        )}
-      </div>
+      {pairs.length > first && (
+        <ShowMoreBar
+          shown={shown}
+          total={pairs.length}
+          next={next}
+          onShowMore={showMore}
+        />
+      )}
     </>
   );
 }

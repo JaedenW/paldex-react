@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router';
 import ElementBadge from '../Components/ElementBadge';
 import PalCard from '../Components/PalCard';
-import { Chip, Page, PageHeader, Panel } from '../Components/ui';
+import { Chip, Page, PageHeader, Panel, SectionLabel } from '../Components/ui';
 import { pals } from '../data';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
+import { useHashTarget } from '../Hooks/useHashTarget';
 import {
   ELEMENTS,
   STRONG_AGAINST,
@@ -18,7 +18,7 @@ import { cn } from '../Utils/cn';
 
 export default function ElementsPage() {
   useDocumentTitle('Elements');
-  const { hash } = useLocation();
+  useHashTarget(); // #fire scrolls to that element's card
   const [a, setA] = React.useState<Element>('Fire');
   const [b, setB] = React.useState<Element | ''>('');
   const defenders = b && b !== a ? [a, b] : [a];
@@ -26,14 +26,6 @@ export default function ElementsPage() {
   const matching = pals.filter((p) =>
     defenders.every((e) => p.elements.includes(e))
   );
-
-  // #fire scrolls to that element's card
-  React.useEffect(() => {
-    if (hash)
-      document
-        .getElementById(hash.slice(1))
-        ?.scrollIntoView({ block: 'center' });
-  }, [hash]);
 
   return (
     <Page>
@@ -106,9 +98,7 @@ export default function ElementsPage() {
       <Panel title="Defence calculator" className="mb-4">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <div>
-            <p className="mb-1 text-xs font-semibold tracking-wide text-pw-muted uppercase">
-              First element
-            </p>
+            <SectionLabel className="mb-1">First element</SectionLabel>
             <div className="flex flex-wrap gap-1.5">
               {ELEMENTS.map((e) => (
                 <Chip key={e} active={a === e} onClick={() => setA(e)}>
@@ -118,9 +108,9 @@ export default function ElementsPage() {
             </div>
           </div>
           <div>
-            <p className="mb-1 text-xs font-semibold tracking-wide text-pw-muted uppercase">
+            <SectionLabel className="mb-1">
               Second element (optional)
-            </p>
+            </SectionLabel>
             <div className="flex flex-wrap gap-1.5">
               <Chip active={!b} onClick={() => setB('')}>
                 None

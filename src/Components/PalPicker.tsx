@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Combobox from './Combobox';
 import ElementBadge from './ElementBadge';
 import PalImage from './PalImage';
+import { SectionLabel } from './ui';
 import { palById, pals } from '../data';
 import { matchScore } from '../Utils/search';
 import type { Pal } from '../types';
@@ -56,9 +57,7 @@ export default function PalPicker({
   const pal = palById.get(value);
   return (
     <div className="rounded-2xl bg-pw-cream/70 p-4">
-      <p className="mb-2 text-xs font-semibold tracking-wide text-pw-muted uppercase">
-        {label}
-      </p>
+      <SectionLabel className="mb-2">{label}</SectionLabel>
       <Combobox
         label={`${label}: search for a Pal`}
         placeholder="Search by name or number…"
