@@ -76,7 +76,7 @@ const card =
 
 /**
  * Every way to get an item in one place: crafting, gathering and the other
- * notes on the wiki, Pal and enemy drops, merchants, and chests. A row of tags
+ * notes, Pal and enemy drops, merchants, and chests. A row of tags
  * at the top says which apply.
  */
 export default function ItemAcquire({ item }: { item: Item }) {
@@ -103,8 +103,8 @@ export default function ItemAcquire({ item }: { item: Item }) {
     <Panel title="How to get it">
       {nothing ? (
         <p className="text-pw-muted">
-          The wiki doesn’t list a way to get this item. It may be unused,
-          internal, or only obtained through something the wiki hasn’t recorded.
+          There’s no recorded way to get this item. It may be unused, internal,
+          or come from something that isn’t in the data yet.
         </p>
       ) : (
         <ul className="mb-4 flex flex-wrap gap-2" aria-label="Ways to get it">

@@ -96,7 +96,7 @@ export function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
         <ThemeToggle />
       </div>
       <p className="px-5 pb-3 text-xs text-white/45">
-        Unofficial fan project. Data from the community Palworld wiki.
+        Unofficial fan project. Data from paldb.cc and the Palworld wikis.
       </p>
     </>
   );

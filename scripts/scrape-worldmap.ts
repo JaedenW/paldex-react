@@ -1,14 +1,15 @@
-// Builds the data for the home page's world map from the Palworld wiki on
-// wiki.gg: fast-travel statues, towers, Alpha bosses, bounty targets, predator
-// Pals, oil rigs and wandering merchants, for the main islands and the World
-// Tree. Writes src/data/worldmap.json and the map images in public/map.
+// Builds the data for the home page's world map from paldb.cc's own map data:
+// fast-travel statues, towers, Alpha bosses, bounty targets, merchants, dungeons
+// and enemy camps, for the main islands and the World Tree. Predator Pals and the
+// map pictures come from the wiki on wiki.gg, which is where they are published.
+// Writes src/data/worldmap.json and public/map.
 // Run with `npm run scrape:worldmap` (needs src/data/pals.json).
-import { mkdir, writeFile, access } from 'node:fs/promises';
+import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { mapData, place, text, TREE_BOUNDS } from './paldb.ts';
 import {
   api,
-  cargo,
   decodeEntities,
   readJson,
   root,
@@ -16,7 +17,6 @@ import {
   stripMarkup,
   UA,
   wikitext,
-  type Row,
 } from './wiki.ts';
 import type { Pal } from '../src/types.ts';
 import type { MapMarker } from '../src/Utils/worldmap.ts';
@@ -26,20 +26,7 @@ const palIdByName = new Map(pals.map((p) => [p.name, p.id]));
 const mapDir = path.join(root, 'public/map');
 await mkdir(mapDir, { recursive: true });
 
-// the wiki escapes apostrophes in names as a doubled quote
-const decode = (s: string | undefined): string =>
-  decodeEntities(s).replace(/''/g, "'");
-const plain = (s: string | undefined): string => stripMarkup(decode(s));
-const num = (v: string | null | undefined): number | undefined =>
-  v === '' || v == null || Number.isNaN(Number(v)) ? undefined : Number(v);
-const round = (n: number) => Math.round(n);
-/** A marker before it is given its id */
-type NewMarker = Omit<MapMarker, 'id'>;
-const markers: NewMarker[] = [];
-const add = (m: NewMarker) =>
-  markers.push({ ...m, x: round(m.x), y: round(m.y) });
-
-// ---- images: the main map is shared with the Pal pages; the tree is new
+// ---- images
 async function download(name: string, file: string) {
   if (
     await access(file).then(
@@ -60,260 +47,176 @@ async function download(name: string, file: string) {
   if (!res.ok) throw new Error(`Download of ${name} failed: ${res.status}`);
   await writeFile(file, Buffer.from(await res.arrayBuffer()));
 }
-console.log('Fetching map images…');
 await download('World_Map.webp', path.join(mapDir, 'world.webp'));
 await download('Tree_Map.webp', path.join(mapDir, 'tree.webp'));
 // small versions load first; the full ones only when someone zooms in
 for (const name of ['world', 'tree']) {
+  const small = path.join(mapDir, `${name}-2048.webp`);
   await sharp(path.join(mapDir, `${name}.webp`))
     .resize(2048)
     .webp({ quality: 78 })
-    .toFile(path.join(mapDir, `${name}-2048.webp`));
+    .toFile(small);
 }
 
-// ---- Alpha bosses and bounty targets, with levels and area names
-console.log('Fetching located entities…');
-/** A located entity: the Cargo row, with its "(x, y)" text parsed */
-interface Located {
-  row: Row;
-  x?: number;
-  y?: number;
+// ---- markers
+interface Entry {
+  type: string;
+  item: string;
+  pos?: { X: number; Y: number };
+  ipos?: { X: number; Y: number };
+  id?: string;
+  lv?: number;
+  comment?: string;
+  boss?: string;
 }
-const located: Located[] = (
-  await cargo(
-    'LocationEntity',
-    [
-      'locationName',
-      'entityName',
-      'entityType',
-      'variantType',
-      'level',
-      'coords',
-    ],
-    'coords!=""'
-  )
-).map((r) => {
-  const c = r.coords?.match(/(-?[\d.]+)\s*,\s*(-?[\d.]+)/);
-  return {
-    row: r,
-    x: c ? Number(c[1]) : undefined,
-    y: c ? Number(c[2]) : undefined,
-  };
-});
 
-// ---- the page tables: statues, towers, merchants
-const pages = await wikitext([
-  'Great Eagle Statue',
-  'Tower',
-  'Wandering Merchant',
-  'Map:Fragments/Predator Pals',
-  'Map:Fragments/General Groups',
+/** A name without the element icons the site puts after it */
+const clean = (s: string) => s.replace(/<[^>]+>/g, '').trim();
+
+const scripts = await Promise.all([
+  text('js/map_data_en.js'),
+  text('js/treemap_data_en.js'),
 ]);
-const need = (t: string): string => {
-  const v = pages.get(t);
-  if (!v)
-    throw new Error(`Could not read "${t}"; the wiki page may have moved`);
-  return v;
-};
+const [worldScript, treeScript] = scripts;
+if (!worldScript || !treeScript) throw new Error('No map data on paldb.cc');
+const entries = [
+  ...mapData<Entry[]>(worldScript, 'fixedDungeon'),
+  ...mapData<Entry[]>(treeScript, 'fixedDungeon'),
+];
+const regionRows = mapData<Entry[]>(worldScript, 'regionData');
 
-const statuePage = need('Great Eagle Statue');
-const treeAt = statuePage.indexOf('=== World Tree Great Eagle Statues');
-if (treeAt < 0) throw new Error('World Tree statue table not found');
-const statueRows = (text: string) =>
-  [
-    ...text.matchAll(
-      /\|-\n\|(.+?)\n\|(.+?)\n\|\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)/g
-    ),
-  ].map((m) => ({
-    name: plain(m[1]),
-    region: plain(m[2]),
-    x: Number(m[3]),
-    y: Number(m[4]),
+type NewMarker = Omit<MapMarker, 'id'>;
+const markers: NewMarker[] = [];
+
+// named places, for saying roughly where each marker is
+const regions = regionRows
+  .filter((r) => r.ipos && !r.id?.startsWith('REGION_Oilrig'))
+  .map((r) => ({
+    name: clean(r.item).replace(/^Lv\.[\d-]+\s*/, ''),
+    x: r.ipos?.X ?? 0,
+    y: r.ipos?.Y ?? 0,
   }));
-const worldStatues = statueRows(statuePage.slice(0, treeAt));
-const treeStatues = statueRows(statuePage.slice(treeAt));
-for (const s of worldStatues)
-  add({
-    layer: 'statue',
-    map: 'world',
-    name: s.name,
-    region: s.region,
-    x: s.x,
-    y: s.y,
+const treeStatues = entries
+  .filter((e) => e.type === 'Fast Travel' && e.pos)
+  .flatMap((e) => {
+    const p = place(e.pos ?? { X: 0, Y: 0 });
+    return p.map === 'tree' ? [{ name: e.item, x: p.x, y: p.y }] : [];
   });
-for (const s of treeStatues)
-  add({ layer: 'statue', map: 'tree', name: s.name, x: s.x, y: s.y });
-const treeNames = new Set([
-  ...treeStatues.map((s) => s.name),
-  'The World Tree',
-]);
-
-const towerPage = need('Tower');
-const towerSection = towerPage.slice(towerPage.indexOf('==List of Towers'));
-for (const m of towerSection.matchAll(
-  /\|-\n\|\s*(.+?)\n\|\s*(.+?)\n\|\s*(-?\d+),\s*(-?\d+)\n\|\s*(.+?)\n\|\s*(\d+)\n\|\s*(\d+)/g
-)) {
-  add({
-    layer: 'tower',
-    map: 'world',
-    name: plain(m[1]),
-    region: plain(m[2]),
-    x: Number(m[3]),
-    y: Number(m[4]),
-    boss: plain(m[5]),
-    level: Number(m[6]),
-    hardLevel: Number(m[7]),
-  });
+function regionAt(map: MapMarker['map'], x: number, y: number) {
+  let best: string | undefined;
+  let bestDist = Infinity;
+  for (const r of map === 'tree' ? treeStatues : regions) {
+    const d = Math.hypot(r.x - x, r.y - y);
+    if (d < bestDist) {
+      bestDist = d;
+      best = r.name;
+    }
+  }
+  return best;
 }
 
-for (const m of need('Wandering Merchant').matchAll(
-  /^\*\s*(.+?)\s*\((-?\d+),\s*(-?\d+)\)/gm
-)) {
-  add({
-    layer: 'merchant',
-    map: 'world',
-    name: plain(m[1]),
-    x: Number(m[2]),
-    y: Number(m[3]),
+function add(
+  layer: MapMarker['layer'],
+  e: Entry,
+  extra: Partial<NewMarker> & { name: string }
+) {
+  if (!e.pos) return;
+  const p = place(e.pos);
+  markers.push({
+    layer,
+    ...p,
+    level: e.lv,
+    region: regionAt(p.map, p.x, p.y),
+    ...extra,
   });
 }
 
-// ---- fragments of the wiki's own interactive map: predators and oil rigs
-/** The wiki's own interactive-map data (a JSON page) */
-interface Fragment {
-  markers: Record<
-    string,
-    {
-      x: number;
-      y: number;
-      name: string;
-      article?: string;
-      description?: string[];
-    }[]
-  >;
+for (const e of entries) {
+  const name = clean(e.item);
+  if (e.type === 'Fast Travel') add('statue', e, { name, level: undefined });
+  else if (e.type === 'Tower') {
+    const hasName = !!e.comment && !e.comment.includes('？');
+    add('tower', e, { name: hasName ? (e.comment ?? name) : name, boss: name });
+  } else if (e.type === 'Alpha Pal')
+    add('alpha', e, {
+      name,
+      pal: palIdByName.get(name),
+      note: e.comment === 'Dungeon Boss' ? 'Found in a dungeon' : undefined,
+    });
+  else if (e.type === 'Bounty') add('bounty', e, { name });
+  else if (
+    e.type === 'Wandering Merchant' ||
+    e.type === 'Pal Merchant' ||
+    e.type === 'Black Marketeer'
+  )
+    add('merchant', e, { name: e.type, level: undefined });
+  else if (e.type === 'Dungeon') add('dungeon', e, { name });
+  else if (e.type === 'Enemy Camp') add('camp', e, { name });
 }
-const fragment = (title: string) => JSON.parse(need(title)) as Fragment;
-for (const p of fragment('Map:Fragments/Predator Pals').markers.predator_pals ??
-  []) {
-  const name = plain((p.article ?? p.name).replace(/\s*\(Predator\)$/, ''));
-  add({
+for (const r of regionRows) {
+  if (!r.id?.startsWith('REGION_Oilrig') || !r.ipos) continue;
+  const level = r.item.match(/Lv\.(\d+)/)?.[1];
+  markers.push({
+    layer: 'oilrig',
+    map: 'world',
+    name: clean(r.item).replace(/^Lv\.\d+\s*/, ''),
+    level: level ? Number(level) : undefined,
+    x: r.ipos.X,
+    y: r.ipos.Y,
+  });
+}
+
+// Predator Pals aren't in paldb's map data
+const fragment = (await wikitext(['Map:Fragments/Predator Pals'])).get(
+  'Map:Fragments/Predator Pals'
+);
+if (!fragment) throw new Error('Could not read the predator Pals map data');
+const predators = (
+  JSON.parse(fragment) as {
+    markers: Record<
+      string,
+      {
+        x: number;
+        y: number;
+        article?: string;
+        name: string;
+        description?: string[];
+      }[]
+    >;
+  }
+).markers.predator_pals;
+for (const p of predators ?? []) {
+  const name = stripMarkup(
+    decodeEntities(p.article ?? p.name).replace(/\s*\(Predator\)$/, '')
+  );
+  const x = Math.round(p.x),
+    y = Math.round(p.y);
+  markers.push({
     layer: 'predator',
     map: 'world',
     name,
     pal: palIdByName.get(name),
-    x: p.x,
-    y: p.y,
-    note: plain((p.description ?? []).join(' ')) || undefined,
-  });
-}
-for (const p of fragment('Map:Fragments/General Groups').markers.oil_rigs ??
-  []) {
-  const level = num(p.name.match(/Lv\s*(\d+)/)?.[1]);
-  add({
-    layer: 'oilrig',
-    map: 'world',
-    name: plain(p.name.replace(/^Lv\s*\d+\s*/, '')),
-    level,
-    x: p.x,
-    y: p.y,
+    x,
+    y,
+    region: regionAt('world', x, y),
+    note: stripMarkup((p.description ?? []).join(' ')) || undefined,
   });
 }
 
-// ---- Alpha bosses and bounty targets
-const seen = new Set<string>();
-for (const e of located) {
-  if (e.x === undefined || e.y === undefined) continue;
-  const variant = e.row.variantType;
-  const name = decode(e.row.entityName).replace(/;\s*$/, ''); // a stray ; on the wiki
-  const key = `${variant}|${name}|${round(e.x)}|${round(e.y)}`;
-  if (seen.has(key)) continue;
-  seen.add(key);
-  const map = treeNames.has(e.row.locationName) ? 'tree' : 'world';
-  if (variant === 'Alpha') {
-    add({
-      layer: 'alpha',
-      map,
-      name,
-      pal: palIdByName.get(name),
-      region: decode(e.row.locationName),
-      level: num(e.row.level),
-      x: e.x,
-      y: e.y,
-    });
-  } else if (variant === 'Bounty Target') {
-    add({
-      layer: 'bounty',
-      map,
-      name,
-      region: decode(e.row.locationName),
-      level: num(e.row.level),
-      x: e.x,
-      y: e.y,
-    });
-  }
+const counts = new Map<string, number>();
+for (const m of markers) {
+  const k = `${m.map}/${m.layer}`;
+  counts.set(k, (counts.get(k) ?? 0) + 1);
 }
-
-// ---- Alphas the wiki only places in a region
-// Rather than leave these off the map, each goes where the evidence points. They
-// are marked approximate, and the app says so. Each is dropped once the wiki gives
-// real coordinates, or stops listing that Alpha.
-const ESTIMATED_ALPHAS: (Pick<MapMarker, 'name' | 'map' | 'x' | 'y'> & {
-  region: string;
-})[] = [
-  // the middle of each sanctuary's ringed island, read off the map picture
-  {
-    name: 'Grizzbolt',
-    region: 'No. 1 Wildlife Sanctuary',
-    map: 'world',
-    x: 56,
-    y: -675,
-  },
-  {
-    name: 'Astegon',
-    region: 'No. 2 Wildlife Sanctuary',
-    map: 'world',
-    x: -675,
-    y: -113,
-  },
-  // the middle of the other Alphas the wiki lists on Sunreach
-  { name: 'Wistella', region: 'Sunreach', map: 'world', x: -420, y: -1468 },
-  // beside the Gilded City Ruins statue: level 79 fits the World Tree's Alphas,
-  // not the Gilded City on Sunreach
-  { name: 'Celesdir Noct', region: 'Gilded City', map: 'tree', x: -15, y: 775 },
-];
-const alphaRows = await cargo(
-  'LocationEntity',
-  ['locationName', 'entityName', 'level'],
-  'variantType="Alpha"'
+console.log(Object.fromEntries(counts));
+const unknownPals = markers.filter(
+  (m) => (m.layer === 'alpha' || m.layer === 'predator') && !m.pal
 );
-for (const e of ESTIMATED_ALPHAS) {
-  const row = alphaRows.find(
-    (r) =>
-      decode(r.entityName) === e.name && decode(r.locationName) === e.region
-  );
-  const placed = markers.some(
-    (m) => m.layer === 'alpha' && m.name === e.name && m.region === e.region
-  );
-  if (!row || placed) {
-    console.log(`  No longer estimating ${e.name} in ${e.region}`);
-    continue;
-  }
-  add({
-    ...e,
-    layer: 'alpha',
-    pal: palIdByName.get(e.name),
-    level: num(row.level),
-    approximate: true,
-  });
-}
+for (const m of unknownPals) console.log('  no such Pal:', m.layer, m.name);
+if (markers.length < 300 || (counts.get('world/alpha') ?? 0) < 60)
+  throw new Error('Far fewer markers than expected; paldb.cc may have changed');
 
-// ---- where the World Tree picture sits in the coordinates
-// The wiki gives World Tree positions in the tree's own coordinates but not how
-// they line up with the picture. The statues and Alphas span the whole
-// landmass, so fitting their bounding box to the landmass in the image gives a
-// scale that is the same on both axes (a good sign), and known places land in
-// the right terrain (the ruined city on the orange city, the summit in the
-// snow). It is still an estimate, and the app says so.
+// ---- the landmass on the World Tree picture, so the map opens framed on it
 const N = 1024;
 const { data } = await sharp(path.join(mapDir, 'tree.webp'))
   .resize(N, N)
@@ -334,53 +237,21 @@ for (let y = 0; y < N; y++) {
     }
   }
 }
-const land = { l: l / N, r: r / N, t: t / N, b: b / N };
-const treePts = markers.filter((m) => m.map === 'tree');
-if (treePts.length < 10)
-  throw new Error('Too few World Tree markers to place the picture');
-const xs = treePts.map((m) => m.x),
-  ys = treePts.map((m) => m.y);
-const MARGIN = 0.03; // the outermost markers sit just inside the shoreline
-const spanU = (land.r - land.l) * (1 - 2 * MARGIN),
-  spanV = (land.b - land.t) * (1 - 2 * MARGIN);
-const unitsU = (Math.max(...xs) - Math.min(...xs)) / spanU;
-const unitsV = (Math.max(...ys) - Math.min(...ys)) / spanV;
-const units = (unitsU + unitsV) / 2; // units across the whole picture
-const cx = (Math.max(...xs) + Math.min(...xs)) / 2,
-  cy = (Math.max(...ys) + Math.min(...ys)) / 2;
-const centreU = (land.l + land.r) / 2,
-  centreV = (land.t + land.b) / 2;
-const treeBounds = {
-  left: cx - centreU * units,
-  right: cx - centreU * units + units,
-  top: cy + centreV * units,
-  bottom: cy + centreV * units - units,
-};
-console.log(
-  `World Tree picture: ${units.toFixed(1)} units across (axes agree to ${((Math.abs(unitsU - unitsV) / units) * 100).toFixed(1)}%)`
-);
-if (Math.abs(unitsU - unitsV) / units > 0.1)
-  throw new Error('The World Tree fit is no longer consistent; check the data');
-
-const counts: Record<string, number> = {};
-for (const m of markers)
-  counts[`${m.map}/${m.layer}`] = (counts[`${m.map}/${m.layer}`] ?? 0) + 1;
-console.log(counts);
-if (
-  (counts['world/statue'] ?? 0) < 50 ||
-  (counts['world/alpha'] ?? 0) < 40 ||
-  (counts['world/tower'] ?? 0) < 6
-) {
-  throw new Error(
-    'Far fewer markers than expected; the wiki pages may have changed'
-  );
-}
-
+const units = TREE_BOUNDS.right - TREE_BOUNDS.left;
 const round3 = (n: number) => Math.round(n * 1000) / 1000;
-const id = (m: NewMarker) => `${m.layer}/${slug(m.name) || 'x'}/${m.x},${m.y}`;
+
+const seen = new Set<string>();
+const id = (m: NewMarker) => {
+  const base = `${m.layer}/${slug(m.name) || 'x'}/${m.x},${m.y}`;
+  let unique = base;
+  for (let n = 2; seen.has(unique); n++) unique = `${base}-${n}`;
+  seen.add(unique);
+  return unique;
+};
 const out = {
   maps: {
     world: {
+      id: 'world',
       name: 'Palpagos Islands',
       bounds: {
         left: -1923.226,
@@ -392,30 +263,29 @@ const out = {
       full: '/map/world.webp',
     },
     tree: {
+      id: 'tree',
       name: 'World Tree',
       bounds: Object.fromEntries(
-        Object.entries(treeBounds).map(([k, v]) => [k, round3(v)])
+        Object.entries(TREE_BOUNDS).map(([k, v]) => [k, round3(v)])
       ),
-      // the landmass itself, so the map opens framed on it rather than on the empty margins
       focus: {
-        left: round3(treeBounds.left + land.l * units),
-        right: round3(treeBounds.left + land.r * units),
-        top: round3(treeBounds.top - land.t * units),
-        bottom: round3(treeBounds.top - land.b * units),
+        left: round3(TREE_BOUNDS.left + (l / N) * units),
+        right: round3(TREE_BOUNDS.left + (r / N) * units),
+        top: round3(TREE_BOUNDS.top - (t / N) * units),
+        bottom: round3(TREE_BOUNDS.top - (b / N) * units),
       },
       image: '/map/tree-2048.webp',
       full: '/map/tree.webp',
-      approximate: true,
     },
   },
   markers: markers
-    .map((m) => ({ id: id(m), ...m }))
     .sort(
       (a, b) =>
         a.map.localeCompare(b.map) ||
         a.layer.localeCompare(b.layer) ||
         a.name.localeCompare(b.name)
-    ),
+    )
+    .map((m) => ({ id: id(m), ...m })),
 };
 await writeFile(
   path.join(root, 'src/data/worldmap.json'),

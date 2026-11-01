@@ -53,12 +53,6 @@ export default function MarkerCard({
       ['Hard mode', marker.hardLevel ? `Lv. ${marker.hardLevel}` : undefined],
       ['Area', marker.region],
       ['Coordinates', coordsBadge],
-      [
-        'Position',
-        marker.approximate
-          ? 'Estimated: the wiki only names the area'
-          : undefined,
-      ],
       ['Note', marker.note],
     ] as [string, React.ReactNode][]
   ).filter(([, v]) => v !== undefined && v !== '');

@@ -168,8 +168,8 @@ function RankWorking({
           ))}
         </ol>
         <p className="mt-1 text-xs text-pw-muted">
-          If two species are equally close, the one the wiki lists first (its
-          lower index number) wins.
+          If two species are equally close, the one with the higher rank number
+          wins.
         </p>
       </div>
     </div>

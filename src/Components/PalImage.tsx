@@ -5,7 +5,7 @@ import { elementColours } from '../Utils/elements';
 import { cn } from '../Utils/cn';
 
 /**
- * Pal art, with a coloured initial standing in for Pals the wiki has no image
+ * Pal art, with a coloured initial standing in for Pals with no image
  * of (mostly the Noct, Cryst and other variants).
  */
 export default function PalImage({

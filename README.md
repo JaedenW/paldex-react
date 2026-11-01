@@ -87,7 +87,9 @@ tabs, breeding pairs and crafting plans all live in the URL, like a wiki.
 
 ## Data
 
-All data is scraped from the fan-made [Palworld wiki on wiki.gg](https://palworld.wiki.gg)
+Game data is scraped from [paldb.cc](https://paldb.cc), which reads the game's own
+files; images and written notes come from the fan-made Palworld wikis on
+[wiki.gg](https://palworld.wiki.gg) and [Fandom](https://palworld.fandom.com)
 through its Cargo tables (structured data, so no HTML parsing) and committed
 under `src/data`, so the app makes no runtime API calls. Pal icons and art are
 saved to `public/pals`; item and building icons are shrunk to 96px WebP in
@@ -98,45 +100,36 @@ Coordinates are the in-game map's X, Y. About a third of Pals have no spawn
 points on the wiki yet; their tab shows the wiki's text and any boss locations. To refresh everything after a game update:
 
 ```bash
-npm run scrape                        # everything below
-node scripts/scrape.ts --no-images    # Pal data only, no icons
+npm run scrape:crawl                  # fill the page cache in one go (optional)
+npm run scrape                        # everything below, in order
+node scripts/scrape-pals.ts --no-images  # Pal data only, no pictures
 npm run scrape:worldmap               # map markers and pictures
 npm run scrape:gear                   # items, recipes, buildings, tech and icons
-npm run scrape:obtain                 # where-to-find data, matched to the map markers
-npm run scrape:breeding               # breeding eligibility and fixed pairings
-npm run audit                         # cross-check the data against the wiki's page text
+npm run scrape:obtain                 # spawn points and where to find each Pal
+npm run audit                         # look for gaps and check against the wikis
 ```
 
-The script exits with an error if the wiki returns far fewer Pals than expected.
+Pages from paldb.cc are cached in `.cache/paldb` (a few at a time, backing off if
+the site asks), so only the first run downloads them. Add `--refresh` after a game
+update. The scrapers exit with an error if far fewer rows come back than expected.
 
-The data covers the newest Palworld version the wiki documents (shown in the
-footer, and recorded in `src/data/meta.json`). Items the wiki flags as unused,
-meaning leftovers in the game files that players can't get, are left out of
-items, recipes, drops, shops and the tech tree, and a test fails if one slips
-back in. `npm run audit` compares every recipe, Pal stat, breeding rank and
-work suitability with the wiki's own page text and reports anything that
-disagrees. The data is only as current as the wiki, so a change in a newer
-patch shows up once the wiki records it; re-run `npm run scrape` then.
+The data covers the game version paldb.cc shows, recorded in `src/data/meta.json`
+and shown in the footer. Items the game doesn't use, or the wiki flags as unused,
+are left out, and a test fails if one slips back in. `npm run audit` lists gaps
+in the data and compares it with both wikis. The wikis lag the game, so differences
+usually mean they are behind.
 See [Credits](#credits) for licensing.
 
-The map's markers come from the wiki's tables and map data (statues, towers,
-Alpha bosses, bounties, predators, oil rigs and merchants). The wiki has no
-spawn data for the World Tree yet, so a Pal's World Tree regions come from the
-wording of its page and show as that region's statue. It also gives World Tree
-coordinates without saying how they line up with its picture. The statues and Alpha bosses span the
-whole landmass, so their bounding box is fitted to it; the scales agree on both
-axes and known places land in the right terrain, but those positions are an
-estimate, and the map says so. A few Alphas have only a region on the wiki; they
-are placed by hand in `scripts/scrape-worldmap.ts` and marked as estimates.
+The map's markers come from paldb.cc's map data, in real game coordinates, which
+places the World Tree exactly. Predator Pals come from the wiki, as do the two map
+pictures.
 
-Breeding follows the rules on the wiki's Breeding page: two of one species give
-that species, a listed pairing (subspecies and other fixed combinations) wins,
-and otherwise the child is the eligible species whose breeding rank is closest
-to ⌊(rank A + rank B + 1) ÷ 2⌋, with ties going to the Pal the wiki lists
-first. Trait odds use the wiki's documented rolls. The wiki's rank table only
-covers about 190 Pals (up to Paldeck #138), so for newer Pals eligibility is
-worked out from the rules (subspecies and own-species-only Pals are excluded);
-that can be wrong for a few of them, so check surprising results in the game.
+Breeding uses the game's own rules: two of one species give that species, a fixed
+recipe wins, and otherwise the child is the eligible species whose breeding rank is
+closest to ⌊(rank A + rank B + 1) ÷ 2⌋, with ties going to the higher rank number.
+This reproduces all but two of the roughly
+13,700 pairs the wiki lists; those two are older recipes the game data no longer has. Trait odds use the
+wiki's documented rolls.
 
 ## Development
 
@@ -152,10 +145,10 @@ npm run build      # type-check, then build to build/
 ## Project layout
 
 ```
-scripts/      the wiki scrapers (scrape.ts, scrape-obtain.ts, scrape-worldmap.ts,
-              scrape-gear.ts, scrape-breeding.ts) and audit.ts
+scripts/      the scrapers (scrape-pals.ts, scrape-worldmap.ts, scrape-gear.ts,
+              scrape-obtain.ts), paldb.ts and wiki.ts, which fetch for them, and audit.ts
 src/
-  data/       scraped JSON (pals, skills, passives, combos); gear/ holds items,
+  data/       scraped JSON (pals, skills, passives, breeding); gear/ holds items,
               buildings, recipes, tech and sources, loaded only by those pages
   Components/ UI building blocks
   Hooks/      URL-backed state, document title
@@ -167,13 +160,18 @@ Colours live in `src/index.css` as `pw-*` design tokens.
 
 ## Credits
 
-- **Data and images**: the [Palworld Wiki](https://palworld.wiki.gg) on wiki.gg
-  and its contributors, licensed under
-  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0). The files in
-  `src/data` are derived from it (reformatted and combined) and so remain under
-  CC BY-SA 4.0. The date of the last scrape is in `src/data/meta.json`.
+- **Game data**: [paldb.cc](https://paldb.cc), a fan-made database of the game's
+  files. It states no licence for reuse, so its data is **not** covered by the
+  CC licence below, and the underlying game data belongs to Pocketpair. Ask its
+  maintainer before reusing it elsewhere.
+- **Images and written notes**: the [Palworld Wiki](https://palworld.wiki.gg) on
+  wiki.gg and the [Palworld Wiki](https://palworld.fandom.com) on Fandom, and their
+  contributors, licensed under
+  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) and CC BY-SA
+  respectively. What comes from them stays under those licences. The date of the
+  last scrape is in `src/data/meta.json`.
 - **Palworld** and its characters, artwork and names belong to Pocketpair, Inc.
-  The Pal icons and art in `public/pals` are theirs, taken from the wiki.
+  The Pal icons and art in `public/pals` are theirs, taken from paldb.cc and the wikis.
 - This is an unofficial fan project, not affiliated with or endorsed by
-  Pocketpair or wiki.gg. If you are a rights holder and want something removed,
+  Pocketpair, paldb.cc, wiki.gg or Fandom. If you are a rights holder and want something removed,
   open an issue.

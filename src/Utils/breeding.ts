@@ -25,22 +25,17 @@ export interface BreedResult {
 const pairKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
 /**
- * Breeding rules, as the wiki describes them:
+ * Breeding rules, as the game has them:
  * 1. Two of the same species give that species.
  * 2. A listed pairing (a subspecies, or any fixed combination) wins over rank.
  * 3. Otherwise the child is the eligible species whose breeding rank is closest
  *    to floor((rankA + rankB + 1) / 2). Ties go to the higher priority, which
- *    is the wiki's lower index number.
+ *    is the game's CombiDuplicatePriority.
  * Katress with Wixen is the one pairing that depends on which parent is the mother.
  */
-export function createBreeder(
-  pals: Pal[],
-  combos: Combo[],
-  rules: BreedingRules
-) {
+export function createBreeder(pals: Pal[], rules: BreedingRules) {
   const byId = new Map(pals.map((p) => [p.id, p]));
   const listed = new Map<string, string>();
-  for (const [x, y, child] of combos) listed.set(pairKey(x, y), child);
   for (const [x, y, child] of rules.special) listed.set(pairKey(x, y), child);
 
   const genderPairs = new Map<string, Combo[]>();
@@ -49,14 +44,7 @@ export function createBreeder(
     genderPairs.set(k, [...(genderPairs.get(k) ?? []), row]);
   }
 
-  // The wiki's rank table stops at around Paldeck #138; for Pals after that,
-  // subspecies and own-species-only Pals are out and everything else is in.
-  const fixedChildren = new Set(
-    [...rules.special, ...rules.byGender].map((r) => r[2])
-  );
-  const sameOnly = new Set(rules.sameOnly);
-  const isEligible = (p: Pal) =>
-    rules.pool[p.id] ?? !(fixedChildren.has(p.id) || sameOnly.has(p.id));
+  const isEligible = (p: Pal) => rules.pool[p.id] ?? false;
   const pool = pals.filter(isEligible);
   const priority = (p: Pal) => p.breeding.priority ?? -Infinity;
 
@@ -128,7 +116,7 @@ export function createBreeder(
 
   const breed = (a: Pal, b: Pal) => resolve(a, b).child;
 
-  /** Every pair of parents that produce this Pal, listed pairings first */
+  /** Every pair of parents that produce this Pal, its own species and listed pairings first */
   function parentsOf(child: Pal): { a: Pal; b: Pal; method: BreedMethod }[] {
     const pairs: { a: Pal; b: Pal; method: BreedMethod }[] = [];
     const seen = new Set<string>();
@@ -139,7 +127,8 @@ export function createBreeder(
         pairs.push({ a, b, method });
       }
     };
-    for (const [x, y, c] of [...combos, ...rules.special]) {
+    add(child, child, 'same'); // every Pal can be bred from two of its own species
+    for (const [x, y, c] of rules.special) {
       const a = byId.get(x),
         b = byId.get(y);
       if (c === child.id && a && b)
@@ -153,12 +142,10 @@ export function createBreeder(
     if (!isEligible(child)) return pairs; // never the result of a rank lookup
     // A rank lookup only reaches this child from a narrow band of parent averages
     for (let i = 0; i < pals.length; i++) {
-      for (let j = i; j < pals.length; j++) {
-        if (i !== j || pals[i].id === pals[j].id) {
-          const r = explain(pals[i], pals[j]);
-          if (r.child.id === child.id && r.method === 'rank')
-            add(pals[i], pals[j], 'rank');
-        }
+      for (let j = i + 1; j < pals.length; j++) {
+        const r = resolve(pals[i], pals[j]);
+        if (r.child.id === child.id && r.method === 'rank')
+          add(pals[i], pals[j], 'rank');
       }
     }
     return pairs;

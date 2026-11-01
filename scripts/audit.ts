@@ -1,181 +1,211 @@
-// Cross-checks the scraped data against the wiki's own page text, which is an
-// independent source from the Cargo tables the scrapers read, and against the
-// wiki's list of unused content. Prints what disagrees; nothing is changed.
-// Run with `npm run audit` after the scrapers.
-import { cargo, readJson, wikitext } from './wiki.ts';
-import type { Building, Item, Pal, Recipe, WorkType } from '../src/types.ts';
+// Checks the scraped data for gaps, and against sources it wasn't built from: the
+// wiki on wiki.gg and the one on Fandom. They lag the game, so a difference usually
+// means they are out of date, but it is the way to spot a scraper going wrong.
+// Prints what it finds; nothing is changed. Run with `npm run audit` after the scrapers.
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import { gameVersion } from './paldb.ts';
+import { latestVersion, readJson, root, sleep, wikitext } from './wiki.ts';
+import { createBreeder } from '../src/Utils/breeding.ts';
+import type {
+  Building,
+  BreedingRules,
+  Item,
+  ItemSources,
+  Obtain,
+  Pal,
+  Recipe,
+  Tech,
+  WorkType,
+} from '../src/types.ts';
 
 const pals = await readJson<Pal[]>('src/data/pals.json');
+const rules = await readJson<BreedingRules>('src/data/breeding.json');
 const items = await readJson<Item[]>('src/data/gear/items.json');
 const buildings = await readJson<Building[]>('src/data/gear/buildings.json');
 const recipes = await readJson<Recipe[]>('src/data/gear/recipes.json');
-const meta = await readJson<{ scrapedAt: string }>('src/data/meta.json');
+const techs = await readJson<Tech[]>('src/data/gear/tech.json');
+const sources = await readJson<Record<string, ItemSources>>(
+  'src/data/gear/sources.json'
+);
+const obtain = await readJson<Record<string, Obtain>>('src/data/obtain.json');
+const meta = await readJson<{ scrapedAt: string; gameVersion: string }>(
+  'src/data/meta.json'
+);
 
 const section = (title: string) => console.log(`\n== ${title}`);
 const show = (list: string[], n = 8) =>
   list.slice(0, n).forEach((x) => console.log('  ', x));
-const entities = (s: string) => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+const gap = (label: string, names: string[]) => {
+  console.log(`${label}: ${names.length}`);
+  if (names.length) console.log('  ', names.slice(0, 10).join(', '));
+};
+const file = (...parts: string[]) =>
+  existsSync(path.join(root, 'public', ...parts));
 
-// ---- 1. Versions: the newest the wiki knows about, and how stale our scrape is
-section('Game version');
-const versions = await cargo('GameVersions', ['title', 'release_date']);
-versions.sort((a, b) =>
-  (b['release date'] ?? '').localeCompare(a['release date'] ?? '')
-);
-console.log(
-  `Latest version on the wiki: ${versions[0]?.title} (${versions[0]?.['release date']})`
-);
-console.log(`Our data was scraped on ${meta.scrapedAt}`);
+section('Version');
+const paldb = await gameVersion();
+const wiki = await latestVersion();
+console.log(`Our data: ${meta.gameVersion}, scraped ${meta.scrapedAt}`);
+console.log(`paldb.cc: ${paldb.version} (${paldb.date})`);
+console.log(`wiki.gg:  ${wiki.version} (${wiki.date})`);
 
-// ---- 2. Content the wiki marks as unused
-section('Unused content');
-const unused = new Set(
-  (await cargo('ContentFlag', ['itemName', 'flag'], 'flag="Unused"')).map((r) =>
-    entities(r.itemName)
+section('Gaps in the Pals');
+const names = (list: Pal[]) => list.map((p) => p.name);
+gap('No elements', names(pals.filter((p) => !p.elements.length)));
+gap('No description', names(pals.filter((p) => !p.description)));
+gap('No Alpha stats', names(pals.filter((p) => !p.alphaStats)));
+gap(
+  'No full art',
+  names(pals.filter((p) => !file('pals', `${p.id}-art.webp`)))
+);
+gap('No icon', names(pals.filter((p) => !file('pals', `${p.id}.png`))));
+gap('No active skills', names(pals.filter((p) => !p.activeSkills.length)));
+gap('No breeding rank', names(pals.filter((p) => !p.breeding.rank)));
+gap(
+  'No wild spawns, boss or dungeon',
+  names(
+    pals.filter((p) => {
+      const e = obtain[p.id];
+      return (
+        !e?.spawns &&
+        !e?.treeSpawns &&
+        !e?.bosses?.length &&
+        !e?.dungeons?.length &&
+        !e?.raid
+      );
+    })
   )
 );
-const inData = [
-  ...items.filter((i) => unused.has(i.name)).map((i) => `item: ${i.name}`),
-  ...buildings
-    .filter((b) => unused.has(b.name))
-    .map((b) => `building: ${b.name}`),
-  ...pals.filter((p) => unused.has(p.name)).map((p) => `pal: ${p.name}`),
-  ...recipes
-    .filter((r) => unused.has(r.product))
-    .map((r) => `recipe for ${r.product}`),
-];
-console.log(
-  `${unused.size} names flagged unused; ${inData.length} still in our data`
-);
-show(inData);
 
-// ---- 3. Recipes: Cargo vs the {{Crafting Recipe}} blocks on the item pages
-section('Recipes against item pages');
-const pageNames = [
-  ...new Set(recipes.filter((r) => r.kind === 'item').map((r) => r.product)),
-];
-const pages = await wikitext(pageNames);
-const sig = (list: Recipe['ingredients']) =>
-  list
-    .map((i) => `${i.name.toLowerCase()}*${i.qty}`)
-    .sort()
-    .join('; ');
-// every way to make a thing at a bench, as a set of ingredient lists
-const ours = new Map<string, Set<string>>();
-for (const r of recipes) {
-  if (r.kind !== 'item') continue;
-  const key = `${r.product}|${r.station ?? ''}|${r.quality ?? ''}`;
-  const set = ours.get(key) ?? new Set<string>();
-  set.add(sig(r.ingredients));
-  ours.set(key, set);
-}
-const wiki = new Map();
-for (const [title, text] of pages) {
-  for (const m of text.matchAll(/\{\{Crafting Recipe([\s\S]*?)\n\}\}/g)) {
-    const field = (k: string) =>
-      m[1]?.match(new RegExp(`\\|\\s*${k}\\s*=\\s*(.*)`))?.[1]?.trim() ?? '';
-    const product = entities(field('product') || title);
-    const quality = field('quality');
-    const ingredients = field('ingredients')
-      .split(';')
-      .map((x) => x.trim())
-      .filter(Boolean)
-      .map((x) => {
-        const [name, qty] = x.split('*');
-        return { name: entities(name.trim()), qty: Number(qty ?? 1) };
-      });
-    if (product.includes('{{')) continue; // a template placeholder, not an item
-    // pages that spread the parameters over several lines can't be read by line; skip them
-    if (!ingredients.length || /[=|]/.test(field('workbench'))) continue;
-    // a page may list several benches that all make it the same way
-    for (const station of field('workbench')
-      .split(';')
-      .map((x) => entities(x.trim()))) {
-      const key = `${product}|${station}|${quality && quality !== 'Common' ? quality : ''}`;
-      if (!wiki.has(key)) wiki.set(key, new Set());
-      wiki.get(key).add(sig(ingredients));
-    }
-  }
-}
-let compared = 0;
+section('Gaps in items and buildings');
+const known = new Set(items.map((i) => i.name));
+const made = new Set(recipes.map((r) => r.product));
+gap(
+  'Items with no icon',
+  items
+    .filter((i) => i.type !== 'Schematic' && !file('items', `${i.id}.webp`))
+    .map((i) => i.name)
+);
+gap(
+  'Buildings with no icon',
+  buildings.filter((b) => !file('buildings', `${b.id}.webp`)).map((b) => b.name)
+);
+gap(
+  'Items with no way to get them',
+  items
+    .filter(
+      (i) => i.type !== 'Schematic' && !made.has(i.name) && !sources[i.name]
+    )
+    .map((i) => i.name)
+);
+gap(
+  'Ingredients that are not items',
+  [...new Set(recipes.flatMap((r) => r.ingredients.map((i) => i.name)))].filter(
+    (n) => !known.has(n)
+  )
+);
+gap(
+  'Technologies that unlock nothing listed',
+  techs.filter((t) => !t.unlocks?.length).map((t) => t.name)
+);
+
+section('Breeding against the wiki’s listed pairs');
+const breeder = createBreeder(pals, rules);
+const texts = await wikitext(pals.map((p) => p.name));
+const byName = new Map(pals.map((p) => [p.name, p]));
+let agree = 0;
 const differ: string[] = [];
-const pageOnly: string[] = [];
-for (const [key, sigs] of wiki) {
-  const mine = ours.get(key);
-  if (!mine) {
-    pageOnly.push(`${key}: ${[...sigs].join(' | ')}`);
-    continue;
+for (const [name, text] of texts) {
+  const block = text.match(/\|uniqueCombos\s*=([\s\S]*?)\n\}\}/)?.[1] ?? '';
+  for (const m of block.matchAll(
+    /([^+=;\n]+?)\s*\+\s*([^+=;\n]+?)\s*=\s*([^;\n]+)/g
+  )) {
+    const a = byName.get(m[1]?.trim() ?? '');
+    const b = byName.get(m[2]?.trim() ?? '');
+    if (!a || !b || a === b) continue;
+    const ours = breeder.breed(a, b).name;
+    // a page can name its own Pal with a template
+    const theirs = (m[3]?.trim() ?? name).replace('{{PAGENAME}}', name);
+    if (ours === theirs) agree++;
+    else differ.push(`${a.name} + ${b.name}: wiki ${theirs}, ours ${ours}`);
   }
-  compared++;
-  const missing = [...sigs].filter((x) => !mine.has(x));
-  if (missing.length)
-    differ.push(
-      `${key}\n      page: ${missing.join(' | ')}\n      ours: ${[...mine].join(' | ')}`
-    );
 }
-const ourOnly = [...ours.keys()].filter(
-  (k) => !wiki.has(k) && pages.has(k.split('|')[0])
-);
-console.log(
-  `${compared} recipe variants compared: ${differ.length} differ; ${pageOnly.length} on pages but not in our data; ${ourOnly.length} in our data but not on the item's page`
-);
-show(differ, 6);
-show(pageOnly, 6);
+console.log(`${agree} agree, ${differ.length} differ`);
+show(differ);
 
-// ---- 4. Pals: stats and work suitability against the Pal pages
-section('Pals against their pages');
-const palPages = await wikitext(pals.map((p) => p.name));
-const mismatches: string[] = [];
-const statMap = {
-  hp: 'hp',
-  attack: 'attack',
-  defense: 'defense',
-  workSpeed: 'work_speed',
-};
-for (const p of pals) {
-  const text = palPages.get(p.name);
-  if (!text) {
-    mismatches.push(`${p.name}: no page`);
-    continue;
-  }
-  const num = (k: string) => {
-    const v = text.match(new RegExp(`\\|\\s*${k}\\s*=\\s*([\\d.]+)`))?.[1];
-    return v === undefined ? undefined : Number(v);
+section('Pals against Fandom');
+const fandom = new Map<string, string>();
+for (let i = 0; i < pals.length; i += 40) {
+  const params = new URLSearchParams({
+    format: 'json',
+    formatversion: '2',
+    action: 'query',
+    redirects: '1',
+    prop: 'revisions',
+    rvprop: 'content',
+    rvslots: 'main',
+    titles: pals
+      .slice(i, i + 40)
+      .map((p) => p.name)
+      .join('|'),
+  });
+  const res = await fetch(`https://palworld.fandom.com/api.php?${params}`, {
+    headers: { 'User-Agent': 'paldex-audit/1.0' },
+  });
+  const json = (await res.json()) as {
+    query: {
+      pages: {
+        title: string;
+        revisions?: { slots: { main: { content: string } } }[];
+      }[];
+    };
   };
-  for (const [ours_, key] of Object.entries(statMap) as [
-    keyof typeof statMap,
-    string,
-  ][]) {
-    const wiki = num(key);
-    const mine = p.stats?.[ours_];
-    if (wiki !== undefined && mine !== wiki)
-      mismatches.push(`${p.name} ${ours_}: ours ${mine}, page ${wiki}`);
-  }
-  const rank = num('breeding_rank');
-  if (rank !== undefined && p.breeding?.rank !== rank)
-    mismatches.push(
-      `${p.name} breeding rank: ours ${p.breeding?.rank}, page ${rank}`
-    );
-  const work = text.match(/\|\s*work_suitability\s*=\s*(.*)/)?.[1] ?? '';
-  if (!work || /[<|]/.test(work)) continue; // blank or placeholder on the page
-  const wikiWork: Record<string, number> = Object.fromEntries(
-    work
-      .split(';')
-      .map((x) => x.trim())
-      .filter(Boolean)
-      .map((x) => x.split('@'))
-      .map(([n = '', l]) => [n.trim(), Number(l)])
-  );
-  for (const [n, l] of Object.entries(wikiWork))
-    if (p.work[n as WorkType] !== l)
-      mismatches.push(
-        `${p.name} work ${n}: ours ${p.work[n as WorkType]}, page ${l}`
-      );
-  for (const n of Object.keys(p.work) as WorkType[])
-    if (!(n in wikiWork) && work)
-      mismatches.push(`${p.name} work ${n}: ours ${p.work[n]}, not on page`);
+  for (const p of json.query.pages)
+    fandom.set(p.title, p.revisions?.[0]?.slots.main.content ?? '');
+  await sleep(200);
 }
-console.log(`${pals.length} Pals checked: ${mismatches.length} differences`);
-show(mismatches, 12);
+const field = (t: string, k: string) =>
+  t.match(new RegExp(`\\|\\s*${k}\\s*=\\s*([^|\\n}]*)`))?.[1]?.trim();
+const WORK: [WorkType, string][] = [
+  ['Kindling', 'kindling'],
+  ['Watering', 'watering'],
+  ['Planting', 'planting'],
+  ['Generating Electricity', 'gen_electric'],
+  ['Handiwork', 'handiwork'],
+  ['Gathering', 'gathering'],
+  ['Lumbering', 'lumbering'],
+  ['Mining', 'mining'],
+  ['Medicine Production', 'med_prod'],
+  ['Cooling', 'cooling'],
+  ['Transporting', 'transporting'],
+  ['Farming', 'farming'],
+];
+const off: string[] = [];
+let checked = 0;
+for (const p of pals) {
+  const t = fandom.get(p.name);
+  if (!t) continue;
+  checked++;
+  const same = (
+    label: string,
+    key: string,
+    ours: number | null | undefined
+  ) => {
+    const theirs = field(t, key);
+    if (theirs && Number(theirs) !== ours)
+      off.push(`${p.name} ${label}: ours ${ours}, Fandom ${theirs}`);
+  };
+  same('breeding rank', 'breedpower', p.breeding.rank);
+  same('food', 'food', p.hunger);
+  same('HP', 'hp', p.stats.hp);
+  same('attack', 'attack', p.stats.attack);
+  same('defense', 'defense', p.stats.defense);
+  same('walk', 'walkspeed', p.stats.walk);
+  same('run', 'runspeed', p.stats.run);
+  for (const [work, key] of WORK) same(work, key, p.work[work] ?? 0);
+}
+console.log(`${checked} Pals checked: ${off.length} differences`);
+show(off, 20);
 
 console.log('\nDone.');

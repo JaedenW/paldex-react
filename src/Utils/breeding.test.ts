@@ -24,7 +24,14 @@ const noct = pal('noct', 610),
 const pals = [a, b, mid, far, legend, sub, solo, mother, father, noct, ignis];
 
 const rules: BreedingRules = {
-  pool: { legend: false },
+  pool: {
+    a: true,
+    b: true,
+    mid: true,
+    far: true,
+    mother: true,
+    father: true,
+  },
   sameOnly: ['solo'],
   special: [['a', 'far', 'sub']],
   byGender: [
@@ -32,12 +39,10 @@ const rules: BreedingRules = {
     ['father', 'mother', 'ignis'],
   ],
 };
-const combos: [string, string, string][] = [['b', 'far', 'mid']];
-const { breed, explain, parentsOf, isEligible } = createBreeder(
-  pals,
-  combos,
-  rules
-);
+const { breed, explain, parentsOf, isEligible } = createBreeder(pals, {
+  ...rules,
+  special: [...rules.special, ['b', 'far', 'mid']],
+});
 
 describe('breed', () => {
   it('picks the eligible Pal nearest the average rank', () => {
@@ -68,8 +73,8 @@ describe('breed', () => {
   it('breaks rank ties with the higher priority', () => {
     const x = pal('x', 150, 2),
       y = pal('y', 150, 9);
-    const { breed: tie } = createBreeder([a, b, x, y], [], {
-      pool: {},
+    const { breed: tie } = createBreeder([a, b, x, y], {
+      pool: { a: true, b: true, x: true, y: true },
       sameOnly: [],
       special: [],
       byGender: [],
@@ -79,15 +84,18 @@ describe('breed', () => {
 });
 
 describe('eligibility', () => {
-  it('follows the wiki table where it has an entry, and the rule where it does not', () => {
-    expect(isEligible(legend)).toBe(false); // the table says no
+  it('follows the pool in the rules', () => {
+    expect(isEligible(legend)).toBe(false); // not in the pool
     expect(isEligible(sub)).toBe(false); // a fixed-pair child
     expect(isEligible(solo)).toBe(false); // own species only
     expect(isEligible(a)).toBe(true);
   });
 
-  it('lets the table override the rule', () => {
-    const r = createBreeder(pals, [], { ...rules, pool: { sub: true } });
+  it('takes the rules at their word', () => {
+    const r = createBreeder(pals, {
+      ...rules,
+      pool: { ...rules.pool, sub: true },
+    });
     expect(r.isEligible(sub)).toBe(true);
   });
 });
@@ -130,15 +138,11 @@ describe('parentsOf', () => {
   });
 
   it('finds nothing by rank for an ineligible Pal', () => {
-    expect(parentsOf(legend)).toEqual([]);
+    expect(parentsOf(legend).map((p) => p.method)).toEqual(['same']);
   });
 
   it('includes a species bred from itself when that is how it is made', () => {
-    const { parentsOf: pf } = createBreeder(
-      pals,
-      [['solo', 'solo', 'solo']],
-      rules
-    );
+    const { parentsOf: pf } = createBreeder(pals, rules);
     expect(pf(solo).map((p) => p.method)).toContain('same');
   });
 });

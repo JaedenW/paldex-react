@@ -13,7 +13,11 @@ export interface Hotspot {
  * Pal with thousands of points reduces to a few places worth going to. Each
  * hotspot sits at the average position of its points.
  */
-export function hotspots(spawns: Spawns, cell = 100, limit = 6): Hotspot[] {
+export function hotspots(
+  spawns: Pick<Spawns, 'day' | 'night'>,
+  cell = 100,
+  limit = 6
+): Hotspot[] {
   const cells = new Map<
     string,
     { sx: number; sy: number; count: number; day: number; night: number }

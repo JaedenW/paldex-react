@@ -24,7 +24,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 2738
+    "spawns": 700,
+    "levels": [1, 3]
   },
   "cattiva": {
     "prose": [
@@ -51,7 +52,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 2594
+    "spawns": 744,
+    "levels": [1, 57]
   },
   "chikipi": {
     "prose": [
@@ -77,7 +79,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1294
+    "spawns": 556,
+    "levels": [1, 28]
   },
   "lifmunk": {
     "prose": [
@@ -103,7 +106,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1740
+    "spawns": 426,
+    "levels": [1, 18]
   },
   "fuack": {
     "prose": [
@@ -124,7 +128,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 2116
+    "spawns": 1046,
+    "levels": [10, 31]
   },
   "fuack-ignis": {
     "prose": [
@@ -133,7 +138,8 @@
       "Fuack Ignis also has an 8.72% to be fished out of a Large Fishing Pond."
     ],
     "eggTemperature": "Cool",
-    "spawns": 98
+    "spawns": 318,
+    "levels": [32, 32]
   },
   "vixy": {
     "prose": [
@@ -154,7 +160,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 178
+    "spawns": 138,
+    "levels": [1, 40]
   },
   "celaray": {
     "prose": [
@@ -184,7 +191,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1244
+    "spawns": 1582,
+    "levels": [2, 10]
   },
   "celaray-lux": {
     "prose": [
@@ -195,7 +203,8 @@
     ],
     "regions": ["Desiccated Dunes"],
     "eggTemperature": "Cool",
-    "spawns": 220
+    "spawns": 680,
+    "levels": [26, 26]
   },
   "cremis": {
     "prose": [
@@ -220,7 +229,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1794
+    "spawns": 402,
+    "levels": [1, 14]
   },
   "croajiro": {
     "prose": [
@@ -244,7 +254,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 2088
+    "spawns": 1238,
+    "levels": [4, 62]
   },
   "croajiro-noct": {
     "prose": [
@@ -255,7 +266,8 @@
     ],
     "regions": ["Feybreak Island", "Scorched Hill"],
     "eggTemperature": "Cool",
-    "spawns": 230
+    "spawns": 1488,
+    "levels": [61, 61]
   },
   "herbil": {
     "prose": [
@@ -274,7 +286,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 40
+    "spawns": 418,
+    "levels": [1, 40]
   },
   "teafant": {
     "prose": [
@@ -300,7 +313,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1496
+    "spawns": 340,
+    "levels": [2, 16]
   },
   "gumoss": {
     "prose": [
@@ -318,9 +332,9 @@
         "variant": "Alpha",
         "location": "Sea Breeze Archipelago",
         "level": 11,
-        "map": "world",
         "x": -113,
         "y": -628,
+        "map": "world",
         "markerId": "alpha/gumoss/-113,-628"
       }
     ],
@@ -335,7 +349,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1616
+    "spawns": 230,
+    "levels": [2, 14]
   },
   "pupperai": {
     "prose": [
@@ -344,7 +359,9 @@
       "If Pupperai notices the player, it will try to run away, but will attack if attempted to be caught or attacked."
     ],
     "regions": ["Windswept Hills"],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 46,
+    "levels": [2, 2]
   },
   "clovee": {
     "prose": [
@@ -364,7 +381,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 120,
+    "levels": [3, 3]
   },
   "jolthog": {
     "prose": [
@@ -384,7 +403,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 190
+    "spawns": 50,
+    "levels": [4, 41]
   },
   "jolthog-cryst": {
     "prose": [
@@ -394,7 +414,9 @@
       "A Jolthog Cryst owned by a Pal Tamer can also appear as an incident."
     ],
     "regions": ["Bamboo Groves"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 140,
+    "levels": [10, 20]
   },
   "depresso": {
     "prose": [
@@ -424,7 +446,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1825
+    "spawns": 418,
+    "levels": [4, 64]
   },
   "pengullet": {
     "prose": [
@@ -459,7 +482,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1540
+    "spawns": 2110,
+    "levels": [2, 35]
   },
   "pengullet-lux": {
     "prose": [
@@ -469,7 +493,7 @@
       "Pengullet Lux can also be found caged in Rayne Syndicate camps in the Flamepulse Islet and near the No. 3 Wildlife Sanctuary."
     ],
     "eggTemperature": "Cool",
-    "spawns": 364
+    "spawns": 649
   },
   "penking": {
     "prose": [
@@ -485,25 +509,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sealed Realm of the Frozen Wings",
-        "level": 15,
-        "map": "world",
-        "x": 113,
-        "y": -353,
-        "markerId": "alpha/penking/113,-353"
-      },
-      {
-        "variant": "Alpha",
         "location": "Autumn Rocks",
         "level": 15,
-        "x": 121,
-        "y": -333,
+        "x": 114,
+        "y": -352,
         "map": "world",
-        "markerId": "alpha/penking/121,-333"
+        "markerId": "alpha/penking/114,-352",
+        "note": "Found in a dungeon"
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 212
+    "spawns": 588,
+    "levels": [20, 39]
   },
   "penking-lux": {
     "prose": [
@@ -511,7 +528,7 @@
       "Penking Lux can be fished up around Glacial Memento Islet, No. 3 Wildlife Sanctuary and Sakurajima."
     ],
     "eggTemperature": "Cool",
-    "spawns": 270
+    "spawns": 734
   },
   "hoocrates": {
     "prose": [
@@ -535,7 +552,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1364
+    "spawns": 268,
+    "levels": [4, 40]
   },
   "melpaca": {
     "prose": [
@@ -560,7 +578,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1726
+    "spawns": 540,
+    "levels": [5, 14]
   },
   "kingpaca": {
     "prose": [
@@ -571,16 +590,17 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Windswept Hills",
+        "location": "Golden Hills",
         "level": 23,
-        "map": "world",
         "x": 50,
         "y": -460,
+        "map": "world",
         "markerId": "alpha/kingpaca/50,-460"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 22
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "kingpaca-cryst": {
     "prose": [
@@ -590,12 +610,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Astral Mountains",
+        "location": "No. 1 Wildlife Sanctuary",
         "level": 46,
-        "map": "world",
         "x": -385,
-        "y": 355,
-        "markerId": "alpha/kingpaca-cryst/-385,355"
+        "y": 356,
+        "map": "world",
+        "markerId": "alpha/kingpaca-cryst/-385,356"
       }
     ],
     "eggTemperature": "Cool"
@@ -625,7 +645,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 816
+    "spawns": 163,
+    "levels": [4, 12]
   },
   "tanzee": {
     "prose": [
@@ -652,14 +673,17 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1284
+    "spawns": 146,
+    "levels": [4, 14]
   },
   "tanzee-ignis": {
     "prose": [
       "Tanzee Ignis flees upon seeing the player but fights back when provoked. It can be found in the Autumn Rocks alongside regular Tanzees."
     ],
     "regions": ["Autumn Rocks"],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 54,
+    "levels": [10, 10]
   },
   "nox": {
     "prose": [
@@ -676,7 +700,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1478
+    "spawns": 154,
+    "levels": [4, 48]
   },
   "flambelle": {
     "prose": [
@@ -700,7 +725,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 396
+    "spawns": 466,
+    "levels": [4, 32]
   },
   "rooby": {
     "prose": [
@@ -726,7 +752,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1292
+    "spawns": 270,
+    "levels": [4, 16]
   },
   "mau": {
     "prose": [
@@ -747,7 +774,9 @@
         "note": "As a regular encounter inside the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 6,
+    "levels": [25, 64]
   },
   "mau-cryst": {
     "prose": [
@@ -763,7 +792,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 600
+    "spawns": 8,
+    "levels": [41, 41]
   },
   "rushoar": {
     "prose": [
@@ -788,7 +818,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 2404
+    "spawns": 294,
+    "levels": [5, 10]
   },
   "foxparks": {
     "prose": [
@@ -808,7 +839,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1232
+    "spawns": 186,
+    "levels": [5, 5]
   },
   "foxparks-cryst": {
     "prose": [
@@ -822,12 +854,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sealed Realm of the Frost Flower",
+        "location": "Isle of Silence Church Ruins",
         "level": 15,
-        "map": "world",
         "x": -411,
-        "y": -54,
-        "markerId": "alpha/foxparks-cryst/-411,-54"
+        "y": -55,
+        "map": "world",
+        "markerId": "alpha/foxparks-cryst/-411,-55",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -837,7 +870,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 642
+    "spawns": 88,
+    "levels": [30, 50]
   },
   "killamari": {
     "prose": [
@@ -862,7 +896,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 80
+    "spawns": 547,
+    "levels": [34, 60]
   },
   "killamari-primo": {
     "prose": [
@@ -879,7 +914,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 280
+    "spawns": 706,
+    "levels": [24, 24]
   },
   "fuddler": {
     "prose": [
@@ -908,7 +944,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 666
+    "spawns": 684,
+    "levels": [16, 64]
   },
   "eikthyrdeer": {
     "prose": [
@@ -933,7 +970,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 2492
+    "spawns": 452,
+    "treeSpawns": 42,
+    "levels": [9, 80]
   },
   "eikthyrdeer-terra": {
     "prose": [
@@ -942,7 +981,9 @@
     ],
     "regions": ["No. 1 Wildlife Sanctuary"],
     "eggTemperature": "Hot",
-    "spawns": 22
+    "spawns": 24,
+    "treeSpawns": 42,
+    "levels": [20, 80]
   },
   "direhowl": {
     "prose": [
@@ -965,7 +1006,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Isle of Murmurs",
         "level": null,
         "x": -325,
         "y": -33,
@@ -984,7 +1025,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 2770
+    "spawns": 918,
+    "levels": [10, 44]
   },
   "caprity": {
     "prose": [
@@ -1011,7 +1053,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1462
+    "spawns": 786,
+    "levels": [14, 23]
   },
   "caprity-noct": {
     "prose": [
@@ -1029,12 +1072,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sealed Realm of the Luxurious Thicket",
+        "location": "Sea Breeze Archipelago",
         "level": 23,
-        "map": "world",
         "x": -147,
-        "y": -660,
-        "markerId": "alpha/caprity-noct/-147,-660"
+        "y": -659,
+        "map": "world",
+        "markerId": "alpha/caprity-noct/-147,-659",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -1044,7 +1088,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 666
+    "spawns": 104,
+    "levels": [50, 56]
   },
   "swee": {
     "prose": [
@@ -1061,7 +1106,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 254
+    "spawns": 200,
+    "levels": [7, 30]
   },
   "sweepa": {
     "prose": [
@@ -1079,10 +1125,10 @@
         "variant": "Alpha",
         "location": "Sea Breeze Archipelago",
         "level": 11,
+        "x": -227,
+        "y": -593,
         "map": "world",
-        "x": -228,
-        "y": -592,
-        "markerId": "alpha/sweepa/-228,-592"
+        "markerId": "alpha/sweepa/-227,-593"
       }
     ],
     "dungeons": [
@@ -1092,7 +1138,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 252
+    "spawns": 198,
+    "levels": [25, 37]
   },
   "turtacle": {
     "prose": [
@@ -1117,7 +1164,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1584
+    "spawns": 2656,
+    "levels": [10, 36]
   },
   "turtacle-terra": {
     "prose": [
@@ -1128,7 +1176,8 @@
     ],
     "regions": ["Mount Obsidian"],
     "eggTemperature": "Cool",
-    "spawns": 738
+    "spawns": 1578,
+    "levels": [40, 46]
   },
   "hangyu": {
     "prose": [
@@ -1154,7 +1203,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 666
+    "spawns": 288,
+    "levels": [9, 18]
   },
   "hangyu-cryst": {
     "prose": [
@@ -1169,7 +1219,8 @@
       "Foot of the Astral Mountains"
     ],
     "eggTemperature": "Cool",
-    "spawns": 300
+    "spawns": 335,
+    "levels": [32, 37]
   },
   "woolipop": {
     "prose": [
@@ -1184,14 +1235,17 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 136
+    "spawns": 176,
+    "levels": [9, 9]
   },
   "woolipop-terra": {
     "prose": [
       "Woolipop Terra flees upon spotting a player. It fights back when attacked.",
       "It can be found exclusively in the Suncrest Islet."
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 52,
+    "levels": [55, 55]
   },
   "mozzarina": {
     "prose": [
@@ -1207,7 +1261,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 136
+    "spawns": 230,
+    "levels": [9, 21]
   },
   "azurobe": {
     "prose": [
@@ -1219,23 +1274,27 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Whisperwind Cliffs",
+        "location": "Bamboo Groves",
         "level": 40,
-        "map": "world",
         "x": -176,
         "y": -266,
+        "map": "world",
         "markerId": "alpha/azurobe/-176,-266"
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 234
+    "spawns": 382,
+    "treeSpawns": 42,
+    "levels": [35, 80]
   },
   "azurobe-cryst": {
     "prose": [
       "Azurobe Cryst can be fished up in the Astral Mountains, around the Frozen Coral Hill on Feybreak, and on the Isle of the Glacial Core."
     ],
     "eggTemperature": "Cool",
-    "spawns": 280
+    "spawns": 852,
+    "treeSpawns": 42,
+    "levels": [50, 80]
   },
   "sparkit": {
     "prose": [
@@ -1245,7 +1304,8 @@
     ],
     "regions": ["Golden Hills"],
     "eggTemperature": "Warm",
-    "spawns": 392
+    "spawns": 94,
+    "levels": [10, 32]
   },
   "kelpsea": {
     "prose": [
@@ -1269,7 +1329,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1436
+    "spawns": 2474,
+    "levels": [9, 10]
   },
   "kelpsea-ignis": {
     "prose": [
@@ -1286,7 +1347,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1214
+    "spawns": 1708,
+    "levels": [20, 20]
   },
   "ribbuny": {
     "prose": [
@@ -1310,7 +1372,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1230
+    "spawns": 798,
+    "levels": [1, 62]
   },
   "ribbuny-botan": {
     "prose": [
@@ -1320,17 +1383,6 @@
       "Ribbuny Botan can also be found caged within Feybreak Warriors camps around Feybreak."
     ],
     "regions": ["Bamboo Groves", "Feybreak Island", "Moonless Shore"],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 53,
-        "map": "world",
-        "x": -1211,
-        "y": -1353,
-        "markerId": "alpha/ribbuny-botan/-1211,-1353"
-      }
-    ],
     "dungeons": [
       {
         "name": "Feybreak Cavern",
@@ -1338,7 +1390,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 310
+    "spawns": 348,
+    "levels": [18, 50]
   },
   "jelliette": {
     "prose": [
@@ -1363,7 +1416,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 431
+    "spawns": 907,
+    "levels": [10, 56]
   },
   "jellroy": {
     "prose": [
@@ -1389,7 +1443,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 452
+    "spawns": 1203,
+    "levels": [30, 60]
   },
   "amione": {
     "prose": [
@@ -1398,7 +1453,9 @@
       "A group of Amione can also show up as a raiding party to the player's base in Sunreach, occasionally accompanied by Skutlass, Solmora, or Solmora Lux."
     ],
     "regions": ["Bamboo Groves", "Sunreach", "Windswept Hills"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 132,
+    "levels": [9, 64]
   },
   "gloopie": {
     "prose": [
@@ -1421,7 +1478,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 275
+    "spawns": 1158,
+    "levels": [10, 60]
   },
   "gloopie-primo": {
     "prose": [
@@ -1431,11 +1489,10 @@
       "Gloopie Primo is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Gloopie Primo can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
     ],
     "regions": ["Sunreach"],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 188,
+    "treeSpawns": 472,
+    "levels": [65, 65]
   },
   "galeclaw": {
     "prose": [
@@ -1457,17 +1514,18 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 940
+    "spawns": 840,
+    "levels": [11, 38]
   },
   "wispaw": {
     "prose": [
       "Wispaw can be found in the eastern Golden Hills, the Autumn Rocks, or the Marsh Island at night. Wispaw can also be found in the Whimsical Wisteria Grove in the World Tree at all times."
     ],
     "regions": ["Golden Hills", "Marsh Island", "Windswept Hills"],
-    "tree": {
-      "places": ["statue/whimsical-wisteria-grove/60,781"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 159,
+    "treeSpawns": 44,
+    "levels": [11, 71]
   },
   "nitewing": {
     "prose": [
@@ -1486,11 +1544,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Ice Wind Island",
+        "location": "Deep Bamboo Thicket",
         "level": 18,
-        "map": "world",
         "x": -276,
         "y": -70,
+        "map": "world",
         "markerId": "alpha/nitewing/-276,-70"
       }
     ],
@@ -1501,7 +1559,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 3492
+    "spawns": 456,
+    "levels": [12, 45]
   },
   "tombat": {
     "prose": [
@@ -1533,7 +1592,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1430
+    "spawns": 161,
+    "levels": [12, 55]
   },
   "tocotoco": {
     "prose": [
@@ -1561,7 +1621,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1314
+    "spawns": 1842,
+    "levels": [20, 55]
   },
   "univolt": {
     "prose": [
@@ -1577,12 +1638,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sea Breeze Archipelago",
+        "location": "Sea Breeze Archipelago Church",
         "level": 31,
+        "x": -117,
+        "y": -543,
         "map": "world",
-        "x": 172,
-        "y": -418,
-        "markerId": "alpha/univolt/172,-418"
+        "markerId": "alpha/univolt/-117,-543"
       }
     ],
     "dungeons": [
@@ -1592,7 +1653,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 238
+    "spawns": 108,
+    "treeSpawns": 42,
+    "levels": [20, 80]
   },
   "univolt-cryst": {
     "prose": [
@@ -1600,10 +1663,9 @@
       "It is found at the Boreal Summit in the World Tree.",
       "There is no Alpha Univolt Cryst as an overworld boss."
     ],
-    "tree": {
-      "places": ["statue/boreal-summit/-25,840"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 138,
+    "levels": [75, 75]
   },
   "gobfin": {
     "prose": [
@@ -1625,7 +1687,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 56
+    "spawns": 134,
+    "levels": [14, 55]
   },
   "gobfin-ignis": {
     "prose": [
@@ -1643,7 +1706,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 152
+    "spawns": 150,
+    "levels": [34, 55]
   },
   "loupmoon": {
     "prose": [
@@ -1664,7 +1728,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 944
+    "spawns": 1112,
+    "levels": [14, 47]
   },
   "loupmoon-cryst": {
     "prose": [
@@ -1685,16 +1750,16 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Frozen Coral Hill",
+        "location": "The Oculus Gate, Tower in Sight",
         "level": 66,
-        "map": "world",
         "x": -1147,
         "y": -1414,
+        "map": "world",
         "markerId": "alpha/loupmoon-cryst/-1147,-1414"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Abandoned Ruins",
         "level": null,
         "x": -194,
         "y": 246,
@@ -1709,7 +1774,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 642
+    "spawns": 585,
+    "levels": [40, 64]
   },
   "cawgnito": {
     "regions": [
@@ -1731,7 +1797,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1097
+    "spawns": 1742,
+    "levels": [15, 56]
   },
   "arsox": {
     "prose": [
@@ -1751,12 +1818,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sealed Realm of the Ardent",
+        "location": "Sea Breeze Archipelago Church",
         "level": 15,
-        "map": "world",
         "x": -116,
-        "y": 491,
-        "markerId": "alpha/arsox/-116,491"
+        "y": -491,
+        "map": "world",
+        "markerId": "alpha/arsox/-116,-491",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -1766,7 +1834,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 492
+    "spawns": 218,
+    "levels": [16, 25]
   },
   "muffly": {
     "prose": [
@@ -1782,7 +1851,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 540,
+    "levels": [15, 64]
   },
   "bristla": {
     "prose": [
@@ -1799,7 +1870,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 702
+    "spawns": 498,
+    "levels": [16, 16]
   },
   "cinnamoth": {
     "prose": [
@@ -1815,7 +1887,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 702
+    "spawns": 522,
+    "levels": [16, 16]
   },
   "puffolt": {
     "prose": [
@@ -1831,7 +1904,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 230,
+    "levels": [18, 71]
   },
   "elphidran": {
     "prose": [
@@ -1841,23 +1916,19 @@
       "Elphidran is passive and will flee when it sees the player, though it will fight back when attacked."
     ],
     "regions": ["Moonless Shore", "No. 1 Wildlife Sanctuary"],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Moonless Shore",
+        "location": "Autumn Rocks",
         "level": 30,
-        "map": "world",
         "x": 44,
         "y": -284,
+        "map": "world",
         "markerId": "alpha/elphidran/44,-284"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Sakurajima - Mushroom Wetlands",
         "level": null,
         "x": -340,
         "y": 131,
@@ -1872,7 +1943,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 22
+    "spawns": 522,
+    "treeSpawns": 42,
+    "levels": [20, 80]
   },
   "elphidran-aqua": {
     "prose": [
@@ -1881,22 +1954,25 @@
       "An Elphidran Aqua can spawn with an NPC Pal Tamer as an incident."
     ],
     "regions": ["Dancing Sakura Shrine", "Frostbound Mountains"],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
     "dungeons": [
       {
         "name": "Astral Mountains Cavern",
         "note": "As one of the potential Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 110,
+    "treeSpawns": 42,
+    "levels": [33, 80]
   },
   "vanwyrm": {
     "prose": [
-      "Vanwyrm can be found in the Whisperwind Hills, the Ascetic Falls, on Mount Obsidian, and on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau. It typically spawns in pairs.",
-      "Vanwyrm is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+      "Vanwyrm can be found in the Bamboo Groves, the Dry Sandy Beach, and on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau. It typically spawns in pairs.",
+      "A group of Vanwyrm attacking a Flambelle can spawn as an incident, as well as being found fighting a Vanwyrm Cryst or a nest of Vanwyrm.",
+      "A group of Vanwyrm can show up as a raiding party to the player's base in the Grassland Region, occasionally accompanied by Beakon or Nitewing, or in the Volcano Region accompanied by Ragnahawk, Tocotoco, or Suzaku.",
+      "Vanwyrm can also be found as a Predator Pal around the map.",
+      "Vanwyrm is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
+      "An Alpha Vanwyrm can spawn in Vanwyrm nests as an incident."
     ],
     "regions": [
       "Bamboo Groves",
@@ -1909,7 +1985,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Marsh Island Church Ruins",
         "level": null,
         "x": 362,
         "y": -178,
@@ -1924,11 +2000,14 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1742
+    "spawns": 1102,
+    "levels": [20, 61]
   },
   "vanwyrm-cryst": {
     "prose": [
-      "Vanwyrm Cryst is primarily found in the Astral Mountains and on Feybreak in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau at night. It can also be found in the Frostbound Mountains at both day and night.",
+      "Vanwyrm Cryst is primarily found in the Frostbound Mountains, the Astral Mountains, and on Feybreak in the Frozen Coral Hill at any time. It can also be found in the Bamboo Groves at night.",
+      "A Vanwyrm Cryst fighting a Vanwyrm can also spawn as an incident.",
+      "A group of Vanwyrm Cryst can also show up as a raiding party to the player's base in the Forest Region, accompanied by Galeclaw and Helzephyr, or in the Astral Mountains accompanied by Foxparks Cryst, Loupmoon Cryst, Reindrix, or Maraith.",
       "Vanwyrm Cryst is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
     "regions": [
@@ -1946,13 +2025,14 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 777
+    "spawns": 564,
+    "levels": [23, 65]
   },
   "felbat": {
     "prose": [
       "Felbat is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
       "Felbat can be found in the Frozen Coral Hill.",
-      "It can be hatched from Large Dark Eggs found on Feybreak Island."
+      "A Felbat accompanying an NPC Pal Tamer can also spawn as an incident."
     ],
     "regions": [
       "Feybreak Island",
@@ -1965,11 +2045,13 @@
         "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 242,
+    "levels": [63, 63]
   },
   "vaelet": {
     "prose": [
-      "Vaelet can be found in the No. 1 Wildlife Sanctuary as a rare spawn.",
+      "Vaelet can be found in the No. 1 Wildlife Sanctuary.",
       "Vaelet is aggressive and will attack the player on sight."
     ],
     "regions": ["No. 1 Wildlife Sanctuary"],
@@ -1978,18 +2060,22 @@
         "variant": "Alpha",
         "location": "Ancient Ritual Site",
         "level": 27,
-        "map": "world",
         "x": -19,
         "y": -265,
-        "markerId": "alpha/vaelet/-19,-265"
+        "map": "world",
+        "markerId": "alpha/vaelet/-19,-265",
+        "note": "Found in a dungeon"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 22
+    "spawns": 44,
+    "levels": [20, 55]
   },
   "beegarde": {
     "prose": [
       "Beegarde can be found in the Verdant Brook. It typically spawns in groups of 3 to 4 individuals.",
+      "A nest of Beegarde occasionally accompanying an Alpha Elizabee can spawn as an incident. Beegarde can also be found accompanying numerous grass Pals.",
+      "A group of Beegarde accompanying a sole Elizabee can also show up as a raiding party to the player's base in the Forest Region.",
       "Beegarde is aggressive and will attack the player on sight."
     ],
     "regions": ["Verdant Brook"],
@@ -2000,62 +2086,67 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 410
+    "spawns": 88,
+    "levels": [28, 30]
   },
   "elizabee": {
     "prose": [
       "Elizabee can be found in the Verdant Brook. It will always spawn alongside a small group of Beegarde.",
-      "Elizabee is aggressive and will attack the player on sight."
+      "A sole Elizabee can also show up accompanied by numerous Beegarde as an incident.",
+      "A sole Elizabee accompanied by a group of Beegarde can also show up as a raiding party to the player's base in the Forest Region.",
+      "Elizabee is aggressive and will attack the player on sight.",
+      "An Alpha Elizabee can also spawn in Beegarde nests as an incident."
     ],
     "regions": ["Moonless Shore", "Verdant Brook"],
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Verdant Stream",
+        "location": "Verdant Sream",
         "level": 39,
-        "map": "world",
         "x": 164,
         "y": -84,
+        "map": "world",
         "markerId": "alpha/elizabee/164,-84"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 408
+    "spawns": 84,
+    "levels": [34, 34]
   },
   "lovander": {
     "prose": [
       "Lovander can be found in the Twilight Dunes and the Desiccated Dunes at night.",
+      "A group of Lovander can also show up as a raiding party to the player's base in the Grassland Region. They can also show up in the Desert Region, accompanied by Dazzi.",
+      "A Lovander can also spawn as a Predator Pal around the map.",
       "Lovander is aggressive will attack the player on sight. It is also nocturnal and doesn't sleep at night."
     ],
     "regions": ["Desiccated Dunes", "Twilight Dunes"],
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Bamboo Groves",
         "level": null,
         "x": -155,
         "y": -425,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/lovander/-155,-425"
+        "markerId": "predator/lovander/-155,-425",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
-      {
-        "name": "Volcanic Cavern",
-        "note": "As a regular encounter inside the dungeon."
-      },
       {
         "name": "Cavern of the Dunes",
         "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm",
-    "spawns": 833
+    "eggTemperature": "Cool",
+    "spawns": 768,
+    "levels": [30, 38]
   },
   "grintale": {
     "prose": [
       "Grintale is primarily found in the Moonless Shore, the Verdant Brook, and the Scars of War at night. It can also be found in the Mushroom Wetlands on Sakurajima at both day and night.",
+      "A group of Grintale can also show up as a raiding party to the player's base in Sakurajima, occasionally accompanied by Cawgnito, Prixter, or Sootseer.",
       "Grintale is passive and will flee when it sees the player, though it will fight back when attacked."
     ],
     "regions": [
@@ -2067,12 +2158,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Marsh Island",
+        "location": "Marsh Island Church Ruins",
         "level": 17,
+        "x": 356,
+        "y": -246,
         "map": "world",
-        "x": 335,
-        "y": -245,
-        "markerId": "alpha/grintale/335,-245"
+        "markerId": "alpha/grintale/356,-246"
       }
     ],
     "dungeons": [
@@ -2082,27 +2173,31 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 669
+    "spawns": 680,
+    "levels": [20, 46]
   },
   "tarantriss": {
     "prose": [
       "Tarantriss has a neutral temperament, only attacking if attacked first or if the player attacks another Tarantriss. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
-      "Tarantriss can be found in the Verdant Brook."
+      "Tarantriss can be found in the Verdant Brook.",
+      "A Tarantriss being attacked by a group of Feybreak Warriors can also spawn as an incident.",
+      "Tarantriss can also be found caged in Rayne Syndicate camps in the Twilight Dunes and the Verdant Brook.",
+      "A Tarantriss can also spawn as a Predator Pal around the map."
     ],
     "regions": ["Bamboo Groves", "Feybreak Island", "Verdant Brook"],
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Frozen Coral Hill",
-        "level": 57,
+        "location": "Foot of the Volcano",
+        "level": 35,
+        "x": -343,
+        "y": -252,
         "map": "world",
-        "x": -1341,
-        "y": -1429,
-        "markerId": "alpha/tarantriss/-1341,-1429"
+        "markerId": "alpha/tarantriss/-343,-252"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Ancient Ritual Site",
         "level": null,
         "x": -62,
         "y": -298,
@@ -2121,12 +2216,14 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1392
+    "spawns": 91,
+    "levels": [30, 50]
   },
   "polapup": {
     "prose": [
-      "Polapup can be found on the Isle of the Glacial Core. It typically spawns in groups of 2 to 4 individuals.",
-      "Polapup can also be fished up around the Frostbound Mountains and the Frozen Coral Hill on Feybreak.",
+      "Polapup can be found on the Frostbound Mountains, the Foot of the Astral Mountains, the Frostbitten Isle, and the Isle of the Glacial Core. It typically spawns in groups of 2 to 4 individuals.",
+      "Polapup can also be fished up around Feybreak Island.",
+      "Polapup can also be found caged in a PAL Genetic Research Unit camp outside the Astral Mountains.",
       "Polapup is passive and will flee when it sees the player, though it will fight back when attacked."
     ],
     "regions": ["Astral Mountains", "Foot of the Astral Mountains"],
@@ -2137,15 +2234,17 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 254
+    "spawns": 720,
+    "levels": [33, 35]
   },
   "polapup-terra": {
     "prose": [
       "Polapup Terra flees upon spotting a player. It fights back when attacked.",
-      "It can be found exclusively in the Suncrest Islet.",
-      "If there is no overworld boss for this Pal, use a text like: There is no Alpha Polapup Terra as an overworld boss."
+      "It can be found exclusively in the Suncrest Islet."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 114,
+    "levels": [55, 55]
   },
   "leezpunk": {
     "regions": ["Desiccated Dunes", "Foot of the Volcano", "Mount Obsidian"],
@@ -2160,12 +2259,15 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 962
+    "spawns": 1028,
+    "levels": [10, 58]
   },
   "leezpunk-ignis": {
     "prose": [
       "Leezpunk Ignis is aggressive and will attack the player on sight.",
-      "Leezpunk Ignis is primarily found around the western side of Mount Obsidian, though it can also be found in the Scars of War at night."
+      "Leezpunk Ignis is primarily found around the western and eastern sides of Mount Obsidian.",
+      "A group of Leezpunk Ignis can also show up as a raiding party to the player's base in the Volcano Region, occasionally accompanied by Incineram, Gobfin Ignis, or Surfent Terra.",
+      "Leezpunk Ignis can also be found caged in Feybreak Warriors camps around Feybreak."
     ],
     "regions": ["Foot of the Volcano", "Mount Obsidian"],
     "dungeons": [
@@ -2179,18 +2281,22 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 184
+    "spawns": 102,
+    "levels": [28, 55]
   },
   "gorirat": {
     "prose": [
       "Gorirat is aggressive and will attack the player on sight.",
-      "Gorirat can be found in the Verdant Brook and around the Scars of War. It typically spawns in groups of 2 to 3 individuals."
+      "Gorirat can be found in the northern Verdant Brook and around the Scars of War. It typically spawns in groups of 2 to 3 individuals.",
+      "Two Gorirat can also be found fighting each other as an incident.",
+      "A group of Gorirat can also show up as a raiding party to the player's base in the Forest Region, occasionally accompanied by Incineram, Gobfin, or Robinquill.",
+      "A Gorirat can also spawn as a Predator Pal around the map."
     ],
     "regions": ["Verdant Brook"],
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Sea Breeze Archipelago",
         "level": null,
         "x": -275,
         "y": -553,
@@ -2205,12 +2311,16 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 408
+    "spawns": 134,
+    "treeSpawns": 42,
+    "levels": [30, 80]
   },
   "gorirat-terra": {
     "prose": [
       "Gorirat Terra is aggressive and will attack the player on sight.",
-      "Gorirat Terra is found on Sakurajima in the Southern Sandbar. It typically spawns in groups of 2 to 3 individuals."
+      "Gorirat Terra is found around the Desiccated Dunes and in various regions of the World Tree.",
+      "A group of Gorirat Terra can also spawn as a raiding party to the player's base in the Desert Region, accompanied by Robinquill Terra, Turtacle Terra, and Tocotoco.",
+      "Gorirat Terra can also be found caged in Feybreak Warriors camps around Feybreak."
     ],
     "regions": ["Sakurajima - Southern Sandbar"],
     "dungeons": [
@@ -2220,7 +2330,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 100
+    "spawns": 134,
+    "treeSpawns": 42,
+    "levels": [35, 80]
   },
   "surfent": {
     "prose": [
@@ -2236,13 +2348,16 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 218
+    "spawns": 570,
+    "levels": [12, 30]
   },
   "surfent-terra": {
     "prose": [
       "Surfent Terra is aggressive and will attack the player on sight.",
-      "Surfent Terra is primarily found in the northern regions of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
-      "It can also be fished up from Desert Island's freshwater bodies, as well as in Oasis Isle and Eternal Summer Isle."
+      "Surfent Terra is primarily found around the Desiccated Dunes, the shores of the Scorched Ashland, and the Deserted Ash Plateau. It typically spawns in groups of 2 to 3 individuals.",
+      "It can also be fished up from Desert Island's freshwater bodies, as well as in Oasis Isle and Eternal Summer Isle.",
+      "A Surfent Terra can also spawn accompanying an NPC Pal Tamer as an incident.",
+      "A group of Surfent Terra can also show up as a raiding party to the player's base in the Volcano Region, occasionally accompanied by Tocotoco, Leezpunk Ignis, Incineram, or Gobfin Ignis."
     ],
     "regions": [
       "Deserted Ash Plateau",
@@ -2257,12 +2372,16 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1464
+    "spawns": 1258,
+    "levels": [31, 61]
   },
   "robinquill": {
     "prose": [
       "Robinquill is aggressive and will attack the player on sight.",
-      "Robinquill can be found in the Crescent Moon Shore and the Ancient Ritual Site. It typically spawns in groups of 2 to 3 individuals."
+      "Robinquill can be found in the Moonless Shore and the Ancient Ritual Site. It typically spawns in groups of 2 to 3 individuals.",
+      "A Robinquill and a Bristla can also be found fighting a Syndicate Thug and a Syndicate Hunter as an incident. They can also be found in nests.",
+      "A group of Robinquill can also show up as a raiding party to the player's base in the Forest Region, accompanied by Gorirat, Incineram, and Gobfin.",
+      "An Alpha Robinquill can spawn in Robinquill nests as an incident."
     ],
     "regions": ["Moonless Shore", "Verdant Brook"],
     "dungeons": [
@@ -2272,12 +2391,16 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 702
+    "spawns": 104,
+    "levels": [30, 30]
   },
   "robinquill-terra": {
     "prose": [
       "Robinquill Terra is aggressive and will attack the player on sight.",
-      "Robinquill Terra can be found in the southern and central regions of the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals."
+      "Robinquill Terra can be found around the Desiccated Dunes. It typically spawns in groups of 2 to 3 individuals.",
+      "A Robinquill Terra fighting a PIDF Guard can also spawn as an incident.",
+      "A group of Robinquill Terra can also show up as a raiding party to the player's base in the Desert Region, occasionally accompanied by Gorirat Terra, Turtacle Terra, or Tocotoco.",
+      "Robinquill Terra can also be found caged in Feybreak Warriors camps around Feybreak, as well as in Rayne Syndicate camps in the Flamepulse Islet and near the No. 3 Wildlife Sanctuary."
     ],
     "regions": ["Desiccated Dunes"],
     "dungeons": [
@@ -2287,12 +2410,16 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1000
+    "spawns": 1098,
+    "levels": [31, 55]
   },
   "flopie": {
     "prose": [
       "Flopie is passive and will flee when it sees the player, though it will fight back when attacked.",
-      "Flopie can be found in the Moonless Shore and in the Dancing Sakura Shrine on Sakurajima."
+      "Flopie can be found in the northern Moonless Shore.",
+      "A lone Flopie being attacked by a group of Galeclaw or Direhowl can also spawn as an incident. Flopie can also spawn accompanying numerous grass Pals.",
+      "Flopie can also be found caged in Rayne Syndicate camps in the Windswept Hills, the Sea Breeze Archipelago, the Marsh Island, the Isle of Silence, the Bamboo Groves, and the Twilight Dunes. It can also be found caged in Free Pal Alliance camps around the Verdant Brook, and in Moonflower Clan camps around Sakurajima.",
+      "A Predator Pal Flopie can also be fought during a quest."
     ],
     "regions": ["Moonless Shore"],
     "dungeons": [
@@ -2302,14 +2429,29 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 804
+    "spawns": 172,
+    "levels": [22, 22]
   },
   "wixen": {
     "prose": [
       "Wixen has a neutral temperament, only attacking if attacked first.",
-      "Wixen can be found in the Scars of War and in the northern and eastern areas of Mount Obsidian."
+      "Wixen can be found in the Scars of War and in the Ruined Fortress City and the Foot of the Volcano.",
+      "A Wixen accompanying numerous fire Pals can also spawn as an incident.",
+      "Wixen can also be found caged in Brothers of the Eternal Pyre camps around Mount Obsidian."
     ],
     "regions": ["Mount Obsidian", "Ruined Fortress City", "Scars of War"],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Gobfin's Turf",
+        "level": 28,
+        "x": 161,
+        "y": -223,
+        "map": "world",
+        "markerId": "alpha/wixen/161,-223",
+        "note": "Found in a dungeon"
+      }
+    ],
     "dungeons": [
       {
         "name": "Volcanic Cavern",
@@ -2317,12 +2459,14 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 396
+    "spawns": 120,
+    "levels": [23, 55]
   },
   "wixen-noct": {
     "prose": [
       "Wixen Noct has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
-      "Wixen Noct can be found on Sakurajima in the Southern Sandbar, the Northern Rock Field, and the grassy area west of the Dancing Sakura Shrine at night."
+      "Wixen Noct can be found on Sakurajima in the Southern Sandbar, the Northern Rock Field, and the grassy area west of the Dancing Sakura Shrine at night.",
+      "Wixen Noct can also be found caged in Moonflower Clan camps around Sakurajima."
     ],
     "dungeons": [
       {
@@ -2331,11 +2475,12 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 153
+    "spawns": 184,
+    "levels": [46, 51]
   },
   "katress": {
     "prose": [
-      "Katress can be found in the Crescent Moon Shore, the Verdant Brook, and the Scars of War at night. During the day, it can be found in the Land of Absolute Zero and the Foot of the Astral Mountains.",
+      "Katress can be found in the Moonless Shore, the Verdant Brook, and the Scars of War at night. During the day, it can be found in the northern Astral Mountains and the Foot of the Astral Mountains.",
       "Katress has a neutral temperament, only attacking if attacked first or if the player attacks another Katress. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
     "regions": [
@@ -2351,12 +2496,13 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 555
+    "spawns": 656,
+    "levels": [25, 61]
   },
   "katress-ignis": {
     "prose": [
       "Katress Ignis has a neutral temperament, only attacking if attacked first. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
-      "Katress Ignis cannot be found as a regular encounter in the overworld."
+      "Katress Ignis can be found caged in Moonflower Clan camps around Sakurajima."
     ],
     "dungeons": [
       {
@@ -2364,11 +2510,15 @@
         "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 2,
+    "levels": [62, 62]
   },
   "helzephyr": {
     "prose": [
-      "Helzephyr can be found in the Crescent Moon Shore, the Verdant Brook, and the Scars of War at night.",
+      "Helzephyr can be found in the Moonless Shore, the Verdant Brook, and the Scars of War at night. It can also be found around the Scorched Hill of Feybreak and in various regions of the World Tree.",
+      "A Helzephyr can spawn with an NPC Pal Tamer as an incident.",
+      "A group of Helzephyr can also show up as a raiding party to the player's base in the Forest Region, occasionally accompanied by Galeclaw or Vanwyrm Cryst.",
       "Helzephyr is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
     "regions": [
@@ -2379,11 +2529,16 @@
       "Verdant Brook"
     ],
     "eggTemperature": "Cool",
-    "spawns": 583
+    "spawns": 1648,
+    "treeSpawns": 42,
+    "levels": [24, 80]
   },
   "helzephyr-lux": {
     "prose": [
-      "Helzephyr Lux can be found in the Northern Rock Field on Sakurajima.",
+      "Helzephyr Lux can be found in the Northern Rock Field on Sakurajima and in various regions of the World Tree.",
+      "A Helzephyr Lux can be found accompanying numerous Pals from Sakurajima as an incident.",
+      "A group of Helzephyr Lux can also show up as a raiding party to the player's base in Sakurajima, accompanied by Fenglope Lux.",
+      "A Helzephyr Lux can also spawn as a Predator Pal around the map.",
       "Helzephyr Lux is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
     "regions": ["Sakurajima - Northern Rock Field"],
@@ -2394,25 +2549,32 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 124
+    "spawns": 160,
+    "treeSpawns": 42,
+    "levels": [47, 80]
   },
   "elgrove": {
     "prose": [
       "Elgrove is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
-      "It is found in the Bamboo Groves and the No. 1 Wildlife Sanctuary."
+      "It is found in the Bamboo Groves, the No. 1 Wildlife Sanctuary, and in various regions of the World Tree.",
+      "An Elgrove can be found fighting an Elgrove Cryst as an incident in the World Tree."
     ],
     "regions": ["Bamboo Groves", "No. 1 Wildlife Sanctuary"],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 152,
+    "treeSpawns": 42,
+    "levels": [24, 80]
   },
   "elgrove-cryst": {
     "prose": [
       "Elgrove Cryst is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
-      "It is found at the Boreal Summit in the World Tree."
+      "It is found at the Boreal Summit in the World Tree.",
+      "An Elgrove Cryst can also be found fighting an Elgrove as an incident in the World Tree.",
+      "An Elgrove Cryst can also spawn as a Predator Pal around the map."
     ],
-    "tree": {
-      "places": ["statue/boreal-summit/-25,840"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 138,
+    "levels": [75, 75]
   },
   "lunaris": {
     "regions": [
@@ -2425,12 +2587,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sea Breeze Archipelago",
-        "level": 32,
+        "location": "Verdant Sream",
+        "level": 35,
+        "x": 129,
+        "y": -50,
         "map": "world",
-        "x": -147,
-        "y": -659,
-        "markerId": "alpha/lunaris/-147,-659"
+        "markerId": "alpha/lunaris/129,-50",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -2439,7 +2602,9 @@
         "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 126,
+    "levels": [25, 46]
   },
   "fenglope": {
     "prose": [
@@ -2450,11 +2615,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Bamboo Groves",
+        "location": "Foot of the Volcano",
         "level": 25,
-        "map": "world",
         "x": -258,
         "y": -458,
+        "map": "world",
         "markerId": "alpha/fenglope/-258,-458"
       }
     ],
@@ -2465,29 +2630,38 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 252
+    "spawns": 22,
+    "treeSpawns": 42,
+    "levels": [45, 80]
   },
   "fenglope-lux": {
     "prose": [
-      "Fenglope Lux cannot be found in the overworld as a regular spawn."
+      "Fenglope Lux can be found in the northern Scorched Hill of Feybreak and in various regions of the World Tree.",
+      "A group of Fenglope Lux can also show up as a raiding party to the player's base in Sakurajima, occasionally accompanied by Helzephyr Lux."
     ],
     "regions": ["Feybreak Island", "Scorched Hill"],
     "bosses": [
       {
         "variant": "Alpha",
         "location": "Stone Pillar Cave",
-        "level": 57,
+        "level": 60,
+        "x": -858,
+        "y": -1146,
         "map": "world",
-        "x": -834,
-        "y": -1116,
-        "markerId": "alpha/fenglope-lux/-834,-1116"
+        "markerId": "alpha/fenglope-lux/-858,-1146"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 524,
+    "treeSpawns": 42,
+    "levels": [57, 80]
   },
   "dinossom": {
     "prose": [
-      "Dinossom is primarily found in low-level areas like the Flying Fish Coast, the Eastern Wild Island, and Ice Wind Island. It can also be found near oases in the Desiccated Dunes and at the Dancing Sakura Shrine on Sakurajima. It can spawn either alone or in a pair.",
+      "Dinossom is primarily found in low-level areas like the Sea Breeze Archipelago, the Flying Fish Coast, the Eastern Wild Island, and the Marsh Island. It can also be found near oases in the Desiccated Dunes. It can spawn either alone or in a pair.",
+      "A Dinossom can be found paired with a Dinossom Lux as an incident in Sakurajima.",
+      "Dinossom can also be found caged in Moonflower Clan camps around Sakurajima.",
+      "A Dinossom can also spawn as a Predator Pal around the map.",
       "Dinossom has a neutral temperament, only attacking if attacked first."
     ],
     "regions": [
@@ -2501,7 +2675,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Frostbound Mountains",
         "level": null,
         "x": 49,
         "y": 36,
@@ -2520,7 +2694,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1374
+    "spawns": 522,
+    "levels": [25, 32]
   },
   "dinossom-lux": {
     "prose": [
@@ -2531,12 +2706,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Desiccated Dunes",
+        "location": "Frostbound Mountains",
         "level": 47,
+        "x": 315,
+        "y": 169,
         "map": "world",
-        "x": 350,
-        "y": 538,
-        "markerId": "alpha/dinossom-lux/350,538"
+        "markerId": "alpha/dinossom-lux/315,169"
       }
     ],
     "dungeons": [
@@ -2546,7 +2721,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1000
+    "spawns": 1146,
+    "levels": [34, 36]
   },
   "bushi": {
     "prose": [
@@ -2569,11 +2745,12 @@
       {
         "variant": "Alpha",
         "location": "Bamboo Groves",
-        "level": 23,
+        "level": 25,
+        "x": -203,
+        "y": -346,
         "map": "world",
-        "x": -116,
-        "y": -491,
-        "markerId": "alpha/bushi/-116,-491"
+        "markerId": "alpha/bushi/-203,-346",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -2583,7 +2760,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 262
+    "spawns": 3676,
+    "levels": [25, 55]
   },
   "bushi-noct": {
     "prose": [
@@ -2609,7 +2787,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 97
+    "spawns": 3732,
+    "levels": [47, 65]
   },
   "munchill": {
     "prose": [
@@ -2625,7 +2804,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 252
+    "spawns": 692,
+    "levels": [10, 32]
   },
   "mammorest": {
     "prose": [
@@ -2643,16 +2823,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Windswept Hills",
+        "location": "Flying Fish Coast",
         "level": 38,
-        "map": "world",
         "x": 189,
         "y": -478,
+        "map": "world",
         "markerId": "alpha/mammorest/189,-478"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1942
+    "spawns": 968,
+    "treeSpawns": 42,
+    "levels": [26, 80]
   },
   "mammorest-cryst": {
     "prose": [
@@ -2667,7 +2849,9 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 410
+    "spawns": 168,
+    "treeSpawns": 42,
+    "levels": [36, 80]
   },
   "finsider": {
     "prose": [
@@ -2682,14 +2866,15 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 760
+    "spawns": 1200,
+    "levels": [1, 32]
   },
   "finsider-ignis": {
     "prose": [
       "Finsider Ignis can be fished up on the Phantom Isle and throughout most of Feybreak."
     ],
     "eggTemperature": "Cool",
-    "spawns": 440
+    "spawns": 1124
   },
   "petallia": {
     "prose": [
@@ -2698,17 +2883,17 @@
     ],
     "regions": ["Dancing Sakura Shrine"],
     "eggTemperature": "Warm",
-    "spawns": 22
+    "spawns": 212,
+    "levels": [28, 55]
   },
   "petallia-ignis": {
     "prose": [
       "Petallia Ignis is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Petallia Ignis can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
       "It is found at the Whimsical Wisteria Grove in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/whimsical-wisteria-grove/60,781"]
-    },
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 44,
+    "levels": [71, 71]
   },
   "leafan": {
     "prose": [
@@ -2716,7 +2901,9 @@
       "It is found in the Mossanda Forest, and the Enchanted Firmament, an area of Sunreach."
     ],
     "regions": ["Verdant Brook"],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 212,
+    "levels": [28, 67]
   },
   "incineram": {
     "regions": ["Mount Obsidian"],
@@ -2727,7 +2914,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 388
+    "spawns": 214,
+    "levels": [10, 36]
   },
   "incineram-noct": {
     "prose": [
@@ -2736,7 +2924,8 @@
     ],
     "regions": ["No. 2 Wildlife Sanctuary"],
     "eggTemperature": "Cool",
-    "spawns": 38
+    "spawns": 32,
+    "levels": [16, 58]
   },
   "dazzi": {
     "prose": [
@@ -2755,7 +2944,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1000
+    "spawns": 280,
+    "levels": [30, 32]
   },
   "dazzi-noct": {
     "prose": [
@@ -2766,12 +2956,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Frozen Coral Hill",
-        "level": 53,
+        "location": "Sandstone Gate Islet",
+        "level": 60,
+        "x": -1201,
+        "y": -855,
         "map": "world",
-        "x": -1343,
-        "y": -1579,
-        "markerId": "alpha/dazzi-noct/-1343,-1579"
+        "markerId": "alpha/dazzi-noct/-1201,-855"
       }
     ],
     "dungeons": [
@@ -2781,7 +2971,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 40
+    "spawns": 274,
+    "levels": [50, 65]
   },
   "pyrin": {
     "prose": [
@@ -2796,7 +2987,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 332
+    "spawns": 190,
+    "treeSpawns": 42,
+    "levels": [30, 80]
   },
   "pyrin-noct": {
     "prose": [
@@ -2816,7 +3009,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 360
+    "spawns": 421,
+    "treeSpawns": 42,
+    "levels": [34, 80]
   },
   "relaxaurus": {
     "prose": [
@@ -2827,7 +3022,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Ancient Ritual Site",
         "level": null,
         "x": -24,
         "y": -348,
@@ -2836,25 +3031,19 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 244
+    "spawns": 76,
+    "treeSpawns": 42,
+    "levels": [30, 80]
   },
   "relaxaurus-lux": {
     "prose": [
       "Relaxaurus Lux is only found in the wild in specific locations around the world.",
       "This Pal is aggressive and will attack the player on sight."
     ],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Bamboo Groves",
-        "level": 31,
-        "map": "world",
-        "x": -203,
-        "y": -346,
-        "markerId": "alpha/relaxaurus-lux/-203,-346"
-      }
-    ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 36,
+    "treeSpawns": 42,
+    "levels": [48, 80]
   },
   "foxcicle": {
     "prose": [
@@ -2865,16 +3054,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Marsh Island",
+        "location": "Fortress Ruins",
         "level": 15,
-        "x": 241,
+        "x": 242,
         "y": -332,
         "map": "world",
-        "markerId": "alpha/foxcicle/241,-332"
+        "markerId": "alpha/foxcicle/242,-332",
+        "note": "Found in a dungeon"
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 34
+    "spawns": 374,
+    "levels": [30, 35]
   },
   "beakon": {
     "prose": [
@@ -2889,11 +3080,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Verdant Brook",
+        "location": "Frostbound Mountains",
         "level": 37,
-        "map": "world",
         "x": 95,
         "y": 23,
+        "map": "world",
         "markerId": "alpha/beakon/95,23"
       }
     ],
@@ -2904,17 +3095,18 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 576
+    "spawns": 1008,
+    "treeSpawns": 42,
+    "levels": [30, 80]
   },
   "beakon-cryst": {
     "prose": [
       "Beakon Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found at the Boreal Summit in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/boreal-summit/-25,840"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 138,
+    "levels": [75, 75]
   },
   "ghangler": {
     "prose": [
@@ -2939,14 +3131,15 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 148
+    "spawns": 670,
+    "levels": [30, 56]
   },
   "ghangler-ignis": {
     "prose": [
       "Ghangler Ignis can be fished up throughout most of Feybreak and near the No. 3 Wildlife Sanctuary"
     ],
     "eggTemperature": "Hot",
-    "spawns": 440
+    "spawns": 1202
   },
   "rayhound": {
     "prose": [
@@ -2962,7 +3155,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Verdant Sream",
         "level": null,
         "x": 246,
         "y": -105,
@@ -2977,7 +3170,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1308
+    "spawns": 474,
+    "levels": [31, 56]
   },
   "rayhound-cryst": {
     "prose": [
@@ -2985,10 +3179,10 @@
       "It is found at the Boreal Summit in the World Tree."
     ],
     "regions": ["Astral Mountains"],
-    "tree": {
-      "places": ["statue/boreal-summit/-25,840"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 152,
+    "treeSpawns": 138,
+    "levels": [35, 75]
   },
   "menasting": {
     "prose": [
@@ -2999,16 +3193,17 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Desiccated Dunes",
+        "location": "Duneshelter",
         "level": 44,
+        "x": 350,
+        "y": 537,
         "map": "world",
-        "x": 515,
-        "y": 102,
-        "markerId": "alpha/menasting/515,102"
+        "markerId": "alpha/menasting/350,537"
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 134
+    "spawns": 1092,
+    "levels": [31, 55]
   },
   "menasting-terra": {
     "prose": [
@@ -3020,14 +3215,16 @@
       {
         "variant": "Alpha",
         "location": "Sakurajima - Northern Rock Field",
-        "level": 54,
+        "level": 55,
+        "x": -582,
+        "y": 317,
         "map": "world",
-        "x": -575,
-        "y": 332,
-        "markerId": "alpha/menasting-terra/-575,332"
+        "markerId": "alpha/menasting-terra/-582,317"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 22,
+    "levels": [48, 48]
   },
   "needoll": {
     "prose": [
@@ -3040,25 +3237,31 @@
         "variant": "Alpha",
         "location": "Scouring Islet",
         "level": 40,
-        "map": "world",
         "x": 433,
         "y": -711,
+        "map": "world",
         "markerId": "alpha/needoll/433,-711"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 732,
+    "levels": [31, 32]
   },
   "needoll-noct": {
     "prose": [
       "Needoll Noct is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed, Needoll Noct can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages.",
       "It is found exclusively in the Desiccated Dunes at night."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 325,
+    "levels": [33, 33]
   },
   "reindrix": {
     "regions": ["Astral Mountains", "Frostbound Mountains"],
     "eggTemperature": "Cool",
-    "spawns": 224
+    "spawns": 128,
+    "treeSpawns": 42,
+    "levels": [32, 80]
   },
   "mossanda": {
     "prose": [
@@ -3069,7 +3272,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Deep Bamboo Thicket",
         "level": null,
         "x": -318,
         "y": -162,
@@ -3084,7 +3287,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 408
+    "spawns": 104,
+    "treeSpawns": 42,
+    "levels": [32, 80]
   },
   "mossanda-lux": {
     "prose": [
@@ -3092,18 +3297,14 @@
       "Mossanda Lux can be found near the Verdant Rootpath in the World Tree, or rarely in all World Tree areas as part of an incident."
     ],
     "regions": ["Eastern Wild Island"],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
     "bosses": [
       {
         "variant": "Alpha",
         "location": "Eastern Wild Island",
         "level": 31,
-        "map": "world",
         "x": 448,
         "y": -181,
+        "map": "world",
         "markerId": "alpha/mossanda-lux/448,-181"
       }
     ],
@@ -3113,7 +3314,9 @@
         "note": "As a regular encounter inside the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 122,
+    "levels": [70, 80]
   },
   "chillet": {
     "prose": [
@@ -3124,11 +3327,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Windswept Hills",
+        "location": "Fortress Ruins",
         "level": 11,
-        "map": "world",
         "x": 172,
         "y": -418,
+        "map": "world",
         "markerId": "alpha/chillet/172,-418"
       }
     ],
@@ -3139,7 +3342,9 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 224
+    "spawns": 234,
+    "treeSpawns": 42,
+    "levels": [32, 80]
   },
   "chillet-ignis": {
     "prose": [
@@ -3154,7 +3359,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 102
+    "spawns": 106,
+    "treeSpawns": 42,
+    "levels": [52, 80]
   },
   "ragnahawk": {
     "prose": [
@@ -3165,7 +3372,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Scars of War",
         "level": null,
         "x": 341,
         "y": -70,
@@ -3180,7 +3387,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 426
+    "spawns": 326,
+    "treeSpawns": 42,
+    "levels": [32, 80]
   },
   "moldron": {
     "prose": [
@@ -3192,13 +3401,16 @@
         "variant": "Alpha",
         "location": "Bicornis Islet",
         "level": 70,
-        "map": "world",
         "x": -1126,
         "y": -1981,
+        "map": "world",
         "markerId": "alpha/moldron/-1126,-1981"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 202,
+    "treeSpawns": 42,
+    "levels": [32, 80]
   },
   "moldron-cryst": {
     "prose": [
@@ -3207,9 +3419,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "",
-        "level": null,
-        "map": "world"
+        "location": "Abandoned Laboratory",
+        "level": 78,
+        "x": -65,
+        "y": 817,
+        "map": "tree",
+        "markerId": "alpha/moldron-cryst/-65,817"
       }
     ],
     "eggTemperature": "Cool"
@@ -3227,7 +3442,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 28
+    "spawns": 84,
+    "levels": [32, 40]
   },
   "digtoise": {
     "prose": [
@@ -3238,7 +3454,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Dry Sandy Beach",
         "level": null,
         "x": -596,
         "y": -742,
@@ -3257,7 +3473,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 666
+    "spawns": 1322,
+    "levels": [19, 40]
   },
   "broncherry": {
     "prose": [
@@ -3276,21 +3493,26 @@
         "variant": "Alpha",
         "location": "Sea Breeze Archipelago",
         "level": 23,
-        "map": "world",
         "x": -222,
         "y": -669,
+        "map": "world",
         "markerId": "alpha/broncherry/-222,-669"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 374
+    "spawns": 966,
+    "treeSpawns": 42,
+    "levels": [33, 80]
   },
   "broncherry-aqua": {
     "prose": [
       "Broncherry Aqua can be found in the northeastern region of Verdant Brook, around 286, -32.",
       "Broncherry Aqua has a neutral temperament, only attacking if attacked first."
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 14,
+    "treeSpawns": 42,
+    "levels": [51, 80]
   },
   "dumud": {
     "prose": [
@@ -3309,11 +3531,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Ice Wind Island",
+        "location": "Isle of Murmurs",
         "level": 14,
-        "map": "world",
         "x": -310,
         "y": 4,
+        "map": "world",
         "markerId": "alpha/dumud/-310,4"
       }
     ],
@@ -3328,7 +3550,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 548
+    "spawns": 728,
+    "levels": [20, 55]
   },
   "dumud-gild": {
     "prose": [
@@ -3343,7 +3566,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 136
+    "spawns": 758,
+    "levels": [25, 48]
   },
   "braloha": {
     "prose": [
@@ -3363,7 +3587,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 14
+    "spawns": 494,
+    "treeSpawns": 42,
+    "levels": [33, 80]
   },
   "kitsun": {
     "prose": [
@@ -3374,17 +3600,18 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Foot of the Astral Mountains",
         "level": null,
         "x": -22,
         "y": 166,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/kitsun/-22,166"
+        "markerId": "predator/kitsun/-22,166",
+        "note": "Appears at night only."
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 17
+    "spawns": 41,
+    "levels": [34, 35]
   },
   "kitsun-noct": {
     "prose": [
@@ -3395,12 +3622,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 57,
+        "location": "Emberstone Plateau",
+        "level": 65,
+        "x": -847,
+        "y": -1307,
         "map": "world",
-        "x": -1036,
-        "y": -1145,
-        "markerId": "alpha/kitsun-noct/-1036,-1145"
+        "markerId": "alpha/kitsun-noct/-847,-1307"
       }
     ],
     "dungeons": [
@@ -3409,7 +3636,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 708,
+    "levels": [61, 63]
   },
   "blazehowl": {
     "prose": [
@@ -3422,6 +3651,18 @@
       "Foot of the Volcano",
       "Mount Obsidian"
     ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Deep Bamboo Thicket",
+        "level": 30,
+        "x": -256,
+        "y": -131,
+        "map": "world",
+        "markerId": "alpha/blazehowl/-256,-131",
+        "note": "Found in a dungeon"
+      }
+    ],
     "dungeons": [
       {
         "name": "Volcanic Cavern",
@@ -3429,7 +3670,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 190
+    "spawns": 136,
+    "treeSpawns": 42,
+    "levels": [35, 80]
   },
   "blazehowl-noct": {
     "prose": [
@@ -3447,13 +3690,13 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Astral Mountains",
         "level": null,
         "x": -273,
         "y": 477,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/blazehowl-noct/-273,477"
+        "markerId": "predator/blazehowl-noct/-273,477",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
@@ -3463,7 +3706,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1019
+    "spawns": 697,
+    "treeSpawns": 42,
+    "levels": [35, 80]
   },
   "warsect": {
     "prose": [
@@ -3471,7 +3716,9 @@
       "Warsect is aggressive and will attack the player on sight."
     ],
     "eggTemperature": "Hot",
-    "spawns": 22
+    "spawns": 20,
+    "treeSpawns": 42,
+    "levels": [34, 80]
   },
   "warsect-terra": {
     "prose": [
@@ -3484,9 +3731,9 @@
         "variant": "Alpha",
         "location": "Hidden Passage to the Oculus Gate",
         "level": 64,
-        "map": "world",
         "x": -1019,
         "y": -1236,
+        "map": "world",
         "markerId": "alpha/warsect-terra/-1019,-1236"
       }
     ],
@@ -3497,7 +3744,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 308
+    "spawns": 116,
+    "levels": [53, 62]
   },
   "frostplume": {
     "prose": [
@@ -3512,17 +3760,18 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 12
+    "spawns": 200,
+    "levels": [65, 65]
   },
   "majex": {
     "prose": [
       "Majex attacks the player on sight. It is found in the No. 2 Wildlife Sanctuary and Corroded Hollow."
     ],
     "regions": ["No. 2 Wildlife Sanctuary"],
-    "tree": {
-      "places": ["statue/corroded-hollow/36,838"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 20,
+    "treeSpawns": 52,
+    "levels": [35, 75]
   },
   "sibelyx": {
     "prose": [
@@ -3533,12 +3782,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sealed Realm of the Pristine",
+        "location": "Frostbound Mountains",
         "level": 40,
-        "map": "world",
         "x": 252,
         "y": 69,
-        "markerId": "alpha/sibelyx/252,69"
+        "map": "world",
+        "markerId": "alpha/sibelyx/252,69",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -3548,14 +3798,17 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 410
+    "spawns": 98,
+    "levels": [36, 43]
   },
   "sibelyx-primo": {
     "prose": [
       "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
     ],
     "regions": ["Gilded City"],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 164,
+    "levels": [75, 76]
   },
   "maraith": {
     "prose": [
@@ -3570,13 +3823,13 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Verdant Sream",
         "level": null,
         "x": 166,
         "y": -50,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/maraith/166,-50"
+        "markerId": "predator/maraith/166,-50",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
@@ -3590,7 +3843,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 359
+    "spawns": 356,
+    "levels": [40, 54]
   },
   "shroomer": {
     "prose": [
@@ -3601,7 +3855,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Sakurajima - Mushroom Wetlands",
         "level": null,
         "x": -483,
         "y": 168,
@@ -3620,7 +3874,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 114
+    "spawns": 118,
+    "treeSpawns": 2,
+    "levels": [47, 75]
   },
   "shroomer-noct": {
     "prose": [
@@ -3643,7 +3899,9 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 697
+    "spawns": 438,
+    "treeSpawns": 2,
+    "levels": [47, 75]
   },
   "icelyn": {
     "prose": [
@@ -3662,14 +3920,18 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 12
+    "spawns": 76,
+    "levels": [45, 45]
   },
   "gildra": {
     "prose": [
       "Gildra is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found in the Desiccated Dunes."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 650,
+    "treeSpawns": 42,
+    "levels": [39, 80]
   },
   "jormuntide": {
     "prose": [
@@ -3681,13 +3943,15 @@
         "variant": "Alpha",
         "location": "Scars of War",
         "level": 55,
-        "map": "world",
         "x": 350,
         "y": -85,
+        "map": "world",
         "markerId": "alpha/jormuntide/350,-85"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "jormuntide-ignis": {
     "prose": [
@@ -3698,7 +3962,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Foot of the Volcano",
         "level": null,
         "x": -457,
         "y": -447,
@@ -3707,7 +3971,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 60
+    "spawns": 70,
+    "treeSpawns": 42,
+    "levels": [55, 80]
   },
   "suzaku": {
     "prose": [
@@ -3717,16 +3983,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Desiccated Desert",
+        "location": "Duneshelter",
         "level": 45,
+        "x": 326,
+        "y": 483,
         "map": "world",
-        "x": 404,
-        "y": 256,
-        "markerId": "alpha/suzaku/404,256"
+        "markerId": "alpha/suzaku/326,483"
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 1000
+    "spawns": 26,
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "suzaku-aqua": {
     "regions": ["Sunreach"],
@@ -3736,7 +4004,10 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 100,
+    "treeSpawns": 42,
+    "levels": [68, 80]
   },
   "dazemu": {
     "prose": [
@@ -3751,7 +4022,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Duneshelter",
         "level": null,
         "x": 375,
         "y": 315,
@@ -3766,7 +4037,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 314
+    "spawns": 810,
+    "levels": [31, 47]
   },
   "quivern": {
     "regions": [
@@ -3775,17 +4047,6 @@
       "Dancing Sakura Shrine",
       "Sunreach"
     ],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Deep Bamboo Thicket",
-        "level": 23,
-        "map": "world",
-        "x": -256,
-        "y": -131,
-        "markerId": "alpha/quivern/-256,-131"
-      }
-    ],
     "dungeons": [
       {
         "name": "Astral Mountains Cavern",
@@ -3793,7 +4054,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 104
+    "spawns": 848,
+    "treeSpawns": 42,
+    "levels": [40, 80]
   },
   "quivern-botan": {
     "prose": [
@@ -3808,7 +4071,9 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 82
+    "spawns": 118,
+    "treeSpawns": 42,
+    "levels": [45, 80]
   },
   "lullu": {
     "prose": [
@@ -3823,7 +4088,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 82
+    "spawns": 40,
+    "levels": [55, 55]
   },
   "kikit": {
     "prose": [
@@ -3841,7 +4107,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 224
+    "spawns": 140,
+    "levels": [46, 46]
   },
   "yakumo": {
     "prose": [
@@ -3856,7 +4123,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 102
+    "spawns": 106,
+    "levels": [53, 64]
   },
   "skutlass": {
     "prose": [
@@ -3864,19 +4132,35 @@
       "It is found along the coast of the Twilight Dunes and scattered around Sunreach."
     ],
     "regions": ["Sunreach"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 236,
+    "levels": [30, 65]
   },
   "skutlass-ignis": {
     "prose": [
       "Skutlass Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It can be found exclusively at the Flamepulse Islet."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 214,
+    "treeSpawns": 56,
+    "levels": [40, 40]
   },
   "reptyro": {
     "prose": [
       "Reptyro can be found in the northern and eastern regions of Mount Obsidian.",
       "Reptyro is aggressive and will attack the player on sight."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Mount Obsidian",
+        "level": 50,
+        "x": -548,
+        "y": -433,
+        "map": "world",
+        "markerId": "alpha/reptyro/-548,-433"
+      }
     ],
     "dungeons": [
       {
@@ -3885,14 +4169,15 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 332
+    "spawns": 44,
+    "levels": [46, 46]
   },
   "reptyro-cryst": {
     "regions": ["Astral Mountains", "Feybreak Island", "Frozen Coral Hill"],
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Frostbound Mountains",
         "level": null,
         "x": 182,
         "y": 94,
@@ -3906,7 +4191,9 @@
         "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 266,
+    "levels": [48, 66]
   },
   "starryon": {
     "prose": [
@@ -3922,22 +4209,22 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Ashland",
-        "level": 57,
+        "location": "Emberstone Plateau",
+        "level": 63,
+        "x": -893,
+        "y": -1293,
         "map": "world",
-        "x": -756,
-        "y": -940,
-        "markerId": "alpha/starryon/-756,-940"
+        "markerId": "alpha/starryon/-893,-1293"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Crescent Moon Shore",
         "level": null,
         "x": 20,
         "y": -126,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/starryon/20,-126"
+        "markerId": "predator/starryon/20,-126",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
@@ -3951,17 +4238,18 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1117
+    "spawns": 193,
+    "treeSpawns": 42,
+    "levels": [50, 80]
   },
   "starryon-primo": {
     "prose": [
       "Starryon Primo is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found at the Whimsical Wisteria Grove in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/whimsical-wisteria-grove/60,781"]
-    },
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 126,
+    "levels": [74, 74]
   },
   "pierdon": {
     "prose": [
@@ -3973,13 +4261,15 @@
         "variant": "Alpha",
         "location": "Flamepulse Islet",
         "level": 50,
-        "map": "world",
         "x": 819,
         "y": 467,
+        "map": "world",
         "markerId": "alpha/pierdon/819,467"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 32,
+    "levels": [42, 42]
   },
   "pierdon-cryst": {
     "prose": [
@@ -3989,7 +4279,9 @@
       "<!-- Dungeon section: Uncomment this section only if the Pal can be found in a dungeon. If you do, make sure to delete the explanation arrows (<=) and text.\nUse the first list item if the Pal spawns as a regular encounter and/or the second list item if the Pal can spawn as one of the Alpha Pals at the end of the dungeon."
     ],
     "regions": ["Sunreach"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 100,
+    "levels": [68, 68]
   },
   "cryolinx": {
     "prose": [
@@ -4004,7 +4296,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 410
+    "spawns": 78,
+    "levels": [44, 46]
   },
   "cryolinx-terra": {
     "prose": [
@@ -4015,16 +4308,16 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Frozen Coral Hill",
-        "level": 58,
+        "location": "-",
+        "level": 62,
+        "x": -1285,
+        "y": -1302,
         "map": "world",
-        "x": -1165,
-        "y": -1557,
-        "markerId": "alpha/cryolinx-terra/-1165,-1557"
+        "markerId": "alpha/cryolinx-terra/-1285,-1302"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Duneshelter",
         "level": null,
         "x": 264,
         "y": 363,
@@ -4039,7 +4332,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 886
+    "spawns": 312,
+    "levels": [62, 62]
   },
   "snugloo": {
     "prose": [
@@ -4047,7 +4341,9 @@
       "It is found exclusively in the Frostbound Mountains."
     ],
     "regions": ["Frostbound Mountains"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 42,
+    "levels": [32, 32]
   },
   "wumpo": {
     "prose": [
@@ -4058,7 +4354,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Astral Mountains",
         "level": null,
         "x": -294,
         "y": 381,
@@ -4073,7 +4369,9 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 410
+    "spawns": 106,
+    "treeSpawns": 42,
+    "levels": [45, 80]
   },
   "wumpo-botan": {
     "prose": [
@@ -4084,16 +4382,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Eastern Wild Island",
+        "location": "Scars of War",
         "level": 38,
-        "map": "world",
         "x": 449,
         "y": -51,
+        "map": "world",
         "markerId": "alpha/wumpo-botan/449,-51"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 22
+    "spawns": 166,
+    "treeSpawns": 42,
+    "levels": [53, 80]
   },
   "sootseer": {
     "prose": [
@@ -4114,14 +4414,17 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 5
+    "spawns": 690,
+    "levels": [45, 64]
   },
   "carnibora": {
     "prose": [
       "Carnibora is highly aggressive, and attacks players on sight. It is found exclusively on the No. 3 Wildlife Sanctuary."
     ],
     "regions": ["No. 3 Wildlife Sanctuary"],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 22,
+    "levels": [45, 45]
   },
   "blazamut": {
     "prose": [
@@ -4131,16 +4434,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Mount Obsidian",
-        "level": 49,
+        "location": "Ruined Fortress City",
+        "level": 52,
+        "x": -737,
+        "y": -332,
         "map": "world",
-        "x": -442,
-        "y": -561,
-        "markerId": "alpha/blazamut/-442,-561"
+        "markerId": "alpha/blazamut/-737,-332"
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 16
+    "spawns": 32,
+    "treeSpawns": 42,
+    "levels": [46, 80]
   },
   "blazamut-ryu": {
     "prose": [
@@ -4166,42 +4471,50 @@
       "It is found in the Foot of the Astral Mountains, and The Verdant Rootpath in the World Tree."
     ],
     "regions": ["Abandoned Ruins"],
-    "tree": {
-      "places": ["statue/the-verdant-rootpath/103,772"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Isle of Circular Ruins",
+        "location": "Alluvion Lakefront",
+        "level": 75,
+        "x": 15,
+        "y": 776,
+        "map": "tree",
+        "markerId": "alpha/dualith/15,776"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Islet of Circular Ruins",
         "level": 55,
-        "map": "world",
         "x": 910,
         "y": -99,
+        "map": "world",
         "markerId": "alpha/dualith/910,-99"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 70,
+    "treeSpawns": 122,
+    "levels": [46, 80]
   },
   "dualith-noct": {
     "prose": [
       "Dualith Noct is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
       "It is found exclusively in the Forbidden Laboratory."
     ],
-    "tree": {
-      "places": ["statue/forbidden-laboratory/-83,854"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
         "location": "Glacial Memento Islet",
         "level": 70,
-        "map": "world",
         "x": -1694,
         "y": -948,
+        "map": "world",
         "markerId": "alpha/dualith-noct/-1694,-948"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 6,
+    "levels": [75, 75]
   },
   "anubis": {
     "prose": [
@@ -4214,16 +4527,22 @@
         "variant": "Alpha",
         "location": "Twilight Dunes",
         "level": 55,
-        "map": "world",
         "x": -134,
         "y": -94,
+        "map": "world",
         "markerId": "alpha/anubis/-134,-94"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 70,
+    "treeSpawns": 42,
+    "levels": [68, 80]
   },
   "sekhmet": {
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 720,
+    "treeSpawns": 42,
+    "levels": [37, 80]
   },
   "prixter": {
     "prose": [
@@ -4234,7 +4553,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Desiccated Dunes",
         "level": null,
         "x": 496,
         "y": 212,
@@ -4243,7 +4562,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 124
+    "spawns": 140,
+    "levels": [48, 48]
   },
   "prixter-lux": {
     "prose": [
@@ -4252,12 +4572,17 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "",
-        "level": null,
-        "map": "world"
+        "location": "Sandstone Gate Islet",
+        "level": 70,
+        "x": -1314,
+        "y": -612,
+        "map": "world",
+        "markerId": "alpha/prixter-lux/-1314,-612"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 70,
+    "levels": [65, 65]
   },
   "tetroise": {
     "prose": [
@@ -4269,13 +4594,16 @@
         "variant": "Alpha",
         "location": "Desiccated Dunes",
         "level": 55,
-        "map": "world",
         "x": 435,
         "y": 380,
+        "map": "world",
         "markerId": "alpha/tetroise/435,380"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 650,
+    "treeSpawns": 42,
+    "levels": [48, 80]
   },
   "tetroise-primo": {
     "prose": [
@@ -4283,21 +4611,21 @@
       "It is found exclusively at the Gilded City in the World Tree."
     ],
     "regions": ["Gilded City", "The Oculus Gate, Tower in Sight"],
-    "tree": {
-      "places": ["statue/gilded-city-ruins/-18,777"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "The Oculus Gate, Tower in Sight",
+        "location": "Hidden Passage to the Oculus Gate",
         "level": 60,
-        "map": "world",
         "x": -1082,
         "y": -1320,
-        "markerId": "alpha/tetroise-primo/-1082,-1320"
+        "map": "world",
+        "markerId": "alpha/tetroise-primo/-1082,-1320",
+        "note": "Found in a dungeon"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 80,
+    "levels": [76, 76]
   },
   "nyafia": {
     "prose": [
@@ -4308,12 +4636,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 57,
+        "location": "Scorched Ashland",
+        "level": 60,
+        "x": -920,
+        "y": -917,
         "map": "world",
-        "x": -1114,
-        "y": -940,
-        "markerId": "alpha/nyafia/-1114,-940"
+        "markerId": "alpha/nyafia/-920,-917"
       }
     ],
     "dungeons": [
@@ -4323,7 +4651,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 928
+    "spawns": 528,
+    "levels": [50, 56]
   },
   "mimog": {
     "prose": [
@@ -4345,19 +4674,19 @@
       "Sunreach",
       "Verdant Brook"
     ],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
     "eggTemperature": "Warm",
-    "spawns": 8342
+    "spawns": 9968,
+    "treeSpawns": 806,
+    "levels": [10, 80]
   },
   "xenovader": {
     "prose": [
       "Xenovader can be encountered during a Meteorite Event in most places throughout the Palpagos Islands except for on Sakurajima. It typically spawns in groups of 2 to 3 individuals.",
       "Xenovader is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 26,
+    "levels": [56, 58]
   },
   "xenogard": {
     "prose": [
@@ -4377,11 +4706,12 @@
       {
         "variant": "Alpha",
         "location": "Deserted Ash Plateau",
-        "level": 55,
-        "map": "world",
+        "level": 63,
         "x": -1355,
         "y": -968,
-        "markerId": "alpha/prunelia/-1355,-968"
+        "map": "world",
+        "markerId": "alpha/prunelia/-1355,-968",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -4391,7 +4721,8 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1590
+    "spawns": 1304,
+    "levels": [52, 63]
   },
   "nitemary": {
     "prose": [
@@ -4407,12 +4738,13 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 56,
-        "map": "world",
+        "location": "Stone Pillar Cave",
+        "level": 60,
         "x": -923,
         "y": -1014,
-        "markerId": "alpha/nitemary/-923,-1014"
+        "map": "world",
+        "markerId": "alpha/nitemary/-923,-1014",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -4422,13 +4754,16 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 640
+    "spawns": 274,
+    "levels": [65, 66]
   },
   "nitemary-botan": {
     "prose": [
       "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 26,
+    "levels": [50, 50]
   },
   "smokie": {
     "regions": [
@@ -4447,10 +4782,11 @@
         "variant": "Alpha",
         "location": "Loess Plains",
         "level": 60,
-        "map": "world",
         "x": -879,
         "y": -1467,
-        "markerId": "alpha/smokie/-879,-1467"
+        "map": "world",
+        "markerId": "alpha/smokie/-879,-1467",
+        "note": "Found in a dungeon"
       }
     ],
     "dungeons": [
@@ -4460,13 +4796,16 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 926
+    "spawns": 3364,
+    "levels": [50, 64]
   },
   "smokie-cryst": {
     "prose": [
       "is naturally passive and will attempt to flee immediately upon spotting a player rather than engaging in combat. It often prioritizes escape over confrontation and may cower briefly when first attacked. If pursued or harmed,  can shift from evasive behavior to active aggression, defending itself against the player. Once provoked, it will engage in combat and remain hostile until defeated or the player disengages."
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 16,
+    "levels": [62, 62]
   },
   "omascul": {
     "prose": [
@@ -4488,22 +4827,22 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Frozen Coral Hill",
-        "level": 55,
+        "location": "Scorched Ashland",
+        "level": 60,
+        "x": -708,
+        "y": -930,
         "map": "world",
-        "x": -1183,
-        "y": -1490,
-        "markerId": "alpha/omascul/-1183,-1490"
+        "markerId": "alpha/omascul/-708,-930"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Crescent Moon Shore",
         "level": null,
         "x": 9,
         "y": -221,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/omascul/9,-221"
+        "markerId": "predator/omascul/9,-221",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
@@ -4513,7 +4852,8 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 642
+    "spawns": 3368,
+    "levels": [50, 65]
   },
   "whalaska": {
     "prose": [
@@ -4524,11 +4864,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Astral Mountains",
+        "location": "Isle of the Glacial Core",
         "level": 55,
-        "map": "world",
         "x": -179,
         "y": 842,
+        "map": "world",
         "markerId": "alpha/whalaska/-179,842"
       }
     ],
@@ -4539,30 +4879,29 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 109
+    "spawns": 389,
+    "treeSpawns": 42,
+    "levels": [50, 80]
   },
   "whalaska-ignis": {
     "prose": [
       "Whalaska Ignis can be found in The World Tree",
       "Whalaska Ignis has a neutral temperament, only attacking if attacked first."
     ],
-    "tree": {
-      "places": [],
-      "widespread": true
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Mount Obsidian",
-        "level": 58,
-        "map": "world",
-        "x": -970,
-        "y": -538,
-        "markerId": "alpha/whalaska-ignis/-970,-538"
+        "location": "Whimsical Wisteria Grove",
+        "level": 74,
+        "x": 49,
+        "y": 783,
+        "map": "tree",
+        "markerId": "alpha/whalaska-ignis/49,783"
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 115
+    "treeSpawns": 502,
+    "levels": [71, 80]
   },
   "verdash": {
     "prose": [
@@ -4573,16 +4912,18 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Verdant Brook",
+        "location": "Verdant Sream",
         "level": 35,
-        "map": "world",
         "x": 285,
         "y": 10,
-        "markerId": "alpha/verdash/285,10"
+        "map": "world",
+        "markerId": "alpha/verdash/285,10",
+        "note": "Found in a dungeon"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 412
+    "spawns": 166,
+    "levels": [52, 52]
   },
   "splatterina": {
     "prose": [
@@ -4593,22 +4934,22 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 58,
+        "location": "The Oculus Gate, Tower in Sight",
+        "level": 65,
+        "x": -1079,
+        "y": -1455,
         "map": "world",
-        "x": -1209,
-        "y": -1326,
-        "markerId": "alpha/splatterina/-1209,-1326"
+        "markerId": "alpha/splatterina/-1079,-1455"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Dancing Sakura Shrine",
         "level": null,
         "x": -613,
         "y": 223,
         "map": "world",
-        "note": "Appears at night only.",
-        "markerId": "predator/splatterina/-613,223"
+        "markerId": "predator/splatterina/-613,223",
+        "note": "Appears at night only."
       }
     ],
     "dungeons": [
@@ -4618,7 +4959,9 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 1115
+    "spawns": 787,
+    "treeSpawns": 42,
+    "levels": [56, 80]
   },
   "gildane": {
     "prose": [
@@ -4634,16 +4977,16 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Emberstone Plateau",
-        "level": 58,
+        "location": "Loess Plains",
+        "level": 63,
+        "x": -940,
+        "y": -1412,
         "map": "world",
-        "x": -761,
-        "y": -1223,
-        "markerId": "alpha/gildane/-761,-1223"
+        "markerId": "alpha/gildane/-940,-1412"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Ruined Fortress City",
         "level": null,
         "x": -598,
         "y": -225,
@@ -4658,7 +5001,8 @@
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 886
+    "spawns": 708,
+    "levels": [53, 63]
   },
   "dogen": {
     "prose": [
@@ -4669,7 +5013,7 @@
     "bosses": [
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Bamboo Groves",
         "level": null,
         "x": -240,
         "y": -273,
@@ -4684,14 +5028,17 @@
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 102
+    "spawns": 104,
+    "levels": [53, 53]
   },
   "bulldosu": {
     "prose": [
       "Bulldosu is found on the Dancing Sakura Shrine. It is not interested towards the player and remains neutral unless attacked."
     ],
     "regions": ["Dancing Sakura Shrine"],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 104,
+    "levels": [53, 53]
   },
   "celesdir": {
     "prose": [
@@ -4715,14 +5062,16 @@
         "variant": "Alpha",
         "location": "Crystalized Ancient Tree",
         "level": 65,
-        "map": "world",
         "x": -965,
-        "y": -1175,
-        "markerId": "alpha/celesdir/-965,-1175"
+        "y": -1172,
+        "map": "world",
+        "markerId": "alpha/celesdir/-965,-1172"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 2538
+    "spawns": 3350,
+    "treeSpawns": 42,
+    "levels": [54, 80]
   },
   "celesdir-noct": {
     "prose": [
@@ -4732,13 +5081,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Gilded City",
+        "location": "Sealed Sanctum",
         "level": 79,
-        "x": -15,
-        "y": 775,
+        "x": -60,
+        "y": 778,
         "map": "tree",
-        "markerId": "alpha/celesdir-noct/-15,775",
-        "approximate": true
+        "markerId": "alpha/celesdir-noct/-60,778"
       }
     ],
     "eggTemperature": "Cool"
@@ -4746,32 +5094,23 @@
   "astegon": {
     "prose": [
       "Astegon is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night.",
-      "Astegon can be found in the No. 3 Wildlife Sanctuary."
+      "Astegon cannot be found in the wild."
     ],
     "regions": ["No. 2 Wildlife Sanctuary"],
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Mount Obsidian",
-        "level": 48,
-        "map": "world",
-        "x": -615,
-        "y": -429,
-        "markerId": "alpha/astegon/-615,-429"
-      },
-      {
-        "variant": "Alpha",
         "location": "No. 2 Wildlife Sanctuary",
         "level": 55,
-        "x": -675,
-        "y": -113,
+        "x": -689,
+        "y": -110,
         "map": "world",
-        "markerId": "alpha/astegon/-675,-113",
-        "approximate": true
+        "markerId": "alpha/astegon/-689,-110"
       }
     ],
     "eggTemperature": "Hot",
-    "spawns": 16
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "knocklem": {
     "prose": [
@@ -4784,19 +5123,26 @@
         "variant": "Alpha",
         "location": "Ruined Fortress City",
         "level": 55,
-        "map": "world",
         "x": -585,
         "y": -250,
+        "map": "world",
         "markerId": "alpha/knocklem/-585,-250"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 24,
+    "treeSpawns": 86,
+    "levels": [55, 80]
   },
   "knocklem-ignis": {
     "prose": [
       "Knocklem Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found in the Bicornis Islet."
-    ]
+    ],
+    "eggTemperature": "Hot",
+    "spawns": 72,
+    "treeSpawns": 44,
+    "levels": [65, 71]
   },
   "silvegis": {
     "prose": [
@@ -4807,15 +5153,17 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Scorched Hill",
-        "level": 59,
+        "location": "Stone Pillar Cave",
+        "level": 62,
+        "x": -985,
+        "y": -1023,
         "map": "world",
-        "x": -984,
-        "y": -1022,
-        "markerId": "alpha/silvegis/-984,-1022"
+        "markerId": "alpha/silvegis/-985,-1023"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "azurmane": {
     "prose": [
@@ -4827,15 +5175,17 @@
       {
         "variant": "Alpha",
         "location": "Frozen Coral Hill",
-        "level": 57,
+        "level": 66,
+        "x": -1131,
+        "y": -1668,
         "map": "world",
-        "x": -1106,
-        "y": -1315,
-        "markerId": "alpha/azurmane/-1106,-1315"
+        "markerId": "alpha/azurmane/-1131,-1668"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 1269
+    "spawns": 224,
+    "treeSpawns": 42,
+    "levels": [63, 80]
   },
   "valentail": {
     "prose": [
@@ -4848,7 +5198,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 64,
+    "levels": [64, 64]
   },
   "snock": {
     "prose": [
@@ -4858,11 +5210,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Enchanted Firmament",
+        "location": "Farcry Marsh",
         "level": 65,
-        "map": "world",
         "x": -369,
         "y": -1414,
+        "map": "world",
         "markerId": "alpha/snock/-369,-1414"
       }
     ],
@@ -4872,7 +5224,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 66,
+    "levels": [64, 64]
   },
   "snock-terra": {
     "prose": [
@@ -4880,18 +5234,9 @@
       "Snock Terra is found at the Dusty Ravine in the World Tree.",
       "<!-- Dungeon section: Uncomment this section only if the Pal can be found in a dungeon. If you do, make sure to delete the explanation arrows (<=) and text.\nUse the first list item if the Pal spawns as a regular encounter and/or the second list item if the Pal can spawn as one of the Alpha Pals at the end of the dungeon."
     ],
-    "tree": {
-      "places": ["statue/dusty-ravine/67,816"]
-    },
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "",
-        "level": null,
-        "map": "world"
-      }
-    ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 66,
+    "levels": [74, 74]
   },
   "souffline": {
     "prose": [
@@ -4905,7 +5250,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 108,
+    "levels": [64, 64]
   },
   "lapiron": {
     "prose": [
@@ -4919,7 +5266,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 76,
+    "levels": [65, 65]
   },
   "hoodle": {
     "prose": [
@@ -4933,7 +5282,9 @@
         "note": "As a regular encounter inside the dungeon."
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 155,
+    "levels": [65, 65]
   },
   "slowatt": {
     "prose": [
@@ -4945,13 +5296,15 @@
         "variant": "Alpha",
         "location": "Azure Woodland",
         "level": 66,
-        "map": "world",
         "x": -367,
         "y": -1357,
+        "map": "world",
         "markerId": "alpha/slowatt/-367,-1357"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 84,
+    "levels": [65, 65]
   },
   "bakemi": {
     "prose": [
@@ -4959,25 +5312,28 @@
       "It is found in the eastern part of the Facry Marsh, an area of Sunreach."
     ],
     "regions": ["Sunreach"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 155,
+    "levels": [65, 65]
   },
   "solmora": {
     "prose": [
       "Solmora is not interested towards the player, but will become hostile when attacked. It can be found in various spots on Sunreach."
     ],
     "regions": ["Sunreach"],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 196,
+    "levels": [66, 66]
   },
   "solmora-lux": {
     "prose": [
       "Solmora Lux is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
       "It is found at various spots on Sunreach and the World Tree, but mostly in the Gilded City."
     ],
-    "tree": {
-      "places": ["statue/gilded-city-ruins/-18,777"],
-      "widespread": true
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "spawns": 160,
+    "treeSpawns": 576,
+    "levels": [76, 76]
   },
   "lapure": {
     "prose": [
@@ -4991,7 +5347,9 @@
         "note": "As a regular encounter inside the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 60,
+    "levels": [65, 72]
   },
   "eidrolon": {
     "prose": [
@@ -5003,9 +5361,9 @@
         "variant": "Alpha",
         "location": "Crystalline Archipelago",
         "level": 69,
-        "map": "world",
         "x": -489,
         "y": -1521,
+        "map": "world",
         "markerId": "alpha/eidrolon/-489,-1521"
       }
     ],
@@ -5015,25 +5373,18 @@
         "note": "As a regular encounter inside the dungeon."
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "eidrolon-ignis": {
     "prose": [
       "Eidrolon Ignis is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found exclusively in the Corroded Hollow."
     ],
-    "tree": {
-      "places": ["statue/corroded-hollow/36,838"]
-    },
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "",
-        "level": null,
-        "map": "world"
-      }
-    ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 52,
+    "levels": [75, 75]
   },
   "dynamoff": {
     "prose": [
@@ -5044,11 +5395,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "",
+        "location": "Enchanted Firmament",
         "level": 67,
-        "map": "world",
         "x": -308,
         "y": -1523,
+        "map": "world",
         "markerId": "alpha/dynamoff/-308,-1523"
       }
     ],
@@ -5058,7 +5409,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 54,
+    "levels": [66, 70]
   },
   "tropicaw": {
     "prose": [
@@ -5072,7 +5425,9 @@
         "note": "As one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "spawns": 100,
+    "levels": [66, 66]
   },
   "flaracle": {
     "prose": [
@@ -5080,21 +5435,20 @@
       "It is found exclusively in the Corroded Hollow, an area of the World Tree."
     ],
     "regions": ["Sunreach"],
-    "tree": {
-      "places": ["statue/corroded-hollow/36,838"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "",
+        "location": "Enchanted Firmament",
         "level": 68,
-        "map": "world",
         "x": -244,
         "y": -1520,
+        "map": "world",
         "markerId": "alpha/flaracle/-244,-1520"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 94,
+    "levels": [75, 80]
   },
   "ophydia": {
     "prose": [
@@ -5107,13 +5461,15 @@
         "variant": "Alpha",
         "location": "Waterlily Gorge",
         "level": 69,
-        "map": "world",
         "x": -590,
         "y": -1478,
+        "map": "world",
         "markerId": "alpha/ophydia/-590,-1478"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "dupin": {
     "prose": [
@@ -5122,64 +5478,55 @@
       "The odds of a Dupin spawning outside of the World Tree are unknown."
     ],
     "regions": ["Windswept Hills"],
-    "tree": {
-      "places": ["statue/whimsical-wisteria-grove/60,781"]
-    },
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "spawns": 42,
+    "treeSpawns": 126,
+    "levels": [55, 72]
   },
   "roujay": {
     "prose": [
       "Roujay can be found at the Lacrymal Shoal, Dusty Ravine, Corroded Hollow, and Remnant Riverside. It is not interested towards the player and only attacks upon being provoked."
     ],
-    "tree": {
-      "places": [
-        "statue/corroded-hollow/36,838",
-        "statue/dusty-ravine/67,816",
-        "statue/lacrymal-shoal/-58,746",
-        "statue/remnant-riverside/16,833"
-      ]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 160,
+    "levels": [74, 76]
   },
   "venusa": {
     "prose": [
       "Venusa is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found at the Corroded Hollow in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/corroded-hollow/36,838"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 52,
+    "levels": [75, 75]
   },
   "mycora": {
     "prose": [
       "Mycora flees upon seeing the player and fights back when provoked. It is found at the Spore Cloister in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/spore-cloister/-19,750"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "The World Tree",
+        "location": "Spore Cloister",
         "level": 78,
-        "map": "tree",
         "x": -35,
         "y": 731,
+        "map": "tree",
         "markerId": "alpha/mycora/-35,731"
       }
     ],
-    "eggTemperature": "Warm"
+    "eggTemperature": "Warm",
+    "treeSpawns": 84,
+    "levels": [75, 75]
   },
   "loomen": {
     "prose": [
       "Loomen is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "It is found in the Spore Cloister."
     ],
-    "tree": {
-      "places": ["statue/spore-cloister/-19,750"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 84,
+    "levels": [75, 75]
   },
   "wistella": {
     "prose": [
@@ -5190,26 +5537,27 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sunreach",
+        "location": "Azure Woodland",
         "level": 66,
-        "x": -420,
-        "y": -1468,
+        "x": -232,
+        "y": -1415,
         "map": "world",
-        "markerId": "alpha/wistella/-420,-1468",
-        "approximate": true
+        "markerId": "alpha/wistella/-232,-1415",
+        "note": "Found in a dungeon"
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 80,
+    "levels": [76, 76]
   },
   "solenne": {
     "prose": [
       "Solenne is peaceful and shows no interest in engaging the player, remaining non-hostile unless directly attacked. It will not initiate combat under any circumstances and only retaliates if provoked.",
       "It is found at the Lacrymal Shoal in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/lacrymal-shoal/-58,746"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 94,
+    "levels": [76, 76]
   },
   "renjishi": {
     "prose": [
@@ -5221,13 +5569,15 @@
         "variant": "Alpha",
         "location": "Corroded Hollow",
         "level": 78,
-        "map": "tree",
         "x": 56,
-        "y": 838,
-        "markerId": "alpha/renjishi/56,838"
+        "y": 839,
+        "map": "tree",
+        "markerId": "alpha/renjishi/56,839"
       }
     ],
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 42,
+    "levels": [80, 80]
   },
   "aegidron": {
     "prose": [
@@ -5239,10 +5589,10 @@
         "variant": "Alpha",
         "location": "Lacrymal Shoal",
         "level": 79,
-        "map": "tree",
         "x": -59,
-        "y": 756,
-        "markerId": "alpha/aegidron/-59,756"
+        "y": 757,
+        "map": "tree",
+        "markerId": "alpha/aegidron/-59,757"
       }
     ],
     "eggTemperature": "Hot"
@@ -5253,23 +5603,20 @@
       "Grizzbolt can be found in The Verdant Rootpath."
     ],
     "regions": ["No. 1 Wildlife Sanctuary"],
-    "tree": {
-      "places": ["statue/the-verdant-rootpath/103,772"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "No. 1 Wildlife Sanctuary",
+        "location": "Flying Fish Coast",
         "level": 30,
         "x": 56,
-        "y": -675,
+        "y": -697,
         "map": "world",
-        "markerId": "alpha/grizzbolt/56,-675",
-        "approximate": true
+        "markerId": "alpha/grizzbolt/56,-697"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 22
+    "treeSpawns": 122,
+    "levels": [70, 80]
   },
   "lyleen": {
     "prose": [
@@ -5278,37 +5625,37 @@
       "There is a Alpha Lyleen boss in the overworld, found on the Sakurajima Island at (-632, 302)."
     ],
     "regions": ["Sakurajima Island"],
-    "tree": {
-      "places": ["statue/spore-cloister/-19,750"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sakurajima Island",
+        "location": "Dancing Sakura Shrine",
         "level": 58,
-        "map": "world",
         "x": -632,
         "y": 302,
+        "map": "world",
         "markerId": "alpha/lyleen/-632,302"
       }
     ],
     "eggTemperature": "Warm",
-    "spawns": 16
+    "treeSpawns": 126,
+    "levels": [75, 80]
   },
   "lyleen-noct": {
     "regions": ["Sakurajima Island"],
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sakurajima",
-        "level": 59,
-        "map": "world",
+        "location": "Dancing Sakura Shrine",
+        "level": 58,
         "x": -628,
-        "y": 303,
-        "markerId": "alpha/lyleen-noct/-628,303"
+        "y": 304,
+        "map": "world",
+        "markerId": "alpha/lyleen-noct/-628,304"
       }
     ],
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 126,
+    "levels": [75, 80]
   },
   "orserk": {
     "prose": [
@@ -5316,22 +5663,18 @@
       "Orserk can be found in the Dusty Ravine.",
       "World Tree: Orserk can be found throughout the Dusty Ravine, spawning in groups of 2 to 3 individuals."
     ],
-    "tree": {
-      "places": ["statue/dusty-ravine/67,816"]
-    },
     "eggTemperature": "Hot",
-    "spawns": 16
+    "treeSpawns": 108,
+    "levels": [74, 80]
   },
   "faleris": {
     "prose": [
       "Faleris is aggressive and will attack the player on sight.",
       "Faleris can be found in the Lacrymal Shoal."
     ],
-    "tree": {
-      "places": ["statue/lacrymal-shoal/-58,746"]
-    },
     "eggTemperature": "Hot",
-    "spawns": 16
+    "treeSpawns": 136,
+    "levels": [76, 80]
   },
   "faleris-aqua": {
     "prose": [
@@ -5339,22 +5682,19 @@
       "Faleris Aqua can be found on Feybreak Island in the Scorched Ashland, the Withered Seaside, and the Deserted Ash Plateau, at the Crystalline Archipelago on Sunreach, as well as in the World Tree at the Lacrymal Shoal."
     ],
     "regions": ["Feybreak Island", "Frozen Coral Hill"],
-    "tree": {
-      "places": ["statue/lacrymal-shoal/-58,746"]
-    },
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Withered Seaside",
-        "level": 56,
+        "location": "Frozen Coral Hill",
+        "level": 66,
+        "x": -1306,
+        "y": -1620,
         "map": "world",
-        "x": -628,
-        "y": -1048,
-        "markerId": "alpha/faleris-aqua/-628,-1048"
+        "markerId": "alpha/faleris-aqua/-1306,-1620"
       },
       {
         "variant": "Predator",
-        "location": "",
+        "location": "Foot of the Astral Mountains",
         "level": null,
         "x": -110,
         "y": 141,
@@ -5369,12 +5709,16 @@
       }
     ],
     "eggTemperature": "Cool",
-    "spawns": 886
+    "spawns": 300,
+    "treeSpawns": 136,
+    "levels": [65, 80]
   },
   "shadowbeak": {
     "regions": ["No. 3 Wildlife Sanctuary"],
     "eggTemperature": "Cool",
-    "spawns": 16
+    "spawns": 22,
+    "treeSpawns": 42,
+    "levels": [50, 80]
   },
   "selyne": {
     "prose": [
@@ -5382,39 +5726,28 @@
       "Selyne only appears in the wild during a Meteorite Event on Sakurajima, spawning next to the meteorite when it lands. It has a small chance of spawning as an Alpha variant.",
       "Selyne can also be found at the Gilded City in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/gilded-city-ruins/-18,777"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 122,
+    "levels": [76, 80]
   },
   "bastigor": {
     "prose": [
       "Bastigor is aggressive, and attacks the player upon spotting them.",
       "Bastigor can only be found at the Boreal Summit in the World Tree."
     ],
-    "tree": {
-      "places": ["statue/boreal-summit/-25,840"]
-    },
-    "eggTemperature": "Cool"
+    "eggTemperature": "Cool",
+    "treeSpawns": 180,
+    "levels": [75, 80]
   },
   "shaolong": {
-    "eggTemperature": "Hot"
+    "eggTemperature": "Hot",
+    "treeSpawns": 126,
+    "levels": [76, 76]
   },
   "silvance": {
     "prose": [
       "Silvance is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "Silvance cannot spawn in the overworld."
-    ],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Shinespore Root",
-        "level": 78,
-        "map": "tree",
-        "x": -62,
-        "y": 692,
-        "markerId": "alpha/silvance/-62,692"
-      }
     ],
     "eggTemperature": "Warm"
   },
@@ -5422,17 +5755,6 @@
     "prose": [
       "Dandilord is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "Dandilord cannot be found in the overworld."
-    ],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Rotmist Root",
-        "level": 78,
-        "map": "tree",
-        "x": 26,
-        "y": 861,
-        "markerId": "alpha/dandilord/26,861"
-      }
     ],
     "eggTemperature": "Warm"
   },
@@ -5512,12 +5834,12 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Desiccated Desert",
+        "location": "No. 3 Wildlife Sanctuary",
         "level": 60,
-        "map": "world",
-        "x": 447,
+        "x": 440,
         "y": 679,
-        "markerId": "alpha/paladius/447,679"
+        "map": "world",
+        "markerId": "alpha/paladius/440,679"
       }
     ],
     "eggTemperature": "Warm"
@@ -5526,17 +5848,6 @@
     "prose": [
       "Necromus is only found in the wild as an Alpha Pal.",
       "Necromus is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
-    ],
-    "bosses": [
-      {
-        "variant": "Alpha",
-        "location": "Desiccated Desert",
-        "level": 60,
-        "map": "world",
-        "x": 447,
-        "y": 679,
-        "markerId": "alpha/necromus/447,679"
-      }
     ],
     "eggTemperature": "Cool"
   },
@@ -5550,9 +5861,9 @@
         "variant": "Alpha",
         "location": "Astral Mountains",
         "level": 60,
-        "map": "world",
         "x": -357,
         "y": 509,
+        "map": "world",
         "markerId": "alpha/frostallion/-357,509"
       }
     ],
@@ -5569,9 +5880,9 @@
         "variant": "Alpha",
         "location": "No. 3 Wildlife Sanctuary",
         "level": 65,
-        "map": "world",
         "x": 689,
         "y": 648,
+        "map": "world",
         "markerId": "alpha/frostallion-noct/689,648"
       }
     ],
@@ -5587,10 +5898,11 @@
         "variant": "Alpha",
         "location": "Isle of the Glacial Core",
         "level": 60,
-        "map": "world",
         "x": 139,
         "y": 651,
-        "markerId": "alpha/neptilius/139,651"
+        "map": "world",
+        "markerId": "alpha/neptilius/139,651",
+        "note": "Found in a dungeon"
       }
     ],
     "eggTemperature": "Cool"
@@ -5604,11 +5916,11 @@
     "bosses": [
       {
         "variant": "Alpha",
-        "location": "Sunreach",
+        "location": "Dragonmark Peak",
         "level": 70,
-        "map": "world",
         "x": -553,
         "y": -1332,
+        "map": "world",
         "markerId": "alpha/jetragon/-553,-1332"
       }
     ],

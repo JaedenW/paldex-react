@@ -172,7 +172,7 @@ export default function TechCard({
           </span>
         </div>
         <p className="text-xs text-pw-muted">
-          {kind ?? 'Nothing listed on the wiki'}
+          {kind ?? 'Nothing listed'}
           {unlocks.length > 1 && ` · ${unlocks.length} unlocks`}
         </p>
         {tech.requires && (

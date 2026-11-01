@@ -310,10 +310,6 @@ function FindParents({
         <EmptyState title="Choose the Pal you want to breed">
           You’ll get every pair of parents that produces it.
         </EmptyState>
-      ) : all.length === 0 ? (
-        <EmptyState title={`No parents make ${child.name}`}>
-          It can’t be bred, so it has to be found in the wild or summoned.
-        </EmptyState>
       ) : (
         <Panel
           title={`${shown.length} pair${shown.length === 1 ? '' : 's'} make ${child.name}`}

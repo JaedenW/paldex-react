@@ -47,13 +47,17 @@ export interface Drop {
   chance: number | null;
   min: number | null;
   max: number | null;
+  /** Only drops from Pals of at least this level */
+  minLevel?: number;
 }
 
 export interface Pal {
   id: string;
   name: string;
-  /** Paldeck number as printed by the wiki, e.g. "001" or "041B" */
+  /** Paldeck number, e.g. "001" or "041B" */
   number: string;
+  /** The game's internal name, as used in paldb.cc's files */
+  code: string;
   title?: string;
   description?: string;
   elements: Element[];
@@ -102,27 +106,16 @@ export interface Boss {
   variant: string;
   location: string;
   level: number | null;
-  /** Absent when the wiki doesn't record where it is */
-  x?: number;
-  y?: number;
+  x: number;
+  y: number;
   /** Which map the coordinates are on */
   map: MapId;
-  /** Its marker on the world map, when it has one */
-  markerId?: string;
-  /** The wiki only names the area, so this position is an estimate */
-  approximate?: boolean;
+  /** Its marker on the world map */
+  markerId: string;
   note?: string;
 }
 
-/** Where a Pal lives on the World Tree, which has no spawn points on the wiki */
-export interface TreeHabitat {
-  /** Fast-travel statue markers named after the regions it lives in */
-  places: string[];
-  /** The wiki also says it is found widely, not only in those regions */
-  widespread?: boolean;
-}
-
-/** How to find a Pal, scraped from its wiki page and the wiki's habitat map */
+/** How to find a Pal: spawn points and bosses from paldb.cc, notes from the wiki */
 export interface Obtain {
   prose?: string[];
   regions?: string[];
@@ -133,15 +126,20 @@ export interface Obtain {
   slabs?: { name: string; id?: string }[];
   /** Temperature its egg likes in an incubator */
   eggTemperature?: string;
-  tree?: TreeHabitat;
-  /** Number of wild spawn points; the points themselves load from public/habitats */
+  /** Wild spawn points on the Palpagos map; the points load from public/habitats */
   spawns?: number;
+  /** Wild spawn points on the World Tree */
+  treeSpawns?: number;
+  /** Lowest and highest level it spawns at in the wild */
+  levels?: [number, number];
 }
 
 /** Wild spawn points as [x, y] game coordinates */
 export interface Spawns {
   day: [number, number][];
   night: [number, number][];
+  treeDay: [number, number][];
+  treeNight: [number, number][];
 }
 
 export type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary';

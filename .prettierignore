@@ -1,3 +1,4 @@
 src/data/gear
 public/habitats
 build
+.cache

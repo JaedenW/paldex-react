@@ -2,6 +2,7 @@
 // map's X, Y; a view is the point at the centre of the screen and how many map
 // units fit across it. Everything here is plain functions so it can be tested.
 
+import type { Spawns } from '../types';
 import { boundsOf } from './map';
 
 export interface Bounds {
@@ -35,14 +36,22 @@ export interface MapDef {
   image: string;
   /** The full-resolution picture, loaded once someone zooms in */
   full: string;
-  approximate?: boolean;
 }
 
 /** How much of a map to show when flying to one place on it */
-export const flySpan = (map: MapDef) => (map.approximate ? 30 : 260);
+export const flySpan = (map: MapDef) =>
+  (map.bounds.right - map.bounds.left) * 0.09;
 
 export type LayerId =
-  'statue' | 'tower' | 'alpha' | 'predator' | 'bounty' | 'oilrig' | 'merchant';
+  | 'statue'
+  | 'tower'
+  | 'alpha'
+  | 'predator'
+  | 'bounty'
+  | 'oilrig'
+  | 'merchant'
+  | 'dungeon'
+  | 'camp';
 export type MapId = 'world' | 'tree';
 
 export interface MapMarker {
@@ -59,8 +68,6 @@ export interface MapMarker {
   hardLevel?: number;
   boss?: string;
   note?: string;
-  /** The wiki only names the area, so this position is an estimate */
-  approximate?: boolean;
 }
 
 export interface LayerDef {
@@ -126,10 +133,26 @@ export const LAYERS: LayerDef[] = [
   },
   {
     id: 'merchant',
-    label: 'Wandering merchants',
-    description: 'Merchants at known stops',
+    label: 'Merchants',
+    description: 'Wandering and Pal merchants, and Black Marketeers',
     colour: '#4ade80',
     glyph: '$',
+    defaultOn: false,
+  },
+  {
+    id: 'dungeon',
+    label: 'Dungeons',
+    description: 'Dungeon entrances, with their level',
+    colour: '#60a5fa',
+    glyph: 'D',
+    defaultOn: false,
+  },
+  {
+    id: 'camp',
+    label: 'Enemy camps',
+    description: 'Syndicate and other hostile camps',
+    colour: '#fb7185',
+    glyph: 'C',
     defaultOn: false,
   },
 ];
@@ -301,3 +324,9 @@ export function formatLayers(layers: Set<LayerId>): string | undefined {
 /** The colours given to Pals whose spawns are shown together */
 export const SPAWN_COLOURS = ['#fb923c', '#38bdf8', '#a3e635', '#f472b6'];
 export const MAX_SPAWN_PALS = SPAWN_COLOURS.length;
+
+/** A Pal's spawn points on one map */
+export const spawnsOn = (spawns: Spawns, map: MapId) =>
+  map === 'tree'
+    ? { day: spawns.treeDay, night: spawns.treeNight }
+    : { day: spawns.day, night: spawns.night };

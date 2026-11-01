@@ -10,6 +10,7 @@ import {
   SPAWN_COLOURS,
   flySpan,
   layerById,
+  spawnsOn,
   type MapId,
   type MapMarker,
   type TimeOfDay,
@@ -30,28 +31,23 @@ export interface MapFocus {
 
 /**
  * A link to this Pal on the home page's map: at the marker if given, otherwise
- * showing its spawn points, or failing that at a place it is known to be.
+ * showing its spawn points, or failing that at a boss.
  */
 export function mainMapLink(pal: Pal, info: Obtain, marker?: MapMarker) {
+  const hasSpawns = !!info.spawns || !!info.treeSpawns;
   const place =
-    marker ??
-    (info.spawns
-      ? undefined
-      : (markerById.get(info.tree?.places[0] ?? '') ??
-        MARKERS.find((m) => m.pal === pal.id)));
+    marker ?? (hasSpawns ? undefined : MARKERS.find((m) => m.pal === pal.id));
   const params = new URLSearchParams();
-  if (place?.map === 'tree' || (!place && !info.spawns && info.tree))
-    params.set('map', 'tree');
+  if (place ? place.map === 'tree' : !info.spawns) params.set('map', 'tree');
   if (place) params.set('m', place.id);
-  if (info.spawns) params.set('pal', pal.id);
+  if (hasSpawns) params.set('pal', pal.id);
   return `/?${params}`;
 }
 
 /**
  * A Pal's corner of the world map: the same map, markers and controls as the
- * home page, with its spawn points, its bosses and, on the World Tree, the
- * regions it lives in picked out. Fast-travel statues stay on for finding your
- * way there.
+ * home page, with its spawn points and bosses picked out. Fast-travel statues
+ * stay on for finding your way there.
  */
 export default function PalMap({
   pal,
@@ -67,21 +63,17 @@ export default function PalMap({
   const wrapRef = React.useRef<HTMLDivElement>(null);
   const mapRef = React.useRef<WorldMapHandle>(null);
 
-  // its own Alpha and predator markers, and the regions it lives in
+  // its own Alpha and predator markers
   const highlight = React.useMemo(
-    () =>
-      new Set([
-        ...MARKERS.filter((m) => m.pal === pal.id).map((m) => m.id),
-        ...(info.tree?.places ?? []),
-      ]),
-    [pal.id, info]
+    () => new Set(MARKERS.filter((m) => m.pal === pal.id).map((m) => m.id)),
+    [pal.id]
   );
   const own = React.useMemo(
     () => [...highlight].flatMap((id) => markerById.get(id) ?? []),
     [highlight]
   );
   const onWorld = !!info.spawns || own.some((m) => m.map === 'world');
-  const onTree = !!info.tree || own.some((m) => m.map === 'tree');
+  const onTree = !!info.treeSpawns || own.some((m) => m.map === 'tree');
 
   const [mapId, setMapId] = React.useState<MapId>(onWorld ? 'world' : 'tree');
   const [time, setTime] = React.useState<TimeOfDay>('both');
@@ -102,12 +94,13 @@ export default function PalMap({
       ),
     [mapId, highlight, selectedId, statues]
   );
+  const here = React.useMemo(
+    () => (spawns ? spawnsOn(spawns, mapId) : undefined),
+    [spawns, mapId]
+  );
   const spawnSets = React.useMemo<SpawnSet[]>(
-    () =>
-      spawns && mapId === 'world'
-        ? [{ id: pal.id, colour: SPAWN_COLOURS[0], ...spawns }]
-        : [],
-    [spawns, mapId, pal.id]
+    () => (here ? [{ id: pal.id, colour: SPAWN_COLOURS[0], ...here }] : []),
+    [here, pal.id]
   );
 
   const changeMap = (id: MapId) => {
@@ -116,16 +109,14 @@ export default function PalMap({
     setPin(undefined);
   };
 
-  // frame everything of this Pal's on the Palpagos map; the World Tree is small
-  // enough that it opens showing all of it
+  // frame everything of this Pal's on the map that's showing
   React.useEffect(() => {
-    if (mapId !== 'world') return;
     const points = own
-      .filter((m) => m.map === 'world')
+      .filter((m) => m.map === mapId)
       .map((m): [number, number] => [m.x, m.y]);
-    if (spawns) points.push(...spawns.day, ...spawns.night);
+    if (here) points.push(...here.day, ...here.night);
     if (points.length) mapRef.current?.fit(points);
-  }, [mapId, own, spawns]);
+  }, [mapId, own, here]);
 
   // a place chosen from a list: go to its map, then to the place
   const handled = React.useRef<number | undefined>(undefined);
@@ -162,6 +153,7 @@ export default function PalMap({
           selectedId={selectedId}
           highlightIds={highlight}
           labelZoom={6}
+          inPage
           pin={pin}
           insets={INSETS}
           onSelect={(m) => setSelectedId(m?.id)}
@@ -170,15 +162,8 @@ export default function PalMap({
         <ZoomButtons mapRef={mapRef} />
       </div>
 
-      {map.approximate && (
-        <p className="rounded-xl bg-amber-100 px-3 py-2 text-xs text-amber-900 dark:bg-amber-400/15 dark:text-amber-100">
-          World Tree positions are estimated. The wiki gives coordinates but not
-          how they line up with the picture, so a marker can be a little off.
-        </p>
-      )}
-
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-        {mapId === 'world' && spawns && (
+        {here && here.day.length + here.night.length > 0 && (
           <>
             <TimeSwitch value={time} onChange={setTime} />
             <span className="flex items-center gap-1.5">
@@ -203,7 +188,7 @@ export default function PalMap({
                 >
                   {layer.glyph}
                 </span>
-                {id === 'statue' ? 'Regions it lives in' : layer.label}
+                {layer.label}
               </span>
             )
           );

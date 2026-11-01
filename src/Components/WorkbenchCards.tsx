@@ -7,7 +7,7 @@ import { cn } from '../Utils/cn';
 
 interface Bench {
   name: string;
-  /** Player level that unlocks it, when the wiki says */
+  /** Player level that unlocks it, when known */
   level?: number;
   tech?: string;
   id?: string;

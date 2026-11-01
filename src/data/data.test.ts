@@ -87,12 +87,20 @@ describe('world map data', () => {
       'bounty',
       'oilrig',
       'merchant',
+      'dungeon',
+      'camp',
     ]);
     expect(markers.filter((m) => !layers.has(m.layer))).toEqual([]);
   });
 
-  it('marks the World Tree placement as an estimate', () => {
-    expect(worldmap.maps.tree.approximate).toBe(true);
+  it('has only exact World Tree positions', () => {
+    const { left, right, top, bottom } = worldmap.maps.tree.bounds;
+    const outside = markers.filter(
+      (m) =>
+        m.map === 'tree' &&
+        (m.x < left || m.x > right || m.y < bottom || m.y > top)
+    );
+    expect(outside).toEqual([]);
   });
 });
 
@@ -127,39 +135,12 @@ describe('where to find each Pal', () => {
 
   it('gives every placed boss a marker on the map', () => {
     const bad = entries.flatMap(([, e]) =>
-      (e.bosses ?? []).filter(
-        (b) => b.x !== undefined && !byId.has(b.markerId ?? '')
-      )
+      (e.bosses ?? []).filter((b) => !byId.has(b.markerId))
     );
     expect(bad).toEqual([]);
   });
 
-  it('marks estimated bosses as estimates on both maps', () => {
-    const bad = entries.flatMap(([, e]) =>
-      (e.bosses ?? []).filter(
-        (b) => !!b.approximate !== !!byId.get(b.markerId ?? '')?.approximate
-      )
-    );
-    expect(bad).toEqual([]);
-  });
-
-  it('has no placeholder boss coordinates or broken locations', () => {
-    const bad = entries.flatMap(([, e]) =>
-      (e.bosses ?? []).filter(
-        (b) => (b.x === 0 && b.y === 0) || b.location.startsWith('|')
-      )
-    );
-    expect(bad).toEqual([]);
-  });
-
-  it('names real World Tree regions', () => {
-    const bad = entries.flatMap(([, e]) =>
-      (e.tree?.places ?? []).filter((id) => byId.get(id)?.map !== 'tree')
-    );
-    expect(bad).toEqual([]);
-  });
-
-  it('keeps every Pal the wiki puts on the World Tree', () => {
-    expect(entries.filter(([, e]) => e.tree).length).toBeGreaterThan(25);
+  it('has World Tree spawns', () => {
+    expect(entries.filter(([, e]) => e.treeSpawns).length).toBeGreaterThan(10);
   });
 });

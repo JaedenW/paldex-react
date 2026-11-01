@@ -25,7 +25,7 @@ export function searchMap(query: string): MapResult[] {
     .map((pal) => ({
       pal,
       score: matchScore(pal.name, q),
-      spawns: obtain[pal.id]?.spawns ?? 0,
+      spawns: (obtain[pal.id]?.spawns ?? 0) + (obtain[pal.id]?.treeSpawns ?? 0),
     }))
     .filter((x) => x.score > 0)
     .sort(
@@ -85,9 +85,7 @@ export default function MapSearch({
                 <span className="block text-xs text-pw-muted">
                   {r.spawns > 0
                     ? 'Show where it spawns'
-                    : obtain[r.pal.id]?.tree
-                      ? 'Lives on the World Tree'
-                      : 'No spawn points on the wiki'}
+                    : 'No wild spawn points'}
                 </span>
               </span>
               <span className="rounded-full bg-pw-navy/10 px-2 py-0.5 text-xs font-semibold text-pw-heading">

@@ -56,7 +56,7 @@ export default function CraftingPage() {
   const [itemParam] = useQueryState('item');
   const [buildingParam] = useQueryState('building');
   const patch = useQueryPatch();
-  const [qtyParam, setQty] = useQueryState('qty', '1');
+  const [qtyParam, setQty] = useQueryState('qty');
   const [expandParam, setExpand] = useQueryState('expand', '1');
   const [view, setView] = useQueryState('view', 'flow');
 
@@ -147,7 +147,9 @@ export default function CraftingPage() {
               min={1}
               max={9999}
               value={qtyParam}
+              placeholder="1"
               onChange={(e) => setQty(e.target.value)}
+              onBlur={() => qtyParam && setQty(String(qty))}
               className="h-11 w-full rounded-full border bg-pw-field px-4 outline-none focus:border-pw-teal"
             />
           </div>

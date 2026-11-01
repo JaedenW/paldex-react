@@ -144,3 +144,76 @@ export async function latestVersion(): Promise<{
 export async function readJson<T>(relativePath: string): Promise<T> {
   return JSON.parse(await readFile(path.join(root, relativePath), 'utf8')) as T;
 }
+
+const WIKIS = [
+  'https://palworld.wiki.gg/api.php',
+  'https://palworld.fandom.com/api.php',
+];
+
+/** Where the wikis keep these files, by title; wiki.gg first, then Fandom */
+export async function imageUrls(files: string[]) {
+  const urls = new Map<string, string>();
+  for (const base of WIKIS) {
+    const rest = files.filter((f) => !urls.has(f));
+    for (let i = 0; i < rest.length; i += 40) {
+      const params = new URLSearchParams({
+        format: 'json',
+        action: 'query',
+        prop: 'imageinfo',
+        iiprop: 'url',
+        titles: rest
+          .slice(i, i + 40)
+          .map((f) => `File:${f}`)
+          .join('|'),
+      });
+      const res = await fetch(`${base}?${params}`, {
+        headers: { 'User-Agent': UA },
+      });
+      if (!res.ok) continue;
+      const json = (await res.json()) as QueryResponse;
+      for (const page of Object.values(json.query.pages)) {
+        const url = page.imageinfo?.[0]?.url;
+        if (url)
+          urls.set(page.title.replace(/^File:/, '').replace(/_/g, ' '), url);
+      }
+      await sleep(200);
+    }
+  }
+  return urls;
+}
+
+/** The infobox picture named on each Pal's Fandom page, for art filed under another name */
+export async function fandomArtNames(names: string[]) {
+  const out = new Map<string, string>();
+  for (let i = 0; i < names.length; i += 40) {
+    const params = new URLSearchParams({
+      format: 'json',
+      formatversion: '2',
+      action: 'query',
+      redirects: '1',
+      prop: 'revisions',
+      rvprop: 'content',
+      rvslots: 'main',
+      titles: names.slice(i, i + 40).join('|'),
+    });
+    const res = await fetch(`${WIKIS[1]}?${params}`, {
+      headers: { 'User-Agent': UA },
+    });
+    if (!res.ok) continue;
+    const json = (await res.json()) as {
+      query: {
+        pages: {
+          title: string;
+          revisions?: { slots: { main: { content: string } } }[];
+        }[];
+      };
+    };
+    for (const page of json.query.pages) {
+      const text = page.revisions?.[0]?.slots.main.content ?? '';
+      const image = text.match(/\|\s*image\s*=\s*([^|\n}]+)/)?.[1]?.trim();
+      if (image) out.set(page.title, image.replace(/_/g, ' '));
+    }
+    await sleep(200);
+  }
+  return out;
+}

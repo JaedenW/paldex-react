@@ -9,7 +9,7 @@ import WorldMap, {
 } from '../Components/WorldMap';
 import { CloseIcon, LayersIcon } from '../Components/Icons';
 import { obtain, palById } from '../data';
-import { MAPS, MARKERS as ALL, markerById } from '../data/worldmap';
+import { MAPS, MARKERS as ALL } from '../data/worldmap';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useMediaQuery } from '../Hooks/useMediaQuery';
 import { useQueryPatch } from '../Hooks/useQueryState';
@@ -23,13 +23,14 @@ import {
   formatLayers,
   parseAt,
   parseLayers,
+  spawnsOn,
   type LayerId,
   type MapId,
   type MapMarker,
   type TimeOfDay,
   type View,
 } from '../Utils/worldmap';
-import type { Pal } from '../types';
+import type { Pal, Spawns } from '../types';
 import { cn } from '../Utils/cn';
 
 // how many markers each layer has on each map, for the panel
@@ -38,6 +39,11 @@ const COUNTS: Record<MapId, Partial<Record<LayerId, number>>> = {
   tree: {},
 };
 for (const m of ALL) COUNTS[m.map][m.layer] = (COUNTS[m.map][m.layer] ?? 0) + 1;
+
+const pointsOn = (s: Spawns, map: MapId) => {
+  const { day, night } = spawnsOn(s, map);
+  return [...day, ...night];
+};
 
 /**
  * The home page: the world map. Everything about the view (which map, layers,
@@ -92,8 +98,7 @@ export default function HomePage() {
           {
             id,
             colour: SPAWN_COLOURS[i % SPAWN_COLOURS.length],
-            day: s.day,
-            night: s.night,
+            ...spawnsOn(s, mapId),
           },
         ]
       : [];
@@ -127,9 +132,9 @@ export default function HomePage() {
     const all = palIds.map((id) => spawnData[id]);
     if (all.some((x) => x === undefined)) return;
     fitSharedPals.current = false;
-    const points = all.flatMap((x) => (x ? [...x.day, ...x.night] : []));
+    const points = all.flatMap((x) => (x ? pointsOn(x, mapId) : []));
     if (points.length) mapRef.current?.fit(points);
-  }, [palIds, spawnData]);
+  }, [palIds, spawnData, mapId]);
 
   // frame a Pal's spawns once it has been added and they have arrived
   React.useEffect(() => {
@@ -137,9 +142,9 @@ export default function HomePage() {
     const s = id ? spawnData[id] : undefined;
     if (id && s) {
       pendingFit.current = undefined;
-      mapRef.current?.fit([...s.day, ...s.night]);
+      mapRef.current?.fit(pointsOn(s, mapId));
     }
-  }, [palIds, spawnData]);
+  }, [palIds, spawnData, mapId]);
 
   const setMap = (id: MapId) =>
     patch({
@@ -156,20 +161,14 @@ export default function HomePage() {
 
   const addPal = (pal: Pal) => {
     if (palIds.includes(pal.id)) {
-      const s = spawnData[pal.id];
-      if (s) mapRef.current?.fit([...s.day, ...s.night]);
+      frameSpawns(pal.id);
       return;
     }
-    if (!obtain[pal.id]?.spawns) {
-      const place = markerById.get(obtain[pal.id]?.tree?.places[0] ?? '');
-      if (place) {
-        say(`${pal.name} lives in ${place.name} on the World Tree.`);
-        pickPlace(place);
-        return;
-      }
+    const info = obtain[pal.id];
+    if (!info?.spawns && !info?.treeSpawns) {
       const alpha = ALL.find((m) => m.pal === pal.id && m.layer === 'alpha');
       say(
-        `The wiki has no spawn points for ${pal.name}.${alpha ? ' Its Alpha boss is selected instead.' : ''}`
+        `${pal.name} has no wild spawn points.${alpha ? ' Its Alpha boss is selected instead.' : ''}`
       );
       if (alpha) pickPlace(alpha);
       return;
@@ -179,18 +178,41 @@ export default function HomePage() {
       return;
     }
     pendingFit.current = pal.id;
+    const stay = mapId === 'tree' ? info.treeSpawns : info.spawns;
     patch({
       pal: [...palIds, pal.id].join(','),
-      ...(mapId === 'tree'
-        ? { map: undefined, at: undefined, m: undefined }
-        : {}),
+      ...(stay
+        ? {}
+        : {
+            map: mapId === 'tree' ? undefined : 'tree',
+            at: undefined,
+            m: undefined,
+          }),
     });
+  };
+
+  /** Frames a Pal already on the map, changing map if it has no spawns on this one */
+  const frameSpawns = (id: string) => {
+    const s = spawnData[id];
+    if (!s) return;
+    const here = pointsOn(s, mapId);
+    if (here.length) {
+      mapRef.current?.fit(here);
+    } else {
+      pendingFit.current = id;
+      setMap(mapId === 'tree' ? 'world' : 'tree');
+    }
   };
 
   const removePal = (id: string) =>
     patch({ pal: palIds.filter((p) => p !== id).join(',') || undefined });
 
   function pickPlace(marker: MapMarker) {
+    // already selected, so nothing will change for the effect to notice
+    if (marker.id === selected?.id) {
+      mapRef.current?.flyTo(marker.x, marker.y, flySpan(map));
+      return;
+    }
     flyToSelection.current = true;
     patch({
       map: marker.map === 'tree' ? 'tree' : undefined,
@@ -266,7 +288,6 @@ export default function HomePage() {
             <ul className="flex flex-wrap gap-1.5">
               {palIds.map((id, i) => {
                 const pal = palById.get(id)!;
-                const set = spawnData[id];
                 return (
                   <li
                     key={id}
@@ -282,9 +303,7 @@ export default function HomePage() {
                     />
                     <button
                       type="button"
-                      onClick={() =>
-                        set && mapRef.current?.fit([...set.day, ...set.night])
-                      }
+                      onClick={() => frameSpawns(id)}
                       title="Zoom to its spawns"
                       className="hover:underline"
                     >
@@ -318,19 +337,13 @@ export default function HomePage() {
                 Loading spawn points…
               </p>
             )}
-            {mapId === 'tree' && (
-              <p className="mt-1.5 text-xs text-pw-muted">
-                Spawns are on the Palpagos Islands map; the wiki has none for
-                the World Tree yet.
-              </p>
-            )}
+            {!loading &&
+              spawnSets.every((x) => !x.day.length && !x.night.length) && (
+                <p className="mt-1.5 text-xs text-pw-muted">
+                  No spawn points on this map; try the other one.
+                </p>
+              )}
           </section>
-        )}
-
-        {map.approximate && (
-          <p className="pointer-events-auto rounded-full bg-amber-100 px-3 py-1.5 text-center text-xs font-semibold text-amber-900 shadow-lift dark:bg-amber-400/20 dark:text-amber-100">
-            Marker positions on the World Tree are estimated
-          </p>
         )}
 
         {notice && (
@@ -401,14 +414,6 @@ export default function HomePage() {
               Search for a Pal above to see where it spawns, day and night. You
               can show up to {MAX_SPAWN_PALS} at once.
             </p>
-
-            {map.approximate && (
-              <p className="rounded-xl bg-amber-100 px-3 py-2 text-xs text-amber-900 dark:bg-amber-400/15 dark:text-amber-100">
-                World Tree positions are estimated. The wiki gives coordinates
-                but not how they line up with the picture, so a marker can be a
-                little off.
-              </p>
-            )}
           </section>
         )}
       </div>
@@ -425,7 +430,9 @@ export default function HomePage() {
             marker={selected}
             canShowSpawns={
               !!selectedPal &&
-              (obtain[selectedPal.id]?.spawns ?? 0) > 0 &&
+              (obtain[selectedPal.id]?.spawns ??
+                obtain[selectedPal.id]?.treeSpawns ??
+                0) > 0 &&
               !palIds.includes(selectedPal.id)
             }
             onShowSpawns={() => selectedPal && addPal(selectedPal)}
@@ -436,15 +443,14 @@ export default function HomePage() {
 
       <p className="pointer-events-none absolute right-2 bottom-1.5 z-10 rounded bg-pw-deep/80 px-1.5 py-0.5 text-[11px] text-white/80">
         <a
-          href="https://palworld.wiki.gg"
+          href="https://paldb.cc"
           target="_blank"
           rel="noreferrer"
           className="pointer-events-auto underline decoration-white/40 underline-offset-2 hover:decoration-white"
         >
-          Palworld Wiki
+          paldb.cc
         </a>{' '}
-        · CC BY-SA 4.0 ·{' '}
-        {selected ? markerTitle(selected) : 'unofficial fan project'}
+        · {selected ? markerTitle(selected) : 'unofficial fan project'}
       </p>
     </div>
   );

@@ -5,7 +5,7 @@ import { cn } from '../Utils/cn';
 
 /**
  * An item or building icon. Schematics share a placeholder and anything the
- * wiki has no picture of falls back to a coloured initial.
+ * data has no picture of falls back to a coloured initial.
  */
 export default function ItemIcon({
   kind = 'item',

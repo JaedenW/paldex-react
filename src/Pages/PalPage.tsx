@@ -83,7 +83,8 @@ export default function PalPage() {
         e.defaultPrevented || // the map uses the arrow keys itself
         (e.target as HTMLElement).matches('input, select, textarea') ||
         e.metaKey ||
-        e.ctrlKey
+        e.ctrlKey ||
+        e.altKey // Alt+arrow is the browser's back and forward
       )
         return;
       const target =
@@ -497,14 +498,11 @@ function BreedingTab({ pal }: { pal: Pal }) {
   return (
     <>
       <Panel title="Breeding">
-        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           <Stat label="Breeding rank">{pal.breeding.rank}</Stat>
           <Stat label="Egg">{pal.breeding.egg || '–'}</Stat>
           <Stat label="Male chance">
             {pal.breeding.maleProbability ?? '–'}%
-          </Stat>
-          <Stat label="Tie-break priority">
-            {formatNumber(pal.breeding.priority)}
           </Stat>
         </dl>
         <p className="mt-4 text-sm text-pw-muted">
@@ -523,27 +521,17 @@ function BreedingTab({ pal }: { pal: Pal }) {
           </Link>
         }
       >
-        {parents.length === 0 ? (
-          <p className="text-pw-muted">
-            No parent pair produces this Pal; it’s likely only available in the
-            wild.
-          </p>
-        ) : (
-          <>
-            <div className="mb-4 space-y-2">
-              <SearchInput
-                value={text}
-                onChange={setText}
-                placeholder="Filter by a parent’s name"
-              />
-              <MethodChips pairs={parents} value={how} onChange={setHow} />
-            </div>
-            <ParentPairList
-              pairs={shown}
-              resetKey={`${pal.id}|${text}|${how}`}
+        <>
+          <div className="mb-4 space-y-2">
+            <SearchInput
+              value={text}
+              onChange={setText}
+              placeholder="Filter by a parent’s name"
             />
-          </>
-        )}
+            <MethodChips pairs={parents} value={how} onChange={setHow} />
+          </div>
+          <ParentPairList pairs={shown} resetKey={`${pal.id}|${text}|${how}`} />
+        </>
       </Panel>
     </>
   );
@@ -555,7 +543,7 @@ function DropList({ drops }: { drops: Drop[] }) {
   return (
     <ul className="grid-fluid [--min:9rem]">
       {drops.map((d) => (
-        <li key={d.item}>
+        <li key={`${d.item}${d.minLevel ?? ''}`}>
           <Tile
             to={
               linkableDrops.has(d.item) ? `/item/${slugify(d.item)}` : undefined
@@ -573,6 +561,7 @@ function DropList({ drops }: { drops: Drop[] }) {
                 {d.min === d.max ? `×${d.min}` : `×${d.min}–${d.max}`}
                 <span className="mx-1">·</span>
                 <b className="text-pw-ink">{d.chance}%</b>
+                {d.minLevel && ` · Lv. ${d.minLevel}+`}
               </>
             }
             className="h-full"

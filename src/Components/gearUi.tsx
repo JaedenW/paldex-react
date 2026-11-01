@@ -27,7 +27,7 @@ export function RarityBadge({
   );
 }
 
-/** An item by name, with its icon and a link when the wiki lists it */
+/** An item by name, with its icon and a link when it has a page */
 export function ItemLink({
   name,
   qty,

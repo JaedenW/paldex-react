@@ -1,650 +1,686 @@
 [
   {
-    "id": "abnormal",
-    "name": "Abnormal",
-    "rank": 1,
-    "description": "10% decrease to incoming  Neutral damage"
+    "id": "demon-s-hand",
+    "name": "Demon's Hand",
+    "rank": 5,
+    "description": "Work Speed +90%. Sanity Decrease +15%"
   },
   {
-    "id": "ace-swimmer",
-    "name": "Ace Swimmer",
-    "rank": 3,
-    "description": "40% increase movement speed on water."
+    "id": "dimensional-leap",
+    "name": "Dimensional Leap",
+    "rank": 5,
+    "description": "MoveSpeed +50%. FullStomatch Decrease +15%"
   },
   {
-    "id": "aggressive",
-    "name": "Aggressive",
-    "rank": 1,
-    "description": "Attack +10%\nDefense -10%"
+    "id": "god-of-destruction",
+    "name": "God of Destruction",
+    "rank": 5,
+    "description": "Attack +40%. Defense +20%. Max Health -50%"
   },
   {
-    "id": "artisan",
-    "name": "Artisan",
-    "rank": 3,
-    "description": "Work speed +50%"
+    "id": "hermit-sage",
+    "name": "Hermit Sage",
+    "rank": 5,
+    "description": "Sanity Decrease -50%. Work Speed -20%"
+  },
+  {
+    "id": "sanctified-meat-shield",
+    "name": "Sanctified Meat Shield",
+    "rank": 5,
+    "description": "Defense +50%. Attack -30%"
+  },
+  {
+    "id": "twin-edged-holy-blade",
+    "name": "Twin-Edged Holy Blade",
+    "rank": 5,
+    "description": "Attack +50%. Defense -30%"
+  },
+  {
+    "id": "world-tree-s-bounty",
+    "name": "World Tree's Bounty",
+    "rank": 5,
+    "description": "FullStomatch Decrease -50%. Max Health -20%"
   },
   {
     "id": "babysitter",
     "name": "Babysitter",
     "rank": 4,
-    "description": "While at a base, increases egg production speed by +30% and incubation speed by +30% for Pals assigned to a Breeding Farm."
-  },
-  {
-    "id": "blood-of-the-dragon",
-    "name": "Blood of the Dragon",
-    "rank": 1,
-    "description": "10% increase to link=Dragon|alt= Dragon attack damage"
-  },
-  {
-    "id": "botanical-barrier",
-    "name": "Botanical Barrier",
-    "rank": 1,
-    "description": "10% decrease to incoming  Grass damage"
-  },
-  {
-    "id": "bottomless-stomach",
-    "name": "Bottomless Stomach",
-    "rank": -2,
-    "description": "Satiety drops +15% faster"
-  },
-  {
-    "id": "brave",
-    "name": "Brave",
-    "rank": 1,
-    "description": "Attack +10%"
-  },
-  {
-    "id": "brittle",
-    "name": "Brittle",
-    "rank": -3,
-    "description": "Defense -20%"
-  },
-  {
-    "id": "burly-body",
-    "name": "Burly Body",
-    "rank": 3,
-    "description": "Defense +20%Immune to Flinch"
-  },
-  {
-    "id": "capacitor",
-    "name": "Capacitor",
-    "rank": 1,
-    "description": "10% increase to  Electric attack damage"
-  },
-  {
-    "id": "celestial-emperor",
-    "name": "Celestial Emperor",
-    "rank": 3,
-    "description": "20% increase to  Neutral attack damage"
-  },
-  {
-    "id": "cheery",
-    "name": "Cheery",
-    "rank": 1,
-    "description": "10% decrease to incoming  Dark damage"
-  },
-  {
-    "id": "clumsy",
-    "name": "Clumsy",
-    "rank": -1,
-    "description": "Work Speed -10%"
-  },
-  {
-    "id": "coldblooded",
-    "name": "Coldblooded",
-    "rank": 1,
-    "description": "10% increase to  Ice attack damage"
-  },
-  {
-    "id": "conceited",
-    "name": "Conceited",
-    "rank": 1,
-    "description": "Work Speed +10% \nDefense -10%"
-  },
-  {
-    "id": "coward",
-    "name": "Coward",
-    "rank": -1,
-    "description": "Attack -10%"
-  },
-  {
-    "id": "dainty-eater",
-    "name": "Dainty Eater",
-    "rank": 1,
-    "description": "Satiety drops +10% slower"
+    "description": "PalEggHatchingSpeed +30% (ToBuildObject). BreedSpeed InBaseCamp +30% (ToBuildObject)"
   },
   {
     "id": "demon-god",
     "name": "Demon God",
     "rank": 4,
-    "description": "Attack +30%\nDefense +5%"
-  },
-  {
-    "id": "demon-s-hand",
-    "name": "Demon's Hand",
-    "rank": 4,
-    "description": "Work Speed 90%, SAN decreases +15% faster, World Tree harvestables won't vanish when approached."
-  },
-  {
-    "id": "destructive",
-    "name": "Destructive",
-    "rank": -2,
-    "description": "SAN drops +15% faster"
+    "description": ""
   },
   {
     "id": "diamond-body",
     "name": "Diamond Body",
     "rank": 4,
-    "description": "Defense +30%Immune to FlinchImmune to Knockback"
-  },
-  {
-    "id": "diet-lover",
-    "name": "Diet Lover",
-    "rank": 3,
-    "description": "Satiety drops +15% slower"
-  },
-  {
-    "id": "dimensional-leap",
-    "name": "Dimensional Leap",
-    "rank": 4,
-    "description": "Movement Speed +50%\nIncreases Hunger depletion rate by +15.0%\nWorld Tree resources will not vanish when approached."
-  },
-  {
-    "id": "divine-dragon",
-    "name": "Divine Dragon",
-    "rank": 3,
-    "description": "20% increase to  Dragon attack damage"
-  },
-  {
-    "id": "downtrodden",
-    "name": "Downtrodden",
-    "rank": -1,
-    "description": "Defense -10%"
-  },
-  {
-    "id": "dragonkiller",
-    "name": "Dragonkiller",
-    "rank": 1,
-    "description": "10% decrease to incoming  Dragon damage"
-  },
-  {
-    "id": "earth-emperor",
-    "name": "Earth Emperor",
-    "rank": 3,
-    "description": "20% increase to  Ground attack damage"
-  },
-  {
-    "id": "earthquake-resistant",
-    "name": "Earthquake Resistant",
-    "rank": 1,
-    "description": "10% decrease to incoming  Ground damage"
-  },
-  {
-    "id": "easygoing",
-    "name": "Easygoing",
-    "rank": -1,
-    "description": "Active skill cooldown extension -15%"
+    "description": "Defense +30%"
   },
   {
     "id": "eternal-engine",
     "name": "Eternal Engine",
     "rank": 4,
-    "description": "Max stamina +75%. This effect is only valid for rideable pals."
+    "description": "PalSP Increase +75%"
   },
   {
     "id": "eternal-flame",
     "name": "Eternal Flame",
-    "rank": 3,
-    "description": "30% increase to Fire attack damage. 30% increase to Electric attack damage."
-  },
-  {
-    "id": "ferocious",
-    "name": "Ferocious",
-    "rank": 3,
-    "description": "Attack +20%"
-  },
-  {
-    "id": "fine-furs",
-    "name": "Fine Furs",
-    "rank": 1,
-    "description": "Sale price +3%"
-  },
-  {
-    "id": "fit-as-a-fiddle",
-    "name": "Fit as a Fiddle",
-    "rank": 1,
-    "description": "Max stamina +25%. This effect is only valid for rideable pals."
-  },
-  {
-    "id": "flame-emperor",
-    "name": "Flame Emperor",
-    "rank": 3,
-    "description": "30% increase to  Fire attack damage"
-  },
-  {
-    "id": "fragrant-foliage",
-    "name": "Fragrant Foliage",
-    "rank": 1,
-    "description": "10% increase to  Grass attack damage"
-  },
-  {
-    "id": "glutton",
-    "name": "Glutton",
-    "rank": -1,
-    "description": "Satiety drops +10% faster"
-  },
-  {
-    "id": "god-of-destruction",
-    "name": "God of Destruction",
     "rank": 4,
-    "description": "Attack +40%\nDefense +20%\nMax Health -50%\nWorld Tree resources will not vanish when approached."
-  },
-  {
-    "id": "hard-skin",
-    "name": "Hard Skin",
-    "rank": 1,
-    "description": "Defense +10%"
-  },
-  {
-    "id": "healing-coach",
-    "name": "Healing Coach",
-    "rank": 3,
-    "description": "Player Auto Health Regeneration Rate +5%"
+    "description": "ElementBoost Fire +30%. ElementBoost Electricity +30%"
   },
   {
     "id": "heart-of-the-immovable-king",
     "name": "Heart of the Immovable King",
     "rank": 4,
-    "description": "SAN drops +20% slower"
+    "description": "Sanity Decrease -20%"
   },
   {
-    "id": "heated-body",
-    "name": "Heated Body",
-    "rank": 1,
-    "description": "10% decrease in incoming Ice damage."
-  },
-  {
-    "id": "heavyweight",
-    "name": "Heavyweight",
-    "rank": 2,
-    "description": "Defense +20%Immune to knockback"
-  },
-  {
-    "id": "hooligan",
-    "name": "Hooligan",
-    "rank": 1,
-    "description": "Attack 15%\nWork Speed -10%"
-  },
-  {
-    "id": "hydromaniac",
-    "name": "Hydromaniac",
-    "rank": 1,
-    "description": "10% increase in Water attack damage."
-  },
-  {
-    "id": "ice-emperor",
-    "name": "Ice Emperor",
-    "rank": 3,
-    "description": "20% increase in Ice attack damage."
+    "id": "heavily-armored",
+    "name": "Heavily Armored",
+    "rank": 4,
+    "description": "ExplosionResist +100%"
   },
   {
     "id": "idiosyncratic",
     "name": "Idiosyncratic",
     "rank": 4,
-    "description": "Pal and Player Auto Health Regeneration Rate +50%\nDefense +25%\nImmune to Poison Damage\nImmune to Burn Damage"
+    "description": "AutoHPRegeneRate +50% (it and you). ResistAdditionalEffect Burn +100%. ResistAdditionalEffect Poison +100%. Defense +25%"
   },
   {
     "id": "immortality",
     "name": "Immortality",
     "rank": 4,
-    "description": "Life Steal +5%\nPal Auto Health Regeneration Rate +100%\nAttack +15%"
-  },
-  {
-    "id": "impatient",
-    "name": "Impatient",
-    "rank": 1,
-    "description": "Active skill cooldown reduction 15%"
-  },
-  {
-    "id": "infinite-stamina",
-    "name": "Infinite Stamina",
-    "rank": 3,
-    "description": "Max stamina +50% (This effect is only valid for rideable pals.)"
-  },
-  {
-    "id": "insomnia",
-    "name": "Insomnia",
-    "rank": 1,
-    "description": "Does not sleep and continues to work even at night."
-  },
-  {
-    "id": "insulated-body",
-    "name": "Insulated Body",
-    "rank": 1,
-    "description": "10% decrease in incoming Lightning damage."
+    "description": "LifeSteal +5%. AutoHPRegeneRate +100%. Attack +15%"
   },
   {
     "id": "invader",
     "name": "Invader",
     "rank": 4,
-    "description": "30% increase in Dark attack damage.\n30% increase in Dragon attack damage."
+    "description": "ElementBoost Dark +30%. ElementBoost Dragon +30%"
   },
   {
     "id": "king-of-the-waves",
     "name": "King of the Waves",
     "rank": 4,
-    "description": "50% increase movement speed on water."
+    "description": "SwimSpeed +50%"
   },
   {
     "id": "lavish-hospitality",
     "name": "Lavish Hospitality",
     "rank": 4,
-    "description": "Drop Items obtained from this Pal +100%"
+    "description": "SelfDeathAddItemDrop +100%"
   },
   {
     "id": "legend",
     "name": "Legend",
     "rank": 4,
-    "description": "Attack +20%\nDefense +20%\nMovement Speed increases 15%"
+    "description": "Attack +20%. Defense +20%. MoveSpeed +20%"
   },
   {
-    "id": "lighfooted",
-    "name": "Lighfooted",
+    "id": "lightfooted",
+    "name": "Lightfooted",
     "rank": 4,
-    "description": "Mounted Jump Count +1"
-  },
-  {
-    "id": "logging-foreman",
-    "name": "Logging Foreman",
-    "rank": 3,
-    "description": "25% increase in Player Logging Efficiency."
-  },
-  {
-    "id": "lord-of-lightning",
-    "name": "Lord of Lightning",
-    "rank": 3,
-    "description": "20% increase in Lightning attack damage."
-  },
-  {
-    "id": "lord-of-the-sea",
-    "name": "Lord of the Sea",
-    "rank": 3,
-    "description": "20% increase in Water attack damage."
-  },
-  {
-    "id": "lord-of-the-underworld",
-    "name": "Lord of the Underworld",
-    "rank": 3,
-    "description": "30% increase in Dark attack damage."
+    "description": "RideJumpCount Increase +1%"
   },
   {
     "id": "lucky",
     "name": "Lucky",
     "rank": 4,
-    "description": "Attack 15%\nDefense 15%\nWork Speed 20%"
+    "description": ""
   },
   {
     "id": "lunker",
     "name": "Lunker",
     "rank": 4,
-    "description": "20% increase to Water attack damage \n20% increase to Ice attack damage \n20% increase to defense."
-  },
-  {
-    "id": "masochist",
-    "name": "Masochist",
-    "rank": 1,
-    "description": "Defense 15%\nAttack -15%"
+    "description": "ElementBoost Water +20%. ElementBoost Ice +20%. Defense +20%"
   },
   {
     "id": "mastery-of-fasting",
     "name": "Mastery of Fasting",
     "rank": 4,
-    "description": "Hunger decreases +20.0% slower."
-  },
-  {
-    "id": "mercy-hit",
-    "name": "Mercy Hit",
-    "rank": -1,
-    "description": "Pacifist.\nWill not reduce the target's Health below 1."
-  },
-  {
-    "id": "mine-foreman",
-    "name": "Mine Foreman",
-    "rank": 3,
-    "description": "25% increase in Player Mining Efficiency."
-  },
-  {
-    "id": "motivational-leader",
-    "name": "Motivational Leader",
-    "rank": 3,
-    "description": "25% increase in Player Work Speed."
-  },
-  {
-    "id": "musclehead",
-    "name": "Musclehead",
-    "rank": 2,
-    "description": "Attack +30%\nWork Speed -50%"
-  },
-  {
-    "id": "nimble",
-    "name": "Nimble",
-    "rank": 1,
-    "description": "10% increase to movement speed."
-  },
-  {
-    "id": "noble",
-    "name": "Noble",
-    "rank": 3,
-    "description": "Increases the value of items when sold by +5%"
-  },
-  {
-    "id": "otherworldly-cells",
-    "name": "Otherworldly Cells",
-    "rank": 1,
-    "description": "Attack +10%\nFire damage reduction 15%\nLightning damage reduction 15%"
-  },
-  {
-    "id": "pacifist",
-    "name": "Pacifist",
-    "rank": -3,
-    "description": "Attack -20%"
-  },
-  {
-    "id": "philanthropist",
-    "name": "Philanthropist",
-    "rank": 3,
-    "description": "When assigned to a Breeding Farm, breeding speed is increased by 100%."
-  },
-  {
-    "id": "positive-thinker",
-    "name": "Positive Thinker",
-    "rank": 1,
-    "description": "SAN drops +10.0% slower."
-  },
-  {
-    "id": "power-of-gaia",
-    "name": "Power of Gaia",
-    "rank": 1,
-    "description": "10% increase in Earth attack damage."
-  },
-  {
-    "id": "pyromaniac",
-    "name": "Pyromaniac",
-    "rank": 1,
-    "description": "10% increase in Fire attack damage."
+    "description": "FullStomatch Decrease -20%"
   },
   {
     "id": "ranch-master",
     "name": "Ranch Master",
     "rank": 4,
-    "description": "Farming's Work Suitability +2."
-  },
-  {
-    "id": "reload-master",
-    "name": "Reload Master",
-    "rank": 3,
-    "description": "Player Reload Speed +4%"
+    "description": "WorkSuitabilityAddRank MonsterFarm +2%"
   },
   {
     "id": "remarkable-craftsmanship",
     "name": "Remarkable Craftsmanship",
     "rank": 4,
-    "description": "Work Speed 75%"
-  },
-  {
-    "id": "runner",
-    "name": "Runner",
-    "rank": 3,
-    "description": "20% increase to movement speed."
-  },
-  {
-    "id": "sadist",
-    "name": "Sadist",
-    "rank": 1,
-    "description": "Attack 15%\nDefense -15%"
+    "description": ""
   },
   {
     "id": "savior",
     "name": "Savior",
     "rank": 4,
-    "description": "30% increase in Neutral attack damage.\n30% increase in Grass attack damage."
-  },
-  {
-    "id": "serenity",
-    "name": "Serenity",
-    "rank": 3,
-    "description": "Active skill cooldown reduction 30%\nAttack +10%"
-  },
-  {
-    "id": "serious",
-    "name": "Serious",
-    "rank": 1,
-    "description": "Work Speed 20%"
-  },
-  {
-    "id": "service-minded",
-    "name": "Service-Minded",
-    "rank": 3,
-    "description": "Drop Items obtained from this Pal +50%"
-  },
-  {
-    "id": "shabby",
-    "name": "Shabby",
-    "rank": -1,
-    "description": "Decrease the value of items when sold by -10%"
-  },
-  {
-    "id": "sickly",
-    "name": "Sickly",
-    "rank": -1,
-    "description": "Max Stamina -25%\n&#42;This effect is only valid for rideable pals."
+    "description": "ElementBoost Normal +30%. ElementBoost Leaf +30%"
   },
   {
     "id": "siren-of-the-void",
     "name": "Siren of the Void",
     "rank": 4,
-    "description": "30% increase in Dark attack damage.\n30% increase in Ice attack damage."
+    "description": "ElementBoost Dark +30%. ElementBoost Ice +30%"
   },
   {
-    "id": "slacker",
-    "name": "Slacker",
-    "rank": -3,
-    "description": "Work Speed -30%"
-  },
-  {
-    "id": "sleek-stroke",
-    "name": "Sleek Stroke",
-    "rank": 1,
-    "description": "30% increase movement speed on water."
-  },
-  {
-    "id": "spirit-emperor",
-    "name": "Spirit Emperor",
-    "rank": 3,
-    "description": "20% increase in Grass attack damage."
-  },
-  {
-    "id": "stronghold-strategist",
-    "name": "Stronghold Strategist",
-    "rank": 3,
-    "description": "10% increase in Player Defense."
-  },
-  {
-    "id": "suntan-lover",
-    "name": "Suntan Lover",
-    "rank": 1,
-    "description": "10% decrease in incoming Fire damage."
+    "id": "sky-strider",
+    "name": "Sky Strider",
+    "rank": 4,
+    "description": "RideJumpCount Increase +2%"
   },
   {
     "id": "swift",
     "name": "Swift",
     "rank": 4,
-    "description": "30% increase to movement speed."
-  },
-  {
-    "id": "test",
-    "name": "Test",
-    "rank": null,
-    "description": ""
-  },
-  {
-    "id": "unstable",
-    "name": "Unstable",
-    "rank": -1,
-    "description": "SAN drops +10.0% faster."
+    "description": "MoveSpeed +30%"
   },
   {
     "id": "vampiric",
     "name": "Vampiric",
     "rank": 4,
-    "description": "Absorbs a portion of the damage dealt to restore . \nDoes not sleep at night and continues to work."
+    "description": "LifeSteal +5%"
+  },
+  {
+    "id": "ace-swimmer",
+    "name": "Ace Swimmer",
+    "rank": 3,
+    "description": "SwimSpeed +40%"
+  },
+  {
+    "id": "artisan",
+    "name": "Artisan",
+    "rank": 3,
+    "description": ""
+  },
+  {
+    "id": "burly-body",
+    "name": "Burly Body",
+    "rank": 3,
+    "description": "Defense +20%"
+  },
+  {
+    "id": "celestial-emperor",
+    "name": "Celestial Emperor",
+    "rank": 3,
+    "description": "ElementBoost Normal +30%"
+  },
+  {
+    "id": "diet-lover",
+    "name": "Diet Lover",
+    "rank": 3,
+    "description": "FullStomatch Decrease -15%"
+  },
+  {
+    "id": "divine-dragon",
+    "name": "Divine Dragon",
+    "rank": 3,
+    "description": "ElementBoost Dragon +30%"
+  },
+  {
+    "id": "earth-emperor",
+    "name": "Earth Emperor",
+    "rank": 3,
+    "description": "ElementBoost Earth +30%"
+  },
+  {
+    "id": "farmhand",
+    "name": "Farmhand",
+    "rank": 3,
+    "description": "WorkSuitabilityAddRank MonsterFarm +1%"
+  },
+  {
+    "id": "ferocious",
+    "name": "Ferocious",
+    "rank": 3,
+    "description": ""
+  },
+  {
+    "id": "flame-emperor",
+    "name": "Flame Emperor",
+    "rank": 3,
+    "description": "ElementBoost Fire +30%"
+  },
+  {
+    "id": "healing-coach",
+    "name": "Healing Coach",
+    "rank": 3,
+    "description": "AutoHPRegeneRate +5% (you)"
+  },
+  {
+    "id": "ice-emperor",
+    "name": "Ice Emperor",
+    "rank": 3,
+    "description": "ElementBoost Ice +30%"
+  },
+  {
+    "id": "infinite-stamina",
+    "name": "Infinite Stamina",
+    "rank": 3,
+    "description": "PalSP Increase +50%"
+  },
+  {
+    "id": "logging-foreman",
+    "name": "Logging Foreman",
+    "rank": 3,
+    "description": "Logging +25% (you)"
+  },
+  {
+    "id": "lord-of-lightning",
+    "name": "Lord of Lightning",
+    "rank": 3,
+    "description": "ElementBoost Electricity +30%"
+  },
+  {
+    "id": "lord-of-the-sea",
+    "name": "Lord of the Sea",
+    "rank": 3,
+    "description": "ElementBoost Water +30%"
+  },
+  {
+    "id": "lord-of-the-underworld",
+    "name": "Lord of the Underworld",
+    "rank": 3,
+    "description": "ElementBoost Dark +30%"
+  },
+  {
+    "id": "mine-foreman",
+    "name": "Mine Foreman",
+    "rank": 3,
+    "description": "Mining +25% (you)"
+  },
+  {
+    "id": "motivational-leader",
+    "name": "Motivational Leader",
+    "rank": 3,
+    "description": "Work Speed +25% (you)"
+  },
+  {
+    "id": "noble",
+    "name": "Noble",
+    "rank": 3,
+    "description": "ShopSellPrice Money Increase +5%. ShopBuyPrice Money Increase -5%"
+  },
+  {
+    "id": "philanthropist",
+    "name": "Philanthropist",
+    "rank": 3,
+    "description": "BreedSpeed +100%"
+  },
+  {
+    "id": "reload-master",
+    "name": "Reload Master",
+    "rank": 3,
+    "description": "ReloadSpeedUp +4% (you)"
+  },
+  {
+    "id": "runner",
+    "name": "Runner",
+    "rank": 3,
+    "description": "MoveSpeed +20%"
+  },
+  {
+    "id": "serenity",
+    "name": "Serenity",
+    "rank": 3,
+    "description": "ActiveSkillCoolTime Decrease +30%. Attack +10%"
+  },
+  {
+    "id": "service-minded",
+    "name": "Service-Minded",
+    "rank": 3,
+    "description": "SelfDeathAddItemDrop +50%"
+  },
+  {
+    "id": "spirit-emperor",
+    "name": "Spirit Emperor",
+    "rank": 3,
+    "description": "ElementBoost Leaf +30%"
+  },
+  {
+    "id": "stronghold-strategist",
+    "name": "Stronghold Strategist",
+    "rank": 3,
+    "description": "Defense +10% (you)"
   },
   {
     "id": "vanguard",
     "name": "Vanguard",
     "rank": 3,
-    "description": "10% increase in Player Attack."
-  },
-  {
-    "id": "veil-of-darkness",
-    "name": "Veil of Darkness",
-    "rank": 1,
-    "description": "10% increase in Dark attack damage."
-  },
-  {
-    "id": "waterproof",
-    "name": "Waterproof",
-    "rank": 1,
-    "description": "10% decrease in incoming Water damage."
+    "description": "Attack +10% (you)"
   },
   {
     "id": "wellness-watcher",
     "name": "Wellness Watcher",
     "rank": 3,
-    "description": "Player Stamina Consumption -5.0%"
-  },
-  {
-    "id": "whopper",
-    "name": "Whopper",
-    "rank": 3,
-    "description": "5% increase to Water attack damage \n5% increase to Ice attack damage \n5% increase to defense."
-  },
-  {
-    "id": "work-slave",
-    "name": "Work Slave",
-    "rank": 1,
-    "description": "Work Speed 30%\nAttack -30%"
+    "description": "PlayerSP DecreaseRate -5% (you)"
   },
   {
     "id": "workaholic",
     "name": "Workaholic",
     "rank": 3,
-    "description": "SAN drops +15.0% slower."
+    "description": "Sanity Decrease -15%"
   },
   {
-    "id": "zen-mind",
-    "name": "Zen Mind",
+    "id": "heavyweight",
+    "name": "Heavyweight",
+    "rank": 2,
+    "description": "Defense +20%"
+  },
+  {
+    "id": "musclehead",
+    "name": "Musclehead",
+    "rank": 2,
+    "description": ""
+  },
+  {
+    "id": "abnormal",
+    "name": "Abnormal",
     "rank": 1,
-    "description": "10% increase in Neutral attack damage."
+    "description": "ElementResist Normal +10%"
+  },
+  {
+    "id": "aggressive",
+    "name": "Aggressive",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "blood-of-the-dragon",
+    "name": "Blood of the Dragon",
+    "rank": 1,
+    "description": "ElementBoost Dragon +10%"
+  },
+  {
+    "id": "botanical-barrier",
+    "name": "Botanical Barrier",
+    "rank": 1,
+    "description": "ElementResist Leaf +10%"
+  },
+  {
+    "id": "brave",
+    "name": "Brave",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "capacitor",
+    "name": "Capacitor",
+    "rank": 1,
+    "description": "ElementBoost Electricity +10%"
+  },
+  {
+    "id": "cheery",
+    "name": "Cheery",
+    "rank": 1,
+    "description": "ElementResist Dark +10%"
+  },
+  {
+    "id": "coldblooded",
+    "name": "Coldblooded",
+    "rank": 1,
+    "description": "ElementBoost Ice +10%"
+  },
+  {
+    "id": "conceited",
+    "name": "Conceited",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "dainty-eater",
+    "name": "Dainty Eater",
+    "rank": 1,
+    "description": "FullStomatch Decrease -10%"
+  },
+  {
+    "id": "dragonkiller",
+    "name": "Dragonkiller",
+    "rank": 1,
+    "description": "ElementResist Dragon +10%"
+  },
+  {
+    "id": "earthquake-resistant",
+    "name": "Earthquake Resistant",
+    "rank": 1,
+    "description": "ElementResist Earth +10%"
+  },
+  {
+    "id": "fine-furs",
+    "name": "Fine Furs",
+    "rank": 1,
+    "description": "ShopSellPrice Money Increase +3%. ShopBuyPrice Money Increase -3%"
+  },
+  {
+    "id": "fit-as-a-fiddle",
+    "name": "Fit as a Fiddle",
+    "rank": 1,
+    "description": "PalSP Increase +25%"
+  },
+  {
+    "id": "fragrant-foliage",
+    "name": "Fragrant Foliage",
+    "rank": 1,
+    "description": "ElementBoost Leaf +10%"
+  },
+  {
+    "id": "hard-skin",
+    "name": "Hard Skin",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "heated-body",
+    "name": "Heated Body",
+    "rank": 1,
+    "description": "ElementResist Ice +10%"
+  },
+  {
+    "id": "hooligan",
+    "name": "Hooligan",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "hydromaniac",
+    "name": "Hydromaniac",
+    "rank": 1,
+    "description": "ElementBoost Water +10%"
+  },
+  {
+    "id": "impatient",
+    "name": "Impatient",
+    "rank": 1,
+    "description": "ActiveSkillCoolTime Decrease +15%"
+  },
+  {
+    "id": "insomnia",
+    "name": "Insomnia",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "insulated-body",
+    "name": "Insulated Body",
+    "rank": 1,
+    "description": "ElementResist Electricity +10%"
+  },
+  {
+    "id": "masochist",
+    "name": "Masochist",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "nimble",
+    "name": "Nimble",
+    "rank": 1,
+    "description": "MoveSpeed +10%"
+  },
+  {
+    "id": "otherworldly-cells",
+    "name": "Otherworldly Cells",
+    "rank": 1,
+    "description": "Attack +10%. ElementResist Fire +15%. ElementBoost Electricity +15%"
+  },
+  {
+    "id": "positive-thinker",
+    "name": "Positive Thinker",
+    "rank": 1,
+    "description": "Sanity Decrease -10%"
+  },
+  {
+    "id": "power-of-gaia",
+    "name": "Power of Gaia",
+    "rank": 1,
+    "description": "ElementBoost Earth +10%"
+  },
+  {
+    "id": "pyromaniac",
+    "name": "Pyromaniac",
+    "rank": 1,
+    "description": "ElementBoost Fire +10%"
+  },
+  {
+    "id": "sadist",
+    "name": "Sadist",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "serious",
+    "name": "Serious",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "sleek-stroke",
+    "name": "Sleek Stroke",
+    "rank": 1,
+    "description": "SwimSpeed +30%"
+  },
+  {
+    "id": "spirit-of-zen",
+    "name": "Spirit of Zen",
+    "rank": 1,
+    "description": "ElementBoost Normal +10%"
+  },
+  {
+    "id": "suntan-lover",
+    "name": "Suntan Lover",
+    "rank": 1,
+    "description": "ElementResist Fire +10%"
+  },
+  {
+    "id": "veil-of-darkness",
+    "name": "Veil of Darkness",
+    "rank": 1,
+    "description": "ElementBoost Dark +10%"
+  },
+  {
+    "id": "waterproof",
+    "name": "Waterproof",
+    "rank": 1,
+    "description": "ElementResist Water +10%"
+  },
+  {
+    "id": "work-slave",
+    "name": "Work Slave",
+    "rank": 1,
+    "description": ""
+  },
+  {
+    "id": "clumsy",
+    "name": "Clumsy",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "coward",
+    "name": "Coward",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "downtrodden",
+    "name": "Downtrodden",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "easygoing",
+    "name": "Easygoing",
+    "rank": null,
+    "description": "ActiveSkillCoolTime Decrease -15%"
+  },
+  {
+    "id": "glutton",
+    "name": "Glutton",
+    "rank": null,
+    "description": "FullStomatch Decrease +10%"
+  },
+  {
+    "id": "mercy-hit",
+    "name": "Mercy Hit",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "night-owl",
+    "name": "Night Owl",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "shabby",
+    "name": "Shabby",
+    "rank": null,
+    "description": "ShopSellPrice Money Increase -10%. ShopBuyPrice Money Increase +10%"
+  },
+  {
+    "id": "sickly",
+    "name": "Sickly",
+    "rank": null,
+    "description": "PalSP Increase -25%"
+  },
+  {
+    "id": "unstable",
+    "name": "Unstable",
+    "rank": null,
+    "description": "Sanity Decrease +10%"
+  },
+  {
+    "id": "bottomless-stomach",
+    "name": "Bottomless Stomach",
+    "rank": null,
+    "description": "FullStomatch Decrease +15%"
+  },
+  {
+    "id": "destructive",
+    "name": "Destructive",
+    "rank": null,
+    "description": "Sanity Decrease +15%"
+  },
+  {
+    "id": "brittle",
+    "name": "Brittle",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "pacifist",
+    "name": "Pacifist",
+    "rank": null,
+    "description": ""
+  },
+  {
+    "id": "slacker",
+    "name": "Slacker",
+    "rank": null,
+    "description": ""
   }
 ]

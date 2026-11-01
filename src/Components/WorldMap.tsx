@@ -77,6 +77,8 @@ const WorldMap = React.forwardRef<
     labelZoom?: number;
     /** A point to mark on the map */
     pin?: [number, number];
+    /** It sits in a scrolling page: leave touch and wheel scrolling alone until tapped */
+    inPage?: boolean;
     /** The view to open with, such as one from a shared link */
     initialView?: View;
     /** Pixels at each edge covered by controls: framing and flying to a place keep it clear of them */
@@ -98,6 +100,7 @@ const WorldMap = React.forwardRef<
     highlightIds,
     labelZoom = 2.6,
     pin,
+    inPage,
     initialView,
     insets,
     onSelect,
@@ -110,6 +113,7 @@ const WorldMap = React.forwardRef<
   const wrapRef = React.useRef<HTMLDivElement>(null);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const coordsRef = React.useRef<HTMLSpanElement>(null);
+  const awakeRef = React.useRef(!inPage);
   const sizeRef = React.useRef<Size>({ w: 0, h: 0 });
   const viewRef = React.useRef<View>({ cx: 0, cy: 0, span: 1 });
   const rafRef = React.useRef(0);
@@ -118,7 +122,11 @@ const WorldMap = React.forwardRef<
   const lowRef = React.useRef<HTMLImageElement | undefined>(undefined);
   const fullRef = React.useRef<HTMLImageElement | undefined>(undefined);
   const fullRequested = React.useRef(false);
-  const [ready, setReady] = React.useState(false);
+  const [picture, setPicture] = React.useState<'loading' | 'ready' | 'failed'>(
+    'loading'
+  );
+  // inside a page, the map only takes over scrolling once it has been touched
+  const [awake, setAwake] = React.useState(!inPage);
   const [size, setSize] = React.useState<Size>({ w: 0, h: 0 });
   const [hover, setHover] = React.useState<{
     marker: MapMarker;
@@ -260,7 +268,8 @@ const WorldMap = React.forwardRef<
     }
 
     // spawn points: one path per Pal, so overlaps stay one flat colour
-    const pr = clamp(scale * 7, 2, 10);
+    // sized against the Palpagos map, so a smaller map doesn't get bigger dots
+    const pr = clamp(scale * ((b.right - b.left) / 3158) * 7, 2, 10);
     for (const set of sets) {
       const pts = [
         ...(tod !== 'night' ? set.day : []),
@@ -510,7 +519,7 @@ const WorldMap = React.forwardRef<
   // load the small picture for this map, and start from the whole map when it changes
   const shownMap = React.useRef(map);
   React.useEffect(() => {
-    setReady(false);
+    setPicture('loading');
     lowRef.current = undefined;
     fullRef.current = undefined;
     fullRequested.current = false;
@@ -524,9 +533,10 @@ const WorldMap = React.forwardRef<
     img.onload = () => {
       if (cancelled) return;
       lowRef.current = img;
-      setReady(true);
+      setPicture('ready');
       requestDraw();
     };
+    img.onerror = () => !cancelled && setPicture('failed');
     img.src = map.image;
     requestDraw();
     return () => {
@@ -553,6 +563,7 @@ const WorldMap = React.forwardRef<
     const canvas = canvasRef.current;
     if (!canvas) return;
     const onWheel = (e: WheelEvent) => {
+      if (!awakeRef.current) return; // let the page scroll past
       e.preventDefault();
       cancelAnimationFrame(flyRef.current);
       const rect = canvas.getBoundingClientRect();
@@ -584,6 +595,23 @@ const WorldMap = React.forwardRef<
       sy,
       touch ? 26 : 16
     );
+
+  const wake = (on: boolean) => {
+    awakeRef.current = on;
+    setAwake(on);
+  };
+
+  // a tap anywhere else hands scrolling back to the page
+  React.useEffect(() => {
+    if (!inPage || !awake) return;
+    const onDown = (e: PointerEvent) => {
+      if (wrapRef.current?.contains(e.target as Node)) return;
+      awakeRef.current = false;
+      setAwake(false);
+    };
+    document.addEventListener('pointerdown', onDown);
+    return () => document.removeEventListener('pointerdown', onDown);
+  }, [inPage, awake]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
     cancelAnimationFrame(flyRef.current);
@@ -643,6 +671,7 @@ const WorldMap = React.forwardRef<
     const wasTap = pointers.current.size === 1 && moved.current < 6;
     pointers.current.delete(e.pointerId);
     if (wasTap) {
+      if (!awake) wake(true);
       const pos = local(e);
       const marker = hit(pos[0], pos[1], e.pointerType !== 'mouse');
       onSelect(marker);
@@ -702,7 +731,10 @@ const WorldMap = React.forwardRef<
     >
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 size-full cursor-grab touch-none active:cursor-grabbing"
+        className={cn(
+          'absolute inset-0 size-full cursor-grab active:cursor-grabbing',
+          awake ? 'touch-none' : 'touch-pan-y'
+        )}
         style={{
           width: size.w,
           height: size.h,
@@ -718,9 +750,18 @@ const WorldMap = React.forwardRef<
         }}
         onDoubleClick={onDoubleClick}
       />
-      {!ready && (
+      {picture !== 'ready' && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-white/70">
-          Loading the {map.name} map…
+          {picture === 'loading'
+            ? `Loading the ${map.name} map…`
+            : `Couldn’t load the ${map.name} map picture.`}
+        </div>
+      )}
+      {!awake && (
+        <div className="pointer-events-none absolute inset-x-0 top-2 z-10 flex justify-center">
+          <span className="rounded-full bg-pw-deep/80 px-3 py-1 text-xs text-white/90">
+            Tap or click the map to move and zoom it
+          </span>
         </div>
       )}
       {hover && (

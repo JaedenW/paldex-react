@@ -15,7 +15,7 @@ import {
   ChipRow,
 } from '../Components/ui';
 import { GridIcon, ListIcon } from '../Components/Icons';
-import { pals } from '../data';
+import { dataSource, pals } from '../data';
 import { useQueryPatch, useQueryState } from '../Hooks/useQueryState';
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { ELEMENTS } from '../Utils/elements';
@@ -113,7 +113,7 @@ export default function PaldexPage() {
       <PageHeader
         eyebrow="Pals"
         title="Paldex"
-        subtitle={`${pals.length} Pals, from the community-maintained Palworld wiki. Filter by element or work suitability.`}
+        subtitle={`${pals.length} Pals, with data from Palworld ${dataSource.gameVersion}. Filter by element or work suitability.`}
       />
 
       <Toolbar stickyOnPhones={false}>
