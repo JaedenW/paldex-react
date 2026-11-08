@@ -14,7 +14,7 @@ import type { Pal, Spawns } from '../types';
 
 const coords =
   'rounded-md bg-pw-cream px-1.5 py-0.5 font-mono text-sm font-semibold whitespace-nowrap';
-const place = 'flex flex-col gap-2 rounded-2xl border bg-pw-cream/30 p-3';
+const place = 'flex flex-col gap-2 well p-3';
 const link = 'font-semibold text-pw-link hover:underline';
 
 /** The fast-travel statue closest to a point, to say roughly where it is */
@@ -264,10 +264,7 @@ export default function ObtainTab({ pal }: { pal: Pal }) {
         <Panel title="Dungeons">
           <ul className="grid-fluid [--min:16rem]">
             {info.dungeons.map((d) => (
-              <li
-                key={d.name}
-                className="rounded-2xl border bg-pw-cream/30 p-3"
-              >
+              <li key={d.name} className="well p-3">
                 <p className="font-display text-xl font-bold">{d.name}</p>
                 {d.note && <p className="text-sm text-pw-muted">{d.note}</p>}
               </li>

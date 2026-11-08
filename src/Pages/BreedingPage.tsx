@@ -26,6 +26,7 @@ import {
 import { useDocumentTitle } from '../Hooks/useDocumentTitle';
 import { useQueryPatch } from '../Hooks/useQueryState';
 import type { Pal } from '../types';
+import { rankTone } from '../Utils/tones';
 
 const MAX_PARENT_PASSIVES = 4;
 const MAX_PARENT_SKILLS = 8;
@@ -43,14 +44,7 @@ const passiveOptions: TraitOption[] = passiveSkills.map((p) => ({
   id: p.id,
   name: p.name,
   description: p.description,
-  tone:
-    p.rank == null
-      ? 'plain'
-      : p.rank > 0
-        ? 'good'
-        : p.rank < 0
-          ? 'bad'
-          : 'plain',
+  tone: rankTone(p.rank),
   detail: p.rank == null ? undefined : `Rank ${p.rank}`,
 }));
 

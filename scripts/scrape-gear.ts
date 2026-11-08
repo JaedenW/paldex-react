@@ -6,7 +6,15 @@
 import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { cardFacts, headings, num, page, tidy, type Page } from './paldb.ts';
+import {
+  cardFacts,
+  cardText,
+  headings,
+  num,
+  page,
+  tidy,
+  type Page,
+} from './paldb.ts';
 import {
   cargo,
   imageUrls,
@@ -342,7 +350,7 @@ for (const href of hrefs) {
         subtype: SUBTYPES.find(([re]) =>
           re.test(other.get('TypeB') ?? '')
         )?.[1],
-        description: tidy(first.find('.card-body').first().text()) || undefined,
+        description: cardText(first.find('.card-body').first().text()) || undefined,
         hp: num(other.get('Hp')) ?? undefined,
         capacity: num(facts.get('Slots')) ?? undefined,
       })
@@ -436,7 +444,11 @@ for (const href of hrefs) {
   const byName = new Map<string, typeof blocks>();
   for (const b of blocks)
     byName.set(b.name, [...(byName.get(b.name) ?? []), b]);
-  for (const [name, group] of byName) {
+  for (const [name, all] of byName) {
+    // a block still showing the game's "en Text" stand-in is an unfinished
+    // variant, such as a second Pal Sphere with no quality
+    const finished = all.filter((g) => cardText(g.description));
+    const group = finished.length ? finished : all;
     const b = group[0];
     if (!b || items.has(name) || unused.has(name)) continue;
     if (/^Test|^Debug|^NewItem/i.test(name)) continue;
@@ -478,7 +490,7 @@ for (const href of hrefs) {
         name,
         type,
         subtype: SUBTYPES.find(([re]) => re.test(typeB))?.[1],
-        description: b.description || undefined,
+        description: cardText(b.description) || undefined,
         rarity: b.quality,
         sell: b.gear.sell,
         weight: b.weight,

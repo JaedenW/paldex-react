@@ -33,7 +33,7 @@ export default function Tile({
           style={{ backgroundColor: accent }}
         />
       )}
-      <span className="flex size-[4.5rem] items-center justify-center rounded-2xl bg-pw-cream/70 transition duration-200 group-hover:scale-105">
+      <span className="flex size-[4.5rem] items-center justify-center rounded-2xl transition duration-200 icon-well group-hover:scale-105">
         {icon}
       </span>
       <span className="line-clamp-2 font-display text-lg leading-tight font-bold">

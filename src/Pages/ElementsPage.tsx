@@ -160,9 +160,13 @@ export default function ElementsPage() {
             <section
               key={e}
               id={e.toLowerCase()}
-              className="scroll-mt-4 rounded-2xl border-l-8 bg-pw-paper p-4 shadow-card"
-              style={{ borderLeftColor: elementColours[e] }}
+              className="relative scroll-mt-20 overflow-hidden card p-4 pt-5 lg:scroll-mt-4"
             >
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1"
+                style={{ backgroundColor: elementColours[e] }}
+              />
               <h2 className="text-2xl">{e}</h2>
               <p className="mt-1 text-sm text-pw-muted">
                 Strong against:{' '}

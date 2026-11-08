@@ -6,6 +6,7 @@ import { buildingByName, itemByName } from '../data/gear';
 import { unlockCategory } from '../Utils/tech';
 import type { Tech } from '../types';
 import { cn } from '../Utils/cn';
+import { TONES } from '../Utils/tones';
 
 type Unlock = NonNullable<Tech['unlocks']>[number];
 
@@ -146,7 +147,7 @@ export default function TechCard({
           tech.ancient ? 'bg-amber-500' : 'bg-pw-teal'
         )}
       />
-      <span className="flex size-16 shrink-0 items-center justify-center self-start rounded-xl bg-pw-cream/70">
+      <span className="flex size-16 shrink-0 items-center justify-center self-start rounded-xl icon-well">
         {unlocks[0] ? (
           <UnlockIcon u={unlocks[0]} className="size-12" />
         ) : (
@@ -160,7 +161,7 @@ export default function TechCard({
             className={cn(
               'flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-bold ring-1',
               tech.ancient
-                ? 'bg-amber-100 text-amber-900 ring-amber-300 dark:bg-amber-400/20 dark:text-amber-100 dark:ring-amber-400/40'
+                ? TONES.good
                 : 'bg-pw-teal/15 text-pw-link ring-pw-teal/30'
             )}
           >

@@ -76,10 +76,7 @@ export default function WorkbenchCards({ plan }: { plan: CraftPlan }) {
     <Panel title={`Workbenches needed (${groups.length})`}>
       <ul className="grid-fluid [--min:21rem]">
         {groups.map(({ key, main, others, uses }) => (
-          <li
-            key={key}
-            className="flex flex-col gap-3 rounded-2xl border bg-pw-cream/30 p-3"
-          >
+          <li key={key} className="flex flex-col gap-3 well p-3">
             <div className="flex items-center gap-3">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-pw-paper ring-1 ring-pw-line">
                 <BenchIcon bench={main} className="size-11" />

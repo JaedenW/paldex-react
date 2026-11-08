@@ -93,6 +93,12 @@ type Node = Parameters<Page>[0];
 
 export const tidy = (s: string) => s.replace(/\s+/g, ' ').trim();
 
+/** Text a card shows, minus the game's "en Text" stand-in for a missing string */
+export const cardText = (s: string) => {
+  const t = tidy(s);
+  return t === 'en Text' ? '' : t;
+};
+
 export const num = (v: string | undefined) => {
   const n = Number((v ?? '').replace(/,/g, ''));
   return v === undefined || v.trim() === '' || Number.isNaN(n) ? null : n;

@@ -62,6 +62,7 @@ function ItemDetail({ item }: { item: Item }) {
   const columns = GEAR_COLUMNS.filter((c) =>
     item.gear?.some((g) => g[c.key] !== undefined)
   );
+  const hasEffect = item.gear?.some((g) => g.effect || g.ammo) ?? false;
 
   return (
     <Page>
@@ -158,7 +159,9 @@ function ItemDetail({ item }: { item: Item }) {
                         {c.label}
                       </th>
                     ))}
-                    <th className="py-1 pl-3 font-semibold">Effect</th>
+                    {hasEffect && (
+                      <th className="py-1 pl-3 font-semibold">Effect</th>
+                    )}
                   </tr>
                 </thead>
                 <tbody className="divide-y">
@@ -175,10 +178,12 @@ function ItemDetail({ item }: { item: Item }) {
                           {formatNumber(g[c.key] as number | undefined)}
                         </td>
                       ))}
-                      <td className="py-2 pl-3 text-sm whitespace-pre-line text-pw-muted">
-                        {g.effect ?? ''}
-                        {g.ammo ? `Ammo: ${g.ammo}` : ''}
-                      </td>
+                      {hasEffect && (
+                        <td className="py-2 pl-3 text-sm whitespace-pre-line text-pw-muted">
+                          {g.effect ?? ''}
+                          {g.ammo ? `Ammo: ${g.ammo}` : ''}
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>
@@ -249,7 +254,7 @@ function UsedIn({ uses, itemName }: { uses: Use[]; itemName: string }) {
         />
       }
       renderItem={({ recipe: r, stations, qty }) => (
-        <div className="flex h-full flex-wrap items-center justify-between gap-x-3 gap-y-1 rounded-xl border bg-pw-cream/30 px-3 py-2">
+        <div className="flex h-full flex-wrap items-center justify-between gap-x-3 gap-y-1 well px-3 py-2">
           <span className="min-w-0">
             <span className="flex items-center gap-2">
               {r.kind === 'item' ? (

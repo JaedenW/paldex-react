@@ -71,8 +71,7 @@ function Group({
   );
 }
 
-const card =
-  'flex items-center justify-between gap-3 rounded-xl border bg-pw-cream/30 px-3 py-2';
+const card = 'flex items-center justify-between gap-3 well px-3 py-2';
 
 /**
  * Every way to get an item in one place: crafting, gathering and the other
@@ -148,10 +147,7 @@ export default function ItemAcquire({ item }: { item: Item }) {
           <Group title="Gather or find">
             <ul className="grid-fluid [--min:20rem]">
               {where.other.map((line, i) => (
-                <li
-                  key={i}
-                  className="rounded-xl border bg-pw-cream/30 px-3 py-2 text-pw-ink"
-                >
+                <li key={i} className="well px-3 py-2 text-pw-ink">
                   <Sentence text={line} self={item.name} />
                 </li>
               ))}

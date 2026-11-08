@@ -3,24 +3,19 @@ import Combobox from './Combobox';
 import { SectionLabel } from './ui';
 import { matchScore } from '../Utils/search';
 import { cn } from '../Utils/cn';
+import { TONES, type Tone } from '../Utils/tones';
 
 export interface TraitOption {
   id: string;
   name: string;
   description?: string;
   /** Colours the chip, such as a passive's tier */
-  tone?: 'good' | 'bad' | 'plain';
+  tone?: Tone;
   /** Small text on the right of a suggestion */
   detail?: string;
   /** Sorts ahead of equally good matches, such as a Pal's own skills */
   boost?: number;
 }
-
-const TONES = {
-  good: 'bg-amber-100 text-amber-900 ring-amber-300 dark:bg-amber-400/20 dark:text-amber-100 dark:ring-amber-400/40',
-  bad: 'bg-red-100 text-red-800 ring-red-300 dark:bg-red-400/20 dark:text-red-100 dark:ring-red-400/40',
-  plain: 'bg-pw-field text-pw-ink ring-pw-line',
-};
 
 /**
  * Pick several traits (passive skills or active skills) by searching: chosen

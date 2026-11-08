@@ -52,11 +52,13 @@
   --shadow-lift:
     0 1px 0 rgb(255 255 255 / 0.06) inset, 0 8px 22px rgb(0 0 0 / 0.5);
   --dot: rgb(255 255 255 / 0.035);
+  --icon-well: #20405a;
   color-scheme: dark;
 }
 
 :root {
   --dot: rgb(18 48 74 / 0.08);
+  --icon-well: color-mix(in srgb, #f1ede2 70%, transparent);
   --header-h: 3.5rem; /* the top bar, shown below lg */
   --sidebar-w: 16.5rem; /* the side navigation, shown from lg */
   color-scheme: light;
@@ -88,6 +90,27 @@
   &:active {
     transform: translateY(0);
   }
+}
+
+/* A recessed box inside a panel, for a list row or a group of facts */
+@utility well {
+  background-color: color-mix(in srgb, var(--color-pw-cream) 35%, transparent);
+  border: 1px solid var(--color-pw-line);
+  border-radius: 0.75rem;
+}
+
+/*
+  The backdrop behind an item or building icon. Many of the game's icons are
+  dark, so it carries a soft lit centre that keeps them readable on dark panels.
+*/
+@utility icon-well {
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      color-mix(in srgb, var(--color-pw-teal) 14%, transparent),
+      transparent 70%
+    ),
+    var(--icon-well);
 }
 
 /*
