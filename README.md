@@ -122,7 +122,9 @@ See [Credits](#credits) for licensing.
 
 The map's markers come from paldb.cc's map data, in real game coordinates, which
 places the World Tree exactly. Predator Pals come from the wiki, as do the two map
-pictures.
+pictures. A few Alphas that paldb.cc confirms but doesn't place on
+its map (some Feybreak field bosses, and Dandilord and Silvance on the World Tree)
+take the wiki's coordinates, and the map says so.
 
 Breeding uses the game's own rules: two of one species give that species, a fixed
 recipe wins, and otherwise the child is the eligible species whose breeding rank is

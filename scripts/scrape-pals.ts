@@ -49,6 +49,19 @@ const SIZES: Record<string, string> = {
   L: 'Large',
   XL: 'Extra Large',
 };
+/** The game's names for the elements */
+const ELEMENT_CODES: Record<string, Element> = {
+  Normal: 'Neutral',
+  Fire: 'Fire',
+  Water: 'Water',
+  Leaf: 'Grass',
+  Electricity: 'Electric',
+  Ice: 'Ice',
+  Earth: 'Ground',
+  Dark: 'Dark',
+  Dragon: 'Dragon',
+};
+
 /** A card's label and value rows; a page can have later cards for another form of the Pal */
 function facts($: Page, heading: string) {
   const first = headings($, heading)[0];
@@ -80,11 +93,19 @@ function stats($: Page): PalStats {
 /** Rows of a Possible Drops table */
 function drops($: Page, alpha: boolean): Drop[] {
   const out: Drop[] = [];
-  $('h5.card-title').each((_, h) => {
-    const title = tidy($(h).text());
-    if (!title.includes('Possible Drops')) return;
-    if (title.includes('Alpha') !== alpha) return;
-    $(h)
+  const seen = new Set<string>();
+  // only the first table of each kind: a later one belongs to another form
+  const card = $('h5.card-title')
+    .toArray()
+    .find((h) => {
+      const title = tidy($(h).text());
+      return (
+        title.includes('Possible Drops') && title.includes('Alpha') === alpha
+      );
+    });
+  if (!card) return out;
+  {
+    $(card)
       .parent()
       .find('tbody tr')
       .each((_, tr) => {
@@ -93,6 +114,9 @@ function drops($: Page, alpha: boolean): Drop[] {
         if (!item) return;
         const [min, max] = tidy(cells.eq(1).text()).split(/[–-]/);
         const level = num(tidy(cells.eq(2).text()));
+        const key = `${item}|${level ?? ''}`;
+        if (seen.has(key)) return;
+        seen.add(key);
         out.push({
           item,
           chance: num(tidy(cells.eq(3).text()).replace('%', '')),
@@ -101,7 +125,7 @@ function drops($: Page, alpha: boolean): Drop[] {
           ...(level ? { minLevel: level } : {}),
         });
       });
-  });
+  }
   return out;
 }
 
@@ -177,6 +201,11 @@ for (const entry of listed) {
         .map((x) => tidy($(x).text()) as Element)
     ),
   ].slice(0, 2);
+  if (!elements.length)
+    for (const k of ['ElementType1', 'ElementType2']) {
+      const e = ELEMENT_CODES[o.get(k) ?? ''];
+      if (e) elements.push(e);
+    }
 
   // the Alpha form has a page of its own, named with its title
   const bossLink = $('a[data-pal-id]')
@@ -184,18 +213,38 @@ for (const entry of listed) {
     .first();
   const bossHref = bossLink.attr('href');
   const boss$ = bossHref ? await page(bossHref) : undefined;
-  const title =
+  // the Tribes table names the Alpha in full, "The Cat's Pajamas Cattiva"
+  const tribeName = $('td')
+    .toArray()
+    .map((td) => tidy($(td).text()))
+    .find((t) => t.endsWith(` ${entry.name}`) && t !== entry.name);
+  const fromHref =
     bossHref?.endsWith(`_${entry.href}`) === true
-      ? bossHref.slice(0, -entry.href.length - 1).replace(/_/g, ' ')
+      ? decodeURIComponent(bossHref.slice(0, -entry.href.length - 1)).replace(
+          /_/g,
+          ' '
+        )
       : undefined;
+  // prefer the table's wording, which keeps apostrophes the address drops
+  const tableTitle = tribeName?.slice(0, -entry.name.length - 1);
+  const title =
+    fromHref &&
+    tableTitle &&
+    tableTitle.replace(/[^\w]/g, '') === fromHref.replace(/[^\w]/g, '')
+      ? tableTitle
+      : fromHref;
 
   const work: Partial<Record<WorkType, number>> = {};
-  $('.workArray a[href]').each((_, a) => {
-    const row = $(a).closest('.d-flex');
-    const name = tidy(row.find('a').first().text()) as WorkType;
-    const level = row.text().match(/Lv\s*(\d+)/)?.[1];
-    if (name && level) work[name] = Number(level);
-  });
+  // the first table; a later one belongs to another form of the Pal
+  $('.workArray')
+    .first()
+    .find('a[href]')
+    .each((_, a) => {
+      const row = $(a).closest('.d-flex');
+      const name = tidy(row.find('a').first().text()) as WorkType;
+      const level = row.text().match(/Lv\s*(\d+)/)?.[1];
+      if (name && level) work[name] = Number(level);
+    });
 
   const partnerHead = tidy(
     $('a[href="Partner_Skill"]')
@@ -219,13 +268,18 @@ for (const entry of listed) {
       .text()
   );
 
+  // the first Active Skills card; a second one belongs to another form
   const activeSkills: Pal['activeSkills'] = [];
-  $('.card.activeSkill').each((_, card) => {
-    const head = $(card).find('.itemHead').first();
-    const level = head.text().match(/Lv\.?\s*(\d+)/)?.[1];
-    const name = tidy(head.find('a').first().text());
-    if (level && name) activeSkills.push({ name, level: Number(level) });
-  });
+  const skillCard = headings($, 'Active Skills')[0];
+  $(skillCard ?? [])
+    .parent()
+    .find('.card.activeSkill')
+    .each((_, card) => {
+      const head = $(card).find('.itemHead').first();
+      const level = head.text().match(/Lv\.?\s*(\d+)/)?.[1];
+      const name = tidy(head.find('a').first().text());
+      if (level && name) activeSkills.push({ name, level: Number(level) });
+    });
 
   combos.push(...uniqueCombos($));
   ignoreCombi.set(slug(entry.name), o.get('IgnoreCombi') === '1');
@@ -261,9 +315,17 @@ for (const entry of listed) {
         }
       : undefined,
     activeSkills,
-    passiveSkills: $('[class*="passive_banner_rank"] [class*="passive-rank"]')
-      .toArray()
-      .map((x) => tidy($(x).text()).replace(/’/g, "'")),
+    passiveSkills: [
+      ...new Set(
+        $('.mt-4')
+          .filter((_, x) => tidy($(x).text()) === 'Passive Skills')
+          .first()
+          .nextUntil('.mt-4')
+          .find('[class*="passive-rank"]')
+          .toArray()
+          .map((x) => tidy($(x).text()).replace(/’/g, "'"))
+      ),
+    ],
     breeding: {
       rank: rank ?? 0,
       maleProbability: num(s.get('MaleProbability')),
@@ -329,7 +391,8 @@ for (const tab of [
   skillPage(`#${tab} .card.activeSkill`).each((_, card) => {
     const c = skillPage(card);
     const name = tidy(c.find('.itemHead a').first().text());
-    if (!name || skills.has(name)) return;
+    // the boss tab also lists the game's internal names for raid boss moves
+    if (!name || skills.has(name) || name.startsWith('Unique_')) return;
     const figures = c.find('span[style*="73ffff"]');
     const description = tidy(c.find('.card-body').text());
     skills.set(name, {
@@ -380,7 +443,7 @@ passivePage('#PalPassiveSkills [class*="passive_banner_rank"]').each((_, b) => {
   const banner = passivePage(b);
   const label = banner.find('[class*="passive-rank"]').first();
   const name = tidy(label.text()).replace(/’/g, "'");
-  const rank = (label.attr('class') ?? '').match(/passive-rank(m?)(\d+)/);
+  const rank = (label.attr('class') ?? '').match(/passive-rank(-?)(\d+)/);
   const tip = banner.find('img.passive_img_rank').attr('data-bs-title') ?? '';
   if (!name) return;
   passiveList.push({

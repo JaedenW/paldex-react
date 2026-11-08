@@ -55,6 +55,18 @@
       "pal": "celesdir-noct"
     },
     {
+      "id": "alpha/dandilord/26,861",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Dandilord",
+      "pal": "dandilord",
+      "x": 26,
+      "y": 861,
+      "level": 78,
+      "region": "Rotmist Root",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/dualith/15,776",
       "layer": "alpha",
       "map": "tree",
@@ -97,6 +109,18 @@
       "region": "Corroded Hollow",
       "name": "Renjishi",
       "pal": "renjishi"
+    },
+    {
+      "id": "alpha/silvance/-62,692",
+      "layer": "alpha",
+      "map": "tree",
+      "name": "Silvance",
+      "pal": "silvance",
+      "x": -62,
+      "y": 692,
+      "level": 78,
+      "region": "Shinespore Root",
+      "note": "Position from the wiki"
     },
     {
       "id": "alpha/whalaska-ignis/49,783",
@@ -334,6 +358,18 @@
       "pal": "azurmane"
     },
     {
+      "id": "alpha/azurmane/-1106,-1315",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Azurmane",
+      "pal": "azurmane",
+      "x": -1106,
+      "y": -1315,
+      "level": 57,
+      "region": "The Oculus Gate, Tower in Sight",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/azurobe/-176,-266",
       "layer": "alpha",
       "map": "world",
@@ -425,6 +461,17 @@
       "pal": "celesdir"
     },
     {
+      "id": "alpha/celesdir/-60,778",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Celesdir",
+      "pal": "celesdir",
+      "x": -60,
+      "y": 778,
+      "level": 79,
+      "region": "Isle of the Glacial Core"
+    },
+    {
       "id": "alpha/chillet/172,-418",
       "layer": "alpha",
       "map": "world",
@@ -456,6 +503,18 @@
       "region": "Sandstone Gate Islet",
       "name": "Dazzi Noct",
       "pal": "dazzi-noct"
+    },
+    {
+      "id": "alpha/dazzi-noct/-1343,-1579",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Dazzi Noct",
+      "pal": "dazzi-noct",
+      "x": -1343,
+      "y": -1579,
+      "level": 53,
+      "region": "Frozen Coral Hill",
+      "note": "Position from the wiki"
     },
     {
       "id": "alpha/dinossom-lux/315,169",
@@ -557,6 +616,18 @@
       "pal": "faleris-aqua"
     },
     {
+      "id": "alpha/faleris-aqua/-628,-1048",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Faleris Aqua",
+      "pal": "faleris-aqua",
+      "x": -628,
+      "y": -1048,
+      "level": 56,
+      "region": "Withered Seaside",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/fenglope/-258,-458",
       "layer": "alpha",
       "map": "world",
@@ -647,6 +718,18 @@
       "pal": "gildane"
     },
     {
+      "id": "alpha/gildane/-761,-1223",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Gildane",
+      "pal": "gildane",
+      "x": -761,
+      "y": -1223,
+      "level": 58,
+      "region": "Emberstone Plateau",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/grintale/356,-246",
       "layer": "alpha",
       "map": "world",
@@ -733,6 +816,18 @@
       "region": "Emberstone Plateau",
       "name": "Kitsun Noct",
       "pal": "kitsun-noct"
+    },
+    {
+      "id": "alpha/kitsun-noct/-1036,-1145",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Kitsun Noct",
+      "pal": "kitsun-noct",
+      "x": -1036,
+      "y": -1145,
+      "level": 57,
+      "region": "Scorched Hill",
+      "note": "Position from the wiki"
     },
     {
       "id": "alpha/knocklem/-585,-250",
@@ -824,6 +919,18 @@
       "pal": "menasting-terra"
     },
     {
+      "id": "alpha/menasting-terra/-575,332",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Menasting Terra",
+      "pal": "menasting-terra",
+      "x": -575,
+      "y": 332,
+      "level": 54,
+      "region": "Sakurajima - Northern Rock Field",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/moldron/-1126,-1981",
       "layer": "alpha",
       "map": "world",
@@ -844,6 +951,17 @@
       "region": "Eastern Wild Island",
       "name": "Mossanda Lux",
       "pal": "mossanda-lux"
+    },
+    {
+      "id": "alpha/necromus/440,679",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Necromus",
+      "pal": "necromus",
+      "x": 440,
+      "y": 679,
+      "level": 60,
+      "region": "No. 3 Wildlife Sanctuary"
     },
     {
       "id": "alpha/needoll/433,-711",
@@ -903,6 +1021,18 @@
       "pal": "nyafia"
     },
     {
+      "id": "alpha/nyafia/-1114,-940",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Nyafia",
+      "pal": "nyafia",
+      "x": -1114,
+      "y": -940,
+      "level": 57,
+      "region": "Scorched Hill",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/omascul/-708,-930",
       "layer": "alpha",
       "map": "world",
@@ -912,6 +1042,18 @@
       "region": "Scorched Ashland",
       "name": "Omascul",
       "pal": "omascul"
+    },
+    {
+      "id": "alpha/omascul/-1183,-1490",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Omascul",
+      "pal": "omascul",
+      "x": -1183,
+      "y": -1490,
+      "level": 55,
+      "region": "Frozen Coral Hill",
+      "note": "Position from the wiki"
     },
     {
       "id": "alpha/ophydia/-590,-1478",
@@ -1061,6 +1203,18 @@
       "pal": "splatterina"
     },
     {
+      "id": "alpha/splatterina/-1209,-1326",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Splatterina",
+      "pal": "splatterina",
+      "x": -1209,
+      "y": -1326,
+      "level": 58,
+      "region": "-",
+      "note": "Position from the wiki"
+    },
+    {
       "id": "alpha/starryon/-893,-1293",
       "layer": "alpha",
       "map": "world",
@@ -1070,6 +1224,18 @@
       "region": "Emberstone Plateau",
       "name": "Starryon",
       "pal": "starryon"
+    },
+    {
+      "id": "alpha/starryon/-756,-940",
+      "layer": "alpha",
+      "map": "world",
+      "name": "Starryon",
+      "pal": "starryon",
+      "x": -756,
+      "y": -940,
+      "level": 57,
+      "region": "Scorched Ashland",
+      "note": "Position from the wiki"
     },
     {
       "id": "alpha/suzaku/326,483",

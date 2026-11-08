@@ -85,38 +85,6 @@
       {
         "name": "Holy Burst",
         "level": 70
-      },
-      {
-        "name": "Roly Poly",
-        "level": 1
-      },
-      {
-        "name": "Air Cannon",
-        "level": 7
-      },
-      {
-        "name": "Power Shot",
-        "level": 15
-      },
-      {
-        "name": "Implode",
-        "level": 22
-      },
-      {
-        "name": "Electric Ball",
-        "level": 30
-      },
-      {
-        "name": "Power Bomb",
-        "level": 40
-      },
-      {
-        "name": "Pal Blast",
-        "level": 50
-      },
-      {
-        "name": "Holy Burst",
-        "level": 70
       }
     ],
     "passiveSkills": [],
@@ -151,18 +119,6 @@
         "chance": 100,
         "min": 1,
         "max": 2
-      },
-      {
-        "item": "Wool",
-        "chance": 100,
-        "min": 1,
-        "max": 3
-      },
-      {
-        "item": "Lamball Mutton",
-        "chance": 100,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [
@@ -185,7 +141,7 @@
     "name": "Cattiva",
     "number": "002",
     "code": "PinkCat",
-    "title": "The Cats Pajamas",
+    "title": "The Cat's Pajamas",
     "description": "At a glance it appears full of confidence, but it is in fact weak and cowardly. Being toyed with by a Cattiva is in many ways the greatest of disgraces.",
     "elements": ["Neutral"],
     "size": "Extra Small",
@@ -267,41 +223,9 @@
       {
         "name": "Holy Burst",
         "level": 70
-      },
-      {
-        "name": "Punch Flurry",
-        "level": 1
-      },
-      {
-        "name": "Air Cannon",
-        "level": 7
-      },
-      {
-        "name": "Bog Blast",
-        "level": 15
-      },
-      {
-        "name": "Power Shot",
-        "level": 22
-      },
-      {
-        "name": "Wind Cutter",
-        "level": 30
-      },
-      {
-        "name": "Seed Machine Gun",
-        "level": 40
-      },
-      {
-        "name": "Pal Blast",
-        "level": 50
-      },
-      {
-        "name": "Holy Burst",
-        "level": 70
       }
     ],
-    "passiveSkills": ["Coward", "Coward", "Coward", "Coward"],
+    "passiveSkills": ["Coward"],
     "breeding": {
       "rank": 2760,
       "maleProbability": 50,
@@ -327,12 +251,6 @@
         "chance": 100,
         "min": 1,
         "max": 2
-      },
-      {
-        "item": "Red Berries",
-        "chance": 100,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [
@@ -355,7 +273,7 @@
     "name": "Chikipi",
     "number": "003",
     "code": "ChickenPal",
-    "title": "Plump %26 Juicy",
+    "title": "Plump & Juicy",
     "description": "Extremely weak and far too delicious. It is one of the weakest Pals alongside Lamball. No matter how many are hunted, they just keep appearing.",
     "elements": ["Neutral"],
     "size": "Extra Small",
@@ -2065,38 +1983,6 @@
       {
         "name": "Wind Burst",
         "level": 70
-      },
-      {
-        "name": "Bog Blast",
-        "level": 1
-      },
-      {
-        "name": "Wind Cutter",
-        "level": 7
-      },
-      {
-        "name": "Stone Blast",
-        "level": 15
-      },
-      {
-        "name": "Seed Machine Gun",
-        "level": 22
-      },
-      {
-        "name": "Seed Mine",
-        "level": 30
-      },
-      {
-        "name": "Sand Tornado",
-        "level": 40
-      },
-      {
-        "name": "Solar Blast",
-        "level": 50
-      },
-      {
-        "name": "Wind Burst",
-        "level": 70
       }
     ],
     "passiveSkills": [],
@@ -2131,36 +2017,6 @@
         "chance": 100,
         "min": 2,
         "max": 2
-      },
-      {
-        "item": "Berry Seeds",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Beautiful Flower",
-        "chance": 100,
-        "min": 3,
-        "max": 3
-      },
-      {
-        "item": "Gumoss Leaf",
-        "chance": 50,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 2,
-        "max": 4
-      },
-      {
-        "item": "Precious Entrails",
-        "chance": 100,
-        "min": 2,
-        "max": 2
       }
     ],
     "alphaDrops": [
@@ -2169,18 +2025,6 @@
         "chance": null,
         "min": 1,
         "max": 1
-      },
-      {
-        "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 2,
-        "max": 4
-      },
-      {
-        "item": "Precious Entrails",
-        "chance": 100,
-        "min": 2,
-        "max": 2
       },
       {
         "item": "Ancient Civilization Parts",
@@ -2466,7 +2310,7 @@
     "name": "Jolthog",
     "number": "015",
     "code": "Hedgehog",
-    "title": "Dont Touch%21",
+    "title": "Don't Touch!",
     "description": "It releases the electricity stored in its body when under attack. The voltage it generates exceeds 10 million volts, making it more lethal than any conventional heavy firearms when thrown.",
     "elements": ["Electric"],
     "size": "Extra Small",
@@ -2595,7 +2439,7 @@
     "name": "Jolthog Cryst",
     "number": "015B",
     "code": "Hedgehog_Ice",
-    "title": "Watch Your Feet%21",
+    "title": "Watch Your Feet!",
     "description": "It releases the cold air stored in its body when under attack. The frigid blast it radiates is cold enough to freeze the surrounding air and easily pierces through any attacker's body.",
     "elements": ["Ice"],
     "size": "Extra Small",
@@ -3537,12 +3381,6 @@
         "max": 3
       },
       {
-        "item": "Advanced Technical Manual",
-        "chance": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Plume",
         "chance": 100,
         "min": 1,
@@ -3791,7 +3629,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 2220,
       "maleProbability": 90,
@@ -3992,7 +3830,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1530,
       "maleProbability": 90,
@@ -6502,12 +6340,6 @@
         "chance": 100,
         "min": 1,
         "max": 2
-      },
-      {
-        "item": "Ruby",
-        "chance": 3,
-        "min": 1,
-        "max": 1
       },
       {
         "item": "Precious Claw",
@@ -10187,55 +10019,6 @@
         "min": 2,
         "max": 3,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Ground Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -11132,55 +10915,6 @@
         "chance": 100,
         "min": 2,
         "max": 4,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Ice Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -13971,7 +13705,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Abnormal", "Abnormal"],
+    "passiveSkills": ["Abnormal"],
     "breeding": {
       "rank": 2090,
       "maleProbability": 30,
@@ -14593,7 +14327,7 @@
     "elements": ["Dark"],
     "size": "Small",
     "work": {
-      "Handiwork": 1,
+      "Handiwork": 2,
       "Gathering": 1,
       "Transporting": 1
     },
@@ -14669,38 +14403,6 @@
       {
         "name": "Dark Whisp",
         "level": 70
-      },
-      {
-        "name": "Poison Blast",
-        "level": 1
-      },
-      {
-        "name": "Dark Ball",
-        "level": 7
-      },
-      {
-        "name": "Shadow Burst",
-        "level": 15
-      },
-      {
-        "name": "Spirit Flame",
-        "level": 22
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 30
-      },
-      {
-        "name": "Ignis Breath",
-        "level": 40
-      },
-      {
-        "name": "Dark Laser",
-        "level": 50
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 70
       }
     ],
     "passiveSkills": [],
@@ -14737,34 +14439,10 @@
         "max": 2
       },
       {
-        "item": "Silver Key",
-        "chance": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Entrails",
         "chance": 100,
         "min": 1,
         "max": 2
-      },
-      {
-        "item": "Copper Key",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Silver Key",
-        "chance": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Leezpunk Crest",
-        "chance": 50,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [
@@ -14911,12 +14589,6 @@
         "max": 2
       },
       {
-        "item": "Silver Key",
-        "chance": 2,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Entrails",
         "chance": 100,
         "min": 1,
@@ -15032,7 +14704,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hooligan", "Hooligan"],
+    "passiveSkills": ["Hooligan"],
     "breeding": {
       "rank": 2140,
       "maleProbability": 50,
@@ -15229,7 +14901,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hooligan", "Hooligan"],
+    "passiveSkills": ["Hooligan"],
     "breeding": {
       "rank": 1880,
       "maleProbability": 50,
@@ -15339,7 +15011,7 @@
     "name": "Surfent",
     "number": "075",
     "code": "Serpent",
-    "title": "The Oceans Wrath",
+    "title": "The Ocean's Wrath",
     "description": "Its hydrodynamic form is well suited for activities on water. Poachers often catch them and use them in place of surfboards.",
     "elements": ["Water"],
     "size": "Medium",
@@ -15469,7 +15141,7 @@
     "name": "Surfent Terra",
     "number": "075B",
     "code": "Serpent_Ground",
-    "title": "The Deserts Wrath",
+    "title": "The Desert's Wrath",
     "description": "Its aerodynamic form is well suited for activities on sand. Poachers often catch them and use them in place of surfboards.",
     "elements": ["Ground"],
     "size": "Medium",
@@ -15573,12 +15245,6 @@
       },
       {
         "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Ore",
         "chance": 100,
         "min": 2,
         "max": 3
@@ -16145,12 +15811,6 @@
         "max": 5
       },
       {
-        "item": "Advanced Technical Manual",
-        "chance": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Pelt",
         "chance": 100,
         "min": 4,
@@ -16298,12 +15958,6 @@
         "chance": 100,
         "min": 4,
         "max": 5
-      },
-      {
-        "item": "Advanced Technical Manual",
-        "chance": 1,
-        "min": 1,
-        "max": 1
       },
       {
         "item": "Precious Pelt",
@@ -16534,7 +16188,7 @@
     },
     "partnerSkill": {
       "name": "Blazing Black Magic",
-      "type": "Base",
+      "type": "Kindling Boost",
       "description": "While at a base, increases the Work Suitability Level for all other Base Pals by . (Does not stack)"
     },
     "activeSkills": [
@@ -16605,12 +16259,6 @@
         "max": 3
       },
       {
-        "item": "Advanced Technical Manual",
-        "chance": 1,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Pelt",
         "chance": 100,
         "min": 1,
@@ -16648,7 +16296,7 @@
     "elements": ["Dark"],
     "size": "Large",
     "work": {
-      "Transporting": 3
+      "Transporting": 4
     },
     "hunger": 7,
     "nocturnal": true,
@@ -16691,38 +16339,6 @@
       "description": "Can be ridden as a flying mount. While mounted, changes the player's attack type to and increases Attack by ."
     },
     "activeSkills": [
-      {
-        "name": "Spirit Fire",
-        "level": 1
-      },
-      {
-        "name": "Dark Ball",
-        "level": 7
-      },
-      {
-        "name": "Shadow Burst",
-        "level": 15
-      },
-      {
-        "name": "Flare Storm",
-        "level": 22
-      },
-      {
-        "name": "Spirit Flame",
-        "level": 30
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 40
-      },
-      {
-        "name": "Dark Laser",
-        "level": 50
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 70
-      },
       {
         "name": "Spirit Fire",
         "level": 1
@@ -16844,18 +16460,6 @@
         "chance": 100,
         "min": 4,
         "max": 6
-      },
-      {
-        "item": "Venom Gland",
-        "chance": 100,
-        "min": 1,
-        "max": 3
-      },
-      {
-        "item": "Medium Pal Soul",
-        "chance": 3,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [
@@ -17463,55 +17067,6 @@
         "chance": 100,
         "min": 7,
         "max": 9,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Ice Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -18962,7 +18517,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1340,
       "maleProbability": 50,
@@ -19174,7 +18729,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1070,
       "maleProbability": 50,
@@ -19914,55 +19469,6 @@
         "min": 2,
         "max": 4,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Grass Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -20322,9 +19828,9 @@
     "elements": ["Dark"],
     "size": "Medium",
     "work": {
-      "Handiwork": 2,
-      "Mining": 1,
-      "Transporting": 2
+      "Handiwork": 3,
+      "Mining": 4,
+      "Transporting": 3
     },
     "hunger": 5,
     "nocturnal": true,
@@ -20402,42 +19908,6 @@
       {
         "name": "Dark Whisp",
         "level": 70
-      },
-      {
-        "name": "Ignis Blast",
-        "level": 1
-      },
-      {
-        "name": "Spirit Fire",
-        "level": 7
-      },
-      {
-        "name": "Flare Arrow",
-        "level": 15
-      },
-      {
-        "name": "Hellfire Claw",
-        "level": 22
-      },
-      {
-        "name": "Shadow Burst",
-        "level": 30
-      },
-      {
-        "name": "Nightmare Claw",
-        "level": 35
-      },
-      {
-        "name": "Fire Ball",
-        "level": 40
-      },
-      {
-        "name": "Ignis Rage",
-        "level": 50
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 70
       }
     ],
     "passiveSkills": [],
@@ -20472,18 +19942,6 @@
         "chance": 100,
         "min": 2,
         "max": 3
-      },
-      {
-        "item": "Horn",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Leather",
-        "chance": 100,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [
@@ -21265,7 +20723,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Glutton", "Glutton"],
+    "passiveSkills": ["Glutton"],
     "breeding": {
       "rank": 1090,
       "maleProbability": 50,
@@ -21380,8 +20838,8 @@
     "elements": ["Dragon", "Electric"],
     "size": "Extra Large",
     "work": {
-      "Generating Electricity": 6,
-      "Transporting": 4
+      "Generating Electricity": 4,
+      "Transporting": 3
     },
     "hunger": 7,
     "nocturnal": false,
@@ -21424,38 +20882,6 @@
       "description": "Can be ridden. Can rapidly fire a missile launcher while mounted."
     },
     "activeSkills": [
-      {
-        "name": "Spark Blast",
-        "level": 1
-      },
-      {
-        "name": "Dragon Cannon",
-        "level": 7
-      },
-      {
-        "name": "Shockwave",
-        "level": 15
-      },
-      {
-        "name": "Lightning Streak",
-        "level": 22
-      },
-      {
-        "name": "Dragon Breath",
-        "level": 30
-      },
-      {
-        "name": "Lightning Strike",
-        "level": 40
-      },
-      {
-        "name": "Lightning Bolt",
-        "level": 50
-      },
-      {
-        "name": "Thunder Rail",
-        "level": 70
-      },
       {
         "name": "Spark Blast",
         "level": 1
@@ -22134,55 +21560,6 @@
         "min": 5,
         "max": 6,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Water Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -22858,55 +22235,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Water Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -24067,38 +23395,6 @@
       {
         "name": "Thunder Rail",
         "level": 70
-      },
-      {
-        "name": "Spark Blast",
-        "level": 1
-      },
-      {
-        "name": "Shockwave",
-        "level": 7
-      },
-      {
-        "name": "Lightning Streak",
-        "level": 15
-      },
-      {
-        "name": "Blast Punch",
-        "level": 22
-      },
-      {
-        "name": "Tri-Lightning",
-        "level": 30
-      },
-      {
-        "name": "Lightning Strike",
-        "level": 40
-      },
-      {
-        "name": "Lightning Bolt",
-        "level": 50
-      },
-      {
-        "name": "Thunder Rail",
-        "level": 70
       }
     ],
     "passiveSkills": [],
@@ -24468,12 +23764,6 @@
         "chance": 100,
         "min": 2,
         "max": 4
-      },
-      {
-        "item": "Ice Organ",
-        "chance": 100,
-        "min": 2,
-        "max": 3
       },
       {
         "item": "Precious Pelt",
@@ -24946,7 +24236,7 @@
     },
     "partnerSkill": {
       "name": "Magma Overload",
-      "type": "",
+      "type": "Mount",
       "description": "Can be ridden as a mount. This Pal's Attack increases by for each other or Pal in your party."
     },
     "activeSkills": [
@@ -25144,7 +24434,7 @@
     },
     "partnerSkill": {
       "name": "Ice Overload",
-      "type": "",
+      "type": "Mount",
       "description": "Can be ridden. While in party, increases damage dealt by Player and Pals' attacks when hitting the enemy's elemental weakness by . (Does not stack)"
     },
     "activeSkills": [
@@ -25353,7 +24643,7 @@
     "name": "Palumba",
     "number": "106",
     "code": "TropicalOstrich",
-    "title": "No Dance%2C No Life",
+    "title": "No Dance, No Life",
     "description": "Disrupts enemies’ rhythm with a signature dance. In turf battles, the first to fall in sync with the other’s rhythm loses. Courtship, boredom, battle—it all comes down to dance! Now then, what could a dance aimed at a human possibly mean?",
     "elements": ["Grass"],
     "size": "Medium",
@@ -25577,7 +24867,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hard Skin", "Hard Skin"],
+    "passiveSkills": ["Hard Skin"],
     "breeding": {
       "rank": 1550,
       "maleProbability": 50,
@@ -25712,7 +25002,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1380,
       "maleProbability": 50,
@@ -25913,7 +25203,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1080,
       "maleProbability": 50,
@@ -26400,7 +25690,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1030,
       "maleProbability": 50,
@@ -26766,89 +26056,9 @@
       {
         "name": "Dragon Meteor",
         "level": 70
-      },
-      {
-        "name": "Double Fang (Dark)",
-        "level": 1
-      },
-      {
-        "name": "Fierce Fang (Dark)",
-        "level": 2
-      },
-      {
-        "name": "Dark Cannon",
-        "level": 3
-      },
-      {
-        "name": "Spirit Fire",
-        "level": 7
-      },
-      {
-        "name": "Spirit Flame",
-        "level": 15
-      },
-      {
-        "name": "Daring Shadowstorm",
-        "level": 22
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 30
-      },
-      {
-        "name": "Flame Funnel",
-        "level": 40
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 50
-      },
-      {
-        "name": "Dragon Meteor",
-        "level": 70
-      },
-      {
-        "name": "Double Fang (Dark)",
-        "level": 1
-      },
-      {
-        "name": "Fierce Fang (Dark)",
-        "level": 2
-      },
-      {
-        "name": "Dark Cannon",
-        "level": 3
-      },
-      {
-        "name": "Spirit Fire",
-        "level": 7
-      },
-      {
-        "name": "Spirit Flame",
-        "level": 15
-      },
-      {
-        "name": "Daring Shadowstorm",
-        "level": 22
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 30
-      },
-      {
-        "name": "Flame Funnel",
-        "level": 40
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 50
-      },
-      {
-        "name": "Dragon Meteor",
-        "level": 70
       }
     ],
-    "passiveSkills": ["Insomnia", "Insomnia", "Insomnia", "Insomnia"],
+    "passiveSkills": ["Insomnia"],
     "breeding": {
       "rank": 800,
       "maleProbability": 50,
@@ -26886,42 +26096,6 @@
         "chance": 100,
         "min": 2,
         "max": 3
-      },
-      {
-        "item": "Flame Organ",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Leather",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Dark Fragment",
-        "chance": 100,
-        "min": 1,
-        "max": 2
-      },
-      {
-        "item": "Flame Organ",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Leather",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Dark Fragment",
-        "chance": 100,
-        "min": 1,
-        "max": 2
       }
     ],
     "alphaDrops": [
@@ -27418,7 +26592,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hard Skin", "Hard Skin"],
+    "passiveSkills": ["Hard Skin"],
     "breeding": {
       "rank": 1280,
       "maleProbability": 85,
@@ -27616,7 +26790,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hard Skin", "Hard Skin"],
+    "passiveSkills": ["Hard Skin"],
     "breeding": {
       "rank": 630,
       "maleProbability": 85,
@@ -27985,55 +27159,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Fire Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -28439,55 +27564,6 @@
         "chance": 100,
         "min": 6,
         "max": 8,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Neutral Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -29413,7 +28489,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Lord of the Sea", "Lord of the Sea"],
+    "passiveSkills": ["Lord of the Sea"],
     "breeding": {
       "rank": 590,
       "maleProbability": 50,
@@ -30977,93 +30053,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": [
-      "Demon God",
-      "Diamond Body",
-      "Eternal Engine",
-      "Heart of the Immovable King",
-      "King of the Waves",
-      "Lavish Hospitality",
-      "Lightfooted",
-      "Mastery of Fasting",
-      "Ranch Master",
-      "Remarkable Craftsmanship",
-      "Swift",
-      "Vampiric",
-      "Ace Swimmer",
-      "Artisan",
-      "Burly Body",
-      "Diet Lover",
-      "Farmhand",
-      "Ferocious",
-      "Healing Coach",
-      "Infinite Stamina",
-      "Logging Foreman",
-      "Mine Foreman",
-      "Motivational Leader",
-      "Noble",
-      "Philanthropist",
-      "Reload Master",
-      "Runner",
-      "Serenity",
-      "Service-Minded",
-      "Stronghold Strategist",
-      "Vanguard",
-      "Wellness Watcher",
-      "Workaholic",
-      "Heavyweight",
-      "Musclehead",
-      "Abnormal",
-      "Aggressive",
-      "Blood of the Dragon",
-      "Botanical Barrier",
-      "Brave",
-      "Capacitor",
-      "Cheery",
-      "Coldblooded",
-      "Conceited",
-      "Dainty Eater",
-      "Dragonkiller",
-      "Earthquake Resistant",
-      "Fine Furs",
-      "Fit as a Fiddle",
-      "Fragrant Foliage",
-      "Hard Skin",
-      "Heated Body",
-      "Hooligan",
-      "Hydromaniac",
-      "Impatient",
-      "Insomnia",
-      "Insulated Body",
-      "Masochist",
-      "Nimble",
-      "Positive Thinker",
-      "Power of Gaia",
-      "Pyromaniac",
-      "Sadist",
-      "Serious",
-      "Sleek Stroke",
-      "Spirit of Zen",
-      "Suntan Lover",
-      "Veil of Darkness",
-      "Waterproof",
-      "Work Slave",
-      "Clumsy",
-      "Coward",
-      "Downtrodden",
-      "Easygoing",
-      "Glutton",
-      "Mercy Hit",
-      "Night Owl",
-      "Shabby",
-      "Sickly",
-      "Unstable",
-      "Bottomless Stomach",
-      "Destructive",
-      "Brittle",
-      "Pacifist",
-      "Slacker"
-    ],
+    "passiveSkills": [],
     "breeding": {
       "rank": 2230,
       "maleProbability": 50,
@@ -31157,7 +30147,7 @@
     },
     "partnerSkill": {
       "name": "Fish Fillet",
-      "type": "",
+      "type": "Sword",
       "description": "When activated, becomes the player's katana (Attack: ). If it does not revert to its normal form quickly, will become incapacitated. It will also become incapacitated if Iaigiri is used."
     },
     "activeSkills": [
@@ -31295,7 +30285,7 @@
     },
     "partnerSkill": {
       "name": "Seared Fish Fillet",
-      "type": "",
+      "type": "Sword",
       "description": "When activated, becomes the player's katana (Attack: ). If it does not revert to its normal form quickly, will become incapacitated. It will also become incapacitated if Iaigiri is used."
     },
     "activeSkills": [
@@ -31433,55 +30423,6 @@
         "chance": 100,
         "min": 2,
         "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Water Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -31643,7 +30584,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1060,
       "maleProbability": 50,
@@ -31779,7 +30720,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 600,
       "maleProbability": 50,
@@ -32072,7 +31013,7 @@
     },
     "partnerSkill": {
       "name": "Light Dancer",
-      "type": "",
+      "type": "Mount",
       "description": "Can be ridden. Boosts Jump Power while mounted. This Pal's Movement Speed increases by for each other Pal in your party. (Excluding )"
     },
     "activeSkills": [
@@ -32211,55 +31152,6 @@
         "min": 6,
         "max": 8,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Neutral Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -32388,7 +31280,7 @@
     },
     "partnerSkill": {
       "name": "Power Stone",
-      "type": "",
+      "type": "Muddy Boost",
       "description": "While in party, increases player's and Pals' damage to enemies afflicted with by . (Does not stack)"
     },
     "activeSkills": [
@@ -32425,7 +31317,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 1110,
       "maleProbability": 50,
@@ -32536,7 +31428,7 @@
     },
     "partnerSkill": {
       "name": "Power Crystal",
-      "type": "",
+      "type": "Dragon Boost",
       "description": "While in party, player and party Pals take less damage. (Does not stack)"
     },
     "activeSkills": [
@@ -32573,7 +31465,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 460,
       "maleProbability": 50,
@@ -33143,7 +32035,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 830,
       "maleProbability": 50,
@@ -33341,7 +32233,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 610,
       "maleProbability": 50,
@@ -33839,7 +32731,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Flame Emperor", "Flame Emperor"],
+    "passiveSkills": ["Flame Emperor"],
     "breeding": {
       "rank": 410,
       "maleProbability": 50,
@@ -34049,7 +32941,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Eternal Flame", "Eternal Flame"],
+    "passiveSkills": ["Eternal Flame"],
     "breeding": {
       "rank": 100,
       "maleProbability": 50,
@@ -34193,18 +33085,6 @@
         "chance": 90,
         "min": 1,
         "max": 1
-      },
-      {
-        "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 2,
-        "max": 3
-      },
-      {
-        "item": "Precious Claw",
-        "chance": 100,
-        "min": 6,
-        "max": 8
       }
     ]
   },
@@ -34298,7 +33178,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 510,
       "maleProbability": 50,
@@ -34455,55 +33335,6 @@
         "chance": 100,
         "min": 7,
         "max": 9,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Ground Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -34674,7 +33505,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 250,
       "maleProbability": 50,
@@ -34884,7 +33715,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Earth Emperor", "Earth Emperor"],
+    "passiveSkills": ["Earth Emperor"],
     "breeding": {
       "rank": 480,
       "maleProbability": 50,
@@ -36298,18 +35129,6 @@
         "max": 3
       },
       {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 35,
-        "max": 35
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Claw",
         "chance": 100,
         "min": 1,
@@ -36320,20 +35139,6 @@
         "chance": 100,
         "min": 2,
         "max": 3,
-        "minLevel": 10
-      },
-      {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 38,
-        "max": 38,
-        "minLevel": 10
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1,
         "minLevel": 10
       },
       {
@@ -36351,20 +35156,6 @@
         "minLevel": 20
       },
       {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 41,
-        "max": 41,
-        "minLevel": 20
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1,
-        "minLevel": 20
-      },
-      {
         "item": "Precious Claw",
         "chance": 100,
         "min": 1,
@@ -36376,20 +35167,6 @@
         "chance": 100,
         "min": 5,
         "max": 6,
-        "minLevel": 30
-      },
-      {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 44,
-        "max": 44,
-        "minLevel": 30
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1,
         "minLevel": 30
       },
       {
@@ -36407,20 +35184,6 @@
         "minLevel": 40
       },
       {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 47,
-        "max": 47,
-        "minLevel": 40
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1,
-        "minLevel": 40
-      },
-      {
         "item": "Precious Claw",
         "chance": 100,
         "min": 1,
@@ -36432,20 +35195,6 @@
         "chance": 100,
         "min": 8,
         "max": 9,
-        "minLevel": 50
-      },
-      {
-        "item": "Dog Coin",
-        "chance": 100,
-        "min": 50,
-        "max": 50,
-        "minLevel": 50
-      },
-      {
-        "item": "Training Manual (XL)",
-        "chance": 100,
-        "min": 1,
-        "max": 1,
         "minLevel": 50
       },
       {
@@ -36633,7 +35382,7 @@
     "elements": ["Dark"],
     "size": "Small",
     "work": {
-      "Lumbering": 2,
+      "Lumbering": 3,
       "Transporting": 2
     },
     "hunger": 4,
@@ -36708,74 +35457,9 @@
       {
         "name": "Dark Whisp",
         "level": 70
-      },
-      {
-        "name": "Evil Slash",
-        "level": 1
-      },
-      {
-        "name": "Poison Blast",
-        "level": 2
-      },
-      {
-        "name": "Dark Cannon",
-        "level": 3
-      },
-      {
-        "name": "Evil Slash",
-        "level": 1
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 2
-      },
-      {
-        "name": "Dark Cannon",
-        "level": 3
-      },
-      {
-        "name": "Power Shot",
-        "level": 1
-      },
-      {
-        "name": "Poison Blast",
-        "level": 7
-      },
-      {
-        "name": "Umbral Surge",
-        "level": 15
-      },
-      {
-        "name": "Dark Arrow",
-        "level": 22
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 30
-      },
-      {
-        "name": "Evil Slash",
-        "level": 40
-      },
-      {
-        "name": "Dark Laser",
-        "level": 50
-      },
-      {
-        "name": "Dark Whisp",
-        "level": 70
       }
     ],
-    "passiveSkills": [
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells"
-    ],
+    "passiveSkills": ["Otherworldly Cells"],
     "breeding": {
       "rank": 1820,
       "maleProbability": 50,
@@ -36801,12 +35485,6 @@
         "chance": 100,
         "min": 5,
         "max": 6
-      },
-      {
-        "item": "Meteorite Fragment",
-        "chance": 100,
-        "min": 3,
-        "max": 10
       }
     ],
     "alphaDrops": [
@@ -36834,7 +35512,7 @@
     "elements": ["Dragon"],
     "size": "Large",
     "work": {
-      "Mining": 3
+      "Mining": 4
     },
     "hunger": 7,
     "nocturnal": false,
@@ -36908,40 +35586,9 @@
       {
         "name": "Dragon Meteor",
         "level": 70
-      },
-      {
-        "name": "Dragon Breath",
-        "level": 1
-      },
-      {
-        "name": "Comet Strike",
-        "level": 2
-      },
-      {
-        "name": "Dragon Cannon",
-        "level": 3
-      },
-      {
-        "name": "Dragon Cannon",
-        "level": 1
-      },
-      {
-        "name": "Comet Strike",
-        "level": 2
-      },
-      {
-        "name": "Beam Slicer",
-        "level": 3
       }
     ],
-    "passiveSkills": [
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells",
-      "Otherworldly Cells"
-    ],
+    "passiveSkills": ["Otherworldly Cells"],
     "breeding": {
       "rank": 990,
       "maleProbability": 50,
@@ -38606,7 +37253,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Sadist", "Sadist"],
+    "passiveSkills": ["Sadist"],
     "breeding": {
       "rank": 780,
       "maleProbability": 38,
@@ -38985,7 +37632,7 @@
     "name": "Bulldosu",
     "number": "156",
     "code": "SumoDog",
-    "title": "Bangin Yokozuna",
+    "title": "Bangin' Yokozuna",
     "description": "In the old islands, Bulldosu sumo was widely enjoyed. At the highest levels, even a charging Rushoar would be sent flying instead.",
     "elements": ["Ground"],
     "size": "Medium",
@@ -39641,55 +38288,6 @@
         "min": 7,
         "max": 9,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dark Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -39860,7 +38458,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Hard Skin", "Hard Skin"],
+    "passiveSkills": ["Hard Skin"],
     "breeding": {
       "rank": 490,
       "maleProbability": 50,
@@ -39993,9 +38591,9 @@
     "elements": ["Ground"],
     "size": "Large",
     "work": {
-      "Gathering": 3,
-      "Mining": 4,
-      "Transporting": 4
+      "Gathering": 4,
+      "Mining": 7,
+      "Transporting": 7
     },
     "hunger": 9,
     "nocturnal": false,
@@ -40069,42 +38667,9 @@
       {
         "name": "Rocky Impact",
         "level": 70
-      },
-      {
-        "name": "Power Shot",
-        "level": 1
-      },
-      {
-        "name": "Stone Blast",
-        "level": 7
-      },
-      {
-        "name": "Stone Cannon",
-        "level": 15
-      },
-      {
-        "name": "Rockburst",
-        "level": 22
-      },
-      {
-        "name": "Rock Lance",
-        "level": 30
-      },
-      {
-        "name": "Ground Cutter",
-        "level": 40
-      },
-      {
-        "name": "Sand Twister",
-        "level": 50
       }
     ],
-    "passiveSkills": [
-      "Heavyweight",
-      "Heavyweight",
-      "Heavyweight",
-      "Heavyweight"
-    ],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 260,
       "maleProbability": 70,
@@ -40235,12 +38800,6 @@
         "chance": 100,
         "min": 6,
         "max": 7
-      },
-      {
-        "item": "Ore",
-        "chance": 100,
-        "min": 2,
-        "max": 3
       }
     ],
     "alphaDrops": [
@@ -40352,7 +38911,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 210,
       "maleProbability": 70,
@@ -40453,55 +39012,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Fire Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -40668,7 +39178,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 560,
       "maleProbability": 50,
@@ -41430,55 +39940,6 @@
         "chance": 100,
         "min": 7,
         "max": 8,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Electric Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -43098,55 +41559,6 @@
         "min": 7,
         "max": 9,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dragon Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -44088,55 +42500,6 @@
         "min": 4,
         "max": 6,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Fire Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -44398,55 +42761,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dark Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -44712,55 +43026,6 @@
         "min": 2,
         "max": 3,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dark Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -45024,55 +43289,6 @@
         "chance": 100,
         "min": 7,
         "max": 9,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Grass Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -45356,55 +43572,6 @@
         "min": 2,
         "max": 3,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dark Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -45529,7 +43696,7 @@
     },
     "partnerSkill": {
       "name": "Hidden Dark Energy",
-      "type": "",
+      "type": "Dark Boost",
       "description": "While in party, increases Defense of Pals by . (Does not stack)"
     },
     "activeSkills": [
@@ -45667,55 +43834,6 @@
         "chance": 100,
         "min": 7,
         "max": 8,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dark Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -45985,55 +44103,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Neutral Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -46355,55 +44424,6 @@
         "min": 7,
         "max": 9,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Fire Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -46569,7 +44589,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Heavyweight", "Heavyweight"],
+    "passiveSkills": ["Heavyweight"],
     "breeding": {
       "rank": 30,
       "maleProbability": 50,
@@ -46726,55 +44746,6 @@
         "chance": 100,
         "min": 6,
         "max": 8,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Dragon Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -47215,7 +45186,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Spirit Emperor", "Spirit Emperor"],
+    "passiveSkills": ["Spirit Emperor"],
     "breeding": {
       "rank": 240,
       "maleProbability": 30,
@@ -47758,7 +45729,7 @@
     },
     "partnerSkill": {
       "name": "Ferocious Thunder Dragon",
-      "type": "Drop Boost",
+      "type": "Orserk",
       "description": "While in party, hitting an enemy with a bullet increases the Attack and Defense of the Pal fighting alongside you by for 5 seconds. This effect stacks up to 30 times. (Does not stack.)"
     },
     "activeSkills": [
@@ -47799,7 +45770,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Lord of Lightning", "Lord of Lightning"],
+    "passiveSkills": ["Lord of Lightning"],
     "breeding": {
       "rank": 120,
       "maleProbability": 50,
@@ -47964,7 +45935,7 @@
     "elements": ["Fire"],
     "size": "Large",
     "work": {
-      "Kindling": 3,
+      "Kindling": 6,
       "Transporting": 3
     },
     "hunger": 9,
@@ -48008,42 +45979,6 @@
       "description": "Can be ridden as a flying mount. While in party, Pals drop more items when defeated. (Does not stack)"
     },
     "activeSkills": [
-      {
-        "name": "Ignis Blast",
-        "level": 1
-      },
-      {
-        "name": "Flare Arrow",
-        "level": 7
-      },
-      {
-        "name": "Spirit Fire",
-        "level": 15
-      },
-      {
-        "name": "Ignis Breath",
-        "level": 22
-      },
-      {
-        "name": "Phoenix Flare",
-        "level": 30
-      },
-      {
-        "name": "Ignis Rage",
-        "level": 40
-      },
-      {
-        "name": "Fire Ball",
-        "level": 50
-      },
-      {
-        "name": "Raging Flame Wave",
-        "level": 55
-      },
-      {
-        "name": "Holy Burst",
-        "level": 70
-      },
       {
         "name": "Ignis Blast",
         "level": 1
@@ -48212,12 +46147,6 @@
         "chance": 100,
         "min": 6,
         "max": 8
-      },
-      {
-        "item": "Flame Organ",
-        "chance": 100,
-        "min": 1,
-        "max": 4
       }
     ],
     "alphaDrops": [
@@ -48707,9 +46636,9 @@
     "elements": ["Dark", "Neutral"],
     "size": "Large",
     "work": {
-      "Handiwork": 1,
+      "Handiwork": 7,
       "Medicine Production": 6,
-      "Transporting": 1
+      "Transporting": 3
     },
     "hunger": 9,
     "nocturnal": true,
@@ -48787,38 +46716,6 @@
       {
         "name": "Seigetsu Flash",
         "level": 70
-      },
-      {
-        "name": "Power Bomb",
-        "level": 1
-      },
-      {
-        "name": "Air Blade",
-        "level": 2
-      },
-      {
-        "name": "Holy Burst",
-        "level": 3
-      },
-      {
-        "name": "Dark Arrow",
-        "level": 4
-      },
-      {
-        "name": "Spirit Flame",
-        "level": 5
-      },
-      {
-        "name": "Nightmare Ball",
-        "level": 6
-      },
-      {
-        "name": "Freeze Wall",
-        "level": 7
-      },
-      {
-        "name": "Comet Strike",
-        "level": 8
       }
     ],
     "passiveSkills": [],
@@ -49238,55 +47135,6 @@
         "chance": 100,
         "min": 4,
         "max": 6,
-        "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Ice Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 15,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 12.5,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 10,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -49772,55 +47620,6 @@
         "min": 5,
         "max": 10,
         "minLevel": 70
-      },
-      {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
-        "item": "Grass Radiant Gem",
-        "chance": 100,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 100,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 30,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 20,
-        "min": 1,
-        "max": 1,
-        "minLevel": 70
       }
     ],
     "alphaDrops": [
@@ -50184,52 +47983,10 @@
         "minLevel": 70
       },
       {
-        "item": "World Tree Holy Water",
-        "chance": 100,
-        "min": 20,
-        "max": 30,
-        "minLevel": 70
-      },
-      {
         "item": "Dark Radiant Gem",
         "chance": 100,
         "min": 1,
         "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Decayed Ancient Relic",
-        "chance": 100,
-        "min": 1,
-        "max": 10,
-        "minLevel": 70
-      },
-      {
-        "item": "Dormant Ancient Relic",
-        "chance": 50,
-        "min": 1,
-        "max": 5,
-        "minLevel": 70
-      },
-      {
-        "item": "Gorgeous Ancient Relic",
-        "chance": 30,
-        "min": 1,
-        "max": 3,
-        "minLevel": 70
-      },
-      {
-        "item": "Glowing Ancient Relic",
-        "chance": 25,
-        "min": 1,
-        "max": 2,
-        "minLevel": 70
-      },
-      {
-        "item": "Glistening Ancient Relic",
-        "chance": 20,
-        "min": 1,
-        "max": 1,
         "minLevel": 70
       }
     ],
@@ -50551,18 +48308,6 @@
         "chance": 90,
         "min": 1,
         "max": 1
-      },
-      {
-        "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 4,
-        "max": 6
-      },
-      {
-        "item": "Precious Entrails",
-        "chance": 100,
-        "min": 2,
-        "max": 3
       }
     ]
   },
@@ -50654,7 +48399,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Siren of the Void", "Siren of the Void"],
+    "passiveSkills": ["Siren of the Void"],
     "breeding": {
       "rank": 130,
       "maleProbability": 10,
@@ -50742,18 +48487,6 @@
         "chance": 90,
         "min": 1,
         "max": 1
-      },
-      {
-        "item": "Ancient Civilization Parts",
-        "chance": 100,
-        "min": 4,
-        "max": 6
-      },
-      {
-        "item": "Precious Entrails",
-        "chance": 100,
-        "min": 2,
-        "max": 3
       }
     ]
   },
@@ -50843,12 +48576,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": [
-      "Invader",
-      "Otherworldly Cells",
-      "Invader",
-      "Otherworldly Cells"
-    ],
+    "passiveSkills": ["Invader", "Otherworldly Cells"],
     "breeding": {
       "rank": 400,
       "maleProbability": 50,
@@ -50888,60 +48616,6 @@
         "chance": 100,
         "min": 2,
         "max": 3
-      },
-      {
-        "item": "Ancient Civilization Core",
-        "chance": 100,
-        "min": 3,
-        "max": 6
-      },
-      {
-        "item": "Xenolord (Ultra) Slab",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Training Crystal",
-        "chance": 100,
-        "min": 4,
-        "max": 5
-      },
-      {
-        "item": "Dragon Skill Fruit: Dragon Meteor",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Handiwork Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Generating Electricity Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Cooling Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Invader from Space Xenolord",
-        "chance": 10,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Xenolord",
-        "chance": 90,
-        "min": 1,
-        "max": 1
       }
     ]
   },
@@ -51032,7 +48706,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Savior", "Savior"],
+    "passiveSkills": ["Savior"],
     "breeding": {
       "rank": 90,
       "maleProbability": 50,
@@ -51066,12 +48740,6 @@
         "max": 6
       },
       {
-        "item": "Large Pal Soul",
-        "chance": 30,
-        "min": 1,
-        "max": 1
-      },
-      {
         "item": "Precious Pelt",
         "chance": 100,
         "min": 6,
@@ -51096,60 +48764,6 @@
         "chance": 100,
         "min": 6,
         "max": 8
-      },
-      {
-        "item": "Ancient Civilization Core",
-        "chance": 100,
-        "min": 4,
-        "max": 7
-      },
-      {
-        "item": "Hartalis (Ultra) Slab",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Training Crystal",
-        "chance": 100,
-        "min": 4,
-        "max": 6
-      },
-      {
-        "item": "Skill Fruit: Holy Burst",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Kindling Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Watering Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Applied Planting Handbook I",
-        "chance": 33.3,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "King of Salvation Hartalis",
-        "chance": 10,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Hartalis",
-        "chance": 90,
-        "min": 1,
-        "max": 1
       }
     ]
   },
@@ -51248,12 +48862,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": [
-      "Legend",
-      "Celestial Emperor",
-      "Legend",
-      "Celestial Emperor"
-    ],
+    "passiveSkills": ["Legend", "Celestial Emperor"],
     "breeding": {
       "rank": 180,
       "maleProbability": 50,
@@ -51421,12 +49030,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": [
-      "Legend",
-      "Lord of the Underworld",
-      "Legend",
-      "Lord of the Underworld"
-    ],
+    "passiveSkills": ["Legend", "Lord of the Underworld"],
     "breeding": {
       "rank": 190,
       "maleProbability": 50,
@@ -51587,7 +49191,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Legend", "Ice Emperor", "Legend", "Ice Emperor"],
+    "passiveSkills": ["Legend", "Ice Emperor"],
     "breeding": {
       "rank": 150,
       "maleProbability": 50,
@@ -51752,12 +49356,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": [
-      "Legend",
-      "Lord of the Underworld",
-      "Legend",
-      "Lord of the Underworld"
-    ],
+    "passiveSkills": ["Legend", "Lord of the Underworld"],
     "breeding": {
       "rank": 110,
       "maleProbability": 50,
@@ -51914,7 +49513,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Legend", "Lunker", "Legend", "Lunker"],
+    "passiveSkills": ["Legend", "Lunker"],
     "breeding": {
       "rank": 160,
       "maleProbability": 50,
@@ -52087,7 +49686,7 @@
         "level": 70
       }
     ],
-    "passiveSkills": ["Legend", "Divine Dragon", "Legend", "Divine Dragon"],
+    "passiveSkills": ["Legend", "Divine Dragon"],
     "breeding": {
       "rank": 70,
       "maleProbability": 50,
@@ -52248,38 +49847,6 @@
       {
         "name": "Aqua Tornado",
         "level": 60
-      },
-      {
-        "name": "Bubble Rain",
-        "level": 1
-      },
-      {
-        "name": "Creeping Bubbles",
-        "level": 7
-      },
-      {
-        "name": "Aqua Blade",
-        "level": 15
-      },
-      {
-        "name": "Tidal Charge",
-        "level": 22
-      },
-      {
-        "name": "Maelstrom",
-        "level": 30
-      },
-      {
-        "name": "Grand Breach",
-        "level": 40
-      },
-      {
-        "name": "Holy Burst",
-        "level": 50
-      },
-      {
-        "name": "Aqua Tornado",
-        "level": 60
       }
     ],
     "passiveSkills": [],
@@ -52314,18 +49881,6 @@
         "chance": 100,
         "min": 2,
         "max": 3
-      },
-      {
-        "item": "Diamond",
-        "chance": 100,
-        "min": 1,
-        "max": 1
-      },
-      {
-        "item": "Giant Pal Soul",
-        "chance": 100,
-        "min": 1,
-        "max": 1
       }
     ],
     "alphaDrops": [

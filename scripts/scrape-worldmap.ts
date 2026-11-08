@@ -7,9 +7,19 @@
 import { access, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { mapData, place, text, TREE_BOUNDS } from './paldb.ts';
+import {
+  headings,
+  mapData,
+  num,
+  page,
+  place,
+  text,
+  tidy,
+  TREE_BOUNDS,
+} from './paldb.ts';
 import {
   api,
+  cargo,
   decodeEntities,
   readJson,
   root,
@@ -165,6 +175,94 @@ for (const r of regionRows) {
     y: r.ipos.Y,
   });
 }
+
+// Alphas the map data leaves out. Each Pal's page lists its Alpha spawners; one
+// with a position the map doesn't have is added. A spawner the page lists with no
+// position, and that no marker accounts for, takes the wiki's coordinates; the
+// wiki's other positions are often from before 1.0, so they aren't used.
+const wikiAlphas = await cargo(
+  'LocationEntity',
+  ['locationName', 'entityName', 'level', 'coords'],
+  'variantType="Alpha" AND coords!=""'
+);
+const near = (m: NewMarker, x: number, y: number) =>
+  Math.abs(m.x - x) <= 8 && Math.abs(m.y - y) <= 8;
+let fromPages = 0;
+let fromWiki = 0;
+for (const pal of pals) {
+  const $ = await page(pal.name.replace(/ /g, '_'));
+  if (!$) continue;
+  const heading = headings($, 'Spawner')[0];
+  const rows = $(heading ?? [])
+    .parent()
+    .find('tbody tr')
+    .toArray()
+    .map((tr) => $(tr).children('td'))
+    .filter((td) =>
+      /^boss_/i.test(td.eq(0).find('[data-pal-id]').attr('data-pal-id') ?? '')
+    );
+  if (!rows.length) continue;
+  const own = () =>
+    markers.filter((m) => m.layer === 'alpha' && m.pal === pal.id);
+  for (const td of rows) {
+    const where = tidy(td.eq(3).text());
+    const c = where.match(/(-?\d+),\s*(-?\d+)$/);
+    if (!c) continue;
+    const x = Number(c[1]),
+      y = Number(c[2]);
+    if (own().some((m) => near(m, x, y))) continue;
+    markers.push({
+      layer: 'alpha',
+      map: 'world',
+      name: pal.name,
+      pal: pal.id,
+      x,
+      y,
+      level: num(tidy(td.eq(1).text()).split(/[–-]/)[0]) ?? undefined,
+      region: regionAt('world', x, y),
+    });
+    fromPages++;
+  }
+  // Field-boss spawners the page lists without a position: the game's own ids
+  // (with a map link) or a World Tree region. Dungeon and Sealed Realm bosses
+  // also appear without one, and are left out.
+  const treeRegions = new Set(treeStatues.map((t) => t.name));
+  let unplaced = rows.filter((td) => {
+    const where = tidy(td.eq(3).text());
+    if (/-?\d+,\s*-?\d+$/.test(where)) return false;
+    return tidy(td.eq(2).text()) === 'Map' || treeRegions.has(where);
+  }).length;
+  for (const r of wikiAlphas) {
+    if (unplaced <= 0) break;
+    if (decodeEntities(r.entityName) !== pal.name) continue;
+    const c = r.coords?.match(/(-?[\d.]+)\s*,\s*(-?[\d.]+)/);
+    if (!c) continue;
+    const x = Math.round(Number(c[1])),
+      y = Math.round(Number(c[2]));
+    if (own().some((m) => near(m, x, y))) continue;
+    const onTree =
+      x >= TREE_BOUNDS.left &&
+      x <= TREE_BOUNDS.right &&
+      y >= TREE_BOUNDS.bottom &&
+      y <= TREE_BOUNDS.top;
+    markers.push({
+      layer: 'alpha',
+      map: onTree ? 'tree' : 'world',
+      name: pal.name,
+      pal: pal.id,
+      x,
+      y,
+      level: num(r.level) ?? undefined,
+      region: regionAt(onTree ? 'tree' : 'world', x, y),
+      note: 'Position from the wiki',
+    });
+    fromWiki++;
+    unplaced--;
+  }
+}
+console.log(
+  `Added ${fromPages} Alphas from Pal pages and ${fromWiki} from the wiki`
+);
 
 // Predator Pals aren't in paldb's map data
 const fragment = (await wikitext(['Map:Fragments/Predator Pals'])).get(

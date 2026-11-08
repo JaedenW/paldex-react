@@ -596,91 +596,91 @@
   {
     "id": "clumsy",
     "name": "Clumsy",
-    "rank": null,
+    "rank": -1,
     "description": ""
   },
   {
     "id": "coward",
     "name": "Coward",
-    "rank": null,
+    "rank": -1,
     "description": ""
   },
   {
     "id": "downtrodden",
     "name": "Downtrodden",
-    "rank": null,
+    "rank": -1,
     "description": ""
   },
   {
     "id": "easygoing",
     "name": "Easygoing",
-    "rank": null,
+    "rank": -1,
     "description": "ActiveSkillCoolTime Decrease -15%"
   },
   {
     "id": "glutton",
     "name": "Glutton",
-    "rank": null,
+    "rank": -1,
     "description": "FullStomatch Decrease +10%"
   },
   {
     "id": "mercy-hit",
     "name": "Mercy Hit",
-    "rank": null,
+    "rank": -1,
     "description": ""
   },
   {
     "id": "night-owl",
     "name": "Night Owl",
-    "rank": null,
+    "rank": -1,
     "description": ""
   },
   {
     "id": "shabby",
     "name": "Shabby",
-    "rank": null,
+    "rank": -1,
     "description": "ShopSellPrice Money Increase -10%. ShopBuyPrice Money Increase +10%"
   },
   {
     "id": "sickly",
     "name": "Sickly",
-    "rank": null,
+    "rank": -1,
     "description": "PalSP Increase -25%"
   },
   {
     "id": "unstable",
     "name": "Unstable",
-    "rank": null,
+    "rank": -1,
     "description": "Sanity Decrease +10%"
   },
   {
     "id": "bottomless-stomach",
     "name": "Bottomless Stomach",
-    "rank": null,
+    "rank": -2,
     "description": "FullStomatch Decrease +15%"
   },
   {
     "id": "destructive",
     "name": "Destructive",
-    "rank": null,
+    "rank": -2,
     "description": "Sanity Decrease +15%"
   },
   {
     "id": "brittle",
     "name": "Brittle",
-    "rank": null,
+    "rank": -3,
     "description": ""
   },
   {
     "id": "pacifist",
     "name": "Pacifist",
-    "rank": null,
+    "rank": -3,
     "description": ""
   },
   {
     "id": "slacker",
     "name": "Slacker",
-    "rank": null,
+    "rank": -3,
     "description": ""
   }
 ]

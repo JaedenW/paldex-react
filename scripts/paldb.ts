@@ -59,13 +59,17 @@ const cachePath = (key: string) => {
   return path.join(cacheDir, `${safe}.${hash}`);
 };
 
+// with --refresh, each page is still fetched only once per run
+const fetchedThisRun = new Set<string>();
+
 /** A file from the site as text, or undefined if it isn't there */
 export async function text(url: string): Promise<string | undefined> {
   const file = cachePath(url);
-  if (!refresh) {
+  if (!refresh || fetchedThisRun.has(url)) {
     const cached = await readFile(file, 'utf8').catch(() => undefined);
     if (cached !== undefined) return cached === MISSING ? undefined : cached;
   }
+  fetchedThisRun.add(url);
   const res = await politeFetch(`${BASE}/${url}`);
   const body = res.status === 404 ? MISSING : await res.text();
   await mkdir(cacheDir, { recursive: true });
@@ -118,8 +122,9 @@ export const headings = ($: Page, text: string) =>
 /** The game version the site shows in its footer, such as "1.0.5" and its date */
 export async function gameVersion() {
   const home = await text('en/');
+  // the footer's "Version v1.0.5 2026/09/15"; news cards higher up name older versions
   const m = home?.match(
-    /v(\d+\.\d+\.\d+)\s*(?:<[^>]*>\s*)*(\d{4})\/(\d{2})\/(\d{2})/
+    /Version\s*(?:<[^>]*>\s*)*v(\d+\.\d+\.\d+)\s*(?:<[^>]*>\s*)*(\d{4})\/(\d{2})\/(\d{2})/
   );
   if (!m) throw new Error('Could not read the game version from paldb.cc');
   return { version: m[1] ?? '', date: `${m[2]}-${m[3]}-${m[4]}` };

@@ -2318,7 +2318,7 @@
   "gorirat-terra": {
     "prose": [
       "Gorirat Terra is aggressive and will attack the player on sight.",
-      "Gorirat Terra is found around the Desiccated Dunes and in various regions of the World Tree.",
+      "Gorirat Terra is found exclusively on top of dunes in the Desiccated Dunes.",
       "A group of Gorirat Terra can also spawn as a raiding party to the player's base in the Desert Region, accompanied by Robinquill Terra, Turtacle Terra, and Tocotoco.",
       "Gorirat Terra can also be found caged in Feybreak Warriors camps around Feybreak."
     ],
@@ -2700,6 +2700,9 @@
   "dinossom-lux": {
     "prose": [
       "Dinossom Lux can be found throughout most of the Desiccated Dunes. It can spawn either alone or in a pair.",
+      "A Dinossom Lux accompanying numerous electric Pals can also spawn as an incident. They can also spawn together with a Dinossom.",
+      "A group of Dinossom Lux can also show up as a raiding party to the player's base in the Desert Region, occasionally accompanied by Rayhound.",
+      "Dinossom Lux can also be found caged in Free Pal Alliance camps throughout the Verdant Brook, and in Rayne Syndicate camps in the Twilight Dunes and the Verdant Brook.",
       "Dinossom Lux has a neutral temperament, only attacking if attacked first."
     ],
     "regions": ["Desiccated Dunes"],
@@ -2727,7 +2730,8 @@
   "bushi": {
     "prose": [
       "Bushi is aggressive and will attack the player on sight.",
-      "Bushi can be found in the southern reaches of Mount Obsidian, the No. 3 Wildlife Sanctuary, Sakurajima, Astral Mountains, and Dessicated Desert."
+      "Bushi can be found throughout Mount Obsidian, the Desiccated Dunes, the Astral Mountains, the No. 3 Wildlife Sanctuary, and Sakurajima.",
+      "A group of Bushi can also show up as a raiding party to the player's base in Sakurajima, occasionally accompanied by Bushi Noct or Yakumo. Bushi can also appear during Palpagos Islands Defense Force raids if the Gold Coin Assembly Line is constructed."
     ],
     "regions": [
       "Abandoned Ruins",
@@ -2756,7 +2760,7 @@
     "dungeons": [
       {
         "name": "Volcanic Cavern",
-        "note": "As one of the possible Alpha bosses at the end of the dungeon."
+        "note": "As a regular encounter inside the dungeon, as well as one of the possible Alpha bosses at the end of the dungeon."
       }
     ],
     "eggTemperature": "Hot",
@@ -2765,7 +2769,10 @@
   },
   "bushi-noct": {
     "prose": [
-      "Bushi Noct can be found in and around the cherry blossom forest on Sakurajima at night, and throuhought all of Feybreak Island during the day.",
+      "Bushi Noct can be throughout Sakurajima at night, and throughout Feybreak during the day.",
+      "Bushi Noct can also spawn with an outbreak of Sakurajima Pals as an incident.",
+      "A group of Bushi Noct can also show up as a raiding party to the player's base in Sakurajima, accompanied by Bushi and Yakumo.",
+      "A Bushi Noct can also show up as a Predator Pal around the map.",
       "Bushi Noct is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
     ],
     "regions": [
@@ -2793,7 +2800,8 @@
   "munchill": {
     "prose": [
       "Munchill can be found on the Frostbitten Isle.",
-      "Munchill can also be fished up around the Frostbound Mountains, the Isle of the Glacial Core, and the Frozen Coral Hill on Feybreak.",
+      "Munchill can also be fished up around the Frostbound Mountains, the Astral Mountains, the Isle of the Glacial Core, and throughout Feybreak.",
+      "Munchill can also be found caged in a PAL Genetic Research Unit camp outside the Astral Mountains.",
       "Munchill has a neutral temperament, only attacking if attacked first."
     ],
     "regions": ["Astral Mountains", "Frostbound Mountains"],
@@ -2809,7 +2817,9 @@
   },
   "mammorest": {
     "prose": [
-      "Mammorest is primarily found in lower-level areas like the Windswept Hills, Marsh Island and the Forgotten Island. It can also be found in the northwestern regions of the Bamboo Groves and in the southern reaches of the Astral Mountains. It can spawn either alone or in a pair.",
+      "Mammorest is primarily found in lower-level areas like the Windswept Hills, the Flying Fish Coast, the northwestern regions of the Bamboo Groves, and in the Foot of the Astral Mountains. Mammorest can also be found in various regions of the World Tree. It can spawn either alone or in a pair.",
+      "Two Mammorest fighting each other can spawn as an incident.",
+      "A group of Mammorest can also show up as a raiding party to the player's base in the Grassland Region.",
       "Mammorest has a neutral temperament, only attacking if attacked first or if the player attacks another Mammorest."
     ],
     "regions": [
@@ -2838,7 +2848,9 @@
   },
   "mammorest-cryst": {
     "prose": [
-      "Mammorest Cryst can be found in the frozen areas of the Astral Mountains. It can spawn either alone or in a pair.",
+      "Mammorest Cryst can be found in the frozen areas of the Astral Mountains and in various regions of the World Tree. It can spawn either alone or in a pair.",
+      "A group of Mammorest Cryst can also show up as a raiding party to the player's base in the Astral Mountains.",
+      "A Mammorest Cryst can also spawn as a Predator Pal around the map.",
       "Mammorest Cryst has a neutral temperament, only attacking if attacked first or if the player attacks another Mammorest Cryst."
     ],
     "regions": ["Astral Mountains"],
@@ -2857,6 +2869,7 @@
     "prose": [
       "Finsider can be found as a regular encounter on the Sunlit Isle and Eternal Summer Isle. It typically spawns in groups of 2 to 3 individuals.",
       "Finsider can also be fished up around the Desiccated Dunes.",
+      "Finsider can also appear in Palpagos Islands Defense Force raiding parties to the player's base if the Gold Coin Assembly Line is constructed.",
       "Finsider is aggressive and will attack the player on sight."
     ],
     "dungeons": [
@@ -2962,6 +2975,16 @@
         "y": -855,
         "map": "world",
         "markerId": "alpha/dazzi-noct/-1201,-855"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 53,
+        "x": -1343,
+        "y": -1579,
+        "map": "world",
+        "markerId": "alpha/dazzi-noct/-1343,-1579",
+        "note": "Position from the wiki"
       }
     ],
     "dungeons": [
@@ -3220,6 +3243,16 @@
         "y": 317,
         "map": "world",
         "markerId": "alpha/menasting-terra/-582,317"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Sakurajima - Northern Rock Field",
+        "level": 54,
+        "x": -575,
+        "y": 332,
+        "map": "world",
+        "markerId": "alpha/menasting-terra/-575,332",
+        "note": "Position from the wiki"
       }
     ],
     "eggTemperature": "Hot",
@@ -3393,7 +3426,8 @@
   },
   "moldron": {
     "prose": [
-      "Moldron attacks the player on sight  It is found in certain areas of Mount Obsidian and the Bicornis Islet."
+      "Moldron is highly aggressive and attacks the player on sight.",
+      "It is found in certain areas of Mount Obsidian and the Bicornis Islet."
     ],
     "regions": ["Mount Obsidian"],
     "bosses": [
@@ -3414,7 +3448,8 @@
   },
   "moldron-cryst": {
     "prose": [
-      "Moldron Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player."
+      "Moldron Cryst is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
+      "Moldron Cryst cannot be found in the wild."
     ],
     "bosses": [
       {
@@ -3628,6 +3663,16 @@
         "y": -1307,
         "map": "world",
         "markerId": "alpha/kitsun-noct/-847,-1307"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 57,
+        "x": -1036,
+        "y": -1145,
+        "map": "world",
+        "markerId": "alpha/kitsun-noct/-1036,-1145",
+        "note": "Position from the wiki"
       }
     ],
     "dungeons": [
@@ -4217,6 +4262,16 @@
         "markerId": "alpha/starryon/-893,-1293"
       },
       {
+        "variant": "Alpha",
+        "location": "Scorched Ashland",
+        "level": 57,
+        "x": -756,
+        "y": -940,
+        "map": "world",
+        "markerId": "alpha/starryon/-756,-940",
+        "note": "Position from the wiki"
+      },
+      {
         "variant": "Predator",
         "location": "Crescent Moon Shore",
         "level": null,
@@ -4642,6 +4697,16 @@
         "y": -917,
         "map": "world",
         "markerId": "alpha/nyafia/-920,-917"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Scorched Hill",
+        "level": 57,
+        "x": -1114,
+        "y": -940,
+        "map": "world",
+        "markerId": "alpha/nyafia/-1114,-940",
+        "note": "Position from the wiki"
       }
     ],
     "dungeons": [
@@ -4835,6 +4900,16 @@
         "markerId": "alpha/omascul/-708,-930"
       },
       {
+        "variant": "Alpha",
+        "location": "Frozen Coral Hill",
+        "level": 55,
+        "x": -1183,
+        "y": -1490,
+        "map": "world",
+        "markerId": "alpha/omascul/-1183,-1490",
+        "note": "Position from the wiki"
+      },
+      {
         "variant": "Predator",
         "location": "Crescent Moon Shore",
         "level": null,
@@ -4942,6 +5017,16 @@
         "markerId": "alpha/splatterina/-1079,-1455"
       },
       {
+        "variant": "Alpha",
+        "location": "-",
+        "level": 58,
+        "x": -1209,
+        "y": -1326,
+        "map": "world",
+        "markerId": "alpha/splatterina/-1209,-1326",
+        "note": "Position from the wiki"
+      },
+      {
         "variant": "Predator",
         "location": "Dancing Sakura Shrine",
         "level": null,
@@ -4983,6 +5068,16 @@
         "y": -1412,
         "map": "world",
         "markerId": "alpha/gildane/-940,-1412"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Emberstone Plateau",
+        "level": 58,
+        "x": -761,
+        "y": -1223,
+        "map": "world",
+        "markerId": "alpha/gildane/-761,-1223",
+        "note": "Position from the wiki"
       },
       {
         "variant": "Predator",
@@ -5066,6 +5161,15 @@
         "y": -1172,
         "map": "world",
         "markerId": "alpha/celesdir/-965,-1172"
+      },
+      {
+        "variant": "Alpha",
+        "location": "Isle of the Glacial Core",
+        "level": 79,
+        "x": -60,
+        "y": 778,
+        "map": "world",
+        "markerId": "alpha/celesdir/-60,778"
       }
     ],
     "eggTemperature": "Warm",
@@ -5180,6 +5284,16 @@
         "y": -1668,
         "map": "world",
         "markerId": "alpha/azurmane/-1131,-1668"
+      },
+      {
+        "variant": "Alpha",
+        "location": "The Oculus Gate, Tower in Sight",
+        "level": 57,
+        "x": -1106,
+        "y": -1315,
+        "map": "world",
+        "markerId": "alpha/azurmane/-1106,-1315",
+        "note": "Position from the wiki"
       }
     ],
     "eggTemperature": "Warm",
@@ -5693,6 +5807,16 @@
         "markerId": "alpha/faleris-aqua/-1306,-1620"
       },
       {
+        "variant": "Alpha",
+        "location": "Withered Seaside",
+        "level": 56,
+        "x": -628,
+        "y": -1048,
+        "map": "world",
+        "markerId": "alpha/faleris-aqua/-628,-1048",
+        "note": "Position from the wiki"
+      },
+      {
         "variant": "Predator",
         "location": "Foot of the Astral Mountains",
         "level": null,
@@ -5749,12 +5873,36 @@
       "Silvance is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "Silvance cannot spawn in the overworld."
     ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Shinespore Root",
+        "level": 78,
+        "x": -62,
+        "y": 692,
+        "map": "tree",
+        "markerId": "alpha/silvance/-62,692",
+        "note": "Position from the wiki"
+      }
+    ],
     "eggTemperature": "Warm"
   },
   "dandilord": {
     "prose": [
       "Dandilord is highly aggressive and will attack the player on sight as soon as it notices them. It does not require provocation to engage and will immediately initiate combat upon detecting a nearby player.",
       "Dandilord cannot be found in the overworld."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "Rotmist Root",
+        "level": 78,
+        "x": 26,
+        "y": 861,
+        "map": "tree",
+        "markerId": "alpha/dandilord/26,861",
+        "note": "Position from the wiki"
+      }
     ],
     "eggTemperature": "Warm"
   },
@@ -5848,6 +5996,17 @@
     "prose": [
       "Necromus is only found in the wild as an Alpha Pal.",
       "Necromus is aggressive and will attack the player on sight. Additionally, as it is a Dark-element Pal, it does not sleep at night."
+    ],
+    "bosses": [
+      {
+        "variant": "Alpha",
+        "location": "No. 3 Wildlife Sanctuary",
+        "level": 60,
+        "x": 440,
+        "y": 679,
+        "map": "world",
+        "markerId": "alpha/necromus/440,679"
+      }
     ],
     "eggTemperature": "Cool"
   },
