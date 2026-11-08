@@ -140,9 +140,15 @@ export default function PalMap({
   return (
     <div className="space-y-2">
       {onWorld && onTree && <MapSwitch value={mapId} onChange={changeMap} />}
+      {/*
+        Taller than wide on phones, 4:3 from tablets up, and never taller than
+        the screen leaves room for under the bars, so the whole map and its
+        legend fit at once. A floor keeps it usable on a phone held sideways. On
+        phones it runs to the panel's edges for the extra width.
+      */}
       <div
         ref={wrapRef}
-        className="relative aspect-square w-full scroll-mt-32 overflow-hidden rounded-xl sm:aspect-[4/3]"
+        className="relative -mx-4 aspect-[4/5] max-h-[calc(100svh-12rem)] min-h-72 w-[calc(100%+2rem)] scroll-mt-32 overflow-hidden sm:mx-0 sm:aspect-[4/3] sm:w-full sm:rounded-xl lg:max-h-[calc(100svh-9rem)]"
       >
         <WorldMap
           ref={mapRef}
